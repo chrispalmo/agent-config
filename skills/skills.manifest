@@ -1,0 +1,17 @@
+# Skills installed by scripts/install.sh
+# Format: path to a directory containing SKILL.md (one per line)
+#
+# Cross-linked package members live under skills/<package>/.
+# Independent skills live directly under skills/.
+
+project-management/project-bootstrap
+project-management/status-ledger
+project-management/project-audit
+project-management/ingest
+interview
+interview/reverse-brief
+design-tool
+github-init
+pause-for-review
+proofread
+plaintext

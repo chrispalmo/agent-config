@@ -1,0 +1,53 @@
+# Best-effort reserved names for vendor bundled/system skills.
+# Format: agent skill-name
+#
+# Last Claude Code bundled-skill documentation check: 2026-08-14
+# Sources:
+#   https://code.claude.com/docs/en/commands  (rows marked Skill)
+#   https://code.claude.com/docs/en/skills
+# If that date is more than 30 days ago, refresh the Claude rows from those
+# pages before other work, then set the date to today.
+#
+# Cursor names are also discovered from ~/.cursor/skills-cursor at install time.
+# Codex system names are also discovered from $CODEX_HOME/skills/.system and
+# /etc/codex/skills when those directories exist.
+
+claude batch
+claude claude-api
+claude code-review
+claude dataviz
+claude debug
+claude design-sync
+claude doctor
+claude fewer-permission-prompts
+claude loop
+claude review
+claude run
+claude run-skill-generator
+claude simplify
+claude skill-creator
+claude verify
+
+cursor automate
+cursor autopilot
+cursor canvas
+cursor create-hook
+cursor create-rule
+cursor create-skill
+cursor create-subagent
+cursor loop
+cursor migrate-to-skills
+cursor onboard
+cursor rename-chat
+cursor review
+cursor review-bugbot
+cursor review-security
+cursor sdk
+cursor shell
+cursor split-to-prs
+cursor statusline
+cursor update-cli-config
+cursor update-cursor-settings
+
+codex plan
+codex skill-creator

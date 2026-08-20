@@ -1,0 +1,13 @@
+# Cross-linked packages supported by install.sh --package
+# Format: package-name path-from-skills.manifest
+#
+# Independent skills are intentionally absent: install either every skill or a
+# complete cross-linked package. This avoids partial dependency installs.
+
+project-management project-management/project-bootstrap
+project-management project-management/status-ledger
+project-management project-management/project-audit
+project-management project-management/ingest
+
+interview interview
+interview interview/reverse-brief
