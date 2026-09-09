@@ -6,9 +6,10 @@ REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 INSTALL="$REPO_ROOT/scripts/install.sh"
 UNINSTALL="$REPO_ROOT/scripts/uninstall.sh"
 MANAGED_MARK='<!-- managed-by: chrispalmo/agent-config -->'
+MANAGED_SKILL_MARKER='.agent-config-managed'
 
 WORKDIR="$(mktemp -d "${TMPDIR:-/tmp}/agent-config-install-test.XXXXXX")"
-export AGENTS_SKILLS="$WORKDIR/agents/skills"
+export CODEX_SKILLS="$WORKDIR/codex-home/skills"
 export CLAUDE_SKILLS="$WORKDIR/claude/skills"
 export CURSOR_SKILLS="$WORKDIR/cursor/skills"
 export CURSOR_BUNDLED_SKILLS="$WORKDIR/bundled-cursor"
@@ -25,10 +26,10 @@ fail() { echo "test-install: FAIL: $*" >&2; exit 1; }
 ok() { echo "test-install: ok $*"; }
 
 reset_roots() {
-  rm -rf "$WORKDIR/agents" "$WORKDIR/claude" "$WORKDIR/cursor" \
+  rm -rf "$WORKDIR/claude" "$WORKDIR/cursor" \
     "$CURSOR_BUNDLED_SKILLS" "$CLAUDE_BUNDLED_SKILLS" "$CODEX_BUNDLED_SKILLS" \
     "$CODEX_HOME" "$WORKDIR/codex"
-  mkdir -p "$AGENTS_SKILLS" "$CLAUDE_SKILLS" "$CURSOR_SKILLS" \
+  mkdir -p "$CODEX_SKILLS" "$CLAUDE_SKILLS" "$CURSOR_SKILLS" \
     "$CURSOR_RULES" "$CLAUDE_RULES" "$(dirname "$CODEX_AGENTS")" \
     "$CURSOR_BUNDLED_SKILLS" "$CLAUDE_BUNDLED_SKILLS" "$CODEX_BUNDLED_SKILLS" \
     "$CODEX_HOME"
@@ -49,10 +50,12 @@ assert_missing() { [[ ! -e "$1" && ! -L "$1" ]] || fail "should not exist: $1"; 
 assert_managed() { assert_file "$1"; grep -qF "$MANAGED_MARK" "$1" || fail "missing managed sentinel: $1"; }
 assert_contains() { grep -qF "$2" "$1" || fail "$1 missing: $2"; }
 assert_not_contains() { grep -qF "$2" "$1" && fail "$1 should not contain: $2" || true; }
-assert_link() {
-  local dest="$1" expected="$2"
-  [[ -L "$dest" ]] || fail "not a symlink: $dest"
-  [[ "$(readlink "$dest")" == "$expected" ]] || fail "$dest -> $(readlink "$dest") (want $expected)"
+assert_skill() {
+  local dest="$1" expected="$2" marker
+  marker="$(dirname "$dest")/$MANAGED_SKILL_MARKER"
+  [[ -f "$dest" && ! -L "$dest" ]] || fail "not a regular skill file: $dest"
+  cmp -s "$dest" "$expected" || fail "$dest differs from $expected"
+  [[ "$(<"$marker")" == "$expected" ]] || fail "$marker does not identify $expected"
 }
 
 plant_bundled() {
@@ -64,8 +67,8 @@ plant_bundled() {
 # Default install fills skills agents+claude and rules claude+codex; leaves cursor empty.
 reset_roots
 expect_exit 0 "default install" "$INSTALL"
-assert_link "$AGENTS_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design-tool/SKILL.md"
-assert_link "$CLAUDE_SKILLS/project-bootstrap/SKILL.md" "$REPO_ROOT/skills/project-management/project-bootstrap/SKILL.md"
+assert_skill "$CODEX_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design-tool/SKILL.md"
+assert_skill "$CLAUDE_SKILLS/project-bootstrap/SKILL.md" "$REPO_ROOT/skills/project-management/project-bootstrap/SKILL.md"
 assert_managed "$CLAUDE_RULES/address-as-chris.md"
 assert_managed "$CLAUDE_RULES/markdown-no-hard-wrap.md"
 assert_managed "$CLAUDE_MD"
@@ -85,7 +88,7 @@ ok "idempotent re-run"
 # --cursor writes Cursor-native skills and rules only.
 reset_roots
 expect_exit 0 "cursor install" "$INSTALL" --cursor
-assert_link "$CURSOR_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design-tool/SKILL.md"
+assert_skill "$CURSOR_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design-tool/SKILL.md"
 assert_managed "$CURSOR_RULES/address-as-chris.mdc"
 assert_managed "$CURSOR_RULES/markdown-no-hard-wrap.mdc"
 assert_contains "$CURSOR_RULES/address-as-chris.mdc" "alwaysApply: true"
@@ -98,9 +101,9 @@ ok "cursor install"
 # Combined flags write all target roots.
 reset_roots
 expect_exit 0 "combined flags" "$INSTALL" --cursor --claude --agents
-assert_link "$CURSOR_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design-tool/SKILL.md"
-assert_link "$CLAUDE_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design-tool/SKILL.md"
-assert_link "$AGENTS_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design-tool/SKILL.md"
+assert_skill "$CURSOR_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design-tool/SKILL.md"
+assert_skill "$CLAUDE_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design-tool/SKILL.md"
+assert_skill "$CODEX_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design-tool/SKILL.md"
 assert_managed "$CURSOR_RULES/address-as-chris.mdc"
 assert_managed "$CLAUDE_MD"
 assert_managed "$CODEX_AGENTS"
@@ -109,18 +112,18 @@ ok "combined flags"
 # --package interview installs only the complete skills package.
 reset_roots
 expect_exit 0 "package interview" "$INSTALL" --package interview --agents
-assert_link "$AGENTS_SKILLS/interview/SKILL.md" "$REPO_ROOT/skills/interview/SKILL.md"
-assert_link "$AGENTS_SKILLS/reverse-brief/SKILL.md" "$REPO_ROOT/skills/interview/reverse-brief/SKILL.md"
-assert_missing "$AGENTS_SKILLS/design-tool/SKILL.md"
+assert_skill "$CODEX_SKILLS/interview/SKILL.md" "$REPO_ROOT/skills/interview/SKILL.md"
+assert_skill "$CODEX_SKILLS/reverse-brief/SKILL.md" "$REPO_ROOT/skills/interview/reverse-brief/SKILL.md"
+assert_missing "$CODEX_SKILLS/design-tool/SKILL.md"
 assert_missing "$CODEX_AGENTS"
 ok "package interview"
 
 # Foreign skill destination aborts before any writes.
 reset_roots
-mkdir -p "$AGENTS_SKILLS/design-tool"
-echo foreign >"$AGENTS_SKILLS/design-tool/SKILL.md"
+mkdir -p "$CODEX_SKILLS/design-tool"
+echo foreign >"$CODEX_SKILLS/design-tool/SKILL.md"
 expect_exit 1 "foreign skill" "$INSTALL" --agents
-assert_contains "$AGENTS_SKILLS/design-tool/SKILL.md" "foreign"
+assert_contains "$CODEX_SKILLS/design-tool/SKILL.md" "foreign"
 assert_missing "$CODEX_AGENTS"
 ok "foreign skill abort"
 
@@ -135,7 +138,7 @@ ok "foreign Codex AGENTS.md abort"
 reset_roots
 plant_bundled "$CLAUDE_BUNDLED_SKILLS" ingest
 expect_exit 2 "claude bundled warning" "$INSTALL" --skills --claude
-assert_link "$CLAUDE_SKILLS/ingest/SKILL.md" "$REPO_ROOT/skills/project-management/ingest/SKILL.md"
+assert_skill "$CLAUDE_SKILLS/ingest/SKILL.md" "$REPO_ROOT/skills/project-management/ingest/SKILL.md"
 assert_contains "$WORKDIR/err" '"ingest" skill will override Claude Code'
 ok "bundled warning"
 
@@ -174,7 +177,7 @@ ok "uninstall identity"
 reset_roots
 expect_exit 0 "default uninstall setup" "$INSTALL" --cursor --claude
 "$UNINSTALL" >/dev/null
-assert_link "$CURSOR_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design-tool/SKILL.md"
+assert_skill "$CURSOR_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design-tool/SKILL.md"
 assert_managed "$CURSOR_RULES/address-as-chris.mdc"
 assert_missing "$CLAUDE_MD"
 ok "default uninstall skips cursor"

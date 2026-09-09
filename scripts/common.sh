@@ -3,6 +3,7 @@
 
 MANAGED_MARK='<!-- managed-by: chrispalmo/agent-config -->'
 OLD_RULES_MANAGED_MARK='<!-- managed-by: chrispalmo/rules -->'
+MANAGED_SKILL_MARKER='.agent-config-managed'
 
 SKILLS_ROOT="$REPO_ROOT/skills"
 RULES_ROOT="$REPO_ROOT/rules"
@@ -13,11 +14,11 @@ RULES_MANIFEST="$RULES_ROOT/rules.manifest"
 
 CURSOR_SKILLS="${CURSOR_SKILLS:-$HOME/.cursor/skills}"
 CLAUDE_SKILLS="${CLAUDE_SKILLS:-$HOME/.claude/skills}"
-AGENTS_SKILLS="${AGENTS_SKILLS:-$HOME/.agents/skills}"
 CURSOR_BUNDLED_SKILLS="${CURSOR_BUNDLED_SKILLS:-$HOME/.cursor/skills-cursor}"
 CLAUDE_BUNDLED_SKILLS="${CLAUDE_BUNDLED_SKILLS:-}"
 CODEX_BUNDLED_SKILLS="${CODEX_BUNDLED_SKILLS:-}"
 CODEX_HOME="${CODEX_HOME:-$HOME/.codex}"
+CODEX_SKILLS="${CODEX_SKILLS:-$CODEX_HOME/skills}"
 
 CURSOR_RULES="${CURSOR_RULES:-$HOME/.cursor/rules}"
 CLAUDE_RULES="${CLAUDE_RULES:-$HOME/.claude/rules}"

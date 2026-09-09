@@ -16,10 +16,10 @@ Install agent-config skills and rules.
 
   --skills    install only skills
   --rules     install only rules
-  --all       default agent targets: Claude + Codex/agents (default)
+  --all       default agent targets: Claude + Codex (default)
   --cursor    Cursor native roots
   --claude    Claude Code roots
-  --agents    Codex/agents roots
+  --agents    Codex roots
   --codex     alias for --agents
   --package   install one complete skills package
 
@@ -160,23 +160,27 @@ preflight_dir() {
 }
 
 preflight_skill_dest() {
-  local src="$1" dest_dir="$2" target
+  local src="$1" dest_dir="$2" dest target marker_source
   local dest="$dest_dir/SKILL.md"
   [[ -f "$src" ]] || die "missing $src (check skills.manifest)"
   if [[ -L "$dest" ]]; then
     target="$(readlink "$dest")"
     if [[ "$target" == "$src" || "$target" == "$REPO_ROOT"/* ]]; then
-      :
+      return
     else
       die "$dest_dir already exists and is not this repo's installation"
     fi
+  elif [[ -f "$dest" && -f "$dest_dir/$MANAGED_SKILL_MARKER" ]]; then
+    marker_source="$(<"$dest_dir/$MANAGED_SKILL_MARKER")"
+    [[ "$marker_source" == "$src" ]] && return
+    die "$dest_dir already exists and is not this repo's installation"
   elif [[ -e "$dest_dir" || -L "$dest_dir" ]]; then
     die "$dest_dir already exists and is not this repo's installation"
   fi
 }
 
 install_skill_to_root() {
-  local dest_root="$1" path skill_name src dest_dir dest
+  local dest_root="$1" path skill_name src dest_dir dest marker_source
   info "target $dest_root"
   mkdir -p "$dest_root"
   for path in "${SKILLS[@]}"; do
@@ -184,18 +188,20 @@ install_skill_to_root() {
     src="$SKILLS_ROOT/$path/SKILL.md"
     dest_dir="$dest_root/$skill_name"
     dest="$dest_dir/SKILL.md"
-    if [[ -L "$dest" && "$(readlink "$dest")" == "$src" ]]; then
-      :
-    else
-      if [[ -L "$dest" ]]; then
-        rm "$dest"
-        rmdir "$dest_dir" 2>/dev/null || true
-        info "relinked $skill_name"
+    if [[ -f "$dest" && ! -L "$dest" && -f "$dest_dir/$MANAGED_SKILL_MARKER" ]]; then
+      marker_source="$(<"$dest_dir/$MANAGED_SKILL_MARKER")"
+      if [[ "$marker_source" == "$src" ]] && { [[ "$src" -ef "$dest" ]] || cmp -s "$src" "$dest"; }; then
+        continue
       fi
-      mkdir -p "$dest_dir"
-      ln -s "$src" "$dest"
-      info "linked $skill_name -> $dest"
     fi
+    if [[ -L "$dest" ]]; then
+      rm "$dest"
+      info "migrated $skill_name"
+    fi
+    mkdir -p "$dest_dir"
+    cp -p "$src" "$dest"
+    printf '%s\n' "$src" > "$dest_dir/$MANAGED_SKILL_MARKER"
+    info "installed $skill_name -> $dest"
   done
 }
 
@@ -357,7 +363,7 @@ if [[ $WANTS_SKILLS -eq 1 ]]; then
   SKILL_TARGET_ROOTS=()
   [[ $WANTS_CURSOR -eq 0 ]] || SKILL_TARGET_ROOTS+=("$CURSOR_SKILLS")
   [[ $WANTS_CLAUDE -eq 0 ]] || SKILL_TARGET_ROOTS+=("$CLAUDE_SKILLS")
-  [[ $WANTS_AGENTS -eq 0 ]] || SKILL_TARGET_ROOTS+=("$AGENTS_SKILLS")
+  [[ $WANTS_AGENTS -eq 0 ]] || SKILL_TARGET_ROOTS+=("$CODEX_SKILLS")
   for root in "${SKILL_TARGET_ROOTS[@]}"; do
     preflight_dir "$root"
     for path in "${SKILLS[@]}"; do
@@ -385,7 +391,7 @@ fi
 if [[ $WANTS_SKILLS -eq 1 ]]; then
   [[ $WANTS_CURSOR -eq 0 ]] || install_skill_to_root "$CURSOR_SKILLS"
   [[ $WANTS_CLAUDE -eq 0 ]] || install_skill_to_root "$CLAUDE_SKILLS"
-  [[ $WANTS_AGENTS -eq 0 ]] || install_skill_to_root "$AGENTS_SKILLS"
+  [[ $WANTS_AGENTS -eq 0 ]] || install_skill_to_root "$CODEX_SKILLS"
   warn_skill_overlaps || SKILL_WARNING_STATUS=$?
 fi
 

@@ -19,6 +19,7 @@ Central repository of Agent Skills and Agent Rules for Cursor, Claude Code, and 
 | What rules exist? | `rules/rules.manifest` |
 | Local install | `scripts/install.sh` |
 | Cloud VM install | `scripts/cloud/bootstrap.sh` |
+| Cloud dashboard paste | `scripts/cloud/README.md` |
 
 ## Adding or removing a skill
 

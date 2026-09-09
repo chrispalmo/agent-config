@@ -35,7 +35,7 @@ Default install writes skills for Claude Code and Codex/Cursor, and rules for Cl
 | --- | --- |
 | `--cursor` | Install Cursor-native skills and rules |
 | `--claude` | Install Claude Code skills and rules |
-| `--agents` / `--codex` | Install Codex/Cursor shared skills and Codex rules |
+| `--agents` / `--codex` | Install Codex skills and Codex rules |
 | `--skills` | Install only skills |
 | `--rules` | Install only rules |
 | `--package <name>` | Install one complete skills package |
@@ -56,12 +56,8 @@ If you already installed the old `~/dev/skills` repo, run its uninstall script f
 
 ## Cloud agents
 
-Cloud agents do not see this machine. Paste this stub once into each vendor environment setup field after the public GitHub repo exists:
+Cloud agents do not see this machine. Follow the human setup guide in [scripts/cloud/README.md](scripts/cloud/README.md) (Cursor, Claude Code, and Codex, step by step).
 
-```bash
-git clone --depth 1 https://github.com/chrispalmo/agent-config.git ~/.agent-config
-exec ~/.agent-config/scripts/cloud/bootstrap.sh
-```
 
 ## Adding skills and rules
 

@@ -32,4 +32,4 @@ From the repository root:
 ./scripts/install.sh --skills --package project-management
 ```
 
-Default install writes skills to `~/.agents/skills` and `~/.claude/skills`. Cursor also reads `~/.agents/skills`; use `--cursor` when Cursor's native `~/.cursor/skills` root is required, including Cursor cloud VMs.
+Default install writes skills to `~/.codex/skills` and `~/.claude/skills`. Use `--cursor` when Cursor's native `~/.cursor/skills` root is required, including Cursor cloud VMs.
