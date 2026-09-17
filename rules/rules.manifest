@@ -5,5 +5,6 @@ address-as-chris
 markdown-no-hard-wrap
 agents-md-canonical
 visual-design-default
-completion-summary-and-links
+completion-summary
+document-links
 conversation-numbering
