@@ -136,7 +136,7 @@ Supporting references and templates now live inside their owning skills. Reinsta
 | Source changes and proofread retirement | Implemented |
 | Source/catalog, reference, and installer validation | Passed: 10 skill metadata documents, five substantial skills checked with the skill validator, 17 isolated installer cases, 50 local source links, shell syntax and whitespace |
 | Reinstall existing Claude, Codex, and Cursor guidance | Done: 10 skills, 10 supporting files, and 12 relative links verified per harness; updated rules verified; proofread absent |
-| Sync repository with origin | Pending |
-| Chat archive readiness | Pending validation and sync |
+| Sync repository with origin | Implementation committed locally as 32d6121. Automatic approval review rejected a direct push to origin/main; awaiting explicit approval for that target. No push occurred. |
+| Chat archive readiness | Implementation, local reinstall, and durable handoff complete. Ready after the pending sync decision; no active worktree or pull request attachments require cleanup. |
 
-Remaining future work is the explicitly deferred harness, installer, and behavioral audits, plus any separately requested Beads adoption pilot. No pending redesign decision is required to finish this change. Update this closeout table with actual verification, reinstall, and sync results before archiving the chat.
+Remaining future work is the explicitly deferred harness, installer, and behavioral audits, plus any separately requested Beads adoption pilot. No pending redesign decision is required to finish this change. Local verification and reinstall are complete. The only current blocker is authorization for the remote push, not an implementation or installation failure. Record the sync decision before archiving the chat. The user requested archive readiness, not immediate chat archival.
