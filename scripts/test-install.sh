@@ -69,6 +69,11 @@ reset_roots
 expect_exit 0 "default install" "$INSTALL"
 assert_skill "$CODEX_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design-tool/SKILL.md"
 assert_skill "$CLAUDE_SKILLS/project-bootstrap/SKILL.md" "$REPO_ROOT/skills/project-management/project-bootstrap/SKILL.md"
+cmp -s "$CODEX_SKILLS/project-audit/references/audit-rubric.md" \
+  "$REPO_ROOT/skills/project-management/project-audit/references/audit-rubric.md" || fail "audit reference differs"
+cmp -s "$CLAUDE_SKILLS/project-bootstrap/references/templates/AGENTS.md" \
+  "$REPO_ROOT/skills/project-management/project-bootstrap/references/templates/AGENTS.md" || fail "bootstrap template differs"
+assert_file "$CODEX_SKILLS/status-ledger/references/beads.md"
 assert_managed "$CLAUDE_RULES/address-as-chris.md"
 assert_managed "$CLAUDE_RULES/markdown-no-hard-wrap.md"
 assert_managed "$CLAUDE_MD"
@@ -84,6 +89,26 @@ ok "default install"
 expect_exit 0 "idempotent re-run" "$INSTALL"
 assert_managed "$CODEX_AGENTS"
 ok "idempotent re-run"
+
+# Reinstall replaces generated resources rather than retaining obsolete copies.
+echo obsolete > "$CODEX_SKILLS/project-audit/references/obsolete-template.md"
+expect_exit 0 "resource refresh" "$INSTALL" --skills --agents
+assert_missing "$CODEX_SKILLS/project-audit/references/obsolete-template.md"
+cmp -s "$CODEX_SKILLS/project-audit/references/audit-rubric.md" \
+  "$REPO_ROOT/skills/project-management/project-audit/references/audit-rubric.md" || fail "refreshed audit reference differs"
+ok "resource refresh"
+
+# Retired owned skills are pruned by full installs; unrelated content survives.
+mkdir -p "$CODEX_SKILLS/proofread" "$CODEX_SKILLS/foreign-retired"
+echo retired > "$CODEX_SKILLS/proofread/SKILL.md"
+echo "$REPO_ROOT/skills/proofread/SKILL.md" > "$CODEX_SKILLS/proofread/$MANAGED_SKILL_MARKER"
+echo preserve > "$CODEX_SKILLS/proofread/operator-note.txt"
+echo foreign > "$CODEX_SKILLS/foreign-retired/SKILL.md"
+expect_exit 0 "retired skill prune" "$INSTALL" --skills --agents
+assert_missing "$CODEX_SKILLS/proofread/SKILL.md"
+assert_file "$CODEX_SKILLS/proofread/operator-note.txt"
+assert_file "$CODEX_SKILLS/foreign-retired/SKILL.md"
+ok "retired skill ownership"
 
 # --cursor writes Cursor-native skills and rules only.
 reset_roots
@@ -118,6 +143,14 @@ assert_missing "$CODEX_SKILLS/design-tool/SKILL.md"
 assert_missing "$CODEX_AGENTS"
 ok "package interview"
 
+# A package install does not prune other owned skills.
+mkdir -p "$CODEX_SKILLS/proofread"
+echo retired > "$CODEX_SKILLS/proofread/SKILL.md"
+echo "$REPO_ROOT/skills/proofread/SKILL.md" > "$CODEX_SKILLS/proofread/$MANAGED_SKILL_MARKER"
+expect_exit 0 "package preserves other skills" "$INSTALL" --package interview --agents
+assert_file "$CODEX_SKILLS/proofread/SKILL.md"
+ok "package preserves other skills"
+
 # Foreign skill destination aborts before any writes.
 reset_roots
 mkdir -p "$CODEX_SKILLS/design-tool"
@@ -127,6 +160,27 @@ assert_contains "$CODEX_SKILLS/design-tool/SKILL.md" "foreign"
 assert_missing "$CODEX_AGENTS"
 ok "foreign skill abort"
 
+# New supporting resources cannot overwrite an unmanaged destination.
+reset_roots
+mkdir -p "$CODEX_SKILLS/project-audit/references"
+cp "$REPO_ROOT/skills/project-management/project-audit/SKILL.md" "$CODEX_SKILLS/project-audit/SKILL.md"
+echo "$REPO_ROOT/skills/project-management/project-audit/SKILL.md" > "$CODEX_SKILLS/project-audit/$MANAGED_SKILL_MARKER"
+echo foreign > "$CODEX_SKILLS/project-audit/references/operator-note.txt"
+expect_exit 1 "foreign resource" "$INSTALL" --agents
+assert_contains "$CODEX_SKILLS/project-audit/references/operator-note.txt" "foreign"
+assert_missing "$CODEX_SKILLS/design-tool/SKILL.md"
+ok "foreign resource abort"
+
+# A resource ownership marker cannot redirect cleanup outside its skill.
+reset_roots
+expect_exit 0 "resource marker setup" "$INSTALL" --skills --agents
+echo ../outside > "$CODEX_SKILLS/project-audit/.agent-config-resources"
+mkdir -p "$CODEX_SKILLS/outside"
+echo preserve > "$CODEX_SKILLS/outside/operator-note.txt"
+expect_exit 1 "invalid resource marker" "$INSTALL" --skills --agents
+assert_contains "$CODEX_SKILLS/outside/operator-note.txt" "preserve"
+ok "resource marker boundary"
+
 # Foreign Codex AGENTS.md aborts.
 reset_roots
 echo foreign >"$CODEX_AGENTS"
@@ -134,7 +188,7 @@ expect_exit 1 "foreign codex" "$INSTALL" --rules --agents
 assert_contains "$CODEX_AGENTS" "foreign"
 ok "foreign Codex AGENTS.md abort"
 
-# Bundled skill overlap exits 2 but still links.
+# Bundled skill overlap exits 2 but still installs.
 reset_roots
 plant_bundled "$CLAUDE_BUNDLED_SKILLS" ingest
 expect_exit 2 "claude bundled warning" "$INSTALL" --skills --claude
@@ -166,6 +220,8 @@ echo foreign >"$CURSOR_RULES/not-ours.mdc"
 echo keep >"$CLAUDE_RULES/extra.txt"
 "$UNINSTALL" --cursor --claude --agents >/dev/null
 assert_missing "$CURSOR_SKILLS/design-tool/SKILL.md"
+assert_missing "$CODEX_SKILLS/project-bootstrap/references"
+assert_missing "$CODEX_SKILLS/status-ledger/references"
 assert_missing "$CURSOR_RULES/address-as-chris.mdc"
 assert_missing "$CLAUDE_MD"
 assert_missing "$CODEX_AGENTS"

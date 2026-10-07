@@ -145,42 +145,42 @@ add_bundled_from_dir() {
   done
 }
 
-name_listed() {
-  local want="$1" n
-  shift
-  for n in "$@"; do
-    [[ "$n" == "$want" ]] && return 0
-  done
-  return 1
-}
-
 preflight_dir() {
   local dest="$1"
   [[ ( ! -e "$dest" && ! -L "$dest" ) || -d "$dest" ]] || die "$dest exists and is not a directory"
 }
 
 preflight_skill_dest() {
-  local src="$1" dest_dir="$2" dest target marker_source
+  local src="$1" dest_dir="$2" target marker_source resource
   local dest="$dest_dir/SKILL.md"
+  [[ ! -L "$dest_dir" ]] || die "$dest_dir is a symlink; will not overwrite"
   [[ -f "$src" ]] || die "missing $src (check skills.manifest)"
   if [[ -L "$dest" ]]; then
     target="$(readlink "$dest")"
     if [[ "$target" == "$src" || "$target" == "$REPO_ROOT"/* ]]; then
-      return
+      :
     else
       die "$dest_dir already exists and is not this repo's installation"
     fi
   elif [[ -f "$dest" && -f "$dest_dir/$MANAGED_SKILL_MARKER" ]]; then
     marker_source="$(<"$dest_dir/$MANAGED_SKILL_MARKER")"
-    [[ "$marker_source" == "$src" ]] && return
-    die "$dest_dir already exists and is not this repo's installation"
+    [[ "$marker_source" == "$src" ]] || die "$dest_dir already exists and is not this repo's installation"
   elif [[ -e "$dest_dir" || -L "$dest_dir" ]]; then
     die "$dest_dir already exists and is not this repo's installation"
   fi
+  preflight_skill_resources "$dest_dir"
+  for resource in "${SKILL_RESOURCE_DIRS[@]}"; do
+    [[ -d "${src%/SKILL.md}/$resource" ]] || continue
+    if [[ -e "$dest_dir/$resource" || -L "$dest_dir/$resource" ]]; then
+      [[ -f "$dest_dir/$MANAGED_RESOURCE_MARKER" ]] &&
+        grep -qxF "$resource" "$dest_dir/$MANAGED_RESOURCE_MARKER" ||
+        die "$dest_dir/$resource exists and is not this repo's resource installation"
+    fi
+  done
 }
 
 install_skill_to_root() {
-  local dest_root="$1" path skill_name src dest_dir dest marker_source
+  local dest_root="$1" path skill_name src dest_dir dest resource
   info "target $dest_root"
   mkdir -p "$dest_root"
   for path in "${SKILLS[@]}"; do
@@ -188,20 +188,42 @@ install_skill_to_root() {
     src="$SKILLS_ROOT/$path/SKILL.md"
     dest_dir="$dest_root/$skill_name"
     dest="$dest_dir/SKILL.md"
-    if [[ -f "$dest" && ! -L "$dest" && -f "$dest_dir/$MANAGED_SKILL_MARKER" ]]; then
-      marker_source="$(<"$dest_dir/$MANAGED_SKILL_MARKER")"
-      if [[ "$marker_source" == "$src" ]] && { [[ "$src" -ef "$dest" ]] || cmp -s "$src" "$dest"; }; then
-        continue
-      fi
-    fi
     if [[ -L "$dest" ]]; then
       rm "$dest"
       info "migrated $skill_name"
     fi
     mkdir -p "$dest_dir"
-    cp -p "$src" "$dest"
+    if [[ ! -f "$dest" ]] || ! cmp -s "$src" "$dest"; then
+      cp -p "$src" "$dest"
+    fi
     printf '%s\n' "$src" > "$dest_dir/$MANAGED_SKILL_MARKER"
+    if [[ -f "$dest_dir/$MANAGED_RESOURCE_MARKER" ]]; then
+      while IFS= read -r resource || [[ -n "$resource" ]]; do
+        rm -rf "$dest_dir/$resource"
+      done < "$dest_dir/$MANAGED_RESOURCE_MARKER"
+    fi
+    : > "$dest_dir/$MANAGED_RESOURCE_MARKER"
+    for resource in "${SKILL_RESOURCE_DIRS[@]}"; do
+      [[ -d "${src%/SKILL.md}/$resource" ]] || continue
+      cp -Rp "${src%/SKILL.md}/$resource" "$dest_dir/$resource"
+      printf '%s\n' "$resource" >> "$dest_dir/$MANAGED_RESOURCE_MARKER"
+    done
     info "installed $skill_name -> $dest"
+  done
+}
+
+prune_retired_skills() {
+  local root="$1" dir name path keep
+  [[ -z "$PACKAGE" && -d "$root" ]] || return 0
+  for dir in "$root"/*; do
+    [[ -d "$dir" && ! -L "$dir" ]] || continue
+    managed_skill_source "$dir" >/dev/null || continue
+    name="${dir##*/}"
+    keep=0
+    for path in "${SKILLS[@]}"; do
+      [[ "${path##*/}" != "$name" ]] || { keep=1; break; }
+    done
+    [[ $keep -eq 1 ]] || remove_managed_skill "$dir"
   done
 }
 
@@ -370,6 +392,13 @@ if [[ $WANTS_SKILLS -eq 1 ]]; then
       skill_name="${path##*/}"
       preflight_skill_dest "$SKILLS_ROOT/$path/SKILL.md" "$root/$skill_name"
     done
+    if [[ -z "$PACKAGE" && -d "$root" ]]; then
+      for dir in "$root"/*; do
+        [[ -d "$dir" && ! -L "$dir" ]] || continue
+        managed_skill_source "$dir" >/dev/null || continue
+        preflight_skill_resources "$dir"
+      done
+    fi
   done
 fi
 if [[ $WANTS_RULES -eq 1 ]]; then
@@ -392,6 +421,7 @@ if [[ $WANTS_SKILLS -eq 1 ]]; then
   [[ $WANTS_CURSOR -eq 0 ]] || install_skill_to_root "$CURSOR_SKILLS"
   [[ $WANTS_CLAUDE -eq 0 ]] || install_skill_to_root "$CLAUDE_SKILLS"
   [[ $WANTS_AGENTS -eq 0 ]] || install_skill_to_root "$CODEX_SKILLS"
+  for root in "${SKILL_TARGET_ROOTS[@]}"; do prune_retired_skills "$root"; done
   warn_skill_overlaps || SKILL_WARNING_STATUS=$?
 fi
 

@@ -1,51 +1,24 @@
 ---
 name: pause-for-review
-description: >-
-  Stops staged work at explicit review checkpoints, links the artifacts that
-  gate later stages, and resumes according to explicit review instructions.
-  Use when the user invokes /pause-for-review.
+description: Stop staged work at explicit review checkpoints and resume according to the user's review instructions. Use when the user explicitly invokes pause-for-review.
 disable-model-invocation: true
 ---
 
 # Pause for Review
 
-Treat each review checkpoint as a hard gate.
+Apply hard gates only to the user's requested stages. Resolve checkpoint placement from the request and context; ask before dependent work if it remains unclear. Complete the next checkpoint's artifacts before requesting review. Do not draft or precompute the following stage while its gate is pending.
 
-## At a checkpoint
+Link the concrete artifacts that later work relies on, verify their locations, state any blocking decision and the next stage, and invite feedback or a continuation instruction. Use the active conversation's numbering and link conventions, including absolute local links when required. Keep the checkpoint summary brief.
 
-1. Follow the user's stated stages. If checkpoint placement is unclear, ask before starting.
-2. Complete work only through the next checkpoint.
-3. If a status or review ledger exists, record the open checkpoint, artifact paths, and next stage.
-4. Do not begin, draft, or precompute the next stage before the user replies.
-5. End with:
+Record the open checkpoint in an existing status or review store if one exists. Do not create a new ledger solely for an approval record.
 
-```markdown
-## Review checkpoint
+| Reply | Meaning |
+| --- | --- |
+| feedback | Revise the listed artifacts and present that checkpoint again. |
+| continue | Proceed to the next checkpoint; the current artifacts remain unapproved and must be shown there. |
+| approve | Record approval of the listed artifacts, then stop unless the user also authorizes continuation. |
+| approve and continue | Record approval and proceed to the next checkpoint. |
 
-- Review: [artifact](relative/path)
-- Decision needed: [only unresolved decisions, or omit]
-- Next stage: [next stage]
+Equivalent natural-language instructions have the same effect. Carry existing authorization forward rather than asking for it again. Approval applies only to the artifacts actually reviewed; silence or unrelated praise is not approval. Record the approved artifacts and next stage in the existing authority or conversation.
 
-Reply with feedback, continue, approve, or approve and continue.
-```
-
-Link only artifacts that later work will rely on. Verify each target exists. Prefer workspace-relative Markdown links and keep the summary brief.
-
-## Resume
-
-| Reply                  | Meaning                                                                                                                 |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `feedback`             | Revise the listed artifacts and present the same checkpoint again.                                                      |
-| `continue`             | Leave the listed artifacts unapproved and work until the next checkpoint. Include all still-unapproved artifacts there. |
-| `approve`              | Record approval of the listed artifacts, then stop and await instructions.                                              |
-| `approve and continue` | Record approval of the listed artifacts, then work until the next checkpoint.                                           |
-
-Apply approval only to the artifacts listed at the current checkpoint. Record one durable line with the date, approved artifacts, and next stage in an existing status or review ledger. If no project ledger exists, retain the approval in the active conversation context. Do not create files solely to record approval.
-
-## Guardrails
-
-- Never infer approval from silence, praise, or unrelated instructions.
-- Never mark an artifact approved before the user approves it.
-- Surface only decisions that block the next stage.
-- Do not add planning documents merely because they might be useful.
-- If a later stage changes an approved premise, stop and reopen the affected checkpoint.
+If later work changes an approved premise, reopen only the affected checkpoint. Surface decisions that block the next stage; do not manufacture planning artifacts or review gates outside the requested workflow.

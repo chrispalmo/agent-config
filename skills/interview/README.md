@@ -1,9 +1,5 @@
-# Interview skills
+# Interview workflows
 
-Two cross-linked skills for gathering and confirming context:
+[Interview](SKILL.md) gathers decision-critical context in adaptive batches when explicitly requested. [Reverse brief](reverse-brief/SKILL.md) presents the resulting facts, interpretations, and handoff when invoked; it is not automatically run when an interview ends.
 
-- `interview` runs the question rounds.
-- `reverse-brief` closes an interview with an inspectable handoff.
-
-They are installed together because `interview` explicitly hands off to
-`reverse-brief`.
+Both workflows preserve existing user authorization and active conversation formatting. They are installed together because an interview can explicitly hand off to reverse-brief.

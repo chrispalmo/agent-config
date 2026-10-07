@@ -11,7 +11,7 @@ usage() {
   cat <<'USAGE'
 Usage: ./scripts/uninstall.sh [--skills|--rules] [--all|--cursor|--claude|--agents]
 
-Remove generated skills and rules. Only this repo's symlinks and managed rule files are removed.
+Remove this repo's managed skills, supporting resources, and generated rules.
 USAGE
 }
 
@@ -46,30 +46,12 @@ if [[ $ALL_TARGETS -eq 1 || $TARGET_FLAGS -eq 0 ]]; then
 fi
 
 remove_skill_links_from_root() {
-  local root="$1" path skill_name src dest_dir dest target marker_source
+  local root="$1" dir
   [[ -d "$root" ]] || return 0
   info "target $root"
-  read_manifest_file "$SKILLS_MANIFEST" SKILLS
-  for path in "${SKILLS[@]}"; do
-    skill_name="${path##*/}"
-    src="$SKILLS_ROOT/$path/SKILL.md"
-    dest_dir="$root/$skill_name"
-    dest="$dest_dir/SKILL.md"
-    if [[ -L "$dest" ]]; then
-      target="$(readlink "$dest")"
-      if [[ "$target" == "$REPO_ROOT"/* ]]; then
-        rm "$dest"
-        rmdir "$dest_dir" 2>/dev/null || true
-        info "removed $skill_name from $root"
-      fi
-    elif [[ -f "$dest" && -f "$dest_dir/$MANAGED_SKILL_MARKER" ]]; then
-      marker_source="$(<"$dest_dir/$MANAGED_SKILL_MARKER")"
-      if [[ "$marker_source" == "$src" ]]; then
-        rm "$dest" "$dest_dir/$MANAGED_SKILL_MARKER"
-        rmdir "$dest_dir" 2>/dev/null || true
-        info "removed $skill_name from $root"
-      fi
-    fi
+  for dir in "$root"/*; do
+    [[ -d "$dir" && ! -L "$dir" ]] || continue
+    remove_managed_skill "$dir"
   done
 }
 

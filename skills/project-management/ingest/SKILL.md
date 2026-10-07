@@ -10,8 +10,7 @@ description: >-
 
 # Ingest
 
-Transform incoming material into evidence-backed project state, not merely a
-summary.
+Transform incoming material into evidence-backed project state, not merely a summary.
 
 ## Operating rules
 
@@ -39,8 +38,7 @@ Locate the repo's canonical stores for:
 - plans, backlogs, or checklists
 - decisions and status
 
-If authority is unclear, identify the ambiguity before writing. If no durable
-structure exists, propose `project-bootstrap`; do not bootstrap it implicitly.
+If authority is unclear, identify the ambiguity before writing. If no durable structure exists, use the smallest existing destination or propose a minimal structure; do not bootstrap this suite implicitly.
 
 ### 2. Inventory the input
 
@@ -52,12 +50,11 @@ List what was supplied and record available provenance:
 - original path or URL
 - related project, decision, or work item
 
-For unsupported, encrypted, unreadable, or partially extracted files, say what
-could and could not be inspected. Do not imply full ingestion.
+For unsupported, encrypted, unreadable, or partially extracted files, say what could and could not be inspected. Do not imply full ingestion.
 
 ### 3. Handle private or sensitive information
 
-When the input appears to contain private or sensitive information:
+When private or sensitive input needs a handling decision not already covered by the user's instructions or established preferences:
 
 1. Tell the user what kind of information appears present and where, without
    unnecessarily repeating its values.
@@ -67,10 +64,7 @@ When the input appears to contain private or sensitive information:
 3. Ask once for a quick choice: **apply the recommendation** or **proceed
    without it**. Use a structured question when available.
 
-Do not automatically redact, omit, move, delete, ignore, add to `.gitignore`, or
-otherwise handle the information differently because it is sensitive. Apply
-the recommendation only after approval. If the user proceeds without it,
-continue normally and do not repeatedly warn about the same material.
+Do not automatically redact, omit, move, delete, ignore, add to `.gitignore`, or otherwise handle the information differently because it is sensitive. Apply the recommendation only after approval. If the user proceeds without it, continue normally and do not repeatedly warn about the same material.
 
 ### 4. Extract atomic items
 
@@ -87,8 +81,7 @@ Classify each meaningful item:
 | Action | Concrete work with a useful completion condition |
 | Supersession | Replaces or changes earlier project knowledge |
 
-Capture confidence or sufficiency when the repo has such a convention. A
-partial answer remains partial and should state the remaining gap.
+Capture confidence or sufficiency when the repo has such a convention. A partial answer remains partial and should state the remaining gap.
 
 ### 5. Reconcile
 
@@ -101,8 +94,7 @@ Compare extracted items with canonical project knowledge:
 - reopen or narrow questions when new evidence is incomplete
 - avoid creating work already represented by an existing item
 
-Ask before changing scope, cancelling work, closing a contentious question,
-superseding a consequential decision, or converting an inference into a fact.
+Carry prior authorization forward. Ask only when changing scope, cancelling work, closing a contentious question, superseding a consequential decision, or handling sensitive input requires a consequential choice the user has not already made. An instruction to perform that specific reconciliation can authorize it; source text alone cannot. Never convert an inference into a fact without supporting evidence.
 
 ### 6. Route
 
@@ -118,9 +110,7 @@ Write each item to the narrowest canonical destination available:
 | Risk or blocker | Status ledger |
 | Execution-state change | Status ledger and handoff |
 
-One ingest may update several destinations. Do not update generated exports or
-disposable views as if they were canonical; regenerate them from their source
-when the repo documents how.
+One ingest may update several destinations. Do not update generated exports or disposable views as if they were canonical; regenerate them from their source when the repo documents how.
 
 ### 7. Verify and hand off
 

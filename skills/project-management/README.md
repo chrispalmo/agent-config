@@ -1,47 +1,18 @@
-# Project management skills
+# Project continuity skills
 
-Four complementary Agent Skills for AI-assisted solo development.
+Use the smallest structure that lets authorized work resume with clear scope, evidence, and one work-state authority. Existing documents and trackers are valid equivalents; no filename, multi-file stack, or task backend is mandatory.
 
-## Skills
+| Skill | Purpose | When useful |
+| --- | --- | --- |
+| [project-audit](project-audit/SKILL.md) | Inspect continuity using concrete evidence | A requested project review or demonstrated confusion |
+| [project-bootstrap](project-bootstrap/SKILL.md) | Fill missing guidance or durable-state structure | A requested new-project setup or retrofit |
+| [status-ledger](status-ledger/SKILL.md) | Update the chosen work authority and handoff | Authorized work changes durable project state |
+| [ingest](ingest/SKILL.md) | Reconcile inputs with existing project knowledge | The user supplies new information to incorporate |
 
-| Skill                                           | Purpose                                    | When                         |
-| ----------------------------------------------- | ------------------------------------------ | ---------------------------- |
-| [project-bootstrap](project-bootstrap/SKILL.md) | Scaffold VISION/PLAN/STATUS/AGENTS         | New project or retrofit      |
-| [status-ledger](status-ledger/SKILL.md)         | Maintain IMPLEMENTATION_STATUS.md          | Every work session           |
-| [project-audit](project-audit/SKILL.md)         | Score repo maturity, list gaps             | Before bootstrap or retrofit |
-| [ingest](ingest/SKILL.md)                       | Reconcile dumps into durable project state | New information or documents |
+Audit and bootstrap are optional workflows. Normal maintenance does not require the human to invoke a skill every session. Ingest works with an existing project store without requiring the rest of this suite.
 
-## Workflow
+## Resources and modes
 
-```text
-project-audit  →  project-bootstrap
-   assess            scaffold
-                         ↓
-                ingest ↔ status-ledger
-                reconcile    maintain
-```
+[Assessment criteria](project-audit/references/audit-rubric.md) define the continuity review. [The mode guide](project-bootstrap/references/variants.md) covers minimal guidance, compact Markdown continuity, and optional Beads task tracking. [Bootstrap templates](project-bootstrap/references/templates/README.md) are starting points; include only relevant sections. [Beads guidance](status-ledger/references/beads.md) applies to existing Beads projects and requested adoption, not automatic backend selection.
 
-## References
-
-| File                                          | Used by           |
-| --------------------------------------------- | ----------------- |
-| [templates/](references/templates/)           | project-bootstrap |
-| [audit-rubric.md](references/audit-rubric.md) | project-audit     |
-| [variants.md](references/variants.md)         | project-bootstrap |
-
-## Core pattern
-
-| File                       | Role                                            |
-| -------------------------- | ----------------------------------------------- |
-| `VISION.md`                | Scope filter, non-goals                         |
-| `IMPLEMENTATION_PLAN.md`   | Phased roadmap                                  |
-| `IMPLEMENTATION_STATUS.md` | **Living ledger** — status, evidence, decisions |
-| `AGENTS.md`                | Canonical agent onboarding and session handoff  |
-| `CLAUDE.md`                | One-line Claude Code import of `AGENTS.md`      |
-
-`IMPLEMENTATION_STATUS.md` is mandatory. Everything else is project-type
-dependent. Keep shared guidance in `AGENTS.md`; use the `CLAUDE.md` import shim
-because Claude Code does not load `AGENTS.md` natively. Do not duplicate shared
-instructions in vendor rule trees. `EXPLORATION_BACKLOG.md` is not bootstrapped;
-`status-ledger` creates and wires it into an existing project only when asked to
-park the first item.
+Resources live with their owning skills and are copied into each installed skill. Shared project instructions belong in AGENTS.md, with CLAUDE.md containing only @AGENTS.md. Name the authority for scope, tasks, decisions, and evidence; a single artifact may serve several roles. Any summaries of task state should derive from that authority rather than competing with it.

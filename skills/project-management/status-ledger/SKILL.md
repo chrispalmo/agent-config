@@ -1,99 +1,28 @@
 ---
 name: status-ledger
-description: >-
-  Creates and maintains IMPLEMENTATION_STATUS.md as the durable execution
-  ledger — tracking progress, evidence, decisions, scope deviations, metrics,
-  and session handoff. Use at session start and end, when updating project
-  status, recording decisions, or when the user asks about implementation
-  progress or what to work on next.
+description: Maintain the project's authoritative work state, completion evidence, decisions, and handoff after durable changes. Use the existing tracker, compact Markdown record, or adopted Beads backend without creating competing task stores.
 ---
 
 # Status Ledger
 
-`IMPLEMENTATION_STATUS.md` is repo-owned memory. Chat is scratch paper.
+Read the repository's authority guidance before choosing a store. Use its existing tracker or current-state note; IMPLEMENTATION_STATUS.md is an optional Markdown convention. If Beads is authoritative, read [Beads guidance](references/beads.md). Do not silently substitute another backend when the chosen store is unavailable.
 
-## Session start
+## Start and update
 
-1. Read STATUS header: **Last reviewed**, **Current phase**, **Current focus**, **Next work item**
-2. Read fresh-agent one-liner
-3. Check deviations + open blockers
-4. Do not redo `done` rows unless evidence invalid
+Read current work, next action, blockers, and relevant decisions. The latest user instruction governs selection; an old next-item entry or a ready-work query does not authorize unrelated work. Do not repeat completed work unless new evidence or the request warrants it.
 
-## During work
+Update affected records when authorized work changes execution state, evidence, consequential decisions, scope, risks, or the next action. Independent items may advance together when authorized; ledger conventions do not require serial execution or grant delegation permission. Mark work complete only with relevant evidence and distinguish done, deferred, cancelled, and blocked outcomes.
 
-- Advance one checklist ID at a time (P0-001, P1-003, etc.)
-- Set `done` only with evidence: file paths, command output, commit SHA
-- Record product/architecture decisions in **Decision log** immediately
-- Record plan changes in **Deviations from implementation plan**
-- If the user asks to park a speculative idea, follow **First-use activation** below,
-  then append it quietly — do not discuss the icebox otherwise
+Keep decisions with their reasons and sources in the named decision authority. Store validation beside the affected work, and link specifications or evidence rather than copying them into multiple records. Record only measured metrics. Do not refresh timestamps or tables for read-only exchanges without a durable change.
 
-## Exploration backlog (first-use activation)
+## Handoff
 
-Do not create or wire `EXPLORATION_BACKLOG.md` during project bootstrap.
+When work remains, leave a concrete next step, unresolved blockers, and enough file, command, or tracker references to resume. Carry existing user authorization and constraints forward; ask only for a missing consequential decision. Do not add a ledger solely to record a routine completion.
 
-Only when the user asks to add or park the first speculative item:
+If no store exists and the work needs continuity, add the smallest current-state note to existing documentation or use the compact template supplied by project-bootstrap when that package is available. Do not automatically create a full project-management stack.
 
-1. Create `EXPLORATION_BACKLOG.md` from
-   `skills/project-management/references/templates/EXPLORATION_BACKLOG.md`
-   in this skills repository (resolve via the real path of this skill's `SKILL.md`).
-2. Wire handoff guidance in `AGENTS.md`: add a short note that the backlog is
-   non-canonical and surfaced only on an explicit status review or project
-   closeout.
-3. Append the requested item.
+## Parked ideas
 
-Check the file and guidance independently:
+Only when the user asks to park a speculative item, reuse the tracker's deferred/ideas mechanism or create an ideas note from [the optional template](references/EXPLORATION_BACKLOG.md). Mark the idea uncommitted and preserve its source. Wire a short guidance pointer if future sessions need it; check the note and pointer independently and avoid duplicates.
 
-- If the backlog is missing, create it.
-- If the `AGENTS.md` guidance is missing, add it.
-- Append the item without duplicating either artifact.
-
-## Exploration backlog (when to surface)
-
-Do **not** mention `EXPLORATION_BACKLOG.md` at session start, during normal implementation, or when planning next work.
-
-Bring it up only when:
-
-1. **Status check** — the user asks for progress/status, or you run an explicit STATUS review
-2. **Project closeout** — wrapping the project or a major phase; ask what to do with parked ideas (promote to PLAN,keep, or delete)
-
-## Session end
-
-After authorized work changes execution state, evidence, decisions, risks, or
-the next action, update the affected sections:
-
-| Section      | Action                            |
-| ------------ | --------------------------------- |
-| Header       | Date, focus, next item, one-liner |
-| Checklist    | Status + evidence column          |
-| Gates        | When kill criteria measured       |
-| Decision log | Dated rows with docs updated      |
-| Deviations   | If scope diverged from PLAN       |
-| Metrics      | If numbers changed                |
-| Verification | Commands run                      |
-| Risks        | New blockers                      |
-
-Do not edit STATUS after read-only questions, reviews, or audits that discover
-no durable project change.
-
-## Status vocabulary
-
-`not_started` | `in_progress` | `blocked` | `done` | `deferred` | `cancelled`
-
-## Decision log format
-
-```markdown
-| Date | Decision | Reason | Docs updated |
-| 2026-07-09 | Use X over Y | [why] | VISION.md, STATUS |
-```
-
-## If STATUS missing
-
-Invoke `project-bootstrap` first, or create from
-`skills/project-management/references/templates/IMPLEMENTATION_STATUS.md` in this skills repository.
-
-## Enforced by
-
-The target project's canonical `AGENTS.md` session workflow. Claude Code reaches
-the same instructions through the project's `CLAUDE.md` import shim. Use the
-**status-ledger** skill for the full procedure.
+Parked ideas do not change committed scope. Surface them during an explicit status review or project closeout, or when the user asks about them. Do not use them as the next work item without authorization.

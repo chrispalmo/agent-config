@@ -33,14 +33,14 @@ Ownership on GitHub is limited to a personal user account or an organization. An
 
 ## Workflow
 
-1. Confirm the intended project directory.
+1. Resolve the intended project directory from the active workspace and invocation; ask only when it is ambiguous.
 2. Inspect the project for likely secrets, credentials, environment files, generated files, and dependency directories. Add appropriate ignore rules before staging, and never commit likely secrets.
 3. If the directory is not a Git repository, run `git init`.
 4. If there is no commit, stage the safe project files and create an initial commit. Follow repository commit-message conventions when present; otherwise use `Initial commit`.
 5. If `origin` already exists, verify that it points to the intended GitHub repository. Do not replace or push to a mismatched remote without user approval.
 6. If no GitHub remote exists, create `<owner>/<repository-name>` from the current directory with `gh repo create`, passing exactly one of `--private`, `--public`, or `--internal`, plus `--source=. --remote=origin`.
 7. Push the current branch with upstream tracking using `git push -u origin HEAD`.
-8. Verify the actual owner and visibility with `gh repo view`, verify the local branch tracks the remote branch, and verify the working tree is clean.
+8. Verify the actual owner and visibility with `gh repo view`, verify the local branch tracks the remote branch, and account for any remaining working-tree changes rather than discarding them to force a clean tree.
 
 Ask only when an override is ambiguous, an organization rejects repository creation, an existing remote conflicts, likely secrets require a user decision, or an operation would overwrite or expose existing work.
 

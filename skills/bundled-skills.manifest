@@ -5,8 +5,8 @@
 # Sources:
 #   https://code.claude.com/docs/en/commands  (rows marked Skill)
 #   https://code.claude.com/docs/en/skills
-# If that date is more than 30 days ago, refresh the Claude rows from those
-# pages before other work, then set the date to today.
+# Refresh these rows during a harness change or compatibility review. The date
+# records evidence age; it does not block unrelated work or certify current support.
 #
 # Cursor names are also discovered from ~/.cursor/skills-cursor at install time.
 # Codex system names are also discovered from $CODEX_HOME/skills/.system and

@@ -1,26 +1,8 @@
-# skills
+# Skills
 
-Agent Skills (`SKILL.md`) for Cursor, Claude Code, and OpenAI Codex.
+Canonical Agent Skills for Cursor, Claude Code, and OpenAI Codex. [The catalog](skills.manifest) defines installed skills and [the package catalog](packages.manifest) defines cross-linked groups.
 
-This directory is the skills half of `chrispalmo/agent-config`. The root `scripts/install.sh` installs these skills and the sibling `rules/` by default.
-
-## Layout
-
-```text
-skills/
-├── skills.manifest
-├── packages.manifest
-├── bundled-skills.manifest
-├── project-management/
-├── interview/
-├── design-tool/
-├── github-init/
-├── pause-for-review/
-├── plaintext/
-└── proofread/
-```
-
-Independent skills live directly under `skills/`. Folders that group multiple skills are packages, not categories.
+Skills live directly under skills/ or in a package directory. Supporting references, assets, scripts, and agent metadata live inside the owning skill and are installed with it. Shared repository scripts remain under scripts/ at the repository root.
 
 ## Install
 
@@ -32,4 +14,6 @@ From the repository root:
 ./scripts/install.sh --skills --package project-management
 ```
 
-Default install writes skills to `~/.codex/skills` and `~/.claude/skills`. Use `--cursor` when Cursor's native `~/.cursor/skills` root is required, including Cursor cloud VMs.
+The default writes to the Claude and Codex skill roots. Select --cursor for the Cursor-native root. A full reinstall removes retired skills only when their ownership identifies this repository; unrelated skills are preserved. Package installs preserve managed skills outside the selected package.
+
+See [project continuity](project-management/README.md) and [interview workflows](interview/README.md). Proofread has been retired and is no longer in the catalog.

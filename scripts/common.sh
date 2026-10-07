@@ -4,6 +4,8 @@
 MANAGED_MARK='<!-- managed-by: chrispalmo/agent-config -->'
 OLD_RULES_MANAGED_MARK='<!-- managed-by: chrispalmo/rules -->'
 MANAGED_SKILL_MARKER='.agent-config-managed'
+MANAGED_RESOURCE_MARKER='.agent-config-resources'
+SKILL_RESOURCE_DIRS=(references assets scripts agents)
 
 SKILLS_ROOT="$REPO_ROOT/skills"
 RULES_ROOT="$REPO_ROOT/rules"
@@ -28,6 +30,57 @@ CODEX_AGENTS="${CODEX_AGENTS:-$HOME/.codex/AGENTS.md}"
 die() { echo "$SCRIPT_NAME: error: $*" >&2; exit 1; }
 info() { echo "$SCRIPT_NAME: $*"; }
 warn() { echo "$SCRIPT_NAME: warning: $*" >&2; }
+
+managed_skill_source() {
+  local dir="$1" dest="$1/SKILL.md" marker="$1/$MANAGED_SKILL_MARKER" source
+  [[ ! -L "$dir" ]] || return 1
+  if [[ -L "$dest" ]]; then
+    source="$(readlink "$dest")"
+  elif [[ -f "$dest" && -f "$marker" && ! -L "$marker" ]]; then
+    source="$(<"$marker")"
+  else
+    return 1
+  fi
+  [[ "$source" == "$SKILLS_ROOT/"*"/SKILL.md" ]] || return 1
+  printf '%s' "$source"
+}
+
+preflight_skill_resources() {
+  local dir="$1" marker="$1/$MANAGED_RESOURCE_MARKER" resource
+  if [[ -e "$marker" || -L "$marker" ]]; then
+    [[ -f "$marker" && ! -L "$marker" ]] || die "$marker is not a regular ownership file"
+    while IFS= read -r resource || [[ -n "$resource" ]]; do
+      name_listed "$resource" "${SKILL_RESOURCE_DIRS[@]}" || die "$marker lists an invalid resource"
+      [[ ! -L "$dir/$resource" ]] || die "$dir/$resource is a symlink; will not overwrite"
+      [[ ! -e "$dir/$resource" || -d "$dir/$resource" ]] || die "$dir/$resource is not a directory"
+    done < "$marker"
+  fi
+}
+
+remove_managed_skill() {
+  local dir="$1" source resource marker="$1/$MANAGED_RESOURCE_MARKER"
+  source="$(managed_skill_source "$dir")" || return 0
+  preflight_skill_resources "$dir"
+  if [[ -f "$marker" ]]; then
+    while IFS= read -r resource || [[ -n "$resource" ]]; do
+      rm -rf "$dir/$resource"
+    done < "$marker"
+    rm "$marker"
+  fi
+  rm "$dir/SKILL.md"
+  [[ ! -f "$dir/$MANAGED_SKILL_MARKER" ]] || rm "$dir/$MANAGED_SKILL_MARKER"
+  rmdir "$dir" 2>/dev/null || true
+  info "removed ${dir##*/}"
+}
+
+name_listed() {
+  local want="$1" n
+  shift
+  for n in "$@"; do
+    [[ "$n" == "$want" ]] && return 0
+  done
+  return 1
+}
 
 trim_line() {
   local line="$1"

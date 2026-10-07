@@ -1,91 +1,18 @@
 ---
 name: project-bootstrap
-description: >-
-  Scaffolds the agent continuity stack (VISION, IMPLEMENTATION_PLAN,
-  IMPLEMENTATION_STATUS, AGENTS.md, and a Claude Code compatibility shim) on
-  new or under-documented repos. Detects project type (greenfield, consulting,
-  container, meta, minimal). Use when starting a new project, retrofitting PM
-  docs, or when the user asks to bootstrap or scaffold project management files.
+description: Create or retrofit the minimum project guidance and durable state needed for the requested work. Reuse existing documents and trackers; choose minimal, Markdown, or optional Beads continuity according to project needs.
 ---
 
 # Project Bootstrap
 
-Scaffold the agent continuity stack from
-`skills/project-management/references/templates/` in this skills repository
-(resolve via the real path of this skill's `SKILL.md`).
+Read the repository's current guidance and identify scope, work-state authority, decisions, evidence, and verification commands. Reuse adequate equivalents. An inline continuity check is enough; running a separate audit is optional.
 
-Keep shared guidance in `AGENTS.md`. Cursor, Codex, and other compatible agents
-load it directly. Claude Code does not, so create a one-line `CLAUDE.md` import
-shim rather than duplicating instructions. Do not create vendor rule trees (for
-example `.cursor/rules/`) unless the user explicitly asks.
+Choose the smallest useful mode from [the variant guide](references/variants.md). Default to minimal guidance for small tools and maintenance. Use a compact Markdown work record when sustained work needs handoff. Use Beads only when already authoritative or the user requests adoption; read [Beads guidance](../status-ledger/references/beads.md) for that case. Do not install or switch a backend just because bootstrap was requested.
 
-## Quick start
+Create only demonstrated missing pieces, using relevant [templates](references/templates/README.md) as starting points. Omit unused sections and replace placeholders with project facts. A separate vision or roadmap is useful only when scope or dependencies need more room; no multi-file stack is mandatory. Avoid duplicating executable work across a plan and a tracker.
 
-1. Run `project-audit` first (or inline detect)
-2. Pick variant: greenfield (default) | consulting | container | meta | minimal
-3. Copy templates; customize placeholders
-4. Backfill STATUS from existing docs
-5. Set fresh-agent one-liner
+Put shared instructions in AGENTS.md and keep CLAUDE.md as a one-line @AGENTS.md import. When existing vendor guidance has useful substance, reconcile it into the shared guide before replacing the shim; preserve intent and do not discard unresolved conflicting instructions. Explicit user requests for another arrangement take precedence. Existing authorization covers the requested retrofit; ask only when a consequential conflict is still undecided.
 
-## Project type detection
+Record current work and consequential decisions with their evidence in the chosen authority. Add a narrow instruction to update that store when authorized work changes durable state, and leave an actionable next step when work remains. The human should not need to invoke a maintenance skill every session.
 
-See `skills/project-management/references/variants.md` for the full variant guide.
-
-| Signals                                 | Variant               |
-| --------------------------------------- | --------------------- |
-| Empty repo or idea only                 | greenfield            |
-| `backlog/`, `audit-`, client contracts  | consulting            |
-| Multiple git subrepos, workspace README | container             |
-| `PLAN.md`, content pipeline, scoring    | meta                  |
-| README says frozen/minimal              | minimal — README only |
-
-## Files to create (greenfield)
-
-```
-VISION.md
-IMPLEMENTATION_PLAN.md
-IMPLEMENTATION_STATUS.md    # ALWAYS — mandatory
-AGENTS.md                   # canonical startup + session handoff
-CLAUDE.md                   # contains only: @AGENTS.md
-```
-
-Do **not** create or reference `EXPLORATION_BACKLOG.md` during bootstrap. The `status-ledger` skill adds and wires it into an existing project only when asked to park the first speculative item.
-
-Templates: `skills/project-management/references/templates/`
-
-## Backfill rules
-
-- Existing README → extract into VISION problem/goal
-- Existing PLAN → migrate to IMPLEMENTATION_PLAN.md
-- Chat context → seed STATUS checklist + decision log
-- Existing vendor rules (`.cursor/rules/`, etc.) → fold shared substance into
-  `AGENTS.md`; identify obsolete duplicates, but remove them only with explicit
-  user approval
-- Existing `CLAUDE.md` → preserve Claude-specific instructions and add
-  `@AGENTS.md` if it is not already imported
-- Never delete existing docs without approval
-
-## STATUS mandatory sections
-
-1. Header (date, phase, focus, next item, fresh-agent one-liner)
-2. Status vocabulary
-3. Phase gates
-4. Phase checklist with evidence column
-5. Decision log
-6. Deviations
-7. Handoff checklist
-
-## Variants
-
-**Consulting:** `audit-charter.md`, `audit-status.md`, `backlog/items.jsonl`  
-**Container:** README + AGENTS.md + `.vscode/settings.json` nested git  
-**Minimal:** README with explicit scope note only
-
-## After bootstrap
-
-Tell user to invoke `status-ledger` skill every session.
-
-## Reference
-
-- Templates: `skills/project-management/references/templates/README.md`
-- Variants: `skills/project-management/references/variants.md`
+Do not bootstrap an exploration backlog. If the user later parks an idea, status-ledger can add it to the existing tracker or create a small ideas note on demand. Finish with created or updated artifacts, the authority chosen, validation, and any remaining gaps.

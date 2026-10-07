@@ -20,6 +20,8 @@ Central repository of Agent Skills and Agent Rules for Cursor, Claude Code, and 
 | Local install | `scripts/install.sh` |
 | Cloud VM install | `scripts/cloud/bootstrap.sh` |
 | Cloud dashboard paste | `scripts/cloud/README.md` |
+| Guidance maintenance | `docs/maintenance.md` |
+| Instruction and workflow audit findings | `docs/audits/2026-10-07-instruction-and-workflow-audit.md` |
 
 ## Adding or removing a skill
 
@@ -40,6 +42,12 @@ Central repository of Agent Skills and Agent Rules for Cursor, Claude Code, and 
 Keep shared instructions vendor-neutral. If an agent requires different output, implement that in `scripts/install.sh` rather than duplicating source content.
 
 When setting up project agent guidance in any repository, put shared guidance in `AGENTS.md` and create `CLAUDE.md` containing only `@AGENTS.md`.
+
+## Guidance maintenance
+
+When changing skills, rules, or catalogs, follow `docs/maintenance.md`. Run `python3 scripts/check-content.py`, `./scripts/test-install.sh`, and `git diff --check`. Review related guidance and templates together, preserve the user's established preferences, and do not claim behavioral improvements from static checks.
+
+Audit findings and proposals are evidence, not standalone instructions. Adopted changes live in the canonical skills and rules; the audit report holds their evidence and closeout. Harness compatibility and the broad installer audit remain deferred until the next harness switch; behavioral evaluations remain deferred until requested. Beads support is opt-in; the current audit work store remains the report.
 
 ## Safety
 

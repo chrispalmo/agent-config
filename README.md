@@ -29,7 +29,7 @@ agent-config/
 ./scripts/install.sh
 ```
 
-Default install writes skills for Claude Code and Codex/Cursor, and rules for Claude Code and Codex. Cursor-native roots are opt-in.
+Default install writes skills for Claude Code and Codex/Cursor, and rules for Claude Code and Codex. Cursor-native roots are opt-in. Skills include their supporting resources; full installs remove retired skills owned by this repository, while package installs preserve skills outside the package.
 
 | Option | Effect |
 | --- | --- |
@@ -65,6 +65,12 @@ Cloud agents do not see this machine. Follow the human setup guide in [scripts/c
 - Add cross-linked skill packages to `skills/packages.manifest`.
 - Add rules under `rules/<name>/RULE.md` and register them in `rules/rules.manifest`.
 - Keep shared project guidance in `AGENTS.md` and `CLAUDE.md` as a one-line `@AGENTS.md` shim.
+
+## Maintenance
+
+Follow the [maintenance guide](docs/maintenance.md) when changing guidance. Run `python3 scripts/check-content.py`, `./scripts/test-install.sh`, and `git diff --check` after source changes.
+
+The [instruction and workflow audit](docs/audits/2026-10-07-instruction-and-workflow-audit.md) records the implemented simplifications, proofread retirement, optional Beads support, and closeout. Project continuity defaults to minimal guidance and can reuse a compact Markdown record or adopted Beads tracker. Harness compatibility and the broad installer audit remain deferred until the next harness switch; behavioral evaluations are also deferred.
 
 ## Safety
 

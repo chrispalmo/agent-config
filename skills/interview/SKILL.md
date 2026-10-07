@@ -1,85 +1,23 @@
 ---
 name: interview
-description: >-
-  Runs a structured, multi-turn interview to gather missing context for a
-  decision or another skill's workflow. Use when the user directly invokes the
-  interview skill and wants adaptive questioning before work continues.
+description: Run an adaptive context-gathering interview when the user explicitly invokes interview before a decision or task. Reuse known answers and stop when the decision-critical context is sufficient.
 disable-model-invocation: true
 ---
 
 # Interview
 
-This is a user-invoked workflow. Do not start it from ambient context, even when
-an agent ignores the `disable-model-invocation` metadata extension.
+Start only when the user requests this workflow, even if a harness ignores invocation metadata. Infer the subject and originating task from the conversation; use the first batch to establish missing scope if necessary. Do not auto-invoke reverse-brief.
 
-Gather context efficiently across N rounds. Do not run `reverse-brief` unless
-the user invokes it.
+## Question batches
 
-## Start
+Honor requested rounds and counts. Otherwise use at most two batches of up to three focused questions each; these are maxima, not quotas. State the subject and planned limit briefly, then ask the first useful batch. Prefer concrete choices with a free-text route when available.
 
-1. Parse optional arguments from the invocation, independent of agent syntax.
-   Defaults: **2 rounds**, **10 questions per round**. Examples of argument
-   text: `10 questions 2 rounds`, `15 questions`, `3 rounds`.
-2. Infer the subject, pending decisions, and originating skill from the conversation.
-3. Reuse facts already provided; do not ask the user to repeat them.
-4. State the interview subject, planned rounds, and questions-per-round in one short line, then begin Round 1 immediately.
-5. If no subject can be inferred, make the first round establish it. Do not spend a turn asking one setup question.
-6. Tell the user they may say `DONE` or `STOP` to end, or optionally invoke
-   `reverse-brief` to end and inspect the handoff.
+Reuse facts already provided and omit questions whose answers would not change the decision. Group independent questions in one message and follow the active conversation's numbering and formatting conventions. Internal round/question IDs need not become restarted display labels. Let the user answer by label, briefly, or skip.
 
-## Interview protocol
+Move from scope and success toward consequential uncertainties and practical choices. Do not chase every skipped answer or infer consent from omission. Reframe an unanswered question only when it blocks the requested outcome, and explain why it matters.
 
-- Run at most the configured number of rounds unless the user requests more.
-- Ask the configured number of questions in every round you run.
-- Put all questions for a round in one message.
-- Number questions `<round>.<question>`: for round _r_ with _q_ questions,
-  use `r.1`–`r.q`. Start each round at `.1`; do not reuse numbers.
-- Keep each question focused. Combine tightly related subparts only when they
-  can be answered together.
-- Tell the user they may answer briefly, answer by number, or skip any question.
-- Never chase every unanswered question. Treat omission as "no answer
-  provided," not agreement, rejection, or permission.
-- Offer concrete options, examples, or a recommended default when they reduce
-  effort, while allowing free-form answers.
-- Do not use a sequence of single-question turns.
+## Finish and continuation
 
-## Round design (N rounds)
+End when enough context exists, the configured limit is reached, or the user says DONE or STOP. Do not require another DONE after the final useful batch. Summarize any decision-critical uncertainty and resume an already-authorized originating task once the interview ends. STOP ends interviewing; if it also cancels the task, respect that instruction.
 
-Treat rounds as a continuum from breadth → depth → convergence. Scale the
-emphasis to the configured _N_:
-
-| Phase of N           | Emphasis                                                                       |
-| -------------------- | ------------------------------------------------------------------------------ |
-| Early (near round 1) | Map the decision space; cover relevant areas only                              |
-| Middle               | Probe consequential details, tensions, and high-impact gaps from prior answers |
-| Late (near round N)  | Resolve decision-critical ambiguity; confirm priorities, defaults, next action |
-
-Areas to draw from when relevant:
-
-- desired outcome and success criteria
-- users, stakeholders, and decision owner
-- current state and motivation
-- scope and non-goals
-- constraints, dependencies, and fixed commitments
-- alternatives already considered
-- preferences and tradeoffs
-- risks, reversibility, and failure tolerance
-- timeline, budget, and available effort
-- evidence, unknowns, and assumptions
-- required deliverable and approval process
-
-For N = 1, combine breadth and convergence in that single round. For N = 2, round 1 is mostly breadth; round 2 is mostly depth and convergence. For larger N, spread the continuum evenly; do not open broad new topics in late rounds unless prior answers reveal a material omission, or a previous answer reveals new information that warrants additional probing.
-
-Do not repeat skipped questions unless the missing answer blocks the decision; if it does, reframe the question and explain briefly why it matters.
-
-## Stop conditions
-
-Stop before the final round when enough context exists to proceed confidently or the user asks to stop.
-
-End the interview when the user says `DONE` (or equivalent) **or** invokes `reverse-brief`. Otherwise, after the final configured round, stop asking and remind them they may say `DONE` or invoke `reverse-brief`.
-
-- On `DONE`: stop. Do **not** invoke `reverse-brief`. Resume the originating skill or task with what was gathered, or ask what they want next if standalone.
-- On `reverse-brief`: stop and run the bundled `reverse-brief` sub-skill.
-- Do not auto-invoke `reverse-brief` at any point.
-
-Do not begin implementation during the interview unless the user explicitly asks to stop interviewing and proceed.
+While awaiting interview answers, do not begin dependent implementation. Independent work may continue only when the user has authorized it. A direct invocation of reverse-brief ends the interview and runs that workflow. Do not add a separate confirmation gate unless the user requested one or a consequential choice remains unresolved.

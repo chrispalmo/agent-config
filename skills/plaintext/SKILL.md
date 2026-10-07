@@ -1,33 +1,13 @@
 ---
 name: plaintext
-description: >-
-  Replies with the requested output as a single copyable plaintext codeblock.
-  Use when the user wants a prompt, email, message, or other text to paste into
-  another agent or app without markdown formatting issues; or when they invoke
-  plaintext.
+description: Produce one copyable plain-text payload when the user invokes plaintext or directly asks for text to paste without rich formatting. Use for prompts, messages, emails, and other requested copy-paste output.
 disable-model-invocation: true
 ---
 
 # Plaintext
 
-Produce the requested text so it can be copied and pasted elsewhere without
-formatting artifacts.
+A direct request for copyable plain-text output is an invocation of this workflow. Produce the requested payload in one fenced block with no language tag. Keep contextual notes outside the block when they help.
 
-## Output rules
+Preserve the text and intentional spacing the recipient will paste. Avoid Markdown styling inside the payload unless the user requests Markdown. Literal code fences that belong to a requested prompt or Markdown payload may appear inside it: use an outer fence longer than the longest same-character fence in the payload so the whole result remains copyable. Do not split a single deliverable across several blocks.
 
-1. Put the entire deliverable in **one** fenced codeblock with no language tag:
-   ```
-   ...
-   ```
-2. Never nest fences inside the deliverable fence.
-3. Inside the fence: plain text only. Do not use markdown (bold, lists-as-markdown,
-   headings, links, etc.) unless the user explicitly asks for markdown.
-4. Text outside the fence is fine when useful (context, a clarifying question,
-   a short note). Do not avoid it or force it — follow what the response needs.
-5. Preserve intentional line breaks and spacing the user will paste as-is.
-
-## Typical uses
-
-- Agent prompts to paste into another chat
-- Emails, Slack/Teams messages, or commit-message bodies
-- Any copy-paste payload where rich formatting would break
+Apply conversation conventions to surrounding chat; the payload follows the requested recipient's format. Copyable output does not authorize sending or publishing it.
