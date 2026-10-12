@@ -140,3 +140,11 @@ Supporting references and templates now live inside their owning skills. Reinsta
 | Chat archive readiness | Implementation, local reinstall, and durable handoff complete. Ready after the pending sync decision; no active worktree or pull request attachments require cleanup. |
 
 Remaining future work is the explicitly deferred harness, installer, and behavioral audits, plus any separately requested Beads adoption pilot. No pending redesign decision is required to finish this change. Local verification and reinstall are complete. The only current blocker is authorization for the remote push, not an implementation or installation failure. Record the sync decision before archiving the chat. The user requested archive readiness, not immediate chat archival.
+
+## Visual artifact wording — 2026-10-12
+
+The user reported unsolicited catchphrase titles in visual artifacts and approved a wording guardrail. Updated [the visual design rule](../../rules/visual-design-default/RULE.md) to require plain, descriptive titles and labels, and to avoid invented catchphrases, slogans, taglines, and decorative subtitles unless requested or established by the brand. Visual preferences remain intact; polish should come from layout, typography, color, and interaction.
+
+Validation passed: `python3 scripts/check-content.py`, `./scripts/test-install.sh`, and `git diff --check`. Ran `./scripts/install.sh --rules --cursor --claude --agents` and verified that all three installed visual-rule bodies match the canonical source. No skills were installed. These checks establish source and installation consistency; the effect on generated artifacts remains unmeasured. The user requested repository sync and chat closeout; unrelated pre-existing draft changes remain outside this maintenance commit.
+
+Repository sync awaits explicit approval to push to `origin/main`, including the two earlier pending commits (`32d6121` and `50db5f9`). Automatic approval review rejected the push because it would publish multiple commits to the default branch without sufficiently explicit authorization for that target and scope. No push occurred. Local implementation and installation are complete; chat closeout awaits the sync decision.
