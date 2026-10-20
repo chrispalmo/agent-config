@@ -59,6 +59,11 @@ If you already installed the old `~/dev/skills` repo, run its uninstall script f
 Cloud agents do not see this machine. Follow the human setup guide in [scripts/cloud/README.md](scripts/cloud/README.md) (Cursor, Claude Code, and Codex, step by step).
 
 
+## Search past chats
+
+The [search-agent-chats skill](skills/search-agent-chats/SKILL.md) is installed across Cursor, Claude Code, and Codex. It provides read-only searches against the private archive when the archive's search script is available in its maintained checkout. Archive capture and search-index refresh remain separate: Cursor hooks capture locally, while Claude Code and Codex transcript capture and cloud/remote archive synchronization are not provided by this skill.
+
+
 ## Adding skills and rules
 
 - Add skills under `skills/<name>/SKILL.md` and register them in `skills/skills.manifest`.
