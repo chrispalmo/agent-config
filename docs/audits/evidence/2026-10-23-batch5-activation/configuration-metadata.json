@@ -1,0 +1,45 @@
+{
+  "checked_at": "2026-10-24T06:13:28.457660+00:00",
+  "files": [
+    {
+      "path": "/Users/cp/.claude/settings.json",
+      "sha256": "854946f35903ec1985c8d3fd812fc83e2972f94c76c0c28a8d95c5d396f83b21",
+      "hook_events": [
+        "SessionEnd",
+        "SessionStart",
+        "Stop",
+        "SubagentStop",
+        "UserPromptSubmit"
+      ],
+      "events_with_maintained_archive_command": [
+        "SessionEnd",
+        "SessionStart",
+        "Stop",
+        "SubagentStop",
+        "UserPromptSubmit"
+      ],
+      "telemetry_env_key_names": []
+    },
+    {
+      "path": "/Users/cp/.cursor/hooks.json",
+      "sha256": "aa8531b9f3b2375fbd793c45dab0ebcecbc5bc550b71d7417ab4bdf6f610d566",
+      "hook_events": [
+        "beforeSubmitPrompt",
+        "sessionEnd",
+        "sessionStart",
+        "stop"
+      ],
+      "events_with_maintained_archive_command": [
+        "beforeSubmitPrompt",
+        "sessionEnd",
+        "sessionStart",
+        "stop"
+      ],
+      "telemetry_env_key_names": []
+    }
+  ],
+  "cursor_sync_root_is_maintained_checkout": true,
+  "process_telemetry_env_key_names": [],
+  "endpoints_headers_credentials_and_raw_hook_commands_retained": false,
+  "scope": "Selected local files and this process only; not a managed/remote configuration or account entitlement audit. No telemetry destination was configured or contacted."
+}

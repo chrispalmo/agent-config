@@ -1,0 +1,94 @@
+[
+  {
+    "receipt": "2026-10-23-native-compatibility/runs/claude.explicit.receipt.json",
+    "sha256": "6e81ae64fe27b027c3ecd2a913e305822e8588377acea85aad9aea1afac2287b",
+    "exit_code": 0,
+    "tools": [
+      {
+        "id": "toolu_01WaSmkrVh5D4chKvL5DgqzE",
+        "tool": "Read",
+        "file_path": "/private/tmp/agent-config-native-compat-20261023/claude/.claude/skills/compat-plain-scope/assets/origin.txt",
+        "skill": null
+      }
+    ],
+    "skill_tool_calls": 0,
+    "startup_inventory_sizes": [
+      4
+    ],
+    "is_new_native_run": false
+  },
+  {
+    "receipt": "2026-10-23-native-compatibility/runs/claude.resource.receipt.json",
+    "sha256": "a052689620009ce3366cd1859f754b4d3f7a30645f85dc05bde0ca7b106b6c6c",
+    "exit_code": 0,
+    "tools": [
+      {
+        "id": "toolu_01UnpmBPDxui6ABm3LgxxL3h",
+        "tool": "Skill",
+        "file_path": null,
+        "skill": "browser-session"
+      },
+      {
+        "id": "toolu_01WaqQTYBsmEejaHJQ6oz3Kg",
+        "tool": "Bash",
+        "file_path": null,
+        "skill": null
+      },
+      {
+        "id": "toolu_013T1e95iMHYjzkvPYR4PVBo",
+        "tool": "Bash",
+        "file_path": null,
+        "skill": null
+      }
+    ],
+    "skill_tool_calls": 1,
+    "startup_inventory_sizes": [
+      4
+    ],
+    "is_new_native_run": false
+  },
+  {
+    "receipt": "2026-10-23-native-compatibility/runs/cursor.explicit.receipt.json",
+    "sha256": "f3d7ed2be66b8850bb835c02c4b0da5d6e0251e4fed8a72a6e2dd5ce4310db8d",
+    "exit_code": 0,
+    "tools": [
+      {
+        "id": "0_tool_81535d77-0dc3-475e-b4f6-2dd825127",
+        "tool": "readToolCall",
+        "file_path": "/private/tmp/agent-config-native-compat-20261023/cursor/.agents/skills/compat-plain-scope/assets/origin.txt",
+        "result_kinds": [
+          "success"
+        ]
+      }
+    ],
+    "skill_tool_calls": 0,
+    "startup_inventory_sizes": [],
+    "is_new_native_run": false
+  },
+  {
+    "receipt": "2026-10-23-native-compatibility/runs/cursor.resource.receipt.json",
+    "sha256": "339abecad31730bd1d7bbbf0534ee51ca714296e42394e6d31ad1d9a8044aa00",
+    "exit_code": 0,
+    "tools": [
+      {
+        "id": "0_tool_6d78f068-8915-4c74-b344-9aa9b796e",
+        "tool": "readToolCall",
+        "file_path": "/private/tmp/agent-config-native-compat-20261023/cursor/.agents/skills/browser-session/SKILL.md",
+        "result_kinds": [
+          "success"
+        ]
+      },
+      {
+        "id": "0_tool_a9d6a242-1bce-497a-bf77-823c5859e",
+        "tool": "shellToolCall",
+        "file_path": null,
+        "result_kinds": [
+          "permissionDenied"
+        ]
+      }
+    ],
+    "skill_tool_calls": 0,
+    "startup_inventory_sizes": [],
+    "is_new_native_run": false
+  }
+]

@@ -1,0 +1,35 @@
+{
+  "completed_at": "2026-10-23T16:43:53.473664+00:00",
+  "scope": "5.4 native signal comparison and retained subscription preference",
+  "source_chat": "01a1626c-ec38-7921-bde3-679edf63fa17",
+  "human_authorization_turn": "01a1698f-6765-7672-a900-c2ca23c52c49",
+  "new_native_inference_runs": 0,
+  "private_archive_exports": 0,
+  "continuous_monitoring_started": false,
+  "files": {
+    "README.md": "3ba56bbbc39dd2c93afcf2ab78fa948404ad000d9412fc0919c75024a8c70b7b",
+    "baseline-rule-comparison.json": "679c8f52840272db3a3b62d0a80536460f3eb5404d31e29ccd6dd4157717dd12",
+    "baseline.json": "55230bfde9787f3a168c4a74dfa5a54c7f504fd78f52454152b56983ba238d3a",
+    "check_signals.py": "1963574c1778630d007d0ffd9512c514e77eaa04889fbff30da61048be8741a4",
+    "cleanup.json": "d78df2219a26518805d39b888204089f5a9072807c14fa74f52c60b40c1fbc1f",
+    "configuration-metadata.json": "891729c257d7aae59a521ea5b4ac74f0677365999f4a2bec5d303c168a0e4417",
+    "counter-source-search.json": "f1782b3c3c364f661f6c529c33a47e8e7db1a1902c89656b37afa67549c095cc",
+    "generated-rule-delta.json": "53e1e7dde8e35e0d433d5e1e37df801bab2d6b6e6af62e43eae2baac74cebe41",
+    "installation.json": "c7f0fdb23c532b3b10ab3c3a2a285c1e78b9e4ee5a3a2b20c0990b6665e7daeb",
+    "logs/baseline-generate.log": "63a16e8d1086800775781713adff5f929dde63273e1444caadd9aaec1bf9643d",
+    "logs/preference-generate.log": "dd2c4664ab944d84019db6820fa9f186f21c1e9a4076177163f2b48f55a37541",
+    "logs/rules-only-install.log": "441bb22eab65dd5dcae0178da8de06beea7534f847db4abc5b7fb9c0f9309b02",
+    "logs/source-and-installer-checks.log": "ae2f971e42f83e4b5c99cda9a9d08f17c15f558f5fbd6b0ee91c015a32a0f4c0",
+    "logs/whitespace.log": "f6a7d2113895ff7c42d5ce1b8ed901898e65102abf499b98eebd4c7ba5a0c7a2",
+    "owned-source.patch": "c3126903a32fa1580d9df031fa42b1a41e6861be2eae5793e0acc9c1ef4a2921",
+    "parser-preservation.json": "6e2328344e44f48fc6a2e3ff11850b7ed4fca0d265c079ac63bda257dff8a812",
+    "prior-receipt-comparison.json": "df677570e11f380c3e9598234544dd6968487d4db404a27fea3c52d81dc181d9",
+    "synthetic-inputs.json": "47b6f4530cd451d0269a9c8b00548e83c9abf1eea6ec0d728e3703b6d59a9453",
+    "validation.json": "57c94ee04576784d1424ea3403af47cd014880bffd17d602690a80b518c3fa3b",
+    "CLOSEOUT.md": "f382aa398a77702c6b7d651e7d22a61d5de446838376056aa3e8cb7fb0791497"
+  },
+  "documentation_closeout": {
+    "date": "2026-10-24",
+    "change": "Historical README links to standalone closeout; records current paused state and deleted preference rule."
+  }
+}

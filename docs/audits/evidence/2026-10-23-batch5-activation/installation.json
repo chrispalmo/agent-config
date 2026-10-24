@@ -1,0 +1,89 @@
+{
+  "verified_at": "2026-10-23T16:41:49.059988+00:00",
+  "argv": [
+    "./scripts/install.sh",
+    "--rules",
+    "--cursor",
+    "--claude",
+    "--agents"
+  ],
+  "installer_exit_code": 0,
+  "installer_executions": 1,
+  "source_rule_sha256": "f05c78f365484f7bb289ee82e7ec2aaa61c60619c374b255f30a0e52af2b556e",
+  "generated_destinations_verified": 24,
+  "materially_changed_destinations": [
+    {
+      "path": "/Users/cp/.claude/rules/subscription-harness-order.md",
+      "before_sha256": null,
+      "after_sha256": "9c682eb7678036950a2f64f9d89c90c6637781ea68a09285957c245e3fa2963d"
+    },
+    {
+      "path": "/Users/cp/.codex/AGENTS.md",
+      "before_sha256": "505363a0ba6a02bb4978977da2cff5c2c5738a0111fd9a21480b4a0f25b9ce8a",
+      "after_sha256": "d6c750580530e13c76c699be3292214a522417264734dd82f38469b42dadc446"
+    },
+    {
+      "path": "/Users/cp/.cursor/rules/subscription-harness-order.mdc",
+      "before_sha256": null,
+      "after_sha256": "33439549fa9d84179722fb03b3ff38a38d77d4855919ea098c07596adef3527a"
+    }
+  ],
+  "all_other_rules_byte_identical": true,
+  "installed_skill_files_preserved": 369,
+  "settings_observations": [
+    {
+      "path": "/Users/cp/.claude/settings.json",
+      "before_sha256": "854946f35903ec1985c8d3fd812fc83e2972f94c76c0c28a8d95c5d396f83b21",
+      "after_sha256": "854946f35903ec1985c8d3fd812fc83e2972f94c76c0c28a8d95c5d396f83b21",
+      "byte_identical": true
+    },
+    {
+      "path": "/Users/cp/.cursor/hooks.json",
+      "before_sha256": "aa8531b9f3b2375fbd793c45dab0ebcecbc5bc550b71d7417ab4bdf6f610d566",
+      "after_sha256": "aa8531b9f3b2375fbd793c45dab0ebcecbc5bc550b71d7417ab4bdf6f610d566",
+      "byte_identical": true
+    },
+    {
+      "path": "/Users/cp/.cursor/cli-config.json",
+      "before_sha256": "850c53985597af8583d1c5178369b611267f0701eda98d4052d9891a1a3be304",
+      "after_sha256": "b79f3a1e695dcc70c99362af007aa1ed82a507e8442614fe6545329be0e1a9e6",
+      "byte_identical": false
+    },
+    {
+      "path": "/Users/cp/.codex/config.toml",
+      "before_sha256": "f11dc7cf28c1a75b717e6deeb74864c2467914c491eea5c10317b05732029f89",
+      "after_sha256": "f11dc7cf28c1a75b717e6deeb74864c2467914c491eea5c10317b05732029f89",
+      "byte_identical": true
+    }
+  ],
+  "settings_caveat": "Cursor CLI config hash changed during the open task. Attribution is unestablished. No new native process was launched and this pass wrote only rule destinations. No settings were restored or edited. The initial post-install guard stopped at that observation; remaining checks completed without reinstalling. A receipt-log assertion also initially expected installed rather than the actual wrote log wording; it was corrected without rerunning the installer.",
+  "source_skills_byte_identical": true,
+  "archive_source_hashes_preserved": true,
+  "pending_skills": [
+    {
+      "path": "/Users/cp/.agents/skills/search-agent-chats/SKILL.md",
+      "installed_sha256": "8913b98a561aee894ba73db8ebb0bebe6238db2bafd2d100c5e646fd9b0cd99d",
+      "canonical_sha256": "3e84d187249bbfb2161e2b6cae50c845b9ee499f95d486d4016b056ae6eac298",
+      "pending_source_not_installed": true
+    },
+    {
+      "path": "/Users/cp/.claude/skills/search-agent-chats/SKILL.md",
+      "installed_sha256": "8913b98a561aee894ba73db8ebb0bebe6238db2bafd2d100c5e646fd9b0cd99d",
+      "canonical_sha256": "3e84d187249bbfb2161e2b6cae50c845b9ee499f95d486d4016b056ae6eac298",
+      "pending_source_not_installed": true
+    },
+    {
+      "path": "/Users/cp/.agents/skills/triage/SKILL.md",
+      "installed_sha256": "588f54b622c298c75a73084b2bbab02c5cc57d5d0adcf78ae0015db203901742",
+      "canonical_sha256": "7cf3db97c4f9e6fd76aaf02c365cf9a125e2de8e6b6a54ee0f825ece8ddc191d",
+      "pending_source_not_installed": true
+    },
+    {
+      "path": "/Users/cp/.claude/skills/triage/SKILL.md",
+      "installed_sha256": "588f54b622c298c75a73084b2bbab02c5cc57d5d0adcf78ae0015db203901742",
+      "canonical_sha256": "7cf3db97c4f9e6fd76aaf02c365cf9a125e2de8e6b6a54ee0f825ece8ddc191d",
+      "pending_source_not_installed": true
+    }
+  ],
+  "no_native_quota_transition_exercised": true
+}

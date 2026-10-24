@@ -1,0 +1,10 @@
+{
+  "material_changes": [
+    "claude/rules/subscription-harness-order.md",
+    "codex/AGENTS.md",
+    "cursor/rules/subscription-harness-order.mdc"
+  ],
+  "only_new_preference": true,
+  "old_codex_aggregate_is_unchanged_prefix": true,
+  "skill_roots_targeted": false
+}
