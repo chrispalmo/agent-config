@@ -1,7 +1,7 @@
 # Rules installed by scripts/install.sh
 # Format: path to a directory containing RULE.md (one per line)
 
-address-as-chris
+address-the-user
 markdown-no-hard-wrap
 agents-md-canonical
 visual-design-default

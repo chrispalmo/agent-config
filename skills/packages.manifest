@@ -11,3 +11,8 @@ project-management project-management/ingest
 
 interview interview
 interview interview/reverse-brief
+
+coordination triage
+coordination propose-tasks
+coordination delegate
+coordination harness

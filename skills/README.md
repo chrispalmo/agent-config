@@ -16,4 +16,4 @@ From the repository root:
 
 The default writes to the Claude and Codex skill roots. Select --cursor for the Cursor-native root. A full reinstall removes retired skills only when their ownership identifies this repository; unrelated skills are preserved. Package installs preserve managed skills outside the selected package.
 
-See [project continuity](project-management/README.md) and [interview workflows](interview/README.md). Proofread has been retired and is no longer in the catalog.
+See [coordination workflows](coordination/README.md), [project continuity](project-management/README.md) and [interview workflows](interview/README.md). Proofread has been retired and is no longer in the catalog.

@@ -74,15 +74,16 @@ cmp -s "$CODEX_SKILLS/project-audit/references/audit-rubric.md" \
 cmp -s "$CLAUDE_SKILLS/project-bootstrap/references/templates/AGENTS.md" \
   "$REPO_ROOT/skills/project-management/project-bootstrap/references/templates/AGENTS.md" || fail "bootstrap template differs"
 assert_file "$CODEX_SKILLS/status-ledger/references/beads.md"
-assert_managed "$CLAUDE_RULES/address-as-chris.md"
+assert_managed "$CLAUDE_RULES/address-the-user.md"
 assert_managed "$CLAUDE_RULES/markdown-no-hard-wrap.md"
 assert_managed "$CLAUDE_MD"
 assert_managed "$CODEX_AGENTS"
-assert_contains "$CODEX_AGENTS" "Always call the user Chris in chat."
+assert_contains "$CODEX_AGENTS" 'Call the user Chris. When directly replying to an agent-originated message, address the agent as "boss".'
+assert_contains "$CODEX_AGENTS" "make the initial substantive reply and final result understandable on their own"
 assert_contains "$CODEX_AGENTS" 'Always create `CLAUDE.md`'
 assert_not_contains "$CODEX_AGENTS" "Do not hard-wrap Markdown prose"
 assert_missing "$CURSOR_SKILLS/design-tool/SKILL.md"
-assert_missing "$CURSOR_RULES/address-as-chris.mdc"
+assert_missing "$CURSOR_RULES/address-the-user.mdc"
 ok "default install"
 
 # Re-run is idempotent.
@@ -110,13 +111,35 @@ assert_file "$CODEX_SKILLS/proofread/operator-note.txt"
 assert_file "$CODEX_SKILLS/foreign-retired/SKILL.md"
 ok "retired skill ownership"
 
+# A rule rename retires managed old files and refreshes the combined rule source.
+reset_roots
+printf '%s\nold rule\n' "$MANAGED_MARK" > "$CURSOR_RULES/address-as-chris.mdc"
+printf '%s\nold rule\n' "$MANAGED_MARK" > "$CLAUDE_RULES/address-as-chris.md"
+printf '%s\n## address-as-chris\nold rule\n' "$MANAGED_MARK" > "$CODEX_AGENTS"
+expect_exit 0 "address rule rename" "$INSTALL" --rules --cursor --claude --agents
+assert_missing "$CURSOR_RULES/address-as-chris.mdc"
+assert_missing "$CLAUDE_RULES/address-as-chris.md"
+assert_managed "$CURSOR_RULES/address-the-user.mdc"
+assert_managed "$CLAUDE_RULES/address-the-user.md"
+assert_contains "$CODEX_AGENTS" "## address-the-user"
+assert_not_contains "$CODEX_AGENTS" "## address-as-chris"
+assert_contains "$CODEX_AGENTS" 'Call the user Chris. When directly replying to an agent-originated message, address the agent as "boss".'
+reset_roots
+printf '%s\nold rule\n' "$MANAGED_MARK" > "$CURSOR_RULES/address-as-chris.mdc"
+printf 'foreign\n' > "$CLAUDE_RULES/address-the-user.md"
+expect_exit 1 "address rename foreign clash" "$INSTALL" --rules --cursor --claude --agents
+assert_contains "$CURSOR_RULES/address-as-chris.mdc" "old rule"
+assert_contains "$CLAUDE_RULES/address-the-user.md" "foreign"
+assert_missing "$CURSOR_RULES/address-the-user.mdc"
+ok "address rule rename and preflight"
+
 # --cursor writes Cursor-native skills and rules only.
 reset_roots
 expect_exit 0 "cursor install" "$INSTALL" --cursor
 assert_skill "$CURSOR_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design-tool/SKILL.md"
-assert_managed "$CURSOR_RULES/address-as-chris.mdc"
+assert_managed "$CURSOR_RULES/address-the-user.mdc"
 assert_managed "$CURSOR_RULES/markdown-no-hard-wrap.mdc"
-assert_contains "$CURSOR_RULES/address-as-chris.mdc" "alwaysApply: true"
+assert_contains "$CURSOR_RULES/address-the-user.mdc" "alwaysApply: true"
 assert_contains "$CURSOR_RULES/markdown-no-hard-wrap.mdc" "alwaysApply: false"
 assert_contains "$CURSOR_RULES/markdown-no-hard-wrap.mdc" 'globs: **/*.md'
 assert_missing "$CODEX_AGENTS"
@@ -129,7 +152,7 @@ expect_exit 0 "combined flags" "$INSTALL" --cursor --claude --agents
 assert_skill "$CURSOR_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design-tool/SKILL.md"
 assert_skill "$CLAUDE_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design-tool/SKILL.md"
 assert_skill "$CODEX_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design-tool/SKILL.md"
-assert_managed "$CURSOR_RULES/address-as-chris.mdc"
+assert_managed "$CURSOR_RULES/address-the-user.mdc"
 assert_managed "$CLAUDE_MD"
 assert_managed "$CODEX_AGENTS"
 ok "combined flags"
@@ -150,6 +173,33 @@ echo "$REPO_ROOT/skills/proofread/SKILL.md" > "$CODEX_SKILLS/proofread/$MANAGED_
 expect_exit 0 "package preserves other skills" "$INSTALL" --package interview --agents
 assert_file "$CODEX_SKILLS/proofread/SKILL.md"
 ok "package preserves other skills"
+
+# Coordination is an all-member package; resources and rules remain distinct.
+reset_roots
+expect_exit 0 "coordination package" "$INSTALL" --skills --package coordination --cursor --claude --agents
+for root in "$CODEX_SKILLS" "$CLAUDE_SKILLS" "$CURSOR_SKILLS"; do
+  for member in triage propose-tasks delegate harness; do
+    assert_skill "$root/$member/SKILL.md" "$REPO_ROOT/skills/$member/SKILL.md"
+  done
+  cmp -s "$root/harness/references/native-claude.md" "$REPO_ROOT/skills/harness/references/native-claude.md" || fail "Claude adapter differs"
+  assert_file "$root/harness/references/usage-and-recovery.md"
+  assert_missing "$root/harness/references/evidence.md"
+  assert_file "$root/delegate/references/skill-invocation.md"
+  assert_file "$root/delegate/references/model-control.md"
+  assert_contains "$root/triage/agents/openai.yaml" "allow_implicit_invocation: false"
+  assert_contains "$root/harness/agents/openai.yaml" "allow_implicit_invocation: false"
+done
+assert_missing "$CODEX_AGENTS"
+assert_missing "$CLAUDE_MD"
+assert_missing "$CODEX_SKILLS/design-tool/SKILL.md"
+reset_roots
+mkdir -p "$CLAUDE_SKILLS/harness"
+echo foreign > "$CLAUDE_SKILLS/harness/SKILL.md"
+expect_exit 1 "coordination foreign clash" "$INSTALL" --package coordination --cursor --claude --agents
+assert_contains "$CLAUDE_SKILLS/harness/SKILL.md" foreign
+assert_missing "$CODEX_SKILLS/triage/SKILL.md"
+assert_missing "$CURSOR_SKILLS/delegate/SKILL.md"
+ok "coordination package, resources, policy, and preflight"
 
 # Foreign skill destination aborts before any writes.
 reset_roots
@@ -201,7 +251,7 @@ reset_roots
 expect_exit 0 "rules claude" "$INSTALL" --rules --claude
 assert_contains "$CLAUDE_RULES/markdown-no-hard-wrap.md" "paths:"
 assert_contains "$CLAUDE_RULES/markdown-no-hard-wrap.md" '  - "**/*.md"'
-assert_not_contains "$CLAUDE_RULES/address-as-chris.md" "paths:"
+assert_not_contains "$CLAUDE_RULES/address-the-user.md" "paths:"
 ok "rule adapters"
 
 # Stale managed rule file is pruned.
@@ -210,7 +260,7 @@ expect_exit 0 "prune setup" "$INSTALL" --rules --cursor
 echo "$MANAGED_MARK" >"$CURSOR_RULES/stale-extra.mdc"
 expect_exit 0 "prune" "$INSTALL" --rules --cursor
 assert_missing "$CURSOR_RULES/stale-extra.mdc"
-assert_managed "$CURSOR_RULES/address-as-chris.mdc"
+assert_managed "$CURSOR_RULES/address-the-user.mdc"
 ok "prune stale managed rule"
 
 # Uninstall removes ours and leaves foreign files.
@@ -222,7 +272,7 @@ echo keep >"$CLAUDE_RULES/extra.txt"
 assert_missing "$CURSOR_SKILLS/design-tool/SKILL.md"
 assert_missing "$CODEX_SKILLS/project-bootstrap/references"
 assert_missing "$CODEX_SKILLS/status-ledger/references"
-assert_missing "$CURSOR_RULES/address-as-chris.mdc"
+assert_missing "$CURSOR_RULES/address-the-user.mdc"
 assert_missing "$CLAUDE_MD"
 assert_missing "$CODEX_AGENTS"
 assert_file "$CURSOR_RULES/not-ours.mdc"
@@ -234,7 +284,7 @@ reset_roots
 expect_exit 0 "default uninstall setup" "$INSTALL" --cursor --claude
 "$UNINSTALL" >/dev/null
 assert_skill "$CURSOR_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design-tool/SKILL.md"
-assert_managed "$CURSOR_RULES/address-as-chris.mdc"
+assert_managed "$CURSOR_RULES/address-the-user.mdc"
 assert_missing "$CLAUDE_MD"
 ok "default uninstall skips cursor"
 

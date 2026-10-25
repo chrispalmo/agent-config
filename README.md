@@ -59,6 +59,10 @@ If you already installed the old `~/dev/skills` repo, run its uninstall script f
 Cloud agents do not see this machine. Follow the human setup guide in [scripts/cloud/README.md](scripts/cloud/README.md) (Cursor, Claude Code, and Codex, step by step).
 
 
+## Coordinate work
+
+The [coordination package](skills/coordination/README.md) groups triage, propose-tasks, delegate, and harness. They organize supplied ideas, propose next work, assign existing tasks, and optionally operate an explicitly chosen external native worker. Install together with `./scripts/install.sh --skills --package coordination --cursor --claude --agents`; the shared message and greeting rules use the separate normal rule installation flow.
+
 ## Search past chats
 
 The [search-agent-chats skill](skills/search-agent-chats/SKILL.md) is installed across Cursor, Claude Code, and Codex. It provides read-only searches against the private archive when the archive's search script is available in its maintained checkout. Archive capture and search-index refresh remain separate: Cursor hooks capture locally, while Claude Code and Codex transcript capture and cloud/remote archive synchronization are not provided by this skill.
