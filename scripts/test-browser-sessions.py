@@ -10,7 +10,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-SOURCE = Path(__file__).resolve().parents[1] / "skills/browser-session/scripts/registry.py"
+SOURCE = Path(__file__).resolve().parents[1] / "skills/_collections/browser/browser-session/scripts/registry.py"
 sys.dont_write_bytecode = True
 spec = importlib.util.spec_from_file_location("registry", SOURCE)
 registry = importlib.util.module_from_spec(spec)

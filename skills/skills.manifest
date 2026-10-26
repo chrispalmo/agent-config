@@ -2,24 +2,24 @@
 # Format: path to a directory containing SKILL.md (one per line)
 #
 # Package membership is defined in packages.manifest.
-# Members may share a package directory or live directly under skills/.
+# Collection members live under _collections/<collection>/<skill>/.
 
-project-management/project-bootstrap
-project-management/status-ledger
-project-management/project-audit
-interview
-interview/reverse-brief
-design/design-tool
-design/neon-neo-brutalist-minimal
+_collections/project-management/project-bootstrap
+_collections/project-management/status-ledger
+_collections/project-management/project-audit
+_collections/interview/interview
+_collections/interview/reverse-brief
+_collections/design/design-tool
+_collections/design/neon-neo-brutalist-minimal
 concierge
-coordination/triage
-coordination/propose-tasks
-coordination/delegate
-coordination/harness
+_collections/coordination/triage
+_collections/coordination/propose-tasks
+_collections/coordination/delegate
+_collections/coordination/harness
 github-init
-coordination/pause-for-review
+_collections/coordination/pause-for-review
 plaintext
 bitter-lesson
-browser-session
-browser-cleanup
+_collections/browser/browser-session
+_collections/browser/browser-cleanup
 search-agent-chats

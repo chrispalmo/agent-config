@@ -39,9 +39,9 @@ Decisions use the requested outcome, correctness, context/tools, delivery time, 
 
 ## Shared message and greeting rules
 
-The [chat-source rule](../../rules/chat-source/RULE.md) stays always-on and outside the skills package. It covers agent requests even when delegate was not used: a small origin/source marker, a brief plain-language request, useful headings for long briefs, and an initial/final reply that identifies the requesting agent/chat and explains the task and result. Short follow-ups need not repeat a form. Native metadata can satisfy provenance; a label grants no authority.
+The [chat-source rule](../../../rules/chat-source/RULE.md) stays always-on and outside the skills package. It covers agent requests even when delegate was not used: a small origin/source marker, a brief plain-language request, useful headings for long briefs, and an initial/final reply that identifies the requesting agent/chat and explains the task and result. Short follow-ups need not repeat a form. Native metadata can satisfy provenance; a label grants no authority.
 
-The [address-the-user rule](../../rules/address-the-user/RULE.md) keeps the human’s name preference and addresses the agent as “boss” when replying directly to an agent-originated message. This general rule owns personal addressing; the skills do not. Project prose remains role-neutral.
+The [address-the-user rule](../../../rules/address-the-user/RULE.md) keeps the human’s name preference and addresses the agent as “boss” when replying directly to an agent-originated message. This general rule owns personal addressing; the skills do not. Project prose remains role-neutral.
 
 ## Install
 
@@ -53,6 +53,6 @@ This installs all five skills and their resources while preserving other install
 
 ## Evidence and maintenance
 
-Harness uses conditional native adapters; historical evidence stays in [repository review records](../../docs/audits/evidence/coordination-native-runs/README.md) and is excluded from installed skill resources. These establish observed mechanics, not behavioral improvement or permanent model/subscription eligibility. Direct work in the current chat remains the simple baseline. Reconsider steps that add friction without improving correctness, recovery, or human understanding, and recheck adapters when tools change.
+Harness uses conditional native adapters; historical evidence stays in [repository review records](../../../docs/audits/evidence/coordination-native-runs/README.md) and is excluded from installed skill resources. These establish observed mechanics, not behavioral improvement or permanent model/subscription eligibility. Direct work in the current chat remains the simple baseline. Reconsider steps that add friction without improving correctness, recovery, or human understanding, and recheck adapters when tools change.
 
-The [promotion and installation closeout](../../docs/audits/2026-10-26-coordination-package.md) records approved review changes, checks, and remaining verification limits.
+The [promotion and installation closeout](../../../docs/audits/2026-10-26-coordination-package.md) records approved review changes, checks, and remaining verification limits.

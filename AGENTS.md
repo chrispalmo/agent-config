@@ -6,7 +6,7 @@ Central repository of Agent Skills and Agent Rules for Cursor, Claude Code, and 
 
 1. Read `README.md` for layout and install behavior.
 2. Read this file for operating procedures.
-3. Pending-review drafts live under `drafts/` and are excluded from installation. Skills live in `skills/<name>/SKILL.md` or `skills/<package>/<name>/SKILL.md`.
+3. Pending-review drafts live under `drafts/` and are excluded from installation. Skills live in `skills/<name>/SKILL.md` or `skills/_collections/<collection>/<name>/SKILL.md`.
 4. Rules live in `rules/<name>/RULE.md`.
 5. Shared scripts live directly under `scripts/`; do not add `scripts/skills/` or `scripts/rules/` directories.
 

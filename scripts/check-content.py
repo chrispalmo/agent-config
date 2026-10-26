@@ -103,8 +103,9 @@ def check_repo(root):
         for number, value in entries(manifest):
             location = f"{manifest}:{number}"
             path = PurePosixPath(value)
-            if not all(re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", part)
-                       for part in path.parts) or str(path) != value:
+            if not all(re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", part) or
+                       (kind == "skills" and index == 0 and part == "_collections" and len(path.parts) >= 3)
+                       for index, part in enumerate(path.parts)) or str(path) != value:
                 error(location, f"invalid catalog path {value!r}")
                 continue
             if value in registered:
@@ -184,7 +185,7 @@ def check_repo(root):
         if previous != package:
             error(location, f"{member} belongs to both {previous} and {package}")
 
-    for relative in ("CLAUDE.md", "skills/project-management/project-bootstrap/references/templates/CLAUDE.md"):
+    for relative in ("CLAUDE.md", "skills/_collections/project-management/project-bootstrap/references/templates/CLAUDE.md"):
         path = root / relative
         if not path.is_file() or path.read_text().strip() != "@AGENTS.md":
             error(relative, "expected only @AGENTS.md")

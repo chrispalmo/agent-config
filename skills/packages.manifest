@@ -4,21 +4,21 @@
 # Independent skills are intentionally absent: install either every skill or a
 # complete cross-linked package. This avoids partial dependency installs.
 
-project-management project-management/project-bootstrap
-project-management project-management/status-ledger
-project-management project-management/project-audit
+project-management _collections/project-management/project-bootstrap
+project-management _collections/project-management/status-ledger
+project-management _collections/project-management/project-audit
 
-interview interview
-interview interview/reverse-brief
+interview _collections/interview/interview
+interview _collections/interview/reverse-brief
 
-browser browser-session
-browser browser-cleanup
+browser _collections/browser/browser-session
+browser _collections/browser/browser-cleanup
 
-coordination coordination/triage
-coordination coordination/propose-tasks
-coordination coordination/delegate
-coordination coordination/harness
-coordination coordination/pause-for-review
+coordination _collections/coordination/triage
+coordination _collections/coordination/propose-tasks
+coordination _collections/coordination/delegate
+coordination _collections/coordination/harness
+coordination _collections/coordination/pause-for-review
 
-design design/design-tool
-design design/neon-neo-brutalist-minimal
+design _collections/design/design-tool
+design _collections/design/neon-neo-brutalist-minimal

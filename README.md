@@ -17,12 +17,15 @@ agent-config/
 ├── skills/
 │   ├── skills.manifest
 │   ├── packages.manifest
-│   ├── <skill>/SKILL.md
-│   └── <package>/<skill>/SKILL.md
+│   ├── _collections/
+│   │   └── <collection>/<skill>/SKILL.md
+│   └── <skill>/SKILL.md
 └── rules/
     ├── rules.manifest
     └── <rule>/RULE.md
 ```
+
+All skill collections live under [skills/_collections](skills/_collections/README.md); independent skills live directly under `skills/`. Collection overviews identify their member skills. Installed command names stay the same.
 
 ## Install
 
@@ -64,9 +67,9 @@ Cloud agents do not see this machine. Follow the human setup guide in [scripts/c
 
 ## Browser tabs
 
-The always-on [browser-session rule](rules/browser-session/RULE.md) routes browser work to [browser-session](skills/browser-session/SKILL.md). Agent-created tabs use `bot/<task>` groups and a shared local registry under `/tmp/agent-browser-<uid>/sessions/` (`/private/tmp/…` on macOS). This private per-user location works within normal workspace permissions without changing global settings. It is independent of each harness's working directory and temporary-directory environment. Session/tab activity has a two-hour grace period; tabs awaiting human action have a 48-hour hold unless the human requests indefinite retention. Temporary tabs should close when their purpose ends.
+The always-on [browser-session rule](rules/browser-session/RULE.md) routes browser work to [browser-session](skills/_collections/browser/browser-session/SKILL.md). Agent-created tabs use `bot/<task>` groups and a shared local registry under `/tmp/agent-browser-<uid>/sessions/` (`/private/tmp/…` on macOS). This private per-user location works within normal workspace permissions without changing global settings. It is independent of each harness's working directory and temporary-directory environment. Session/tab activity has a two-hour grace period; tabs awaiting human action have a 48-hour hold unless the human requests indefinite retention. Temporary tabs should close when their purpose ends.
 
-Invoke `$browser-cleanup` or request browser cleanup to use [browser-cleanup](skills/browser-cleanup/SKILL.md) manually. Scheduled cleanup uses that same skill and policy; installing this repository does not create a schedule. Ungrouped, unregistered, ambiguous, recently used, active, pinned, and audible tabs are spared. The registry is local to a machine; cloud agents cannot use it without access to the same state and browser. Source and installer checks do not prove that every harness invokes these skills or follows the rule.
+Invoke `$browser-cleanup` or request browser cleanup to use [browser-cleanup](skills/_collections/browser/browser-cleanup/SKILL.md) manually. Scheduled cleanup uses that same skill and policy; installing this repository does not create a schedule. Ungrouped, unregistered, ambiguous, recently used, active, pinned, and audible tabs are spared. The registry is local to a machine; cloud agents cannot use it without access to the same state and browser. Source and installer checks do not prove that every harness invokes these skills or follows the rule.
 
 The two skills form the `browser` package. Their helper has no browser access and only manages registry records and eligibility plans. Run `python3 scripts/test-browser-sessions.py` for isolated lifecycle checks.
 
@@ -76,9 +79,9 @@ When upgrading from the former persistent location, install the browser package 
 
 ## Coordinate work
 
-The [coordination package](skills/coordination/README.md) groups triage, propose-tasks, delegate, harness, and pause-for-review. They organize supplied ideas, propose next work, assign existing tasks, and optionally operate an explicitly chosen external native worker. Install together with `./scripts/install.sh --skills --package coordination --cursor --claude --agents`; the shared message and greeting rules use the separate normal rule installation flow.
+The [coordination package](skills/_collections/coordination/README.md) groups triage, propose-tasks, delegate, harness, and pause-for-review. They organize supplied ideas, propose next work, assign existing tasks, and optionally operate an explicitly chosen external native worker. Install together with `./scripts/install.sh --skills --package coordination --cursor --claude --agents`; the shared message and greeting rules use the separate normal rule installation flow.
 
-The [design collection](skills/design/README.md) groups the design comparison tool and the neon neo-brutalist minimal style.
+The [design collection](skills/_collections/design/README.md) groups the design comparison tool and the neon neo-brutalist minimal style.
 
 ## Search past chats
 
@@ -87,7 +90,7 @@ The [search-agent-chats skill](skills/search-agent-chats/SKILL.md) is installed 
 
 ## Adding skills and rules
 
-- Add independent skills under `skills/<name>/SKILL.md` or grouped skills under `skills/<package>/<name>/SKILL.md`, and register them in `skills/skills.manifest`.
+- Add independent skills under `skills/<name>/SKILL.md` or grouped skills under `skills/_collections/<collection>/<name>/SKILL.md`, and register them in `skills/skills.manifest`.
 - Add cross-linked skill packages to `skills/packages.manifest`.
 - Add rules under `rules/<name>/RULE.md` and register them in `rules/rules.manifest`.
 - Keep shared project guidance in `AGENTS.md` and `CLAUDE.md` as a one-line `@AGENTS.md` shim.

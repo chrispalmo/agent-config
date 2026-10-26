@@ -186,7 +186,7 @@ preflight_skill_dest() {
       previous_relative="${marker_source#"$SKILLS_ROOT"/}"
       previous_dir="${marker_source%/SKILL.md}"
       [[ "$marker_source" == "$SKILLS_ROOT/"* &&
-         "$previous_relative" =~ ^([a-z0-9]+(-[a-z0-9]+)*/)+SKILL\.md$ &&
+         "$previous_relative" =~ ^(_collections/)?([a-z0-9]+(-[a-z0-9]+)*/)+SKILL\.md$ &&
          "${previous_dir##*/}" == "${dest_dir##*/}" &&
          ! -e "$marker_source" && ! -L "$marker_source" ]] ||
         die "$dest_dir already exists and is not this repo's installation"

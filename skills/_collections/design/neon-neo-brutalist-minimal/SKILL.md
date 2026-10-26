@@ -1,9 +1,11 @@
 ---
 name: neon-neo-brutalist-minimal
-description: Apply the neon neo-brutalist minimal style to websites and app interfaces when the user selects it by name or reference. Use bold typography, crisp edges, concentrated neon accents, and deliberate light and dark themes; do not apply it to unrelated visual work.
+description: Apply the default neon neo-brutalist minimal style to visual work, especially websites and app interfaces, or when selected by name or reference. Use bold typography, crisp edges, concentrated neon accents, and deliberate light and dark themes; explicit user direction and established brands take precedence.
 ---
 
 # Neon neo-brutalist minimal
+
+Use this style by default for visual work wherever explicit user direction or an established brand leaves room. For static artifacts, adapt the typography, hierarchy, outlines, and accent palette to the medium; interface controls and motion apply only where relevant.
 
 Treat `$neon-neo-brutalist-minimal`, `/neon-neo-brutalist-minimal`, and clear references to this style as the same visual direction. This skill guides appearance within the requested task; it does not change the user's chosen product, functionality, or authorization. Explicit project direction and an established brand take precedence.
 

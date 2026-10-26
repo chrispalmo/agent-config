@@ -1,4 +1,4 @@
 interface:
   display_name: "Neon neo-brutalist minimal"
-  short_description: "Apply bold minimal UI with deliberate neon accents"
+  short_description: "Default neon style with bold type and clear hierarchy"
   default_prompt: "Use $neon-neo-brutalist-minimal to style this interface, including light and dark themes and the Avoid guidance."
