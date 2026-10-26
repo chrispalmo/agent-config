@@ -18,3 +18,7 @@ coordination coordination/triage
 coordination coordination/propose-tasks
 coordination coordination/delegate
 coordination coordination/harness
+coordination coordination/pause-for-review
+
+design design/design-tool
+design design/neon-neo-brutalist-minimal

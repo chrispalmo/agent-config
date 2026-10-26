@@ -27,10 +27,10 @@
     <rect x="0" y="184" width="156" height="56" rx="12" fill="#c1ff3d" stroke="#171717" stroke-width="2"/>
     <text x="78" y="218" class="label ink">Continue</text>
     <rect x="170" y="189" width="156" height="56" rx="12" fill="#171717"/>
-    <rect x="170" y="184" width="156" height="56" rx="12" fill="#ffd84a" stroke="#171717" stroke-width="2"/>
+    <rect x="170" y="184" width="156" height="56" rx="12" fill="#FFF3D4" stroke="#171717" stroke-width="2"/>
     <text x="248" y="218" class="label ink">Click</text>
     <rect x="340" y="189" width="156" height="56" rx="12" fill="#171717"/>
-    <rect x="340" y="184" width="156" height="56" rx="12" fill="#ff5a5f" stroke="#171717" stroke-width="2"/>
+    <rect x="340" y="184" width="156" height="56" rx="12" fill="#FFDEDE" stroke="#171717" stroke-width="2"/>
     <text x="418" y="218" class="label ink">Click</text>
 
     <text x="0" y="285" class="section light-muted">Quiet controls</text>
@@ -75,11 +75,11 @@
     <rect x="0" y="184" width="156" height="56" rx="12" fill="#c1ff3d" stroke="#0c0e15" stroke-width="2"/>
     <text x="78" y="218" class="label ink">Continue</text>
     <rect x="170" y="189" width="156" height="56" rx="12" fill="#0c0e15"/>
-    <rect x="170" y="184" width="156" height="56" rx="12" fill="#ffd84a" stroke="#0c0e15" stroke-width="2"/>
-    <text x="248" y="218" class="label ink">Click</text>
+    <rect x="170" y="184" width="156" height="56" rx="12" fill="#463D24" stroke="#0c0e15" stroke-width="2"/>
+    <text x="248" y="218" class="label dark">Click</text>
     <rect x="340" y="189" width="156" height="56" rx="12" fill="#0c0e15"/>
-    <rect x="340" y="184" width="156" height="56" rx="12" fill="#ff5a5f" stroke="#0c0e15" stroke-width="2"/>
-    <text x="418" y="218" class="label ink">Click</text>
+    <rect x="340" y="184" width="156" height="56" rx="12" fill="#4D282B" stroke="#0c0e15" stroke-width="2"/>
+    <text x="418" y="218" class="label dark">Click</text>
 
     <text x="0" y="285" class="section dark-muted">Quiet controls</text>
     <rect x="0" y="302" width="194" height="50" rx="10" fill="none" stroke="#f9f8ff" stroke-width="2"/>

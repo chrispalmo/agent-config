@@ -76,7 +76,9 @@ When upgrading from the former persistent location, install the browser package 
 
 ## Coordinate work
 
-The [coordination package](skills/coordination/README.md) groups triage, propose-tasks, delegate, and harness. They organize supplied ideas, propose next work, assign existing tasks, and optionally operate an explicitly chosen external native worker. Install together with `./scripts/install.sh --skills --package coordination --cursor --claude --agents`; the shared message and greeting rules use the separate normal rule installation flow.
+The [coordination package](skills/coordination/README.md) groups triage, propose-tasks, delegate, harness, and pause-for-review. They organize supplied ideas, propose next work, assign existing tasks, and optionally operate an explicitly chosen external native worker. Install together with `./scripts/install.sh --skills --package coordination --cursor --claude --agents`; the shared message and greeting rules use the separate normal rule installation flow.
+
+The [design collection](skills/design/README.md) groups the design comparison tool and the neon neo-brutalist minimal style.
 
 ## Search past chats
 

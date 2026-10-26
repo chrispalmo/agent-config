@@ -1,6 +1,6 @@
 # Coordination skills
 
-Four independently usable capabilities for organizing ideas, proposing work, assigning tasks, and optionally operating an external native worker. There is no required sequence. Their source folders live together here, following the project-management package layout. Installed skill names remain unchanged.
+Five independently usable capabilities for organizing ideas, proposing work, assigning tasks, operating an external native worker, and holding requested review checkpoints. There is no required sequence. Their source folders live together here, following the project-management package layout. Installed skill names remain unchanged.
 
 ## Choose the starting point
 
@@ -10,8 +10,11 @@ Four independently usable capabilities for organizing ideas, proposing work, ass
 | [propose-tasks](propose-tasks/SKILL.md) | The question is what to do next in a project or established thread. | Existing plans checked first; remaining commitments distinguished from optional further development in a numbered task/justification table. |
 | [delegate](delegate/SKILL.md) | Tasks already exist and need owners or a delegation proposal. | Concrete recipient/model recommendations, authorized dispatch within the current harness, and checked results. Existing chats are preferred where useful. |
 | [harness](harness/SKILL.md) | The human explicitly chooses another harness for defined work. | Agreed native client/subscription/model/effort, recoverable execution, failure handling, and artifacts returned to the owner. |
+| [pause-for-review](pause-for-review/SKILL.md) | The human explicitly requests staged review checkpoints. | Prepared artifacts, an explicit review hold, and continuation according to the human’s instructions. |
 
 Triage draws structure from supplied material. Propose-tasks draws useful options from current project or thread state. Both can end in discussion without assigning anything. When inspected agreed work is complete, propose-tasks says so; required decisions, blockers, and held integration remain open.
+
+Pause-for-review can add explicitly requested checkpoints anywhere in these workflows. It remains independently invoked; collection membership does not add review gates or activate it automatically. The other skill entrypoints need no behavior changes for this move.
 
 ## How the skills connect
 
@@ -46,7 +49,7 @@ The [address-the-user rule](../../rules/address-the-user/RULE.md) keeps the huma
 ./scripts/install.sh --skills --package coordination --cursor --claude --agents
 ```
 
-This installs all four skills and their resources while preserving other installed skills. Individual runtime use remains independent; the package installer includes all four members. Shared message and greeting rules use the normal rule installation flow; `--rules` refreshes all registered rules.
+This installs all five skills and their resources while preserving other installed skills. Individual runtime use remains independent; the package installer includes all five members. Shared message and greeting rules use the normal rule installation flow; `--rules` refreshes all registered rules.
 
 ## Evidence and maintenance
 

@@ -70,7 +70,7 @@ plant_bundled() {
 # Default install fills skills and rules for Cursor, Claude, and Codex.
 reset_roots
 expect_exit 0 "default install" "$INSTALL"
-assert_skill "$CODEX_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design-tool/SKILL.md"
+assert_skill "$CODEX_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design/design-tool/SKILL.md"
 assert_skill "$CLAUDE_SKILLS/project-bootstrap/SKILL.md" "$REPO_ROOT/skills/project-management/project-bootstrap/SKILL.md"
 cmp -s "$CODEX_SKILLS/project-audit/references/audit-rubric.md" \
   "$REPO_ROOT/skills/project-management/project-audit/references/audit-rubric.md" || fail "audit reference differs"
@@ -85,7 +85,7 @@ assert_contains "$CODEX_AGENTS" 'Call the user Chris. When directly replying to 
 assert_contains "$CODEX_AGENTS" "make the initial substantive reply and final result understandable on their own"
 assert_contains "$CODEX_AGENTS" 'Always create `CLAUDE.md`'
 assert_not_contains "$CODEX_AGENTS" "Do not hard-wrap Markdown prose"
-assert_skill "$CURSOR_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design-tool/SKILL.md"
+assert_skill "$CURSOR_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design/design-tool/SKILL.md"
 for root in "$CODEX_SKILLS" "$CLAUDE_SKILLS" "$CURSOR_SKILLS"; do
   while IFS= read -r path; do
     [[ -n "$path" && "$path" != \#* ]] || continue
@@ -134,7 +134,7 @@ ok "address rule rename and preflight"
 reset_roots
 mkdir -p "$SHARED_SKILLS/project-audit" "$CURSOR_NATIVE_SKILLS/design-tool" "$CODEX_SKILLS/plaintext" "$CODEX_SKILLS/ingest" "$SHARED_SKILLS/proofread" "$CURSOR_NATIVE_SKILLS/foreign"
 ln -s "$REPO_ROOT/skills/project-management/project-audit/SKILL.md" "$SHARED_SKILLS/project-audit/SKILL.md"
-ln -s "$REPO_ROOT/skills/design-tool/SKILL.md" "$CURSOR_NATIVE_SKILLS/design-tool/SKILL.md"
+ln -s "$REPO_ROOT/skills/design/design-tool/SKILL.md" "$CURSOR_NATIVE_SKILLS/design-tool/SKILL.md"
 ln -s "$REPO_ROOT/skills/plaintext/SKILL.md" "$CODEX_SKILLS/plaintext/SKILL.md"
 ln -s "$REPO_ROOT/skills/project-management/ingest/SKILL.md" "$CODEX_SKILLS/ingest/SKILL.md"
 ln -s "$REPO_ROOT/skills/proofread/SKILL.md" "$SHARED_SKILLS/proofread/SKILL.md"
@@ -155,7 +155,7 @@ ok "shared root migration and preservation"
 reset_roots
 mkdir -p "$SHARED_SKILLS/project-audit/references" "$CURSOR_NATIVE_SKILLS/design-tool"
 ln -s "$REPO_ROOT/skills/project-management/project-audit/SKILL.md" "$SHARED_SKILLS/project-audit/SKILL.md"
-ln -s "$REPO_ROOT/skills/design-tool/SKILL.md" "$CURSOR_NATIVE_SKILLS/design-tool/SKILL.md"
+ln -s "$REPO_ROOT/skills/design/design-tool/SKILL.md" "$CURSOR_NATIVE_SKILLS/design-tool/SKILL.md"
 echo preserve > "$SHARED_SKILLS/project-audit/references/foreign.md"
 expect_exit 1 "shared root foreign resource" env CURSOR_SKILLS="$SHARED_SKILLS" CODEX_SKILLS="$SHARED_SKILLS" "$INSTALL" --skills --cursor --agents
 assert_file "$CURSOR_NATIVE_SKILLS/design-tool/SKILL.md"
@@ -176,7 +176,7 @@ ok "foreign native duplicate abort"
 reset_roots
 expect_exit 0 "all targets" "$INSTALL" --all
 for root in "$CURSOR_SKILLS" "$CLAUDE_SKILLS" "$CODEX_SKILLS"; do
-  assert_skill "$root/design-tool/SKILL.md" "$REPO_ROOT/skills/design-tool/SKILL.md"
+  assert_skill "$root/design-tool/SKILL.md" "$REPO_ROOT/skills/design/design-tool/SKILL.md"
 done
 assert_managed "$CURSOR_RULES/conversation-titles.mdc"
 assert_managed "$CLAUDE_RULES/conversation-titles.md"
@@ -215,7 +215,7 @@ ok "retired skill ownership"
 # --cursor writes Cursor-native skills and rules only.
 reset_roots
 expect_exit 0 "cursor install" "$INSTALL" --cursor
-assert_skill "$CURSOR_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design-tool/SKILL.md"
+assert_skill "$CURSOR_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design/design-tool/SKILL.md"
 assert_managed "$CURSOR_RULES/address-the-user.mdc"
 assert_managed "$CURSOR_RULES/markdown-no-hard-wrap.mdc"
 assert_contains "$CURSOR_RULES/address-the-user.mdc" "alwaysApply: true"
@@ -228,9 +228,9 @@ ok "cursor install"
 # Combined flags write all target roots.
 reset_roots
 expect_exit 0 "combined flags" "$INSTALL" --cursor --claude --agents
-assert_skill "$CURSOR_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design-tool/SKILL.md"
-assert_skill "$CLAUDE_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design-tool/SKILL.md"
-assert_skill "$CODEX_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design-tool/SKILL.md"
+assert_skill "$CURSOR_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design/design-tool/SKILL.md"
+assert_skill "$CLAUDE_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design/design-tool/SKILL.md"
+assert_skill "$CODEX_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design/design-tool/SKILL.md"
 assert_managed "$CURSOR_RULES/address-the-user.mdc"
 assert_managed "$CLAUDE_MD"
 assert_managed "$CODEX_AGENTS"
@@ -253,11 +253,30 @@ expect_exit 0 "package preserves other skills" "$INSTALL" --package interview --
 assert_file "$CODEX_SKILLS/proofread/SKILL.md"
 ok "package preserves other skills"
 
+# The design collection installs both nested members and their resources.
+reset_roots
+expect_exit 0 "design package" "$INSTALL" --package design --cursor --claude --agents
+for root in "$CODEX_SKILLS" "$CLAUDE_SKILLS" "$CURSOR_SKILLS"; do
+  for member in design-tool neon-neo-brutalist-minimal; do
+    assert_skill "$root/$member/SKILL.md" "$REPO_ROOT/skills/design/$member/SKILL.md"
+    printf '%s\n' "$REPO_ROOT/skills/$member/SKILL.md" > "$root/$member/$MANAGED_SKILL_MARKER"
+  done
+  assert_file "$root/neon-neo-brutalist-minimal/references/components.svg"
+done
+expect_exit 0 "design source relocation" "$INSTALL" --package design --cursor --claude --agents
+for root in "$CODEX_SKILLS" "$CLAUDE_SKILLS" "$CURSOR_SKILLS"; do
+  for member in design-tool neon-neo-brutalist-minimal; do
+    assert_contains "$root/$member/$MANAGED_SKILL_MARKER" "$REPO_ROOT/skills/design/$member/SKILL.md"
+  done
+done
+assert_missing "$CODEX_SKILLS/triage/SKILL.md"
+ok "design package and source relocation"
+
 # Coordination is an all-member package; resources and rules remain distinct.
 reset_roots
 expect_exit 0 "coordination package" "$INSTALL" --skills --package coordination --cursor --claude --agents
 for root in "$CODEX_SKILLS" "$CLAUDE_SKILLS" "$CURSOR_SKILLS"; do
-  for member in triage propose-tasks delegate harness; do
+  for member in triage propose-tasks delegate harness pause-for-review; do
     assert_skill "$root/$member/SKILL.md" "$REPO_ROOT/skills/coordination/$member/SKILL.md"
   done
   cmp -s "$root/harness/references/native-claude.md" "$REPO_ROOT/skills/coordination/harness/references/native-claude.md" || fail "Claude adapter differs"
@@ -275,13 +294,13 @@ expect_exit 1 "coordination member selector" "$INSTALL" --skill coordination/tri
 
 # Moving sources into their package preserves names and refreshes owned markers.
 for root in "$CODEX_SKILLS" "$CLAUDE_SKILLS" "$CURSOR_SKILLS"; do
-  for member in triage propose-tasks delegate harness; do
+  for member in triage propose-tasks delegate harness pause-for-review; do
     printf '%s\n' "$REPO_ROOT/skills/$member/SKILL.md" > "$root/$member/$MANAGED_SKILL_MARKER"
   done
 done
 expect_exit 0 "coordination source relocation" "$INSTALL" --package coordination --cursor --claude --agents
 for root in "$CODEX_SKILLS" "$CLAUDE_SKILLS" "$CURSOR_SKILLS"; do
-  for member in triage propose-tasks delegate harness; do
+  for member in triage propose-tasks delegate harness pause-for-review; do
     assert_skill "$root/$member/SKILL.md" "$REPO_ROOT/skills/coordination/$member/SKILL.md"
     assert_contains "$root/$member/$MANAGED_SKILL_MARKER" "$REPO_ROOT/skills/coordination/$member/SKILL.md"
   done
@@ -372,7 +391,7 @@ ok "foreign Codex AGENTS.md abort"
 reset_roots
 plant_bundled "$CLAUDE_BUNDLED_SKILLS" design-tool
 expect_exit 2 "claude bundled warning" "$INSTALL" --skills --claude
-assert_skill "$CLAUDE_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design-tool/SKILL.md"
+assert_skill "$CLAUDE_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design/design-tool/SKILL.md"
 assert_contains "$WORKDIR/err" '"design-tool" skill will override Claude Code'
 ok "bundled warning"
 
@@ -413,7 +432,7 @@ ok "uninstall identity"
 reset_roots
 expect_exit 0 "default uninstall setup" "$INSTALL" --cursor --claude
 "$UNINSTALL" >/dev/null
-assert_skill "$CURSOR_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design-tool/SKILL.md"
+assert_skill "$CURSOR_SKILLS/design-tool/SKILL.md" "$REPO_ROOT/skills/design/design-tool/SKILL.md"
 assert_managed "$CURSOR_RULES/address-the-user.mdc"
 assert_missing "$CLAUDE_MD"
 ok "default uninstall skips cursor"
