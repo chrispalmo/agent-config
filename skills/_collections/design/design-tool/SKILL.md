@@ -1,9 +1,12 @@
 ---
 name: design-tool
-description: Build a temporary chooser to compare and refine complete design proposals in a running application, then retain the selected product implementation and remove experiment-owned code. Use when the user wants to compare design directions before choosing one.
+description: Build a temporary chooser to compare and refine complete design proposals in a running application, then retain the selected product implementation and remove experiment-owned code. Use only when the user explicitly invokes design-tool to compare design directions before choosing one.
+disable-model-invocation: true
 ---
 
 # Design Tool
+
+Use only when the user explicitly invokes design-tool.
 
 The chooser is temporary developer UI; the candidate widget is product UI. Floating placement of the chooser does not constrain candidate designs, which can be inline, modal, navigation, or another placement suited to the product.
 

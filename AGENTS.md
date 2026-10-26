@@ -23,19 +23,15 @@ Central repository of Agent Skills and Agent Rules for Cursor, Claude Code, and 
 | Guidance maintenance | `docs/maintenance.md` |
 | Instruction and workflow audit findings | `docs/audits/2026-10-07-instruction-and-workflow-audit.md` |
 
-## Adding or removing a skill
+## Complete maintenance changes
 
-1. Create or remove the skill directory under `skills/`.
-2. Add or remove its path in `skills/skills.manifest`.
-3. If it belongs to a cross-linked group, keep `skills/packages.manifest` in sync.
-4. Run `./scripts/test-install.sh`.
+Own the consequences of the requested change. Finish when the affected source, catalogs, package layout, active references, tests, and authorized installed copies agree. Infer routine consistency repairs from the request; the user should not need to enumerate follow-on cleanup. Follow `docs/maintenance.md` for the maintenance procedure and verification commands.
 
-## Adding or removing a rule
+Follow the existing layout when adding or moving artifacts. Collections group at least two related skills under `skills/_collections/<collection>/<skill>/`, with matching package membership. When only one remains, move it to `skills/<name>/` and remove the obsolete package, overview, and empty directories. Inspect the filesystem as well as Git: empty directories are not tracked. Preserve intentional fixtures and unrelated content.
 
-1. Create or remove `rules/<name>/RULE.md`.
-2. Add or remove its path in `rules/rules.manifest`.
-3. Set `alwaysApply: true` or `globs` in frontmatter.
-4. Run `./scripts/test-install.sh`.
+Resolve the current authoritative source and accepted decisions before copying or revising guidance or assets. Inspect existing changes before editing, and re-read shared records before updating them so concurrent work is preserved. Historical reports describe their dated state; they do not override current sources or grant new authority.
+
+Carry forward installation and publication authorization within the current task. Scope writes to the authorized work. Completion reports must distinguish source changes, installation, validation, and publication, and name relevant remaining changes or blockers. Passing tests or syncing one commit does not establish that the whole repository is clean or synced.
 
 ## Cross-agent compatibility
 
@@ -45,7 +41,7 @@ When setting up project agent guidance in any repository, put shared guidance in
 
 ## Guidance maintenance
 
-When changing skills, rules, or catalogs, follow `docs/maintenance.md`. Run `python3 scripts/check-content.py`, `./scripts/test-install.sh`, and `git diff --check`. Review related guidance and templates together, preserve the user's established preferences, and do not claim behavioral improvements from static checks.
+When changing guidance, preserve the user's established preferences and correct demonstrated gaps with the smallest useful change. Keep procedures in `docs/maintenance.md` rather than duplicating them here. Static checks do not establish behavioral improvements.
 
 Audit findings and proposals are evidence, not standalone instructions. Adopted changes live in the canonical skills and rules; the audit report holds their evidence and closeout. Harness compatibility and the broad installer audit remain deferred until the next harness switch; behavioral evaluations remain deferred until requested. The current audit work store remains the report.
 

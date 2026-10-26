@@ -21,11 +21,15 @@ Run the archive's tracked search command:
 python3 "<repo_root>/scripts/search-agent-chats.py" "<query>" --repo "<repo_root>" --json
 ```
 
-The default word search AND-matches words in an event. Optional `--mode semantic` or `--mode hybrid` uses installed local embeddings; a query never embeds archive documents or downloads a model. Available filters include `--harness cursor|codex|claude`, `--project`, `--event-kind`, `--role`, `--author`, `--submitter`, `--after`, and `--before`.
+The default word search AND-matches words in an event. Optional `--mode semantic` or `--mode hybrid` uses installed local embeddings; a query never embeds archive documents or downloads a model. Available filters include `--harness cursor|codex|claude`, `--conversation` (exact ID across parts), `--project`, `--event-kind`, `--role`, `--author`, `--submitter`, `--after`, and `--before`.
 
-Results include `search_context` with scope, freshness, and coverage. Capture observation, word-index refresh, and embedded-document coverage are separate. Word-index refresh is bounded and can defer files. Capture reports describe the last observed native source files, not a guarantee about current or missing sources. Meaning coverage can be partial even when word search is current. Missing metadata means unknown coverage. A miss establishes only that the searched coverage did not produce a match.
+Meaning search covers user message text and final assistant answers. Word search includes the deeper retained native content: tools, results, reasoning, and context. Meaning hits expose `completion_basis`: Codex/Claude usually have native completion signals; older Cursor terminal answers are inferred and can be provisional. User-role text can include harness-supplied context and does not establish human authorship.
 
-Search refreshes a private local SQLite cache from canonical JSONL; capture hooks do not index. Observe skipped/deferred/stale warnings. An `--index` override should use a dedicated private directory; `--no-refresh` explicitly searches the existing cache.
+A surface match supplies a conversation ID, harness, and exact event citation. Inspect its associated content directly or use `--harness <harness> --conversation <conversation_id>` for word searches across the full conversation's parts. These are complementary capabilities, not a required search sequence.
+
+Results include `search_context` with scope, freshness, and coverage. Capture observation, word-index refresh, and embedded-document coverage are separate. Word-index refresh is bounded and can defer files. Capture reports describe the last observed native source files, not a guarantee about current or missing sources. Meaning coverage reports eligible surface events, fully embedded events, and files still awaiting extraction. An event is complete only when all its text windows are embedded; its denominator is partial while extraction is pending. Meaning coverage can be partial even when word search is current. Missing metadata means unknown coverage. A miss establishes only that the searched coverage did not produce a match.
+
+Independent background workers maintain the private word cache and meaning index from canonical JSONL; capture and uploads do not wait for them. With the word worker active, searches read its cache. Without it, standalone search can perform a bounded word refresh; a search never catches up document embeddings. Observe skipped/deferred/stale warnings. An `--index` override should use a dedicated private directory; `--no-refresh` explicitly searches the existing cache.
 
 ## Use results safely
 

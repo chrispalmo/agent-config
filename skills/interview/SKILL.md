@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # Interview
 
-Start only when the user requests this workflow, even if a harness ignores invocation metadata. Infer the subject and originating task from the conversation; use the first batch to establish missing scope if necessary. Do not auto-invoke reverse-brief.
+Start only when the user requests this workflow, even if a harness ignores invocation metadata. Infer the subject and originating task from the conversation; use the first batch to establish missing scope if necessary.
 
 ## Question batches
 
@@ -20,4 +20,4 @@ Move from scope and success toward consequential uncertainties and practical cho
 
 End when enough context exists, the configured limit is reached, or the user says DONE or STOP. Do not require another DONE after the final useful batch. Summarize any decision-critical uncertainty and resume an already-authorized originating task once the interview ends. STOP ends interviewing; if it also cancels the task, respect that instruction.
 
-While awaiting interview answers, do not begin dependent implementation. Independent work may continue only when the user has authorized it. A direct invocation of reverse-brief ends the interview and runs that workflow. Do not add a separate confirmation gate unless the user requested one or a consequential choice remains unresolved.
+While awaiting interview answers, do not begin dependent implementation. Independent work may continue only when the user has authorized it. Do not add a separate confirmation gate unless the user requested one or a consequential choice remains unresolved.

@@ -8,9 +8,6 @@ project-management _collections/project-management/project-bootstrap
 project-management _collections/project-management/status-ledger
 project-management _collections/project-management/project-audit
 
-interview _collections/interview/interview
-interview _collections/interview/reverse-brief
-
 browser _collections/browser/browser-session
 browser _collections/browser/browser-cleanup
 

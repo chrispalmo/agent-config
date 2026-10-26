@@ -7,6 +7,7 @@ INSTALL="$REPO_ROOT/scripts/install.sh"
 UNINSTALL="$REPO_ROOT/scripts/uninstall.sh"
 MANAGED_MARK='<!-- managed-by: chrispalmo/agent-config -->'
 MANAGED_SKILL_MARKER='.agent-config-managed'
+MANAGED_RESOURCE_MARKER='.agent-config-resources'
 
 WORKDIR="$(mktemp -d "${TMPDIR:-/tmp}/agent-config-install-test.XXXXXX")"
 export CODEX_SKILLS="$WORKDIR/codex-home/skills"
@@ -202,12 +203,18 @@ ok "resource refresh"
 
 # Retired owned skills are pruned by full installs; unrelated content survives.
 mkdir -p "$CODEX_SKILLS/proofread" "$CODEX_SKILLS/foreign-retired"
+mkdir -p "$CODEX_SKILLS/reverse-brief/agents"
+echo retired > "$CODEX_SKILLS/reverse-brief/SKILL.md"
+echo "$REPO_ROOT/skills/_collections/interview/reverse-brief/SKILL.md" > "$CODEX_SKILLS/reverse-brief/$MANAGED_SKILL_MARKER"
+echo agents > "$CODEX_SKILLS/reverse-brief/$MANAGED_RESOURCE_MARKER"
+printf 'policy:\n  allow_implicit_invocation: false\n' > "$CODEX_SKILLS/reverse-brief/agents/openai.yaml"
 echo retired > "$CODEX_SKILLS/proofread/SKILL.md"
 echo "$REPO_ROOT/skills/proofread/SKILL.md" > "$CODEX_SKILLS/proofread/$MANAGED_SKILL_MARKER"
 echo preserve > "$CODEX_SKILLS/proofread/operator-note.txt"
 echo foreign > "$CODEX_SKILLS/foreign-retired/SKILL.md"
 expect_exit 0 "retired skill prune" "$INSTALL" --skills --agents
 assert_missing "$CODEX_SKILLS/proofread/SKILL.md"
+assert_missing "$CODEX_SKILLS/reverse-brief"
 assert_file "$CODEX_SKILLS/proofread/operator-note.txt"
 assert_file "$CODEX_SKILLS/foreign-retired/SKILL.md"
 ok "retired skill ownership"
@@ -236,21 +243,29 @@ assert_managed "$CLAUDE_MD"
 assert_managed "$CODEX_AGENTS"
 ok "combined flags"
 
-# --package interview installs only the complete skills package.
+# Interview becomes standalone; an owned installation follows its source move.
 reset_roots
-expect_exit 0 "package interview" "$INSTALL" --package interview --agents
-assert_skill "$CODEX_SKILLS/interview/SKILL.md" "$REPO_ROOT/skills/_collections/interview/interview/SKILL.md"
-assert_skill "$CODEX_SKILLS/reverse-brief/SKILL.md" "$REPO_ROOT/skills/_collections/interview/reverse-brief/SKILL.md"
+mkdir -p "$CODEX_SKILLS/interview/agents"
+echo previous > "$CODEX_SKILLS/interview/SKILL.md"
+echo "$REPO_ROOT/skills/_collections/interview/interview/SKILL.md" > "$CODEX_SKILLS/interview/$MANAGED_SKILL_MARKER"
+echo agents > "$CODEX_SKILLS/interview/$MANAGED_RESOURCE_MARKER"
+echo previous > "$CODEX_SKILLS/interview/agents/openai.yaml"
+expect_exit 0 "standalone interview relocation" "$INSTALL" --skill interview --agents
+assert_skill "$CODEX_SKILLS/interview/SKILL.md" "$REPO_ROOT/skills/interview/SKILL.md"
+cmp -s "$CODEX_SKILLS/interview/agents/openai.yaml" "$REPO_ROOT/skills/interview/agents/openai.yaml" || fail "interview invocation policy differs"
+assert_missing "$CODEX_SKILLS/reverse-brief"
 assert_missing "$CODEX_SKILLS/design-tool/SKILL.md"
 assert_missing "$CODEX_AGENTS"
-ok "package interview"
+expect_exit 1 "retired interview package" "$INSTALL" --package interview --agents
+ok "standalone interview and source relocation"
 
 # A package install does not prune other owned skills.
 mkdir -p "$CODEX_SKILLS/proofread"
 echo retired > "$CODEX_SKILLS/proofread/SKILL.md"
 echo "$REPO_ROOT/skills/proofread/SKILL.md" > "$CODEX_SKILLS/proofread/$MANAGED_SKILL_MARKER"
-expect_exit 0 "package preserves other skills" "$INSTALL" --package interview --agents
+expect_exit 0 "package preserves other skills" "$INSTALL" --package browser --agents
 assert_file "$CODEX_SKILLS/proofread/SKILL.md"
+assert_skill "$CODEX_SKILLS/interview/SKILL.md" "$REPO_ROOT/skills/interview/SKILL.md"
 ok "package preserves other skills"
 
 # The design collection installs both nested members and their resources.
@@ -335,8 +350,8 @@ assert_missing "$CODEX_AGENTS"
 expect_exit 0 "single skill re-run" "$INSTALL" --skill plaintext --agents
 assert_skill "$CODEX_SKILLS/plaintext/SKILL.md" "$REPO_ROOT/skills/plaintext/SKILL.md"
 expect_exit 1 "unknown skill" "$INSTALL" --skill no-such-skill --agents
-expect_exit 1 "package member" "$INSTALL" --skill interview --agents
-expect_exit 1 "mixed selectors" "$INSTALL" --skill plaintext --package interview --agents
+expect_exit 1 "package member" "$INSTALL" --skill _collections/browser/browser-session --agents
+expect_exit 1 "mixed selectors" "$INSTALL" --skill plaintext --package browser --agents
 expect_exit 1 "missing skill argument" "$INSTALL" --skill
 expect_exit 1 "duplicate skill selector" "$INSTALL" --skill plaintext --skill github-init
 expect_exit 1 "rules-only single skill" "$INSTALL" --rules --skill plaintext --agents

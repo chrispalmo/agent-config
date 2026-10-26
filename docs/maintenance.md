@@ -21,6 +21,14 @@ The [bounded activation-signal comparison](audits/evidence/2026-10-23-batch5-act
 
 Do not add a second task ledger for the audit. Update the report's action queue when implementation or deferred work changes. A future project-management backend decision may replace that queue; migrate it once rather than maintaining both.
 
+## Scope and completion
+
+Treat a requested maintenance change as an outcome across its affected dependencies. Trace the changed name, path, behavior, or ownership through canonical sources, catalogs/packages, active documentation, references/templates, relevant checks, and authorized installed copies. Use the existing layout and the collection rules in [AGENTS.md](../AGENTS.md). Remove resulting obsolete wrappers and empty source directories in the same change; inspect the local filesystem because Git does not track empty directories. Keep intentional fixtures and unrelated work.
+
+When the request depends on prior work or several plausible source versions, resolve the accepted decision and the relevant current artifact before editing. Distinguish an approved design from its implemented or installed version when they differ. Use relevant retained chat evidence when needed, without making history search a prerequisite for ordinary edits. Update active pointers; preserve dated evidence and use a verified historical reference for a retired artifact where a historical link must remain usable.
+
+Inspect existing changes and reconcile shared records before writing. Carry forward authority already given in the current task, including installation or synchronization, without asking the user to repeat it. Use the narrowest supported installation that completes the requested change. Package and single-skill installs preserve other skills, including retired members; remove authorized retired copies through the ownership-aware helper in [scripts/common.sh](../scripts/common.sh), or use a full install when the entire source state is authorized. Do not install unrelated pending edits merely to prune one retired skill.
+
 ## Checks for source changes
 
 Use a Python virtual environment for validation dependencies: `python3 -m venv .venv`, activate it with `. .venv/bin/activate`, then run `python3 -m pip install -r requirements-dev.txt`. Run these checks after changing a skill, rule, catalog, or package:
@@ -32,7 +40,7 @@ python3 scripts/test-content.py
 git diff --check
 ```
 
-The [content check](../scripts/check-content.py) validates registered and unregistered source artifacts, duplicate paths and basenames, YAML syntax and duplicate keys, metadata identity and boolean types, paired cross-harness invocation controls, draft separation, scoped-rule metadata, package membership, and canonical compatibility shims. It checks that explicit-only descriptions state activation, but cannot establish full prose semantics, every prose link, external facts, harness discovery, or agent behavior. Installed resource copies and managed retirement are covered by the installer tests. The existing installer tests remain a regression baseline; running them does not complete the deferred installer audit.
+The [content check](../scripts/check-content.py) validates registered and unregistered source artifacts, duplicate paths and basenames, YAML syntax and duplicate keys, metadata identity and boolean types, paired cross-harness invocation controls, draft separation, scoped-rule metadata, collection/package agreement, collections with at least two members, empty source folders, and canonical compatibility shims. It checks that explicit-only descriptions state activation, but cannot establish full prose semantics, every prose link, external facts, harness discovery, or agent behavior. Installed resource copies and managed retirement are covered by the installer tests. The existing installer tests remain a regression baseline; running them does not complete the deferred installer audit.
 
 Read the affected skill together with its related rules and templates. Check that descriptions and body triggers agree, existing authorization carries forward, explicit user intent wins, and concrete completion conditions are stated. Ask whether each added step prevents an observed failure or merely prescribes ceremony. Keep uncertainty and proposed decisions visible; do not claim behavioral gains from a static review.
 
@@ -64,4 +72,6 @@ Keep this small table until a compatibility review warrants a detailed support m
 
 ## Completion of a maintenance change
 
-Record the concrete problem, changed instruction, checks run, and remaining limitations in the existing authoritative record. Show the source diff. Installing globally, adopting a new backend, or publishing changes is a separate action whose authorization comes from the user's request and the applicable repository rules.
+Record the concrete problem, changed instruction, checks run, and remaining limitations in the existing authoritative record. Show the source diff and inspect the final affected tree and references. If installation was authorized, compare the affected installed entrypoints, resources, and ownership paths with source and verify retirements. If publication was authorized, verify the intended changes reached the remote and report any relevant work still local. Name the actual scope of completion: source saved, installed, committed, or pushed. A passing suite or matching branch tips does not prove that uncommitted or untracked work is published.
+
+Installing globally, adopting a new backend, and publishing still require authority from the user's request and applicable repository rules; existing authority carries forward. Report a concrete unmet prerequisite instead of stopping at an unqualified completion claim. No extra approval is needed for routine consistency repairs within an authorized change.

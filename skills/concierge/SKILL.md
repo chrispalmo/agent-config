@@ -1,6 +1,7 @@
 ---
 name: concierge
-description: Deliver complete work and anticipate the user's follow-up questions, with concise responses backed by human-readable answers and prepared alternatives. Use when the user wants sustained iteration or exploration beyond a first pass, including useful progress while resources or decisions are pending.
+description: Deliver complete work and anticipate the user's follow-up questions, with concise responses backed by human-readable answers and prepared alternatives. Use only when the user explicitly invokes concierge for sustained iteration or exploration beyond a first pass, including useful progress while resources or decisions are pending.
+disable-model-invocation: true
 ---
 
 # Concierge
@@ -8,6 +9,8 @@ description: Deliver complete work and anticipate the user's follow-up questions
 Turn available effort into a useful result and prepared choices. Keep the chat response short, with substantial, inspectable work behind named links and a readable best response available while long work continues. Optimize for the user's time to a confident decision and a usable outcome.
 
 ## Activation and depth
+
+Start only when the user explicitly invokes concierge. A request for thorough or sustained work alone does not activate it.
 
 Infer the direction, useful first deliverable, constraints, and existing authorization from the request. A broad direction can be sufficient; do not require a fixed final specification before making progress. Document consequential assumptions and revisit them when evidence changes.
 

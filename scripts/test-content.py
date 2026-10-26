@@ -48,36 +48,63 @@ class ContentChecks(unittest.TestCase):
         self.edit("skills/skills.manifest", "_collections/design/design-tool", "design/_collections/design-tool")
         self.rejects("invalid catalog path")
 
+    def test_empty_source_folders_are_rejected(self):
+        (self.root / "rules/retired-empty").mkdir()
+        (self.root / "skills/retired-empty/agents").mkdir(parents=True)
+        self.rejects("rules/retired-empty: empty source directory")
+        self.rejects("skills/retired-empty: empty source directory")
+
+    def test_collections_need_multiple_registered_members(self):
+        member = "_collections/browser/browser-cleanup"
+        self.edit("skills/skills.manifest", member + "\n", "")
+        self.edit("skills/packages.manifest", "browser " + member + "\n", "")
+        shutil.rmtree(self.root / "skills" / member)
+        empty_collection = self.root / "skills/_collections/retired-wrapper"
+        empty_collection.mkdir()
+        (empty_collection / "README.md").write_text("# Retired collection\n")
+        self.rejects("skills/_collections/browser: collection must contain at least two")
+        self.rejects("skills/_collections/retired-wrapper: collection must contain at least two")
+
+    def test_collection_membership_matches_package(self):
+        self.edit("skills/packages.manifest", "browser _collections/browser/browser-cleanup",
+                  "coordination _collections/browser/browser-cleanup")
+        self.rejects("_collections/browser/browser-cleanup must belong to package browser")
+
+    def test_packages_cannot_group_standalone_source_folders(self):
+        with (self.root / "skills/packages.manifest").open("a") as manifest:
+            manifest.write("misc concierge\n")
+        self.rejects("package member must live under _collections/misc/")
+
     def test_missing_codex_control(self):
-        (self.root / "skills/_collections/interview/interview/agents/openai.yaml").unlink()
+        (self.root / "skills/interview/agents/openai.yaml").unlink()
         self.rejects("requires Codex")
 
     def test_missing_shared_control(self):
-        self.edit("skills/_collections/interview/interview/SKILL.md", "disable-model-invocation: true\n", "")
+        self.edit("skills/interview/SKILL.md", "disable-model-invocation: true\n", "")
         self.rejects("requires disable-model-invocation")
 
     def test_quoted_policy_boolean(self):
-        self.edit("skills/_collections/interview/interview/agents/openai.yaml", "false", '"false"')
+        self.edit("skills/interview/agents/openai.yaml", "false", '"false"')
         self.rejects("must be a boolean")
 
     def test_quoted_frontmatter_boolean(self):
-        self.edit("skills/_collections/interview/interview/SKILL.md", "disable-model-invocation: true", 'disable-model-invocation: "true"')
+        self.edit("skills/interview/SKILL.md", "disable-model-invocation: true", 'disable-model-invocation: "true"')
         self.rejects("must be a boolean")
 
     def test_duplicate_nested_key(self):
-        self.edit("skills/_collections/interview/interview/agents/openai.yaml", "allow_implicit_invocation: false", "allow_implicit_invocation: false\n  allow_implicit_invocation: true")
+        self.edit("skills/interview/agents/openai.yaml", "allow_implicit_invocation: false", "allow_implicit_invocation: false\n  allow_implicit_invocation: true")
         self.rejects("duplicate key")
 
     def test_malformed_yaml(self):
-        self.edit("skills/_collections/interview/interview/agents/openai.yaml", "false", "[false")
+        self.edit("skills/interview/agents/openai.yaml", "false", "[false")
         self.rejects("invalid YAML")
 
     def test_explicit_invocation_not_hidden(self):
-        self.edit("skills/_collections/interview/interview/SKILL.md", "disable-model-invocation: true", "disable-model-invocation: true\nuser-invocable: false")
+        self.edit("skills/interview/SKILL.md", "disable-model-invocation: true", "disable-model-invocation: true\nuser-invocable: false")
         self.rejects("must remain user-invocable")
 
     def test_unsupported_policy_key(self):
-        self.edit("skills/_collections/interview/interview/agents/openai.yaml", "policy:", "policy:\n  disable_model_invocation: true")
+        self.edit("skills/interview/agents/openai.yaml", "policy:", "policy:\n  disable_model_invocation: true")
         self.rejects("unsupported invocation policy key")
 
     def test_draft_cannot_share_installed_identity(self):
@@ -93,7 +120,7 @@ class ContentChecks(unittest.TestCase):
         self.assertEqual(counts["drafts"], self.initial_draft_count + 1)
 
     def test_broken_description_does_not_crash(self):
-        self.edit("skills/_collections/interview/interview/SKILL.md", "description: Run an adaptive", "description: [Run an adaptive")
+        self.edit("skills/interview/SKILL.md", "description: Run an adaptive", "description: [Run an adaptive")
         self.rejects("invalid YAML")
 
 

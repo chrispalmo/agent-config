@@ -184,6 +184,34 @@ def check_repo(root):
         previous = members.setdefault(member, package)
         if previous != package:
             error(location, f"{member} belongs to both {previous} and {package}")
+        if PurePosixPath(member).parts[:2] != ("_collections", package):
+            error(location, f"package member must live under _collections/{package}/")
+
+    collections = {}
+    for member in skills:
+        parts = PurePosixPath(member).parts
+        if parts[0] == "_collections":
+            collection = parts[1]
+            collections.setdefault(collection, set()).add(member)
+            if members.get(member) != collection:
+                error("skills/packages.manifest", f"{member} must belong to package {collection}")
+    collection_root = root / "skills/_collections"
+    collection_dirs = [path for path in collection_root.glob("*") if path.is_dir()]
+    for collection in sorted(set(collections) | {path.name for path in collection_dirs}):
+        if len(collections.get(collection, set())) < 2:
+            error(f"skills/_collections/{collection}",
+                  "collection must contain at least two registered skills; use standalone skills otherwise")
+
+    # Inspect source containers, not resource/fixture trees that may intentionally
+    # contain empty directories. Git cannot report leftover empty source folders.
+    source_dirs = list((root / "skills").glob("*")) + list((root / "rules").glob("*"))
+    source_dirs += collection_dirs
+    for collection in collection_dirs:
+        source_dirs.extend(collection.glob("*"))
+    for path in sorted(set(source_dirs)):
+        if path.is_dir() and not path.is_symlink() and path.name != "__pycache__":
+            if not any(child.is_file() or child.is_symlink() for child in path.rglob("*")):
+                error(str(path.relative_to(root)), "empty source directory; remove the unused folder")
 
     for relative in ("CLAUDE.md", "skills/_collections/project-management/project-bootstrap/references/templates/CLAUDE.md"):
         path = root / relative
