@@ -7,12 +7,14 @@
 project-management project-management/project-bootstrap
 project-management project-management/status-ledger
 project-management project-management/project-audit
-project-management project-management/ingest
 
 interview interview
 interview interview/reverse-brief
 
-coordination triage
-coordination propose-tasks
-coordination delegate
-coordination harness
+browser browser-session
+browser browser-cleanup
+
+coordination coordination/triage
+coordination coordination/propose-tasks
+coordination coordination/delegate
+coordination coordination/harness

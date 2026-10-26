@@ -1,0 +1,23 @@
+[the user], I loaded the skill but didn't run the status command. Plan mode is on, and in this case `status` writes a file.
+
+**What I found:**
+
+**1.1 Skill source.** `browser-session` loaded through the native Skill tool. Base directory: [/Users/cp/.claude/skills/browser-session](/Users/cp/.claude/skills/browser-session). The helper is at [scripts/registry.py](/Users/cp/.claude/skills/browser-session/scripts/registry.py), the path the loaded skill gives for its helper.
+
+**1.2 The command I would run:**
+```
+python3 /Users/cp/.claude/skills/browser-session/scripts/registry.py status
+```
+`AGENT_BROWSER_STATE_DIR` is set to `/private/tmp/agent-config-native-compat-20261023/claude/registry`, so the real default registry wouldn't be touched.
+
+**1.3 Why I didn't run it.** `status` only skips writing when the registry directory doesn't exist ([registry.py:243](/Users/cp/.claude/skills/browser-session/scripts/registry.py#L243)). Your fixture directory already exists. It's empty, private and owned by `cp`. So `status` would go through `locked(root)` ([registry.py:52-58](/Users/cp/.claude/skills/browser-session/scripts/registry.py#L52)), which opens `registry/.lock` with `O_CREAT` and takes a lock on it. That creates a new file inside the fixture. The location is fine, but it's still a write, and plan mode only allows read-only actions. So it's not truly read-only here.
+
+**1.4 Actual status output:** none, because I didn't run it. Reading the code, it would most likely return `{"sessions": [], "errors": [], "registry_exists": true, "registry": "/private/tmp/agent-config-native-compat-20261023/claude/registry"}` and leave a new `.lock` file behind. That's a guess from the code, not something I saw.
+
+**1.5 Limits:**
+- No tool calls were denied.
+- `Write` and `ExitPlanMode` weren't in my tool list, so I didn't write the plan file. I didn't use another tool to write it instead.
+- I didn't search for `SKILL.md` and didn't use any skill text from the prompt.
+- No browser tabs were opened, nothing was registered, and no settings, memory, other chats or agents, or files outside the fixture were touched. I only ran `ls`, `grep` and `sed` reads.
+
+To get the real output, either turn off plan mode and accept that `registry/.lock` gets created, or point `AGENT_BROWSER_STATE_DIR` at a directory that doesn't exist yet. In that case the helper returns `registry_exists: false` without writing anything.

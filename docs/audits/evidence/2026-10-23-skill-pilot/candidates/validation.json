@@ -1,0 +1,12 @@
+{
+  "command": [
+    "git",
+    "apply",
+    "--check",
+    "bitter-lesson-plain-test-status.patch"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "",
+  "canonical_source_changed": false
+}

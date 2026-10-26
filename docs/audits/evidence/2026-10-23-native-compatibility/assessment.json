@@ -1,0 +1,40 @@
+{
+  "reviewer": "Owner independently read public outputs and actual tool receipts. No model-based grading or automatic retries.",
+  "explicit_claude": {
+    "status": "native invocation and relative asset observed",
+    "precedence_observed": "project skill over same-name legacy command",
+    "token_source": "owned alias asset, token absent from request",
+    "native_skill_tool_call": false
+  },
+  "explicit_cursor": {
+    "status": "native invocation and relative asset observed",
+    "precedence_observed": ".agents project copy over .cursor project copy in this fixture",
+    "token_source": "owned alias asset, token absent from request",
+    "native_skill_tool_call": false
+  },
+  "resource_claude": {
+    "status": "native Skill load and helper source reads observed; helper not executed",
+    "mode": "plan",
+    "permission_denials_reported": [],
+    "refusal": "Model identified lock side effect and declined execution; predicted output explicitly labelled a guess."
+  },
+  "resource_cursor": {
+    "status": "native-context skill Read and correct relative helper attempt observed; command denied",
+    "actual_denial": {
+      "command": "python3 /private/tmp/agent-config-native-compat-20261023/cursor/.agents/skills/browser-session/scripts/registry.py status",
+      "workingDirectory": "/private/tmp/agent-config-native-compat-20261023/cursor",
+      "error": "Command blocked by permissions configuration",
+      "isReadonly": true
+    },
+    "unsupported_output": "Final answer quoted a more specific ask-mode error absent from the tool receipt and inferred an unverified general cause.",
+    "retry_or_reroute": false
+  },
+  "fixture_limit": "registry-fixture-limit.json",
+  "monitoring_implication": "Counting only Skill tool calls misses the two tested explicit frontend invocations. Startup skill inventories are not activation evidence. Full counter coverage remains unverified.",
+  "limits": [
+    "Owned aliases test metadata/resource mechanisms, not all canonical skill behavior.",
+    "Precedence conclusions limited to these fixtures and versions; automatic non-invocation and full global/project precedence not certified.",
+    "Helper execution is unverified and registry fixture parent mode was invalid.",
+    "No real browser, retention, cloud, private archive or Codex runtime tested."
+  ]
+}

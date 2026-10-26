@@ -1,0 +1,88 @@
+{
+  "scope": "Synthetic payload preservation only; not OTLP export, live capture, or activation accuracy",
+  "sources": {
+    "/Users/cp/dev/agent-chats/scripts/native_capture.py": "5f70aed73944044bfb96c22fa0827db32889e19ac546bfb6d418974c17f286a2",
+    "/Users/cp/dev/agent-chats/scripts/agent_chats_v2.py": "75163a5a1464a203562d67b14e8edb72754efb84b3f9aee75d136c85e7efaac0"
+  },
+  "cases": [
+    {
+      "harness": "claude",
+      "fixture": "skill_tool",
+      "event_kind": "message",
+      "payload_preserved": true
+    },
+    {
+      "harness": "cursor",
+      "fixture": "skill_tool",
+      "event_kind": "tool_call",
+      "payload_preserved": true
+    },
+    {
+      "harness": "claude",
+      "fixture": "skill_read",
+      "event_kind": "message",
+      "payload_preserved": true
+    },
+    {
+      "harness": "cursor",
+      "fixture": "skill_read",
+      "event_kind": "tool_call",
+      "payload_preserved": true
+    },
+    {
+      "harness": "claude",
+      "fixture": "asset_read",
+      "event_kind": "message",
+      "payload_preserved": true
+    },
+    {
+      "harness": "cursor",
+      "fixture": "asset_read",
+      "event_kind": "tool_call",
+      "payload_preserved": true
+    },
+    {
+      "harness": "claude",
+      "fixture": "ordinary_read",
+      "event_kind": "message",
+      "payload_preserved": true
+    },
+    {
+      "harness": "cursor",
+      "fixture": "ordinary_read",
+      "event_kind": "tool_call",
+      "payload_preserved": true
+    },
+    {
+      "harness": "claude",
+      "fixture": "quoted_mention",
+      "event_kind": "message",
+      "payload_preserved": true
+    },
+    {
+      "harness": "cursor",
+      "fixture": "quoted_mention",
+      "event_kind": "message",
+      "payload_preserved": true
+    },
+    {
+      "harness": "claude",
+      "fixture": "tool_result",
+      "event_kind": "tool_result",
+      "payload_preserved": true
+    },
+    {
+      "harness": "cursor",
+      "fixture": "tool_result",
+      "event_kind": "tool_result",
+      "payload_preserved": true
+    },
+    {
+      "harness": "claude",
+      "fixture": "inventory",
+      "event_kind": "lifecycle",
+      "payload_preserved": true
+    }
+  ],
+  "finding": "Claude assistant tool_use blocks remain event_kind=message; inspect retained content, not only top-level tool_call. No payload loss observed; no parser repair justified."
+}

@@ -1,0 +1,153 @@
+{
+  "method": "Exact structured action/target checks, not keyword adherence or model self-ratings. Remaining contract judgments require independent semantic review.",
+  "primary_outputs": {
+    "claude.status-ledger.baseline.attempt-1": {
+      "json_parseable": true,
+      "output_words": 283,
+      "receipt": "runs/claude.status-ledger.baseline.attempt-1.receipt.json",
+      "single_store_and_readonly_pass": true
+    },
+    "claude.status-ledger.enabled.attempt-1": {
+      "json_parseable": true,
+      "output_words": 279,
+      "receipt": "runs/claude.status-ledger.enabled.attempt-1.receipt.json",
+      "single_store_and_readonly_pass": true
+    },
+    "claude.concierge.baseline.attempt-1": {
+      "json_parseable": true,
+      "output_words": 185,
+      "receipt": "runs/claude.concierge.baseline.attempt-1.receipt.json"
+    },
+    "claude.concierge.enabled.attempt-1": {
+      "json_parseable": true,
+      "output_words": 182,
+      "receipt": "runs/claude.concierge.enabled.attempt-1.receipt.json"
+    },
+    "claude.triage.baseline.attempt-2": {
+      "json_parseable": true,
+      "output_words": 641,
+      "receipt": "runs/claude.triage.baseline.attempt-2.receipt.json"
+    },
+    "claude.triage.enabled.attempt-2": {
+      "json_parseable": true,
+      "output_words": 1019,
+      "receipt": "runs/claude.triage.enabled.attempt-2.receipt.json"
+    },
+    "claude.bitter-lesson.baseline.attempt-1": {
+      "json_parseable": true,
+      "output_words": 696,
+      "receipt": "runs/claude.bitter-lesson.baseline.attempt-1.receipt.json"
+    },
+    "claude.bitter-lesson.enabled.attempt-1": {
+      "json_parseable": true,
+      "output_words": 756,
+      "receipt": "runs/claude.bitter-lesson.enabled.attempt-1.receipt.json"
+    },
+    "claude.browser-session.baseline.attempt-1": {
+      "json_parseable": true,
+      "output_words": 506,
+      "receipt": "runs/claude.browser-session.baseline.attempt-1.receipt.json"
+    },
+    "claude.browser-session.enabled.attempt-1": {
+      "json_parseable": true,
+      "output_words": 648,
+      "receipt": "runs/claude.browser-session.enabled.attempt-1.receipt.json"
+    },
+    "claude.browser-cleanup.baseline.attempt-1": {
+      "json_parseable": true,
+      "output_words": 442,
+      "receipt": "runs/claude.browser-cleanup.baseline.attempt-1.receipt.json",
+      "exact_closure_decision_pass": true
+    },
+    "claude.browser-cleanup.enabled.attempt-1": {
+      "json_parseable": true,
+      "output_words": 466,
+      "receipt": "runs/claude.browser-cleanup.enabled.attempt-1.receipt.json",
+      "exact_closure_decision_pass": true
+    },
+    "claude.search-agent-chats.baseline.attempt-1": {
+      "json_parseable": true,
+      "output_words": 457,
+      "receipt": "runs/claude.search-agent-chats.baseline.attempt-1.receipt.json"
+    },
+    "claude.search-agent-chats.enabled.attempt-1": {
+      "json_parseable": true,
+      "output_words": 424,
+      "receipt": "runs/claude.search-agent-chats.enabled.attempt-1.receipt.json"
+    },
+    "cursor.status-ledger.baseline.attempt-2": {
+      "json_parseable": true,
+      "output_words": 117,
+      "receipt": "runs/cursor.status-ledger.baseline.attempt-2.receipt.json",
+      "single_store_and_readonly_pass": true
+    },
+    "cursor.status-ledger.enabled.attempt-1": {
+      "json_parseable": true,
+      "output_words": 132,
+      "receipt": "runs/cursor.status-ledger.enabled.attempt-1.receipt.json",
+      "single_store_and_readonly_pass": true
+    },
+    "cursor.concierge.baseline.attempt-1": {
+      "json_parseable": true,
+      "output_words": 110,
+      "receipt": "runs/cursor.concierge.baseline.attempt-1.receipt.json"
+    },
+    "cursor.concierge.enabled.attempt-1": {
+      "json_parseable": true,
+      "output_words": 324,
+      "receipt": "runs/cursor.concierge.enabled.attempt-1.receipt.json"
+    },
+    "cursor.triage.baseline.attempt-1": {
+      "json_parseable": true,
+      "output_words": 825,
+      "receipt": "runs/cursor.triage.baseline.attempt-1.receipt.json"
+    },
+    "cursor.triage.enabled.attempt-1": {
+      "json_parseable": true,
+      "output_words": 1454,
+      "receipt": "runs/cursor.triage.enabled.attempt-1.receipt.json"
+    },
+    "cursor.bitter-lesson.baseline.attempt-1": {
+      "json_parseable": true,
+      "output_words": 518,
+      "receipt": "runs/cursor.bitter-lesson.baseline.attempt-1.receipt.json"
+    },
+    "cursor.bitter-lesson.enabled.attempt-1": {
+      "json_parseable": true,
+      "output_words": 587,
+      "receipt": "runs/cursor.bitter-lesson.enabled.attempt-1.receipt.json"
+    },
+    "cursor.browser-session.baseline.attempt-1": {
+      "json_parseable": true,
+      "output_words": 387,
+      "receipt": "runs/cursor.browser-session.baseline.attempt-1.receipt.json"
+    },
+    "cursor.browser-session.enabled.attempt-1": {
+      "json_parseable": true,
+      "output_words": 445,
+      "receipt": "runs/cursor.browser-session.enabled.attempt-1.receipt.json"
+    },
+    "cursor.browser-cleanup.baseline.attempt-1": {
+      "json_parseable": true,
+      "output_words": 334,
+      "receipt": "runs/cursor.browser-cleanup.baseline.attempt-1.receipt.json",
+      "exact_closure_decision_pass": true
+    },
+    "cursor.browser-cleanup.enabled.attempt-1": {
+      "json_parseable": true,
+      "output_words": 331,
+      "receipt": "runs/cursor.browser-cleanup.enabled.attempt-1.receipt.json",
+      "exact_closure_decision_pass": true
+    },
+    "cursor.search-agent-chats.baseline.attempt-1": {
+      "json_parseable": true,
+      "output_words": 382,
+      "receipt": "runs/cursor.search-agent-chats.baseline.attempt-1.receipt.json"
+    },
+    "cursor.search-agent-chats.enabled.attempt-1": {
+      "json_parseable": true,
+      "output_words": 391,
+      "receipt": "runs/cursor.search-agent-chats.enabled.attempt-1.receipt.json"
+    }
+  }
+}

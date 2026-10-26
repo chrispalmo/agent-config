@@ -1,0 +1,5 @@
+install: target /private/tmp/agent-config-native-compat-20261023/cursor/.agents/skills
+install: installed plaintext -> /private/tmp/agent-config-native-compat-20261023/cursor/.agents/skills/plaintext/SKILL.md
+install: target /private/tmp/agent-config-native-compat-20261023/claude/.claude/skills
+install: installed plaintext -> /private/tmp/agent-config-native-compat-20261023/claude/.claude/skills/plaintext/SKILL.md
+install: done

@@ -1,0 +1,18 @@
+{
+  "observed": {
+    "claude": {
+      "parent_mode": "0o755",
+      "registry_mode": "0o700",
+      "contents": [],
+      "parent_private_precondition_met": false
+    },
+    "cursor": {
+      "parent_mode": "0o755",
+      "registry_mode": "0o700",
+      "contents": [],
+      "parent_private_precondition_met": false
+    }
+  },
+  "required_parent_and_store_mode": "0700",
+  "assessment": "The test preparation made harness parent directories 0755 under a private 0700 ancestor. The helper requires its immediate parent to be private too. This independent fixture defect prevents a runtime-success conclusion. No denied command was rerouted or retried and no status output is claimed."
+}

@@ -1,0 +1,16 @@
+{
+  "uninstall_argv": [
+    "/Users/cp/dev/agent-config/scripts/uninstall.sh",
+    "--skills",
+    "--claude",
+    "--cursor"
+  ],
+  "uninstall_exit_code": 0,
+  "unmanaged_files_preserved": 4,
+  "all_unmanaged_hashes_match": true,
+  "managed_skill_bodies_and_resource_dirs_removed": true,
+  "unmanaged_alias_canaries_preserved": true,
+  "foreign_clash_receipt": "foreign-clash.json",
+  "install_receipt": "fixture-manifest.json",
+  "log": "logs/uninstall.log"
+}

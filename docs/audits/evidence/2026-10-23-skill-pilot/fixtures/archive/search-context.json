@@ -1,0 +1,11 @@
+{
+  "synthetic": true,
+  "scope": "Local captured subset of Cursor/Codex/Claude; no cloud chats",
+  "last_capture_age_days": 2,
+  "word_index": "current for captured files",
+  "meaning_coverage_percent": 12,
+  "metadata_only_hit": {
+    "title": "release brainstorming",
+    "event_index": null
+  }
+}

@@ -1,0 +1,45 @@
+--- before/docs/audits/2026-10-07-instruction-and-workflow-audit.md
++++ after/docs/audits/2026-10-07-instruction-and-workflow-audit.md
+@@ -87,7 +87,7 @@
+ | A-07 | Medium | Maintain a source-content check and documented review procedure. | Implemented in this change; validation recorded below. |
+ | D-01 | Deferred | Harness compatibility audit, including bundled-name and cloud claims. | Resume at next harness switch. |
+ | D-02 | Deferred | Installer and resource integrity audit, including supporting files, lifecycle, and warning exit status. | Resume at next harness switch. |
+-| D-03 | Deferred | Behavioral comparison of existing, minimal, and revised guidance. | Resume when requested; no measured effectiveness claim here. |
++| D-03 | Initial bounded pilot complete | Seven-skill Claude/Cursor comparison and isolated candidate checks; broader longitudinal evaluation remains deferred. | See the 2026-10-23 pilot entry; no general effectiveness claim from the small fixture sample. |
+ 
+ ## Validation and limits
+ 
+@@ -379,3 +379,11 @@
+ Live registry acceptance tests passed through Codex CLI 0.161.0 with workspace-write and no approval escalation, Cursor Agent 2026.10.19-6bbf2c4 with sandbox enabled and Auto-review, and Claude Code 2.1.293 with auto permissions and prompts denied. A separate native Codex `:workspace` sandbox probe passed too; a negative control confirmed that the same sandbox still denies writes to the former home-directory location. All four runs saw and renewed the same synthetic shared session, created their own synthetic records, exercised renewal, 48-hour handoff and indefinite keep, checked 0700 directories and 0600 files, and reconciled their own records. Cursor's first launch stopped at workspace trust; its successful retry used a temporary test workspace and its new trust marker was removed afterward. A further Cursor run compared all three harness settings files before and after and found them byte-identical; the earlier launch had refreshed Cursor's cached privacy timestamp. The common synthetic fixture was removed after testing. No real browser tabs were opened, claimed, or closed. These tests establish registry access and lifecycle behavior in those CLI modes, not complete browser UI behavior or every already-running desktop chat's settings.
+ 
+ All 16 [registry tests](../../scripts/test-browser-sessions.py), 12 content fixtures, content validation for 16 skills and ten rules, installer regressions, and whitespace checks passed. Installed browser-package files match source. Raw probe outputs and launch logs are retained locally under `/private/tmp/browser-registry-verification-20261022/`; they are temporary evidence, not a second task store. Official documentation also describes temporary directories as part of normal workspace access: [Agent approvals and security](https://learn.chatgpt.com/docs/agent-approvals-security). Actual sandbox execution supplied the acceptance evidence for this machine.
++
++## Initial seven-skill behavioral pilot — 2026-10-23
++
++The human authorized the coordinating source chat to execute items 2.1–2.4 using existing subscriptions only, preserving all holds and clean reviewable changes. This owner stream verified the direct human instruction and completed the bounded skill comparison through native Claude Pro/Opus 5.5 and Cursor/Gemini 4 Argon routes. [The pilot report](evidence/2026-10-23-skill-pilot/README.md) retains 28 primary public artifacts across 14 matched instruction-injected/omitted pairs, seven follow-up inference sessions, source snapshots, prompts, sanitized route receipts, independent rubric/results, and limitations. One earlier launch stopped before inference at workspace trust. No quota/reset block was observed; remaining account percentages are left to the coordinator. No paid provider API route, new credits, overage authorization, recurring monitor or global installation was used.
++
++The tested guidance improved Triage's substantive answer coverage and Browser Sessions' native fallback. Several simpler baselines already met the tested contracts. Metadata-only title inference and a prepared-brief permission ambiguity produced three unapplied candidate patches; archive candidates left contents unknown on both routes, while the exact Triage overreach did not fully repeat in the current control. These are scoped findings, not proof of broad effectiveness, native discovery, live browser/archive integration or major-model-upgrade resilience. Canonical/installed guidance and product work were not changed. Existing broad compatibility, installer and longitudinal evaluations remain deferred.
++
++Validation passed using the existing virtual environment: content/catalog validation for 16 skills and ten rules, all 12 content fixtures, isolated installer regressions, all 16 browser registry tests, exact ledger/closure target checks, JSON artifact parsing and whitespace checks. Candidate patches passed application checks. The fixture trust scope and cleanup are recorded with the evidence; sandbox/approval defaults were not changed. Pre-existing repository changes remain outside this task's ownership.
+--- before/docs/maintenance.md
++++ after/docs/maintenance.md
+@@ -2,7 +2,7 @@
+ 
+ Keep useful instructions small, internally consistent, and tied to observed needs. Change canonical source guidance first; generated installations are separate artifacts. Personal preferences remain deliberate choices rather than targets for automatic simplification.
+ 
+-The user requested an instruction, workflow, and maintenance audit. Harness compatibility and installer integrity are deferred until the next harness switch; behavioral evaluations are also deferred. Findings and the action queue live in the [audit report](audits/2026-10-07-instruction-and-workflow-audit.md). The accepted instruction and workflow redesign is implemented; the report records its evidence and closeout.
++The user requested an instruction, workflow, and maintenance audit. Harness compatibility and installer integrity are deferred until the next harness switch. An [initial bounded seven-skill behavioral pilot](audits/evidence/2026-10-23-skill-pilot/README.md) is complete; broader longitudinal behavioral evaluation remains deferred. Findings and the action queue live in the [audit report](audits/2026-10-07-instruction-and-workflow-audit.md). The accepted instruction and workflow redesign is implemented; the report records its evidence and closeout.
+ 
+ ## Authority
+ 
+--- before/README.md
++++ after/README.md
+@@ -89,7 +89,7 @@
+ 
+ Follow the [maintenance guide](docs/maintenance.md) when changing guidance. Use a Python virtual environment and install `requirements-dev.txt` for validation. Run `python3 scripts/check-content.py`, `./scripts/test-install.sh`, and `git diff --check` after source changes.
+ 
+-The [instruction and workflow audit](docs/audits/2026-10-07-instruction-and-workflow-audit.md) records the implemented simplifications, retired skills and closeout. Project continuity defaults to minimal guidance and can reuse a compact Markdown record or an existing tracker. Harness compatibility and the broad installer audit remain deferred until the next harness switch; behavioral evaluations are also deferred.
++The [instruction and workflow audit](docs/audits/2026-10-07-instruction-and-workflow-audit.md) records the implemented simplifications, retired skills and closeout. Project continuity defaults to minimal guidance and can reuse a compact Markdown record or an existing tracker. Harness compatibility and the broad installer audit remain deferred until the next harness switch. An [initial bounded behavioral pilot](docs/audits/evidence/2026-10-23-skill-pilot/README.md) is complete; broader longitudinal evaluation remains deferred.
+ 
+ ## Safety
+ 

@@ -1,0 +1,12 @@
+{
+  "checked_at": "2026-10-23T16:43:08.767149+00:00",
+  "temporary_root": "/private/tmp/agent-config-batch5-activation-20261023",
+  "temporary_root_removed": true,
+  "new_browser_tabs": 0,
+  "new_trust_entries": 0,
+  "new_native_sessions": 0,
+  "new_automations": 0,
+  "background_jobs_remaining": 0,
+  "global_skill_installation": false,
+  "installed_preference_retained": true
+}

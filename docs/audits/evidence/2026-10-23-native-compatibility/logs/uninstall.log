@@ -1,0 +1,9 @@
+uninstall: target /private/tmp/agent-config-native-compat-20261023/cursor/.agents/skills
+uninstall: removed browser-cleanup
+uninstall: removed browser-session
+uninstall: removed plaintext
+uninstall: target /private/tmp/agent-config-native-compat-20261023/claude/.claude/skills
+uninstall: removed browser-cleanup
+uninstall: removed browser-session
+uninstall: removed plaintext
+uninstall: done

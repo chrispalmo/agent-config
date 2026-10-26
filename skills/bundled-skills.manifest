@@ -51,3 +51,11 @@ cursor update-cursor-settings
 
 codex plan
 codex skill-creator
+
+# Additional local Cursor Agent 2026.10.14-941492e names checked 2026-10-16.
+cursor deploy-with-vercel
+cursor goal
+cursor new-repo
+cursor origin
+cursor share
+cursor visualize

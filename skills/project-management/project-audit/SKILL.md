@@ -7,7 +7,7 @@ description: Review whether a repository gives an agent enough evidence to estab
 
 Assess usable continuity, not conformance to this package's filenames. Read [the assessment criteria](references/audit-rubric.md) and the repository's authority guidance. Keep harness compatibility, installation, security, and performance reviews separate unless requested.
 
-Locate goals, work state, blockers, decisions, verification commands, and handoff in their actual stores. Read enough current examples to test whether those stores are actionable and agree. An existing issue tracker, Beads, or a compact project note can be adequate; missing optional files are not findings by themselves.
+Locate goals, work state, blockers, decisions, verification commands, and handoff in their actual stores. Read enough current examples to test whether those stores are actionable and agree. An existing issue tracker or a compact project note can be adequate; missing optional files are not findings by themselves.
 
 Report each capability as supported, partial, missing, or not applicable, with a concrete source and consequence. Distinguish documented intent from observed verification. Do not turn an artifact count or static inspection into an agent-effectiveness score.
 

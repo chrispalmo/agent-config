@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "rg",
+    "-n",
+    "-i",
+    "skill_activated|cursor\\.skill|OTEL_LOG_TOOL_DETAILS|skill.activation|activation.counter",
+    "/Users/cp/dev/agent-chats/scripts",
+    "/Users/cp/dev/agent-chats/docs"
+  ],
+  "exit_code": 1,
+  "matches": [],
+  "limit": "Keyword inspection of maintained scripts/docs, not proof about private data, managed settings or vendor servers."
+}

@@ -6,6 +6,8 @@ disable-model-invocation: true
 
 # Pause for Review
 
+Start only when the human explicitly requests this workflow by name.
+
 Apply hard gates only to the user's requested stages. Resolve checkpoint placement from the request and context; ask before dependent work if it remains unclear. Complete the next checkpoint's artifacts before requesting review. Do not draft or precompute the following stage while its gate is pending.
 
 Link the concrete artifacts that later work relies on, verify their locations, state any blocking decision and the next stage, and invite feedback or a continuation instruction. Use the active conversation's numbering and link conventions, including absolute local links when required. Keep the checkpoint summary brief.

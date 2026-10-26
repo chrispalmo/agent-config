@@ -1,0 +1,23 @@
+{
+  "ledger_after": {
+    "authority_file": "docs/work-state.md",
+    "items": {
+      "local-retry": {
+        "status": "done",
+        "evidence": "T-84 (84 passing local tests)",
+        "validation_notes": "Verified by local test receipt T-84 only; no device or deployment validation was performed."
+      },
+      "release": {
+        "status": "blocked",
+        "reason": "human publication hold",
+        "evidence": null
+      }
+    },
+    "next-action": "Hold on release publication until a human lifts the publication hold or requests device/deployment validation (replaces stale 'publish the release' entry)."
+  },
+  "files_to_change": [
+    "docs/work-state.md"
+  ],
+  "next_step": "Report that local-retry is done with test receipt T-84 (84 passing local tests, with no device or deployment validation performed), keep release blocked under the human publication hold in docs/work-state.md instead of following the stale 'publish the release' next-action, and ask only whether the human wants to lift the publication hold or run device/deployment validation next.",
+  "status_only_files_to_change": []
+}

@@ -1,0 +1,14 @@
+[the user], the skill was invoked through the native slash command. I read only its asset file, [origin.txt](/private/tmp/agent-config-native-compat-20261023/claude/.claude/skills/compat-plain-scope/assets/origin.txt), which held the token `claude-project-skill-2114236d7d65`. That token is the first line below. The payload contains a triple-backtick line, so I wrapped it in a four-backtick fence to keep it in one copyable block.
+
+````
+claude-project-skill-2114236d7d65
+alpha
+```
+omega
+
+Agent-originated
+Source: agent-config skill pilot · codex://threads/01a15a57-b125-7d60-aeb1-d28a33677e86
+The human authorized this disposable native invocation test. Use the native invocation mechanism only; if unavailable, report that rather than scanning skill files or injecting guidance. Do not send or publish anything. Read only the selected owned skill resource. No browser, network, chat, agent or memory operation is authorized.
+````
+
+Plan mode is on, so I only read that one file. I didn't edit any files or write a plan file, and I didn't send, publish or use the network. ExitPlanMode isn't one of the tools I have, so I'm ending the turn here.

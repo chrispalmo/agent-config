@@ -10,21 +10,22 @@ source "$REPO_ROOT/scripts/common.sh"
 usage() {
   cat <<'USAGE'
 Usage: ./scripts/install.sh [--skills|--rules] [--all|--cursor|--claude|--agents]
-                            [--package <name>] [-h|--help]
+                            [--package <name> | --skill <path>] [-h|--help]
 
 Install agent-config skills and rules.
 
   --skills    install only skills
   --rules     install only rules
-  --all       default agent targets: Claude + Codex (default)
-  --cursor    Cursor native roots
+  --all       all agent targets: Cursor + Claude + Codex (default)
+  --cursor    Cursor skills in the shared root; Cursor-native rules
   --claude    Claude Code roots
   --agents    Codex roots
   --codex     alias for --agents
   --package   install one complete skills package
+  --skill     install one independent catalog skill, preserving other skills
 
 Agent flags combine: --cursor --claude --agents installs every target.
-Without --skills/--rules, both artifacts are installed.
+Without artifact or selection flags, both artifacts are installed.
 USAGE
 }
 
@@ -37,6 +38,7 @@ WANTS_AGENTS=0
 TARGET_FLAGS=0
 ALL_TARGETS=0
 PACKAGE=""
+SINGLE_SKILL=""
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -52,6 +54,12 @@ while [[ $# -gt 0 ]]; do
       [[ -z "$PACKAGE" ]] || die "--package may be specified only once"
       PACKAGE="$1"
       ;;
+    --skill)
+      shift
+      [[ $# -gt 0 ]] || die "--skill requires a catalog path"
+      [[ -z "$SINGLE_SKILL" ]] || die "--skill may be specified only once"
+      SINGLE_SKILL="$1"
+      ;;
     -h|--help) usage; exit 0 ;;
     *) die "unknown option: $1 (try --help)" ;;
   esac
@@ -60,10 +68,11 @@ done
 
 [[ $ALL_TARGETS -eq 0 || $TARGET_FLAGS -eq 0 ]] || die "--all cannot be combined with an agent target"
 
-if [[ -n "$PACKAGE" ]]; then
-  [[ "$PACKAGE" =~ ^[a-z0-9-]+$ ]] || die "invalid package name: $PACKAGE"
+[[ -z "$PACKAGE" || -z "$SINGLE_SKILL" ]] || die "--package and --skill cannot be combined"
+if [[ -n "$PACKAGE" || -n "$SINGLE_SKILL" ]]; then
+  [[ -z "$PACKAGE" || "$PACKAGE" =~ ^[a-z0-9-]+$ ]] || die "invalid package name: $PACKAGE"
   if [[ $WANTS_RULES -eq 1 && $WANTS_SKILLS -eq 0 ]]; then
-    die "--package is only valid with skills"
+    die "--package and --skill are only valid with skills"
   fi
   if [[ $ARTIFACT_FLAGS -eq 0 ]]; then
     WANTS_SKILLS=1
@@ -71,12 +80,13 @@ if [[ -n "$PACKAGE" ]]; then
   fi
 fi
 
-if [[ $ARTIFACT_FLAGS -eq 0 && -z "$PACKAGE" ]]; then
+if [[ $ARTIFACT_FLAGS -eq 0 && -z "$PACKAGE" && -z "$SINGLE_SKILL" ]]; then
   WANTS_SKILLS=1
   WANTS_RULES=1
 fi
 
 if [[ $ALL_TARGETS -eq 1 || $TARGET_FLAGS -eq 0 ]]; then
+  WANTS_CURSOR=1
   WANTS_CLAUDE=1
   WANTS_AGENTS=1
 fi
@@ -101,13 +111,19 @@ load_skills() {
       die "unknown package: $PACKAGE"
     fi
   fi
+  if [[ -n "$SINGLE_SKILL" ]]; then
+    if awk -v skill="$SINGLE_SKILL" '$2 == skill { found=1 } END { exit !found }' "$PACKAGES_MANIFEST"; then
+      die "$SINGLE_SKILL belongs to a package; use --package to install it together"
+    fi
+  fi
   while IFS= read -r line || [[ -n "$line" ]]; do
     path="$(trim_line "$line")"
     [[ -z "$path" ]] && continue
     [[ -z "$PACKAGE" ]] || package_contains "$path" || continue
+    [[ -z "$SINGLE_SKILL" || "$path" == "$SINGLE_SKILL" ]] || continue
     SKILLS+=("$path")
   done < "$SKILLS_MANIFEST"
-  [[ ${#SKILLS[@]} -gt 0 ]] || die "package ${PACKAGE:-all} contains no registered skills"
+  [[ ${#SKILLS[@]} -gt 0 ]] || die "selection ${PACKAGE:-${SINGLE_SKILL:-all}} contains no registered skills"
 }
 
 load_rules() {
@@ -151,7 +167,7 @@ preflight_dir() {
 }
 
 preflight_skill_dest() {
-  local src="$1" dest_dir="$2" target marker_source resource
+  local src="$1" dest_dir="$2" target marker_source resource previous_relative previous_dir
   local dest="$dest_dir/SKILL.md"
   [[ ! -L "$dest_dir" ]] || die "$dest_dir is a symlink; will not overwrite"
   [[ -f "$src" ]] || die "missing $src (check skills.manifest)"
@@ -164,7 +180,17 @@ preflight_skill_dest() {
     fi
   elif [[ -f "$dest" && -f "$dest_dir/$MANAGED_SKILL_MARKER" ]]; then
     marker_source="$(<"$dest_dir/$MANAGED_SKILL_MARKER")"
-    [[ "$marker_source" == "$src" ]] || die "$dest_dir already exists and is not this repo's installation"
+    if [[ "$marker_source" != "$src" ]]; then
+      # A source may move into a package while keeping its installed name.
+      # Accept only a retired source path owned by this repository with that name.
+      previous_relative="${marker_source#"$SKILLS_ROOT"/}"
+      previous_dir="${marker_source%/SKILL.md}"
+      [[ "$marker_source" == "$SKILLS_ROOT/"* &&
+         "$previous_relative" =~ ^([a-z0-9]+(-[a-z0-9]+)*/)+SKILL\.md$ &&
+         "${previous_dir##*/}" == "${dest_dir##*/}" &&
+         ! -e "$marker_source" && ! -L "$marker_source" ]] ||
+        die "$dest_dir already exists and is not this repo's installation"
+    fi
   elif [[ -e "$dest_dir" || -L "$dest_dir" ]]; then
     die "$dest_dir already exists and is not this repo's installation"
   fi
@@ -214,7 +240,7 @@ install_skill_to_root() {
 
 prune_retired_skills() {
   local root="$1" dir name path keep
-  [[ -z "$PACKAGE" && -d "$root" ]] || return 0
+  [[ -z "$PACKAGE" && -z "$SINGLE_SKILL" && -d "$root" ]] || return 0
   for dir in "$root"/*; do
     [[ -d "$dir" && ! -L "$dir" ]] || continue
     managed_skill_source "$dir" >/dev/null || continue
@@ -392,7 +418,7 @@ if [[ $WANTS_SKILLS -eq 1 ]]; then
       skill_name="${path##*/}"
       preflight_skill_dest "$SKILLS_ROOT/$path/SKILL.md" "$root/$skill_name"
     done
-    if [[ -z "$PACKAGE" && -d "$root" ]]; then
+    if [[ -z "$PACKAGE" && -z "$SINGLE_SKILL" && -d "$root" ]]; then
       for dir in "$root"/*; do
         [[ -d "$dir" && ! -L "$dir" ]] || continue
         managed_skill_source "$dir" >/dev/null || continue
@@ -400,6 +426,22 @@ if [[ $WANTS_SKILLS -eq 1 ]]; then
       done
     fi
   done
+  # Check owned legacy resources before any installation write. Foreign files
+  # are left alone; ownership is established by managed_skill_source.
+  while IFS= read -r root; do
+    [[ "$root" != "$SHARED_SKILLS" && -d "$root" ]] || continue
+    for dir in "$root"/*; do
+      [[ -d "$dir" && ! -L "$dir" ]] || continue
+      selected_legacy_skill "$dir" || continue
+      if ! managed_skill_source "$dir" >/dev/null; then
+        for path in "${SKILLS[@]}"; do
+          [[ "${path##*/}" != "${dir##*/}" ]] || die "$dir is a foreign duplicate; resolve it before shared-root migration"
+        done
+        continue
+      fi
+      preflight_skill_resources "$dir"
+    done
+  done < <(legacy_skill_roots)
 fi
 if [[ $WANTS_RULES -eq 1 ]]; then
   if [[ $WANTS_CURSOR -eq 1 ]]; then
@@ -418,10 +460,21 @@ if [[ $WANTS_RULES -eq 1 ]]; then
 fi
 
 if [[ $WANTS_SKILLS -eq 1 ]]; then
-  [[ $WANTS_CURSOR -eq 0 ]] || install_skill_to_root "$CURSOR_SKILLS"
-  [[ $WANTS_CLAUDE -eq 0 ]] || install_skill_to_root "$CLAUDE_SKILLS"
-  [[ $WANTS_AGENTS -eq 0 ]] || install_skill_to_root "$CODEX_SKILLS"
-  for root in "${SKILL_TARGET_ROOTS[@]}"; do prune_retired_skills "$root"; done
+  INSTALLED_ROOTS=()
+  for root in "${SKILL_TARGET_ROOTS[@]}"; do
+    name_listed "$root" ${INSTALLED_ROOTS[@]+"${INSTALLED_ROOTS[@]}"} && continue
+    install_skill_to_root "$root"
+    prune_retired_skills "$root"
+    INSTALLED_ROOTS+=("$root")
+  done
+  while IFS= read -r root; do
+    [[ "$root" != "$SHARED_SKILLS" && -d "$root" ]] || continue
+    for dir in "$root"/*; do
+      [[ -d "$dir" && ! -L "$dir" ]] || continue
+      selected_legacy_skill "$dir" || continue
+      remove_managed_skill "$dir"
+    done
+  done < <(legacy_skill_roots)
   warn_skill_overlaps || SKILL_WARNING_STATUS=$?
 fi
 

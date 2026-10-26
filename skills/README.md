@@ -14,6 +14,8 @@ From the repository root:
 ./scripts/install.sh --skills --package project-management
 ```
 
-The default writes to the Claude and Codex skill roots. Select --cursor for the Cursor-native root. A full reinstall removes retired skills only when their ownership identifies this repository; unrelated skills are preserved. Package installs preserve managed skills outside the selected package.
+The default installs skills for all three harnesses. Codex and Cursor share `~/.agents/skills`; Claude Code uses `~/.claude/skills`. Native rules retain their separate harness roots. Explicit `CODEX_SKILLS`, `CURSOR_SKILLS`, and `CLAUDE_SKILLS` overrides are supported. A full reinstall removes retired skills only when their ownership identifies this repository; unrelated skills are preserved. Package installs preserve managed skills outside the selected package.
 
-See [coordination workflows](coordination/README.md), [project continuity](project-management/README.md) and [interview workflows](interview/README.md). Proofread has been retired and is no longer in the catalog.
+See [coordination workflows](coordination/README.md), [project continuity](project-management/README.md) and [interview workflows](interview/README.md).
+
+Pending-review skills live under `drafts/`, outside the install catalog. Reviewed skills must be promoted into the catalog before installation.

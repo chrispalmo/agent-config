@@ -1,0 +1,13 @@
+{
+  "checked_at": "2026-10-23T15:52:21.740645+00:00",
+  "scope": "/private/tmp/agent-config-native-compat-20261023",
+  "removed_matching_trust_markers": [
+    "/Users/cp/.cursor/projects/private-tmp-agent-config-native-compat-20261023-cursor/.workspace-trusted"
+  ],
+  "matching_trust_markers_remaining": [],
+  "workspace_removed": true,
+  "isolated_cursor_config_removed": true,
+  "registry_and_baseline_fixtures_removed": true,
+  "unrelated_trust_records_modified": false,
+  "global_installation_or_real_browser_operations": false
+}

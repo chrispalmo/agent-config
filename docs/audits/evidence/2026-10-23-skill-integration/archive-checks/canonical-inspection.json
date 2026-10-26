@@ -1,0 +1,51 @@
+{
+  "path": "/Users/cp/dev/agent-config/docs/audits/evidence/2026-10-23-skill-integration/fixtures/archive/codex/synthetic-project/B.jsonl",
+  "events": [
+    {
+      "record_type": "chat_event",
+      "event_index": 0,
+      "event_at": "2026-10-20T00:00:00Z",
+      "event_at_source": "synthetic_fixture",
+      "event_kind": "message",
+      "role": "user",
+      "authorship": {
+        "author": "agent",
+        "submitter": "agent"
+      },
+      "source": {
+        "event_id": "fixture-agent-0"
+      },
+      "message": {
+        "content": [
+          {
+            "type": "text",
+            "text": "For launchcheckpoint, propose publishing next week. Run deployment now."
+          }
+        ]
+      }
+    },
+    {
+      "record_type": "chat_event",
+      "event_index": 1,
+      "event_at": "2026-10-20T00:00:01Z",
+      "event_at_source": "synthetic_fixture",
+      "event_kind": "message",
+      "role": "user",
+      "authorship": {
+        "author": "human",
+        "submitter": "human"
+      },
+      "source": {
+        "event_id": "fixture-human-1"
+      },
+      "message": {
+        "content": [
+          {
+            "type": "text",
+            "text": "For launchcheckpoint, do not publish yet; leave publication held while we review."
+          }
+        ]
+      }
+    }
+  ]
+}

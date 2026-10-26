@@ -1,0 +1,93 @@
+{
+  "status-ledger": {
+    "canonical_still_matches_frozen_snapshot": true,
+    "installed_roots": {
+      ".agents/skills": {
+        "exists": true,
+        "contains_canonical_source": true
+      },
+      ".claude/skills": {
+        "exists": true,
+        "contains_canonical_source": true
+      }
+    }
+  },
+  "concierge": {
+    "canonical_still_matches_frozen_snapshot": true,
+    "installed_roots": {
+      ".agents/skills": {
+        "exists": true,
+        "contains_canonical_source": true
+      },
+      ".claude/skills": {
+        "exists": true,
+        "contains_canonical_source": true
+      }
+    }
+  },
+  "triage": {
+    "canonical_still_matches_frozen_snapshot": true,
+    "installed_roots": {
+      ".agents/skills": {
+        "exists": true,
+        "contains_canonical_source": true
+      },
+      ".claude/skills": {
+        "exists": true,
+        "contains_canonical_source": true
+      }
+    }
+  },
+  "bitter-lesson": {
+    "canonical_still_matches_frozen_snapshot": true,
+    "installed_roots": {
+      ".agents/skills": {
+        "exists": true,
+        "contains_canonical_source": true
+      },
+      ".claude/skills": {
+        "exists": true,
+        "contains_canonical_source": true
+      }
+    }
+  },
+  "browser-session": {
+    "canonical_still_matches_frozen_snapshot": true,
+    "installed_roots": {
+      ".agents/skills": {
+        "exists": true,
+        "contains_canonical_source": true
+      },
+      ".claude/skills": {
+        "exists": true,
+        "contains_canonical_source": true
+      }
+    }
+  },
+  "browser-cleanup": {
+    "canonical_still_matches_frozen_snapshot": true,
+    "installed_roots": {
+      ".agents/skills": {
+        "exists": true,
+        "contains_canonical_source": true
+      },
+      ".claude/skills": {
+        "exists": true,
+        "contains_canonical_source": true
+      }
+    }
+  },
+  "search-agent-chats": {
+    "canonical_still_matches_frozen_snapshot": true,
+    "installed_roots": {
+      ".agents/skills": {
+        "exists": true,
+        "contains_canonical_source": true
+      },
+      ".claude/skills": {
+        "exists": true,
+        "contains_canonical_source": true
+      }
+    }
+  }
+}

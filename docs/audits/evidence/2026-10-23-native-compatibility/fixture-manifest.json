@@ -1,0 +1,74 @@
+{
+  "install_receipts": [
+    {
+      "argv": [
+        "/Users/cp/dev/agent-config/scripts/install.sh",
+        "--skills",
+        "--claude",
+        "--cursor",
+        "--package",
+        "browser"
+      ],
+      "exit_code": 0,
+      "log": "logs/install-browser.log"
+    },
+    {
+      "argv": [
+        "/Users/cp/dev/agent-config/scripts/install.sh",
+        "--skills",
+        "--claude",
+        "--cursor",
+        "--skill",
+        "plaintext"
+      ],
+      "exit_code": 0,
+      "log": "logs/install-plaintext.log"
+    }
+  ],
+  "source_identical_resource_copies": [
+    "/private/tmp/agent-config-native-compat-20261023/claude/.claude/skills/browser-session/SKILL.md",
+    "/private/tmp/agent-config-native-compat-20261023/claude/.claude/skills/browser-session/scripts/registry.py",
+    "/private/tmp/agent-config-native-compat-20261023/claude/.claude/skills/browser-cleanup/SKILL.md",
+    "/private/tmp/agent-config-native-compat-20261023/claude/.claude/skills/plaintext/SKILL.md",
+    "/private/tmp/agent-config-native-compat-20261023/claude/.claude/skills/plaintext/agents/openai.yaml",
+    "/private/tmp/agent-config-native-compat-20261023/cursor/.agents/skills/browser-session/SKILL.md",
+    "/private/tmp/agent-config-native-compat-20261023/cursor/.agents/skills/browser-session/scripts/registry.py",
+    "/private/tmp/agent-config-native-compat-20261023/cursor/.agents/skills/browser-cleanup/SKILL.md",
+    "/private/tmp/agent-config-native-compat-20261023/cursor/.agents/skills/plaintext/SKILL.md",
+    "/private/tmp/agent-config-native-compat-20261023/cursor/.agents/skills/plaintext/agents/openai.yaml"
+  ],
+  "unmanaged_before": {
+    "/private/tmp/agent-config-native-compat-20261023/claude/.claude/skills/foreign-existing/SKILL.md": "dc9417e01065bd671dbae44aff703457636b95f50a1e7c0a8f905c9473d4ba41",
+    "/private/tmp/agent-config-native-compat-20261023/cursor/.agents/skills/foreign-existing/SKILL.md": "dc9417e01065bd671dbae44aff703457636b95f50a1e7c0a8f905c9473d4ba41",
+    "/private/tmp/agent-config-native-compat-20261023/claude/.claude/skills/browser-session/human-note.txt": "bd9b364b9a439315f65111dcce77d86d79025b6a682cb599e6be735b83295a45",
+    "/private/tmp/agent-config-native-compat-20261023/cursor/.agents/skills/browser-session/human-note.txt": "bd9b364b9a439315f65111dcce77d86d79025b6a682cb599e6be735b83295a45"
+  },
+  "canaries": [
+    {
+      "root": "/private/tmp/agent-config-native-compat-20261023/claude/.claude/skills/compat-plain-scope",
+      "label": "claude-project-skill",
+      "token": "claude-project-skill-2114236d7d65",
+      "frontmatter_delta": "name only; explicit-only fields preserved",
+      "body_delta": "one owned-resource canary instruction appended"
+    },
+    {
+      "root": "/private/tmp/agent-config-native-compat-20261023/cursor/.agents/skills/compat-plain-scope",
+      "label": "cursor-agents-skill",
+      "token": "cursor-agents-skill-90c534b1db55",
+      "frontmatter_delta": "name only; explicit-only fields preserved",
+      "body_delta": "one owned-resource canary instruction appended"
+    },
+    {
+      "root": "/private/tmp/agent-config-native-compat-20261023/cursor/.cursor/skills/compat-plain-scope",
+      "label": "cursor-native-skill",
+      "token": "cursor-native-skill-c5d292e0a753",
+      "frontmatter_delta": "name only; explicit-only fields preserved",
+      "body_delta": "one owned-resource canary instruction appended"
+    }
+  ],
+  "legacy_command": {
+    "path": "/private/tmp/agent-config-native-compat-20261023/claude/.claude/commands/compat-plain-scope.md",
+    "token": "claude-legacy-command-6ea172f08b77"
+  },
+  "native_precedence_scope": "Claude project skill versus same-name legacy command; Cursor .agents versus .cursor project skill. Global versus project discovery is observed only if native receipts expose it, not inferred from docs."
+}

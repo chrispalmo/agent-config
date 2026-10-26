@@ -1,0 +1,34 @@
+```json
+{
+  "initial_candidate_ids": [101, 102],
+  "final_close_ids": [101],
+  "protected": {
+    "102": "It was a candidate in the initial snapshot, but the second full snapshot, taken immediately before closure, shows it active. It is presumed in use, possibly by the human, so it is dropped from closure for this pass.",
+    "103": "It is unregistered and human-owned. A matching title does not establish task ownership.",
+    "104": "It has an indefinite human keep hold, which this cleanup must preserve.",
+    "105": "It is pinned, which is an explicit retention signal.",
+    "106": "It was activated 20 minutes ago, so it is in recent use and not abandoned.",
+    "107": "Its live last-activation time is unknown, so abandonment cannot be proven. It is kept.",
+    "108": "Its browser identity became ambiguous after restart, so it cannot be verified as the registered task tab. It is kept.",
+    "109": "It is still loading, so it is not in a settled, complete state and is not eligible for closure."
+  },
+  "verification_and_reconcile": [
+    "Use the second full snapshot as the authority. Re-check that 101 is still registered to session R with matching profile P, group G and identity, and is still inactive, complete, unpinned, silent and unmarked. Only then close it.",
+    "Close by exact tab id 101 only. Do not use title or group-based bulk close. Do not move, reload, activate, unpin or regroup any other tab.",
+    "If the identity or state of 101 has drifted, or the close fails, abort without retrying blindly and report it as not closed.",
+    "After closing, take a fresh full snapshot. Confirm 101 is absent and that 102 through 109 are present and unchanged.",
+    "Reconcile the registry: remove 101 from session R and record it as closed by cleanup.",
+    "Keep 102 registered under session R, annotated as skipped because it was active at closure time, and leave it for re-evaluation in a later pass. Do not transfer or claim ownership.",
+    "Do not register 103 through 109 or add any retention marks to them. Existing holds and pins are left as found.",
+    "Session R still has a registered tab (102), so do not retire the session. Report the outcome: 1 closed, 1 skipped as active, 7 protected with their reasons."
+  ],
+  "renew_lease": false,
+  "preview_only_operations": [
+    "Read full tab snapshots of profile P and group G.",
+    "Read registry session R and its lease metadata without modifying them.",
+    "Compute and report the would-close list and the per-tab protection reasons as a dry run.",
+    "Report that the would-close list is subject to a pre-closure re-snapshot.",
+    "Not permitted in preview mode: closing, activating, reloading, pinning or unpinning, or regrouping tabs; writing to the registry; adding or removing holds; renewing the lease."
+  ]
+}
+```

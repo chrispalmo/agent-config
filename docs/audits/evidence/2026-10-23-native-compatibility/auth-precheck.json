@@ -1,0 +1,29 @@
+[
+  {
+    "harness": "claude",
+    "argv": [
+      "claude",
+      "auth",
+      "status"
+    ],
+    "exit_code": 0,
+    "output": {
+      "loggedIn": true,
+      "authMethod": "claude.ai",
+      "apiProvider": "firstParty",
+      "apiKeySource": null,
+      "subscriptionType": "pro"
+    }
+  },
+  {
+    "harness": "cursor",
+    "argv": [
+      "agent",
+      "models"
+    ],
+    "exit_code": 0,
+    "output": [
+      "gemini-4-argon-high - Gemini 4 Argon High"
+    ]
+  }
+]

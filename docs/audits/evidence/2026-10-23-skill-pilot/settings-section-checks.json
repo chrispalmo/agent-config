@@ -1,0 +1,30 @@
+[
+  {
+    "id": "claude.triage.enabled.attempt-2",
+    "equal": true
+  },
+  {
+    "id": "cursor.triage.enabled.attempt-2",
+    "equal": true
+  },
+  {
+    "id": "cursor.triage.candidate.attempt-1",
+    "equal": true
+  },
+  {
+    "id": "claude.triage.baseline.attempt-2",
+    "equal": true
+  },
+  {
+    "id": "claude.search-agent-chats.enabled.attempt-2",
+    "equal": true
+  },
+  {
+    "id": "claude.search-agent-chats.candidate.attempt-1",
+    "equal": true
+  },
+  {
+    "id": "cursor.search-agent-chats.candidate.attempt-1",
+    "equal": true
+  }
+]

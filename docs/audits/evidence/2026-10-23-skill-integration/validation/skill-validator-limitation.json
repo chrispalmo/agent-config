@@ -1,0 +1,7 @@
+{
+  "before_exit_code": 1,
+  "integrated_exit_code": 1,
+  "same_preexisting_rejection": true,
+  "frontmatter_changed": false,
+  "resolution": "Preserve explicit-only policy. Repository content validator and policy regression fixtures are authoritative; generic quick_validate.py lacks this supported field."
+}

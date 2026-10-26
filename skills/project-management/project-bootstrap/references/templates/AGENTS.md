@@ -6,6 +6,8 @@ Shared instructions for agents working on this project. CLAUDE.md imports this g
 
 Read the project's scope and current work authority when relevant to the request. The latest user instruction governs work selection. Reuse supported completion evidence and inspect blockers before advancing work.
 
+Keep this guide and its one-line CLAUDE.md import at the relevant directory root. Link to canonical records using actual paths or URLs. For substantial new Markdown records, prefer `docs/` scoped to the area they govern; preserve adequate existing arrangements and have indexes link rather than duplicate documents.
+
 ## Authority
 
 | Subject | Source |

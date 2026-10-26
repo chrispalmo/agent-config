@@ -1,0 +1,1 @@
+Owned unmanaged note beside managed resources; preserve on uninstall.

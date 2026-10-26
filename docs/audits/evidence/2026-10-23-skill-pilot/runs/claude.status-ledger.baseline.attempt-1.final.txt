@@ -1,0 +1,28 @@
+```json
+{
+  "ledger_after": {
+    "local-retry": {
+      "state": "done",
+      "evidence": "T-84: 84 passing tests (local test run)",
+      "verification_scope": "Local tests only. No device or deployment validation was performed."
+    },
+    "release": {
+      "state": "blocked",
+      "reason": "human publication hold"
+    },
+    "next-action": "Wait for the human to decide on publication. Do not publish while the hold stands. If the human wants it before release, run device or deployment validation of the retry counter."
+  },
+  "files_to_change": [
+    "docs/work-state.md"
+  ],
+  "next_step": "Update docs/work-state.md as shown above. Then report to the human: the local retry counter fix is complete and T-84 records 84 passing tests. No device or deployment validation was done. The release is still blocked by the publication hold. Ask whether they want to lift the hold or have device or deployment validation done first. Take no publishing action without that explicit approval.",
+  "status_only_files_to_change": [],
+  "explanations": {
+    "local-retry": "The fix is finished and T-84 is concrete evidence, so the item moves to done. Its evidence is set to the receipt. The scope note records that only local tests ran, so nobody mistakes this for field-validated.",
+    "release": "Only the human set the publication hold, and the latest direction kept it in place. Finishing the fix does not lift it, so the state and reason stay unchanged.",
+    "next-action": "The old next action, 'publish the release', contradicts the active hold and is stale. It is replaced with waiting for the human's publication decision, plus optional device or deployment validation.",
+    "single_store": "All updates go in docs/work-state.md, the project authority. No other tracking file is created.",
+    "status_request": "A later read-only status request with no new evidence or execution changes no files. It is answered by reading docs/work-state.md and summarizing it."
+  }
+}
+```

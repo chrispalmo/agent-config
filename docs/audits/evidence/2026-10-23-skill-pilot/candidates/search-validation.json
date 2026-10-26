@@ -1,0 +1,12 @@
+{
+  "command": [
+    "git",
+    "apply",
+    "--check",
+    "search-agent-chats-metadata-limits.patch"
+  ],
+  "exit_code": 0,
+  "canonical_source_changed": false,
+  "hypothesis": "Metadata-only title does not establish conversation contents or decision status.",
+  "behavioral_comparison": "One matched current/candidate follow-up on Claude and a candidate follow-up on Cursor: metadata-only contents remain unknown in both candidates. Small fixture sample only."
+}

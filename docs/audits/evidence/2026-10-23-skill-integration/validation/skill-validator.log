@@ -1,0 +1,2 @@
+Skill is valid!
+Unexpected key(s) in SKILL.md frontmatter: disable-model-invocation. Allowed properties are: allowed-tools, description, license, metadata, name

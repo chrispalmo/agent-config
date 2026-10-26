@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="890" viewBox="0 0 1200 890" role="img" aria-labelledby="title description">
+  <title id="title">Neon neo-brutalist minimal component reference</title>
+  <desc id="description">Paired light and dark interfaces with lime primary actions and yellow and red click-button variants, flat secondary and selection controls, a borderless menu, and informational pink text. Pressed, disabled, and keyboard focus states appear below. The layout and dark-button edges are examples.</desc>
+  <style>
+    text { font-family: Arial, Helvetica, sans-serif; }
+    .heading { font-size: 26px; font-weight: 700; letter-spacing: -0.7px; }
+    .section { font-size: 15px; font-weight: 700; }
+    .label { font-size: 16px; font-weight: 700; text-anchor: middle; }
+    .body { font-size: 15px; }
+    .small { font-size: 13px; }
+    .light { fill: #171717; }
+    .dark { fill: #f9f8ff; }
+    .light-muted { fill: #51564a; }
+    .dark-muted { fill: #b9bed6; }
+    .ink { fill: #171717; }
+  </style>
+  <rect width="1200" height="890" fill="#f4f5f0"/>
+  <text x="42" y="51" class="heading light">Component reference</text>
+  <rect x="32" y="78" width="552" height="780" rx="18" fill="#fff" stroke="#dce5d2"/>
+  <rect x="616" y="78" width="552" height="780" rx="18" fill="#1b1e32"/>
+
+  <!-- Light example -->
+  <g transform="translate(60 0)">
+    <text x="0" y="124" class="heading light">Light</text>
+    <text x="0" y="167" class="section light-muted">Primary action</text>
+    <rect x="0" y="189" width="156" height="56" rx="12" fill="#171717"/>
+    <rect x="0" y="184" width="156" height="56" rx="12" fill="#c1ff3d" stroke="#171717" stroke-width="2"/>
+    <text x="78" y="218" class="label ink">Continue</text>
+    <rect x="170" y="189" width="156" height="56" rx="12" fill="#171717"/>
+    <rect x="170" y="184" width="156" height="56" rx="12" fill="#ffd84a" stroke="#171717" stroke-width="2"/>
+    <text x="248" y="218" class="label ink">Click</text>
+    <rect x="340" y="189" width="156" height="56" rx="12" fill="#171717"/>
+    <rect x="340" y="184" width="156" height="56" rx="12" fill="#ff5a5f" stroke="#171717" stroke-width="2"/>
+    <text x="418" y="218" class="label ink">Click</text>
+
+    <text x="0" y="285" class="section light-muted">Quiet controls</text>
+    <rect x="0" y="302" width="194" height="50" rx="10" fill="#fff" stroke="#171717" stroke-width="2"/>
+    <text x="97" y="333" class="label light">Not now</text>
+    <rect x="208" y="302" width="220" height="50" rx="10" fill="#fff" stroke="#171717" stroke-width="2"/>
+    <text x="318" y="333" class="label light">Replay</text>
+    <g fill="#171717"><circle cx="459" cy="327" r="3"/><circle cx="470" cy="327" r="3"/><circle cx="481" cy="327" r="3"/></g>
+
+    <text x="0" y="399" class="section light-muted">Selection</text>
+    <rect x="0" y="417" width="241" height="56" rx="10" fill="#fff" stroke="#171717" stroke-width="2"/>
+    <text x="18" y="451" class="section light">Weekly</text>
+    <circle cx="216" cy="445" r="9" fill="none" stroke="#171717" stroke-width="2"/>
+    <rect x="255" y="417" width="241" height="56" rx="10" fill="#c1ff3d" stroke="#171717" stroke-width="2"/>
+    <text x="273" y="451" class="section light">Monthly</text>
+    <circle cx="471" cy="445" r="9" fill="#171717"/>
+    <path d="m467 445 3 3 5-6" fill="none" stroke="#c1ff3d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <text x="0" y="521" class="section light-muted">Information</text>
+    <text x="0" y="554" class="section" fill="#ce0064">3 updates</text>
+    <text x="0" y="580" class="body light-muted">Saved just now</text>
+    <path d="M0 607h496" stroke="#dce5d2"/>
+
+    <text x="0" y="640" class="section light-muted">States</text>
+    <text x="0" y="668" class="small light-muted">Pressed</text>
+    <text x="255" y="668" class="small light-muted">Disabled</text>
+    <rect x="0" y="685" width="241" height="52" rx="10" fill="#c1ff3d" stroke="#171717" stroke-width="2"/>
+    <text x="120" y="717" class="label light">Continue</text>
+    <rect x="255" y="685" width="241" height="52" rx="10" fill="#e8eddf" stroke="#a5ad99" stroke-width="2"/>
+    <text x="375" y="717" class="label" fill="#5d6554">Continue</text>
+
+    <rect x="-5" y="767" width="506" height="60" rx="14" fill="none" stroke="#171717" stroke-width="3"/>
+    <rect x="0" y="772" width="496" height="50" rx="10" fill="#fff" stroke="#171717" stroke-width="2"/>
+    <text x="248" y="803" class="label light">Keyboard focus</text>
+  </g>
+
+  <!-- Dark example: an illustrative edge treatment, not a fixed prescription -->
+  <g transform="translate(644 0)">
+    <text x="0" y="124" class="heading dark">Dark</text>
+    <text x="0" y="167" class="section dark-muted">Primary action</text>
+    <rect x="0" y="189" width="156" height="56" rx="12" fill="#0c0e15"/>
+    <rect x="0" y="184" width="156" height="56" rx="12" fill="#c1ff3d" stroke="#0c0e15" stroke-width="2"/>
+    <text x="78" y="218" class="label ink">Continue</text>
+    <rect x="170" y="189" width="156" height="56" rx="12" fill="#0c0e15"/>
+    <rect x="170" y="184" width="156" height="56" rx="12" fill="#ffd84a" stroke="#0c0e15" stroke-width="2"/>
+    <text x="248" y="218" class="label ink">Click</text>
+    <rect x="340" y="189" width="156" height="56" rx="12" fill="#0c0e15"/>
+    <rect x="340" y="184" width="156" height="56" rx="12" fill="#ff5a5f" stroke="#0c0e15" stroke-width="2"/>
+    <text x="418" y="218" class="label ink">Click</text>
+
+    <text x="0" y="285" class="section dark-muted">Quiet controls</text>
+    <rect x="0" y="302" width="194" height="50" rx="10" fill="none" stroke="#f9f8ff" stroke-width="2"/>
+    <text x="97" y="333" class="label dark">Not now</text>
+    <rect x="208" y="302" width="220" height="50" rx="10" fill="none" stroke="#f9f8ff" stroke-width="2"/>
+    <text x="318" y="333" class="label dark">Replay</text>
+    <g fill="#f9f8ff"><circle cx="459" cy="327" r="3"/><circle cx="470" cy="327" r="3"/><circle cx="481" cy="327" r="3"/></g>
+
+    <text x="0" y="399" class="section dark-muted">Selection</text>
+    <rect x="0" y="417" width="241" height="56" rx="10" fill="none" stroke="#f9f8ff" stroke-width="2"/>
+    <text x="18" y="451" class="section dark">Weekly</text>
+    <circle cx="216" cy="445" r="9" fill="none" stroke="#f9f8ff" stroke-width="2"/>
+    <rect x="255" y="417" width="241" height="56" rx="10" fill="#c1ff3d" stroke="#0c0e15" stroke-width="2"/>
+    <text x="273" y="451" class="section ink">Monthly</text>
+    <circle cx="471" cy="445" r="9" fill="#171717"/>
+    <path d="m467 445 3 3 5-6" fill="none" stroke="#c1ff3d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <text x="0" y="521" class="section dark-muted">Information</text>
+    <text x="0" y="554" class="section" fill="#ff80bb">3 updates</text>
+    <text x="0" y="580" class="body dark-muted">Saved just now</text>
+    <path d="M0 607h496" stroke="#3d4565"/>
+
+    <text x="0" y="640" class="section dark-muted">States</text>
+    <text x="0" y="668" class="small dark-muted">Pressed</text>
+    <text x="255" y="668" class="small dark-muted">Disabled</text>
+    <rect x="0" y="685" width="241" height="52" rx="10" fill="#c1ff3d" stroke="#0c0e15" stroke-width="2"/>
+    <text x="120" y="717" class="label ink">Continue</text>
+    <rect x="255" y="685" width="241" height="52" rx="10" fill="#38442c"/>
+    <text x="375" y="717" class="label" fill="#c2cdb7">Continue</text>
+
+    <rect x="-5" y="767" width="506" height="60" rx="14" fill="none" stroke="#c1ff3d" stroke-width="3"/>
+    <rect x="0" y="772" width="496" height="50" rx="10" fill="none" stroke="#f9f8ff" stroke-width="2"/>
+    <text x="248" y="803" class="label dark">Keyboard focus</text>
+  </g>
+</svg>

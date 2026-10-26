@@ -1,0 +1,206 @@
+{
+  "id": "cursor.explicit",
+  "started_at": "2026-10-23T15:03:32.976989+00:00",
+  "argv": [
+    "agent",
+    "-p",
+    "--model",
+    "gemini-4-argon-high",
+    "--output-format",
+    "stream-json",
+    "--mode",
+    "ask",
+    "--sandbox",
+    "enabled",
+    "--auto-review",
+    "--workspace",
+    "/private/tmp/agent-config-native-compat-20261023/cursor",
+    "--trust",
+    "<retained prompt>"
+  ],
+  "cwd": "/private/tmp/agent-config-native-compat-20261023/cursor",
+  "prompt": "prompts/cursor.explicit.txt",
+  "configuration": "Cursor uses owned CURSOR_CONFIG_DIR; Claude retains normal auth/permission policy and project-only auto-memory override.",
+  "settings_before": {
+    "/Users/cp/.claude/settings.json": "854946f35903ec1985c8d3fd812fc83e2972f94c76c0c28a8d95c5d396f83b21",
+    "/Users/cp/.cursor/cli-config.json": "0a417219bd66d5c096d265078e3671de6ea8e77130b2afcf5a1d5533f4b1bcc1",
+    "/Users/cp/.cursor/hooks.json": "aa8531b9f3b2375fbd793c45dab0ebcecbc5bc550b71d7417ab4bdf6f610d566",
+    "/Users/cp/.codex/config.toml": "e80e0259496c8aef0ae119c995e67cbc1f769bbcfb1092b69233364156377a6e"
+  },
+  "settings_sections_before": {
+    ".claude/settings.json": {
+      "enableWorkflows": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "inputNeededNotifEnabled": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "agentPushNotifEnabled": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "autoUpdatesChannel": "eb0f1f245cda8f6d333fb49929aa30c457409b9c1dd95505db3355634f4de409",
+      "hooks": "03ca54950f0209e5d5f01edd97d143f0397b9ec51f9f59d7db6b45c85754255a"
+    },
+    ".cursor/cli-config.json": {
+      "permissions": "3bcc72a0865f290e17d3bb454d4ca2e2817e544d5277a56df21a25b59f107095",
+      "version": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "editor": "c20bfbaf6a092f0bcf81eba190e2156929945d6cf1e514bb60d14e70e75affb0",
+      "display": "03ee08f0be3ed1b07644db64fc98ca87880640a0ac0462ca9f2ae3656f0efc71",
+      "notifications": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "hints": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "modelSlashCommands": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "steering": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "rewind": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "model": "2bfce892326426b401f5b22765dbec66163fcadcceeb32f9bb5d9d9db1afc1e1",
+      "hasChangedDefaultModel": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "maxMode": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa",
+      "modelParameters": "efeb130a2887d7d93b3bac5df2fa70b0e4327c94482e962cf28362e1c80c85c7",
+      "selectedModel": "e4b60ae535797f6bc07479f794f5f04de92f36c4f0020c70327f59356cb4f58f",
+      "modelSelectionHistory": "2f6ed833d5808116adc2d8c316636f2701b98addc022df2f211766061691e462",
+      "exploreSubagentModel": "1080a60800d9e5bddc69f51489c636a776bacaadb5368f46db4aa0947c67e3ba",
+      "network": "c7b66fcc2fa57fef00737960c0465905167fe7df6e6301442ef6e17e813aac88",
+      "autoAcceptWebSearch": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa",
+      "runEverythingSettingsPromptStreak": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    }
+  },
+  "no_inline_skill_guidance": true,
+  "exit_code": 0,
+  "stderr": "",
+  "json_event_count": 13,
+  "wall_seconds": 33.896,
+  "native_metadata": [
+    {
+      "type": "system",
+      "subtype": "init",
+      "model": "Gemini 4 Argon High",
+      "session_id": "06d836ec-6f5b-49ea-98d1-39ea4b5d7995"
+    },
+    {
+      "type": "user",
+      "session_id": "06d836ec-6f5b-49ea-98d1-39ea4b5d7995"
+    },
+    {
+      "type": "thinking",
+      "subtype": "delta",
+      "session_id": "06d836ec-6f5b-49ea-98d1-39ea4b5d7995"
+    },
+    {
+      "type": "thinking",
+      "subtype": "delta",
+      "session_id": "06d836ec-6f5b-49ea-98d1-39ea4b5d7995"
+    },
+    {
+      "type": "thinking",
+      "subtype": "completed",
+      "session_id": "06d836ec-6f5b-49ea-98d1-39ea4b5d7995"
+    },
+    {
+      "type": "tool_call",
+      "subtype": "started",
+      "session_id": "06d836ec-6f5b-49ea-98d1-39ea4b5d7995"
+    },
+    {
+      "type": "tool_call",
+      "subtype": "completed",
+      "session_id": "06d836ec-6f5b-49ea-98d1-39ea4b5d7995"
+    },
+    {
+      "type": "thinking",
+      "subtype": "delta",
+      "session_id": "06d836ec-6f5b-49ea-98d1-39ea4b5d7995"
+    },
+    {
+      "type": "thinking",
+      "subtype": "delta",
+      "session_id": "06d836ec-6f5b-49ea-98d1-39ea4b5d7995"
+    },
+    {
+      "type": "thinking",
+      "subtype": "delta",
+      "session_id": "06d836ec-6f5b-49ea-98d1-39ea4b5d7995"
+    },
+    {
+      "type": "thinking",
+      "subtype": "completed",
+      "session_id": "06d836ec-6f5b-49ea-98d1-39ea4b5d7995"
+    },
+    {
+      "type": "assistant",
+      "session_id": "06d836ec-6f5b-49ea-98d1-39ea4b5d7995"
+    },
+    {
+      "type": "result",
+      "subtype": "success",
+      "is_error": false,
+      "usage": {
+        "inputTokens": 20099,
+        "outputTokens": 708,
+        "cacheReadTokens": 8192,
+        "cacheWriteTokens": 0
+      },
+      "session_id": "06d836ec-6f5b-49ea-98d1-39ea4b5d7995",
+      "request_id": "3d114bc7-1ae4-4ae5-a9a5-8649f0dd8077"
+    }
+  ],
+  "tool_receipts": [
+    {
+      "event": "cursor.tool_call",
+      "subtype": "started",
+      "call_id": "0_tool_81535d77-0dc3-475e-b4f6-2dd825127",
+      "kinds": [
+        "readToolCall",
+        "hookAdditionalContexts",
+        "toolCallId",
+        "startedAtMs"
+      ],
+      "public_receipt": "{\"readToolCall\": {\"args\": {\"path\": \"/private/tmp/agent-config-native-compat-20261023/cursor/.agents/skills/compat-plain-scope/assets/origin.txt\"}}, \"hookAdditionalContexts\": [], \"toolCallId\": \"0_tool_81535d77-0dc3-475e-b4f6-2dd825127\", \"startedAtMs\": \"1792767833341\"}"
+    },
+    {
+      "event": "cursor.tool_call",
+      "subtype": "completed",
+      "call_id": "0_tool_81535d77-0dc3-475e-b4f6-2dd825127",
+      "kinds": [
+        "readToolCall",
+        "hookAdditionalContexts",
+        "toolCallId",
+        "startedAtMs",
+        "completedAtMs"
+      ],
+      "public_receipt": "{\"readToolCall\": {\"args\": {\"path\": \"/private/tmp/agent-config-native-compat-20261023/cursor/.agents/skills/compat-plain-scope/assets/origin.txt\"}, \"result\": {\"success\": {\"content\": \"cursor-agents-skill-90c534b1db55\\n\", \"isEmpty\": false, \"exceededLimit\": false, \"totalLines\": 2, \"fileSize\": 33, \"path\": \"/private/tmp/agent-config-native-compat-20261023/cursor/.agents/skills/compat-plain-scope/assets/origin.txt\", \"readRange\": {\"startLine\": 1, \"endLine\": 2}, \"relatedCursorRulePaths\": [], \"relatedCursorRules\": []}}}, \"hookAdditionalContexts\": [], \"toolCallId\": \"0_tool_81535d77-0dc3-475e-b4f6-2dd825127\", \"startedAtMs\": \"1792767833341\", \"completedAtMs\": \"1792767833463\"}"
+    }
+  ],
+  "public_messages": [
+    "````\ncursor-agents-skill-90c534b1db55\nalpha\n```\nomega\n````"
+  ],
+  "settings_after": {
+    "/Users/cp/.claude/settings.json": "854946f35903ec1985c8d3fd812fc83e2972f94c76c0c28a8d95c5d396f83b21",
+    "/Users/cp/.cursor/cli-config.json": "0a417219bd66d5c096d265078e3671de6ea8e77130b2afcf5a1d5533f4b1bcc1",
+    "/Users/cp/.cursor/hooks.json": "aa8531b9f3b2375fbd793c45dab0ebcecbc5bc550b71d7417ab4bdf6f610d566",
+    "/Users/cp/.codex/config.toml": "e80e0259496c8aef0ae119c995e67cbc1f769bbcfb1092b69233364156377a6e"
+  },
+  "settings_sections_after": {
+    ".claude/settings.json": {
+      "enableWorkflows": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "inputNeededNotifEnabled": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "agentPushNotifEnabled": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "autoUpdatesChannel": "eb0f1f245cda8f6d333fb49929aa30c457409b9c1dd95505db3355634f4de409",
+      "hooks": "03ca54950f0209e5d5f01edd97d143f0397b9ec51f9f59d7db6b45c85754255a"
+    },
+    ".cursor/cli-config.json": {
+      "permissions": "3bcc72a0865f290e17d3bb454d4ca2e2817e544d5277a56df21a25b59f107095",
+      "version": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "editor": "c20bfbaf6a092f0bcf81eba190e2156929945d6cf1e514bb60d14e70e75affb0",
+      "display": "03ee08f0be3ed1b07644db64fc98ca87880640a0ac0462ca9f2ae3656f0efc71",
+      "notifications": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "hints": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "modelSlashCommands": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "steering": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "rewind": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "model": "2bfce892326426b401f5b22765dbec66163fcadcceeb32f9bb5d9d9db1afc1e1",
+      "hasChangedDefaultModel": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "maxMode": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa",
+      "modelParameters": "efeb130a2887d7d93b3bac5df2fa70b0e4327c94482e962cf28362e1c80c85c7",
+      "selectedModel": "e4b60ae535797f6bc07479f794f5f04de92f36c4f0020c70327f59356cb4f58f",
+      "modelSelectionHistory": "2f6ed833d5808116adc2d8c316636f2701b98addc022df2f211766061691e462",
+      "exploreSubagentModel": "1080a60800d9e5bddc69f51489c636a776bacaadb5368f46db4aa0947c67e3ba",
+      "network": "c7b66fcc2fa57fef00737960c0465905167fe7df6e6301442ef6e17e813aac88",
+      "autoAcceptWebSearch": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa",
+      "runEverythingSettingsPromptStreak": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    }
+  },
+  "reported_list_price_cost_is_bill": false
+}

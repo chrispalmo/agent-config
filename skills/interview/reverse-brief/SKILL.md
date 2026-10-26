@@ -6,6 +6,8 @@ disable-model-invocation: true
 
 # Reverse Brief
 
+Start only when the human explicitly requests this workflow by name.
+
 Stop any active interview and infer the subject and originating task from the full relevant conversation. If there is no active interview, brief the current decision or task. Do not ask another interview round.
 
 Separate stated facts and preferences from derived insights. Give the basis for material interpretations and qualify uncertainty when it affects a decision. Preserve consequential wording, skipped answers, contradictions, and unresolved choices; proposed defaults are not confirmed decisions.

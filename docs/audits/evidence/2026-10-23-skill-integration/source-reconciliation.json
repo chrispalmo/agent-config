@@ -1,0 +1,40 @@
+{
+  "search-agent-chats": {
+    "source_sha256": "3e84d187249bbfb2161e2b6cae50c845b9ee499f95d486d4016b056ae6eac298",
+    "before_sha256": "8913b98a561aee894ba73db8ebb0bebe6238db2bafd2d100c5e646fd9b0cd99d",
+    "frontmatter_unchanged": true,
+    "installations": {
+      "/Users/cp/.agents/skills/search-agent-chats/SKILL.md": {
+        "exists": true,
+        "equals_before_source_body": true,
+        "equals_integrated_source_body": false,
+        "sha256": "8913b98a561aee894ba73db8ebb0bebe6238db2bafd2d100c5e646fd9b0cd99d"
+      },
+      "/Users/cp/.claude/skills/search-agent-chats/SKILL.md": {
+        "exists": true,
+        "equals_before_source_body": true,
+        "equals_integrated_source_body": false,
+        "sha256": "8913b98a561aee894ba73db8ebb0bebe6238db2bafd2d100c5e646fd9b0cd99d"
+      }
+    }
+  },
+  "triage": {
+    "source_sha256": "7cf3db97c4f9e6fd76aaf02c365cf9a125e2de8e6b6a54ee0f825ece8ddc191d",
+    "before_sha256": "588f54b622c298c75a73084b2bbab02c5cc57d5d0adcf78ae0015db203901742",
+    "frontmatter_unchanged": true,
+    "installations": {
+      "/Users/cp/.agents/skills/triage/SKILL.md": {
+        "exists": true,
+        "equals_before_source_body": true,
+        "equals_integrated_source_body": false,
+        "sha256": "588f54b622c298c75a73084b2bbab02c5cc57d5d0adcf78ae0015db203901742"
+      },
+      "/Users/cp/.claude/skills/triage/SKILL.md": {
+        "exists": true,
+        "equals_before_source_body": true,
+        "equals_integrated_source_body": false,
+        "sha256": "588f54b622c298c75a73084b2bbab02c5cc57d5d0adcf78ae0015db203901742"
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+test-install: ok default install
+test-install: ok idempotent re-run
+test-install: ok shared root migration and preservation
+test-install: ok migration preflight
+test-install: ok foreign native duplicate abort
+test-install: ok all targets
+test-install: ok explicit target isolation
+test-install: ok resource refresh
+test-install: ok retired skill ownership
+test-install: ok cursor install
+test-install: ok combined flags
+test-install: ok package interview
+test-install: ok package preserves other skills
+test-install: ok single skill selection, preservation, and preflight
+test-install: ok foreign skill abort
+test-install: ok foreign resource abort
+test-install: ok resource marker boundary
+test-install: ok foreign Codex AGENTS.md abort
+test-install: ok bundled warning
+test-install: ok rule adapters
+test-install: ok prune stale managed rule
+test-install: ok uninstall identity
+test-install: ok default uninstall skips cursor
+test-install: all passed

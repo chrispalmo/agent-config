@@ -1,6 +1,6 @@
 ---
 name: github-init
-description: Initializes the current project as a Git repository, creates a GitHub repository, and pushes the initial branch with upstream tracking. Defaults to a private repository owned by the authenticated GitHub user; trailing invocation text may request public or internal visibility or an organization owner. Use when the user invokes github-init.
+description: Initializes the current project as a Git repository, creates a GitHub repository, and pushes the initial branch with upstream tracking. Defaults to a private repository owned by the authenticated GitHub user; trailing invocation text may request public or internal visibility or an organization owner. Use only when the human explicitly invokes github-init.
 disable-model-invocation: true
 ---
 
@@ -9,6 +9,8 @@ disable-model-invocation: true
 Initialize the current project as a remote-synced GitHub repository.
 
 ## Invocation
+
+Start only when the human explicitly requests this skill by name; a general repository setup request does not activate it.
 
 Interpret text following the skill invocation as natural-language overrides, not as a rigid argument syntax.
 

@@ -1,0 +1,6 @@
+",
+    "dispatches_activated": "None. No chats are created, no messages are sent, and the board is not implemented.",
+    "triage_activation_retained": "No. Triage applied only to the explicitly selected exercise above and does not carry over to this or any later turn."
+  }
+}
+```

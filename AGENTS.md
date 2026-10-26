@@ -6,7 +6,7 @@ Central repository of Agent Skills and Agent Rules for Cursor, Claude Code, and 
 
 1. Read `README.md` for layout and install behavior.
 2. Read this file for operating procedures.
-3. Skills live in `skills/<name>/SKILL.md` or `skills/<package>/<name>/SKILL.md`.
+3. Pending-review drafts live under `drafts/` and are excluded from installation. Skills live in `skills/<name>/SKILL.md` or `skills/<package>/<name>/SKILL.md`.
 4. Rules live in `rules/<name>/RULE.md`.
 5. Shared scripts live directly under `scripts/`; do not add `scripts/skills/` or `scripts/rules/` directories.
 
@@ -47,7 +47,7 @@ When setting up project agent guidance in any repository, put shared guidance in
 
 When changing skills, rules, or catalogs, follow `docs/maintenance.md`. Run `python3 scripts/check-content.py`, `./scripts/test-install.sh`, and `git diff --check`. Review related guidance and templates together, preserve the user's established preferences, and do not claim behavioral improvements from static checks.
 
-Audit findings and proposals are evidence, not standalone instructions. Adopted changes live in the canonical skills and rules; the audit report holds their evidence and closeout. Harness compatibility and the broad installer audit remain deferred until the next harness switch; behavioral evaluations remain deferred until requested. Beads support is opt-in; the current audit work store remains the report.
+Audit findings and proposals are evidence, not standalone instructions. Adopted changes live in the canonical skills and rules; the audit report holds their evidence and closeout. Harness compatibility and the broad installer audit remain deferred until the next harness switch; behavioral evaluations remain deferred until requested. The current audit work store remains the report.
 
 ## Safety
 

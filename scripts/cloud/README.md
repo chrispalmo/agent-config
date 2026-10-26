@@ -50,7 +50,7 @@ On the VM you can also check:
 ```bash
 test -f ~/.claude/rules/address-as-chris.md && echo claude-rules-ok
 test -f ~/.codex/AGENTS.md && grep -F 'managed-by: chrispalmo/agent-config' ~/.codex/AGENTS.md
-readlink ~/.codex/skills/design-tool/SKILL.md
+test -f ~/.agents/skills/design-tool/SKILL.md && test -f ~/.agents/skills/project-audit/references/audit-rubric.md && echo shared-skills-ok
 ```
 
 Cursor cloud should also have `/.cursor` pointing at `~/.cursor`.

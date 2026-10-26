@@ -1,0 +1,30 @@
+{
+  "checked_at": "2026-10-23T15:53:03.876223+00:00",
+  "native_requests_completed": 4,
+  "native_prompts_contain_inline_skill_bodies": false,
+  "positive_observations": [
+    "Claude native explicit invocation, owned project-skill/legacy-command winner and actual relative asset Read.",
+    "Cursor native explicit invocation, owned .agents/.cursor winner and actual relative asset Read.",
+    "Claude native Skill call plus actual installed helper-source reads.",
+    "Cursor actual owned skill Read and correct relative helper command attempt."
+  ],
+  "not_passed_or_unverified": [
+    "Claude helper not executed in plan mode.",
+    "Cursor helper command denied by permissions; final mode attribution/quote not established by receipt.",
+    "Registry fixture immediate-parent permissions were invalid; no runtime-success result claimed.",
+    "Automatic suppression, all global/project combinations, full activation-counter coverage, Codex/cloud and real browser retention not tested."
+  ],
+  "lifecycle": "lifecycle.json",
+  "foreign_clash": "foreign-clash.json",
+  "preservation": "preservation.json",
+  "assessment": "assessment.json",
+  "cleanup": "cleanup.json",
+  "whitespace": "logs/whitespace.log",
+  "full_regression_suite": "Existing earlier passing installer/content/registry tests reused; no production source changed. Focused actual fixture lifecycle was run in this pass.",
+  "json_files_parsed": 15,
+  "relevant_local_links_checked": 18,
+  "personal_name_hits": [],
+  "global_skill_files_preserved": 369,
+  "global_and_selected_source_hashes_identical": true,
+  "watched_global_settings_hashes_identical": true
+}

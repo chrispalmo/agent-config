@@ -1,0 +1,2 @@
+# Preserve unified-diff context markers in archived evidence patches.
+docs/audits/evidence/**/*.patch -whitespace

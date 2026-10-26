@@ -1,0 +1,7 @@
+install: target /private/tmp/agent-config-native-compat-20261023/cursor/.agents/skills
+install: installed browser-session -> /private/tmp/agent-config-native-compat-20261023/cursor/.agents/skills/browser-session/SKILL.md
+install: installed browser-cleanup -> /private/tmp/agent-config-native-compat-20261023/cursor/.agents/skills/browser-cleanup/SKILL.md
+install: target /private/tmp/agent-config-native-compat-20261023/claude/.claude/skills
+install: installed browser-session -> /private/tmp/agent-config-native-compat-20261023/claude/.claude/skills/browser-session/SKILL.md
+install: installed browser-cleanup -> /private/tmp/agent-config-native-compat-20261023/claude/.claude/skills/browser-cleanup/SKILL.md
+install: done

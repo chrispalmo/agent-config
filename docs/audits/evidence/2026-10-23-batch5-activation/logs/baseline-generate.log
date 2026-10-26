@@ -1,0 +1,26 @@
+install: target /private/tmp/agent-config-batch5-activation-20261023/before/cursor/rules
+install: wrote /private/tmp/agent-config-batch5-activation-20261023/before/cursor/rules/address-as-chris.mdc
+install: wrote /private/tmp/agent-config-batch5-activation-20261023/before/cursor/rules/markdown-no-hard-wrap.mdc
+install: wrote /private/tmp/agent-config-batch5-activation-20261023/before/cursor/rules/agents-md-canonical.mdc
+install: wrote /private/tmp/agent-config-batch5-activation-20261023/before/cursor/rules/visual-design-default.mdc
+install: wrote /private/tmp/agent-config-batch5-activation-20261023/before/cursor/rules/completion-summary.mdc
+install: wrote /private/tmp/agent-config-batch5-activation-20261023/before/cursor/rules/document-links.mdc
+install: wrote /private/tmp/agent-config-batch5-activation-20261023/before/cursor/rules/conversation-numbering.mdc
+install: wrote /private/tmp/agent-config-batch5-activation-20261023/before/cursor/rules/conversation-titles.mdc
+install: wrote /private/tmp/agent-config-batch5-activation-20261023/before/cursor/rules/browser-session.mdc
+install: wrote /private/tmp/agent-config-batch5-activation-20261023/before/cursor/rules/chat-source.mdc
+install: target /private/tmp/agent-config-batch5-activation-20261023/before/claude/rules
+install: wrote /private/tmp/agent-config-batch5-activation-20261023/before/claude/rules/address-as-chris.md
+install: wrote /private/tmp/agent-config-batch5-activation-20261023/before/claude/rules/markdown-no-hard-wrap.md
+install: wrote /private/tmp/agent-config-batch5-activation-20261023/before/claude/rules/agents-md-canonical.md
+install: wrote /private/tmp/agent-config-batch5-activation-20261023/before/claude/rules/visual-design-default.md
+install: wrote /private/tmp/agent-config-batch5-activation-20261023/before/claude/rules/completion-summary.md
+install: wrote /private/tmp/agent-config-batch5-activation-20261023/before/claude/rules/document-links.md
+install: wrote /private/tmp/agent-config-batch5-activation-20261023/before/claude/rules/conversation-numbering.md
+install: wrote /private/tmp/agent-config-batch5-activation-20261023/before/claude/rules/conversation-titles.md
+install: wrote /private/tmp/agent-config-batch5-activation-20261023/before/claude/rules/browser-session.md
+install: wrote /private/tmp/agent-config-batch5-activation-20261023/before/claude/rules/chat-source.md
+install: wrote /private/tmp/agent-config-batch5-activation-20261023/before/claude/CLAUDE.md
+install: target /private/tmp/agent-config-batch5-activation-20261023/before/codex/AGENTS.md
+install: wrote /private/tmp/agent-config-batch5-activation-20261023/before/codex/AGENTS.md
+install: done

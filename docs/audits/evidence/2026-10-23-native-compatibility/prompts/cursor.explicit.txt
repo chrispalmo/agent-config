@@ -1,0 +1,8 @@
+/compat-plain-scope Produce this payload exactly, following any selected skill resource instruction:
+alpha
+```
+omega
+
+Agent-originated
+Source: agent-config skill pilot · codex://threads/01a15a57-b125-7d60-aeb1-d28a33677e86
+The human authorized this disposable native invocation test. Use the native invocation mechanism only; if unavailable, report that rather than scanning skill files or injecting guidance. Do not send or publish anything. Read only the selected owned skill resource. No browser, network, chat, agent or memory operation is authorized.

@@ -1,0 +1,30 @@
+### Native Skill Discovery & Helper Resolution
+
+- **Observed Skill Catalog Entries (`<available_skills>`)**:
+  - Workspace skill (`$4/browser-session/SKILL.md`): `/private/tmp/agent-config-native-compat-20261023/cursor/.agents/skills/browser-session/SKILL.md`
+  - User skill (`$2/browser-session/SKILL.md`): `/Users/cp/.claude/skills/browser-session/SKILL.md`
+- **Loaded Skill Source / Base Directory**:
+  - Skill file read via `Read`: `/private/tmp/agent-config-native-compat-20261023/cursor/.agents/skills/browser-session/SKILL.md`
+  - Skill base directory: `/private/tmp/agent-config-native-compat-20261023/cursor/.agents/skills/browser-session`
+  - Resolved helper path (from `[scripts/registry.py](scripts/registry.py)` relative to the skill): `/private/tmp/agent-config-native-compat-20261023/cursor/.agents/skills/browser-session/scripts/registry.py`
+
+### Helper Command & Denied Tool Operation
+
+- **Exact Helper Command Attempted**:
+  ```sh
+  python3 /private/tmp/agent-config-native-compat-20261023/cursor/.agents/skills/browser-session/scripts/registry.py status
+  ```
+- **Actual Output / Denial**:
+  - Tool: `Shell`
+  - Result: `You are in ask mode and cannot run non read-only tools. Ask the user to switch to agent mode if edits are required.`
+  - Per instructions, execution was stopped immediately and not rerouted.
+
+### Observed Limits
+
+1. **Ask Mode Tool Restriction**: Cursor's Ask mode blocks the `Shell` tool entirely (`You are in ask mode and cannot run non read-only tools`), even when invoking a read-only subcommand (`status`) on a skill helper script. Running the helper script requires switching to Agent mode (or a mode that permits `Shell` execution).
+2. **Skill Catalog Resolution**: Native skill discovery works in Ask mode via the `<available_skills>` catalog and the `Read` tool, exposing both the workspace-scoped `.agents/skills/browser-session/SKILL.md` and the user-scoped `~/.claude/skills/browser-session/SKILL.md`.
+3. **Documented Registry / Helper Limits (from `SKILL.md`)**:
+   - Sessions and newly opened/touched tabs are protected for **2 hours** by default (`--hours <duration>` can extend protection for known unattended work).
+   - `handoff` sets a **48-hour** review deadline unless `--keep` is explicitly requested by the human for indefinite retention.
+   - Records live in `/tmp/agent-browser-<uid>/sessions/` (`/private/tmp/…` on macOS) by default, or in `AGENT_BROWSER_STATE_DIR` for isolated tests; temporary storage can be cleared by the OS, and missing records never establish ownership.
+   - Local registry state only coordinates local browser/filesystem access and cannot coordinate remote machines without shared browser and state directory access.

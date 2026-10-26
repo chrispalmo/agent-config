@@ -1,0 +1,59 @@
+--- a/rules/rules.manifest
++++ b/rules/rules.manifest
+@@ -11,3 +11,4 @@
+ conversation-titles
+ browser-session
+ chat-source
++subscription-harness-order
+--- a/docs/maintenance.md
++++ b/docs/maintenance.md
+@@ -5,6 +5,8 @@
+ The user requested an instruction, workflow, and maintenance audit. Harness compatibility and installer integrity are deferred until the next harness switch. An [initial bounded seven-skill behavioral pilot](audits/evidence/2026-10-23-skill-pilot/README.md) is complete; broader longitudinal behavioral evaluation remains deferred. Findings and the action queue live in the [audit report](audits/2026-10-07-instruction-and-workflow-audit.md). The accepted instruction and workflow redesign is implemented; the report records its evidence and closeout.
+
+ A later [selected native Claude/Cursor compatibility check](audits/evidence/2026-10-23-native-compatibility/README.md) covers explicit invocation, resource reads, two owned precedence cases and isolated install/uninstall preservation. Helper execution in the tested read-only modes, complete counter coverage and the broader compatibility/installer audits remain unverified by that pass.
++
++The [bounded activation-signal comparison](audits/evidence/2026-10-23-batch5-activation/README.md) reuses those receipts and checks retained payloads against maintained archive adapters. It found no dedicated activation counter or payload-loss defect requiring repair. Documented native telemetry exports remain unvalidated locally; file reads and startup inventory do not establish complete usage counts. No continuous collector or longitudinal programme was started.
+
+ ## Authority
+
+--- a/docs/audits/2026-10-07-instruction-and-workflow-audit.md
++++ b/docs/audits/2026-10-07-instruction-and-workflow-audit.md
+@@ -85,7 +85,7 @@
+ | A-04 | Medium | Resolve output conventions, interview termination, copyable-output fences, and authorization carry-forward (I-06, I-07, I-10, I-11). | Done: adaptive interview limits, natural completion, inherited display conventions, enclosing fences, and explicit carry-forward. |
+ | A-05 | Medium | Retire proofread at the user's request (I-09). | Done: source and catalog removed; managed copies absent from all three installations. |
+ | A-07 | Medium | Maintain a source-content check and documented review procedure. | Implemented in this change; validation recorded below. |
+-| D-01 | Selected native CLI checks complete; broader audit deferred | Claude/Cursor explicit invocation, resource reads and two owned precedence cases checked; broader bundled-name, Codex and cloud claims remain open. | See the 2026-10-23 native compatibility entry; do not generalize read-only helper limits or one precedence fixture. |
++| D-01 | Selected native CLI checks and signal comparison complete; broader audit deferred | Claude/Cursor invocation, resource and two precedence cases checked; maintained payload preservation compared with documented activation events. End-to-end counting, broader bundled-name, Codex and cloud claims remain open. | See the 2026-10-23 compatibility and activation entries; reads/inventory do not establish complete activation counts. |
+ | D-02 | Selected lifecycle checks complete; broader audit deferred | Owned browser/plaintext installation, resource equality, foreign clash and unmanaged-preserving uninstallation checked. | Broad installer/resource audit and warning semantics remain deferred. |
+ | D-03 | Initial pilot and two source clarifications complete | Seven-skill Claude/Cursor comparison, archive/Triage source integration and bounded forward checks; broader longitudinal evaluation remains deferred. | See the 2026-10-23 entries; global rollout and live browser retention remain outside this pass, with a Cursor completion-reporting failure retained. |
+
+@@ -415,3 +415,13 @@
+ The design criteria were fidelity to the requested preference, visible decision grounds, and avoiding repeated approval questions. Existing Concierge decision guidance was reviewed; the draft makes the preference general without changing that skill. Expected benefits remain untested; repeated clarification loops or boilerplate that hides decisive criteria would warrant revising the wording.
+
+ Validation passed: source/catalog checks for 16 active skills and ten active rules, all 12 content fixtures, isolated installer regressions, and whitespace checks. The repository checker discovers skill drafts only, so the rule draft's YAML identity, boolean metadata, whitespace, and absence from active rule sources and the catalog were checked separately. The proposed source diff was inspected. Proposal drafting is complete; adoption and installation remain unperformed, and no behavioral effectiveness is claimed.
++
++## Activation signal comparison and subscription preference — 2026-10-23
++
++The human approved 5.1–5.4 in source chat `01a1626c-ec38-7921-bde3-679edf63fa17`, turn `01a1698f-6765-7672-a900-c2ca23c52c49`, and explicitly requested retaining Claude-first, Cursor-on-quota ordering for future chats. This existing owner completed only 5.4 and that preference. [The bounded report](evidence/2026-10-23-batch5-activation/README.md) reuses all four native 4.5 receipts without new Claude/Cursor inference. Thirteen owned synthetic cases confirm retained payload preservation in the maintained archive adapters. Claude assistant tool-use blocks retain top-level message classification; a tool-call-only consumer would miss them, but no payload-loss defect or existing dedicated activation counter was found. No archive source or schema repair was justified.
++
++Official documentation describes Claude activation events covering Skill and slash invocations, with custom names masked unless tool-detail logging is enabled, and Cursor Enterprise activation export. Neither local export, identifiable per-skill totals nor complete coverage was validated. Existing configuration metadata shows maintained capture bindings but no telemetry environment names in the inspected Claude user settings or task process. These selected files do not prove the absence of managed or remote telemetry. Startup inventory, quoted names and file Reads must not be represented as a complete usage count. Codex/cloud and the longitudinal model-upgrade study remain open; no continuous collector, backend or schedule was added.
++
++Added [the narrow shared rule](../../rules/subscription-harness-order/RULE.md) and catalog entry. It governs work assigned across authorized existing subscriptions, preserves a public quota/reset receipt and checked checkpoint before Cursor continuation, and retains authorization, privacy, holds, spending and expiry boundaries. It does not mandate offloading ordinary work from another harness. The earlier Bitter Lesson checkpoint favors retained evidence and small operational guidance over new classification machinery; the human preference is preserved without claiming comparative model superiority. Native compliance or an actual quota transition was not tested.
++
++Content validation passed for 16 skills and 11 rules, all 12 content fixtures and the isolated installer suite passed, and whitespace checks passed. Existing generated rules matched the pre-change baseline. The actual rules-only installer ran once; 24 generated destinations match isolated output, with only two new topic files and the added Codex section materially changing content. All 369 installed skill files, canonical skill files and inspected archive parser sources are unchanged; the pending archive/Triage source clarifications remain uninstalled. One watched Cursor CLI configuration hash changed while this task was open, with attribution unestablished; no new native request was launched and no settings were edited or restored by this pass. The installation receipt retains that caveat rather than claiming every watched file matched. Task-only temporary files were removed. No new provider spending, staging, commit or push occurred. Source checks and installed equality do not establish behavioral effectiveness.
+--- /dev/null
++++ b/rules/subscription-harness-order/RULE.md
+@@ -0,0 +1,13 @@
++---
++name: subscription-harness-order
++description: Prefer Claude, then Cursor, for work assigned across existing subscriptions
++alwaysApply: true
++---
++
++# Subscription Harness Order
++
++When assigning work across Claude and Cursor using existing subscriptions, use Claude first while its access remains authorized and available. This preference governs that choice; it does not require delegating ordinary work from another harness.
++
++If Claude returns an actual usage-limit response, preserve its exact public limit/reset message and a checked checkpoint of completed work, useful outputs, the pending step, and existing holds. Continue in Cursor so it can finish, reusing completed work without duplicate inference. Do not infer a quota block from percentages or slowness.
++
++Preserve existing authorization, privacy boundaries, holds, spending limits, and cancellation or expiry boundaries. Switching harnesses does not authorize renewal, extra credits, overages, direct paid provider APIs, or bypassing quota or security controls. If no authorized harness is available, retain the checkpoint and report the remaining work.

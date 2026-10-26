@@ -1,0 +1,52 @@
+{
+  "global_skill_roots_before": {
+    "/Users/cp/.agents/skills": {
+      "file_count": 71,
+      "tree_sha256": "3144b3e9628ce58d13e083da26c9557b83477666fae9d8b3e7171948628609ac"
+    },
+    "/Users/cp/.claude/skills": {
+      "file_count": 298,
+      "tree_sha256": "ef16d5da68d6fe944e97995ef3bae99e18005a49d638e7820727b73227f58b48"
+    }
+  },
+  "global_skill_roots_after": {
+    "/Users/cp/.agents/skills": {
+      "file_count": 71,
+      "tree_sha256": "3144b3e9628ce58d13e083da26c9557b83477666fae9d8b3e7171948628609ac"
+    },
+    "/Users/cp/.claude/skills": {
+      "file_count": 298,
+      "tree_sha256": "ef16d5da68d6fe944e97995ef3bae99e18005a49d638e7820727b73227f58b48"
+    }
+  },
+  "global_skill_roots_identical": true,
+  "canonical_sources_before": {
+    "skills/plaintext/SKILL.md": "dee99bf5b7efbf0ce89e0cc1424b7505912e459fb5a6a4aa2e3babdb1a6dda63",
+    "skills/plaintext/agents/openai.yaml": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94",
+    "skills/browser-session/SKILL.md": "c838e01fcd8cd45b907656413d82036e72b87ce3945a2422ebd20008a40b376d",
+    "skills/browser-session/scripts/registry.py": "7952e9474ef610dcac69de56fa223f9eaf590b6c6a88bcbcfb946813d12135bb",
+    "skills/browser-cleanup/SKILL.md": "1e78dd147ac9e014545a6906ed2cb6cb2aa957104926e090913e615eca1b0c6b"
+  },
+  "canonical_sources_after": {
+    "skills/plaintext/SKILL.md": "dee99bf5b7efbf0ce89e0cc1424b7505912e459fb5a6a4aa2e3babdb1a6dda63",
+    "skills/plaintext/agents/openai.yaml": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94",
+    "skills/browser-session/SKILL.md": "c838e01fcd8cd45b907656413d82036e72b87ce3945a2422ebd20008a40b376d",
+    "skills/browser-session/scripts/registry.py": "7952e9474ef610dcac69de56fa223f9eaf590b6c6a88bcbcfb946813d12135bb",
+    "skills/browser-cleanup/SKILL.md": "1e78dd147ac9e014545a6906ed2cb6cb2aa957104926e090913e615eca1b0c6b"
+  },
+  "canonical_sources_identical": true,
+  "settings_before": {
+    "/Users/cp/.claude/settings.json": "854946f35903ec1985c8d3fd812fc83e2972f94c76c0c28a8d95c5d396f83b21",
+    "/Users/cp/.cursor/cli-config.json": "0a417219bd66d5c096d265078e3671de6ea8e77130b2afcf5a1d5533f4b1bcc1",
+    "/Users/cp/.cursor/hooks.json": "aa8531b9f3b2375fbd793c45dab0ebcecbc5bc550b71d7417ab4bdf6f610d566",
+    "/Users/cp/.codex/config.toml": "e80e0259496c8aef0ae119c995e67cbc1f769bbcfb1092b69233364156377a6e"
+  },
+  "settings_after": {
+    "/Users/cp/.claude/settings.json": "854946f35903ec1985c8d3fd812fc83e2972f94c76c0c28a8d95c5d396f83b21",
+    "/Users/cp/.cursor/cli-config.json": "0a417219bd66d5c096d265078e3671de6ea8e77130b2afcf5a1d5533f4b1bcc1",
+    "/Users/cp/.cursor/hooks.json": "aa8531b9f3b2375fbd793c45dab0ebcecbc5bc550b71d7417ab4bdf6f610d566",
+    "/Users/cp/.codex/config.toml": "e80e0259496c8aef0ae119c995e67cbc1f769bbcfb1092b69233364156377a6e"
+  },
+  "changed_watched_settings_files": [],
+  "configuration_scope": "Native Cursor used CURSOR_CONFIG_DIR inside the task workspace. Global hash observations cannot attribute concurrent native-state changes to a process; no global settings write was issued."
+}

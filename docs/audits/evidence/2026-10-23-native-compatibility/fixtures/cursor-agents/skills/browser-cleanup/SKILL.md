@@ -1,0 +1,37 @@
+---
+name: browser-cleanup
+description: Clean up expired registered bot/ browser tabs on request or during scheduled cleanup. Supports manual browser cleanup at any time while preserving active sessions and human-review holds.
+---
+
+# Browser Cleanup
+
+Use when the human requests browser cleanup (including `$browser-cleanup`) or an authorized scheduled run invokes it. Registration and retention rules live in [browser-session](../browser-session/SKILL.md); its helper is `../browser-session/scripts/registry.py`, relative to this skill. Cleanup uses the same registry and grace periods whether manual or scheduled. Do not open a browser tab just to perform cleanup.
+
+Use the helper's default `/tmp/agent-browser-<uid>/sessions/` store (`/private/tmp/…` on macOS); `status` reports its resolved path. Do not set `AGENT_BROWSER_STATE_DIR` during real cleanup. A missing or system-cleared registry grants no ownership of existing tabs. Report inaccessible or unmigrated state; do not change global permissions or substitute another store to continue.
+
+## Inspect and plan
+
+Read the harness's current browser organization documentation. Inspect accessible profiles and their tabs/groups through supported browser APIs without claiming, focusing, or navigating each tab. The management capability, when available, can list and close tabs without claiming them. Native automatic cleanup is complementary and does not establish ownership of arbitrary pre-existing tabs.
+
+For each accessible browser/profile, save a full fresh snapshot as JSON in a temporary file:
+
+```json
+{
+  "complete": true,
+  "browser": "the-same-stable-browser-profile-identity-used-at-registration",
+  "groups": [{"id": 100, "title": "bot/store-setup"}],
+  "tabs": [{"id": 101, "groupId": 100, "active": false, "pinned": false, "audible": false, "status": "complete", "lastAccessed": 1792300000000}]
+}
+```
+
+`lastAccessed` is milliseconds since epoch for last activation, not creation. Preserve tool-provided values; never manufacture timestamps. Group IDs and tab IDs must come from the same browser/profile. Use the tool's stable instance identity, not its transient browser index. The helper rejects partial snapshots and skips incomplete tab metadata. If a browser restart or restored IDs make ownership uncertain, skip those records and report the gap.
+
+Run `python3 <helper> plan --snapshot <file>`. This is a dry run. A candidate must match a recorded tab, browser identity, group ID, and exact `bot/<task>` title. Two hours must have elapsed since session renewal, tab creation, recorded tab use, and live last activation. A finite handoff must have expired (48 hours by default). Explicit keeps, active/pinned/audible/loading tabs, unknown timestamps, ambiguous ownership, and unregistered tabs are spared. Recent activity can therefore protect a tab even after its review window expires. A tab moved out of its bot group is no longer eligible.
+
+## Close and verify
+
+Immediately before closing each candidate, obtain a fresh complete snapshot, run `plan` again, and ensure the same session/tab is still eligible. Never activate tabs merely to inspect them: that would change recency. Stop on ownership uncertainty or an unsupported close action. Follow the active tool's confirmation requirements; this skill does not bypass them. Preserve unsaved work if a warning appears; do not dismiss it to force cleanup.
+
+Close eligible tabs through the supported browser tool. Verify absence using a fresh listing, then run `python3 <helper> reconcile --snapshot <file>` with that complete post-action snapshot. Reconcile removes absent tabs and relinquishes tabs moved or renamed out of their registered group; it does not close anything. Never treat an inaccessible profile or failed listing as an empty browser. Corrupt records are reported and excluded rather than interpreted as permission to close tabs.
+
+Report confirmed closures and material gaps. Scheduled runs should stay quiet when there are no eligible tabs or meaningful problems, and report failures requiring attention. Do not refresh session leases, create a replacement registry, classify ownership from page content, or broaden the cleanup to legacy tabs during a run. If requested merely to preview cleanup, stop after the plan without reconciling or closing.

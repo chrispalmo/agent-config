@@ -1,0 +1,11 @@
+--- a/skills/bitter-lesson/SKILL.md
++++ b/skills/bitter-lesson/SKILL.md
+@@ -25,7 +25,7 @@
+ 
+ Explain the proposed method's incremental benefit and total cost: human attention, setup, upkeep, model usage, latency, coordination failures, and migration burden where material. Separate the value of a human interface from the value of autonomous coordination so one does not become evidence for the other.
+ 
+-Recommend keeping, simplifying, deferring, or testing the method. When the answer depends on evidence, propose the smallest reversible comparison on representative work, with comparable overall resources and concrete success criteria. Measure consequential outcomes such as correctness, delivery time, recovery, or human intervention; more messages and elaborate plans are not benefits by themselves. State what result would change the recommendation and what event should prompt reconsideration. Label proposed tests as unrun.
++Recommend keeping, simplifying, deferring, or testing the method. When the answer depends on evidence, propose the smallest reversible comparison on representative work, with comparable overall resources and concrete success criteria. Measure consequential outcomes such as correctness, delivery time, recovery, or human intervention; more messages and elaborate plans are not benefits by themselves. State what result would change the recommendation and what event should prompt reconsideration. Label proposed tests clearly as not yet performed.
+ 
+ ## Renewal and removal
+ 

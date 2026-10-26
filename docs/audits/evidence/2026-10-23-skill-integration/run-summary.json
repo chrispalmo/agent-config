@@ -1,0 +1,74 @@
+{
+  "runs": [
+    {
+      "id": "claude.browser-session.integrated.attempt-1",
+      "receipt": "runs/claude.browser-session.integrated.attempt-1.receipt.json",
+      "decision": "decisions/claude.browser-session.integrated.attempt-1.json",
+      "public_block_count": 1,
+      "joiner_for_strict_json": "'\\n'",
+      "capture_reconstruction": false,
+      "exit_code": 0,
+      "wall_seconds": 22.395,
+      "tool_calls": 0
+    },
+    {
+      "id": "claude.search-agent-chats.integrated.attempt-1",
+      "receipt": "runs/claude.search-agent-chats.integrated.attempt-1.receipt.json",
+      "decision": "decisions/claude.search-agent-chats.integrated.attempt-1.json",
+      "public_block_count": 1,
+      "joiner_for_strict_json": "'\\n'",
+      "capture_reconstruction": false,
+      "exit_code": 0,
+      "wall_seconds": 25.622,
+      "tool_calls": 0
+    },
+    {
+      "id": "claude.triage.integrated.attempt-1",
+      "receipt": "runs/claude.triage.integrated.attempt-1.receipt.json",
+      "decision": "decisions/claude.triage.integrated.attempt-1.json",
+      "public_block_count": 2,
+      "joiner_for_strict_json": "''",
+      "capture_reconstruction": true,
+      "exit_code": 0,
+      "wall_seconds": 45.413,
+      "tool_calls": 0
+    },
+    {
+      "id": "cursor.browser-session.integrated.attempt-1",
+      "receipt": "runs/cursor.browser-session.integrated.attempt-1.receipt.json",
+      "decision": "decisions/cursor.browser-session.integrated.attempt-1.json",
+      "public_block_count": 1,
+      "joiner_for_strict_json": "'\\n'",
+      "capture_reconstruction": false,
+      "exit_code": 0,
+      "wall_seconds": 43.492,
+      "tool_calls": 0
+    },
+    {
+      "id": "cursor.search-agent-chats.integrated.attempt-1",
+      "receipt": "runs/cursor.search-agent-chats.integrated.attempt-1.receipt.json",
+      "decision": "decisions/cursor.search-agent-chats.integrated.attempt-1.json",
+      "public_block_count": 1,
+      "joiner_for_strict_json": "'\\n'",
+      "capture_reconstruction": false,
+      "exit_code": 0,
+      "wall_seconds": 53.056,
+      "tool_calls": 0
+    },
+    {
+      "id": "cursor.triage.integrated.attempt-1",
+      "receipt": "runs/cursor.triage.integrated.attempt-1.receipt.json",
+      "decision": "decisions/cursor.triage.integrated.attempt-1.json",
+      "public_block_count": 1,
+      "joiner_for_strict_json": "'\\n'",
+      "capture_reconstruction": false,
+      "exit_code": 0,
+      "wall_seconds": 67.932,
+      "tool_calls": 0
+    }
+  ],
+  "completed_native_sessions": 6,
+  "normalized_decision_artifacts": 6,
+  "reported_list_price_cost_is_bill": false,
+  "capture_note": "The inherited runner joins public continuation blocks with newlines. One Claude Triage continuation split the word requested; joining its retained public blocks without a separator restores strict JSON. Original text/blocks remain unchanged; no private reasoning or inference retry used."
+}

@@ -1,0 +1,11 @@
+--- a/skills/triage/SKILL.md
++++ b/skills/triage/SKILL.md
+@@ -46,7 +46,7 @@
+ 
+ ## Handoff authorization
+ 
+-When the user invokes triage, handoffs for discussion items, research questions, read-only reviews, option comparisons, decision briefs, and draft plans are approved: send them to an appropriate existing chat, or create a focused chat in a verified existing project and available environment when needed. Group related items rather than creating a chat per idea. Keep a resolved answer here when a handoff adds no value. Respect an explicit proposal-only or no-dispatch instruction. This standing authorization applies to routing during an invoked triage workflow, not to ordinary dictation, quoted commands, or every incidental mention of a possible task.
++When the user invokes triage, handoffs for discussion items, research questions, read-only reviews, option comparisons, decision briefs, and draft plans are approved: send them to an appropriate existing chat, or create a focused chat in a verified existing project and available environment when needed. Group related items rather than creating a chat per idea. Keep a resolved answer here when a handoff adds no value. Respect an explicit proposal-only or no-dispatch instruction. In proposal-only work, keep prepared briefs proposal-only for both dispatch and recipient execution; describing a possible diagnostic test does not authorize running or implementing it. This standing authorization applies to routing during an invoked triage workflow, not to ordinary dictation, quoted commands, or every incidental mention of a possible task.
+ 
+ Sending an action item and executing it are separate permissions. For each action or proposed change in a brief, state the execution intent, its supporting source wording or locator, what is authorized now, and what needs clarification. Classify intent from the full context, including source-chat capture rules, corrections, conditions, and prior authorization:
+ 

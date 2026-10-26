@@ -1,0 +1,48 @@
+ M .gitignore
+ M AGENTS.md
+ M README.md
+ M docs/audits/2026-10-07-instruction-and-workflow-audit.md
+ M docs/maintenance.md
+ M rules/rules.manifest
+ M scripts/check-content.py
+ M scripts/cloud/README.md
+ M scripts/common.sh
+ M scripts/install.sh
+ M scripts/test-install.sh
+ M skills/README.md
+ M skills/bundled-skills.manifest
+ M skills/github-init/SKILL.md
+ M skills/interview/reverse-brief/SKILL.md
+ M skills/packages.manifest
+ M skills/pause-for-review/SKILL.md
+ M skills/plaintext/SKILL.md
+ M skills/project-management/README.md
+ D skills/project-management/ingest/SKILL.md
+ M skills/project-management/project-audit/SKILL.md
+ M skills/project-management/project-audit/references/audit-rubric.md
+ M skills/project-management/project-bootstrap/SKILL.md
+ M skills/project-management/project-bootstrap/references/templates/AGENTS.md
+ M skills/project-management/project-bootstrap/references/templates/README.md
+ M skills/project-management/project-bootstrap/references/variants.md
+ M skills/project-management/status-ledger/SKILL.md
+ D skills/project-management/status-ledger/references/beads.md
+ M skills/search-agent-chats/SKILL.md
+ M skills/skills.manifest
+?? docs/audits/evidence/
+?? requirements-dev.txt
+?? rules/browser-session/
+?? rules/conversation-titles/
+?? scripts/__pycache__/
+?? scripts/test-browser-sessions.py
+?? scripts/test-content.py
+?? skills/bitter-lesson/
+?? skills/browser-cleanup/
+?? skills/browser-session/
+?? skills/concierge/
+?? skills/github-init/agents/
+?? skills/interview/agents/
+?? skills/interview/reverse-brief/agents/
+?? skills/neon-neo-brutalist-minimal/
+?? skills/pause-for-review/agents/
+?? skills/plaintext/agents/
+?? skills/triage/

@@ -1,0 +1,222 @@
+{
+  "transcript_fixtures": [
+    {
+      "fixture": "skill_tool",
+      "claude": {
+        "type": "assistant",
+        "sessionId": "owned-session",
+        "uuid": "skill_tool",
+        "timestamp": "2026-10-23T00:00:00Z",
+        "message": {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "owned-skill",
+              "name": "Skill",
+              "input": {
+                "skill": "owned-fixture"
+              }
+            }
+          ]
+        }
+      },
+      "cursor_transcript": {
+        "role": "assistant",
+        "message": {
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "owned-skill",
+              "name": "Skill",
+              "input": {
+                "skill": "owned-fixture"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "skill_read",
+      "claude": {
+        "type": "assistant",
+        "sessionId": "owned-session",
+        "uuid": "skill_read",
+        "timestamp": "2026-10-23T00:00:00Z",
+        "message": {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "owned-read",
+              "name": "Read",
+              "input": {
+                "file_path": "/owned/skills/fixture/SKILL.md"
+              }
+            }
+          ]
+        }
+      },
+      "cursor_transcript": {
+        "role": "assistant",
+        "message": {
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "owned-read",
+              "name": "Read",
+              "input": {
+                "file_path": "/owned/skills/fixture/SKILL.md"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "asset_read",
+      "claude": {
+        "type": "assistant",
+        "sessionId": "owned-session",
+        "uuid": "asset_read",
+        "timestamp": "2026-10-23T00:00:00Z",
+        "message": {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "owned-asset",
+              "name": "Read",
+              "input": {
+                "file_path": "/owned/skills/fixture/assets/origin.txt"
+              }
+            }
+          ]
+        }
+      },
+      "cursor_transcript": {
+        "role": "assistant",
+        "message": {
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "owned-asset",
+              "name": "Read",
+              "input": {
+                "file_path": "/owned/skills/fixture/assets/origin.txt"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "ordinary_read",
+      "claude": {
+        "type": "assistant",
+        "sessionId": "owned-session",
+        "uuid": "ordinary_read",
+        "timestamp": "2026-10-23T00:00:00Z",
+        "message": {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "owned-ordinary",
+              "name": "Read",
+              "input": {
+                "file_path": "/owned/README.md"
+              }
+            }
+          ]
+        }
+      },
+      "cursor_transcript": {
+        "role": "assistant",
+        "message": {
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "owned-ordinary",
+              "name": "Read",
+              "input": {
+                "file_path": "/owned/README.md"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "quoted_mention",
+      "claude": {
+        "type": "user",
+        "sessionId": "owned-session",
+        "uuid": "quoted_mention",
+        "timestamp": "2026-10-23T00:00:00Z",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "Explain the quoted string /owned-fixture; do not invoke it."
+            }
+          ]
+        }
+      },
+      "cursor_transcript": {
+        "role": "user",
+        "message": {
+          "content": [
+            {
+              "type": "text",
+              "text": "Explain the quoted string /owned-fixture; do not invoke it."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "tool_result",
+      "claude": {
+        "type": "user",
+        "sessionId": "owned-session",
+        "uuid": "tool_result",
+        "timestamp": "2026-10-23T00:00:00Z",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "owned-skill",
+              "content": "Launching skill: owned-fixture"
+            }
+          ]
+        }
+      },
+      "cursor_transcript": {
+        "role": "user",
+        "message": {
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "owned-skill",
+              "content": "Launching skill: owned-fixture"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "inventory": {
+    "type": "system",
+    "subtype": "init",
+    "sessionId": "owned-session",
+    "timestamp": "2026-10-23T00:00:00Z",
+    "skills": [
+      "owned-fixture",
+      "unused-fixture"
+    ]
+  }
+}

@@ -8,4 +8,7 @@ visual-design-default
 completion-summary
 document-links
 conversation-numbering
+conversation-titles
+browser-session
 chat-source
+decision-criteria

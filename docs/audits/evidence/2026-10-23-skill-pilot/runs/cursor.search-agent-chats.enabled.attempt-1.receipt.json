@@ -1,0 +1,210 @@
+{
+  "id": "cursor.search-agent-chats.enabled.attempt-1",
+  "harness": "cursor",
+  "skill": "search-agent-chats",
+  "condition": "enabled",
+  "argv": [
+    "agent",
+    "-p",
+    "--model",
+    "gemini-4-argon-high",
+    "--output-format",
+    "stream-json",
+    "--mode",
+    "ask",
+    "--sandbox",
+    "enabled",
+    "--auto-review",
+    "--workspace",
+    "/private/tmp/agent-skill-pilot-20261023-workspace",
+    "--trust",
+    "<retained prompt>"
+  ],
+  "prompt_path": "prompts/search-agent-chats.enabled.txt",
+  "started_at": "2026-10-22T18:58:29.578583+00:00",
+  "exit_code": 0,
+  "wall_seconds": 45.672,
+  "native_receipt": [
+    {
+      "type": "system",
+      "subtype": "init",
+      "session_id": "62411fb0-dc0a-4a8f-acc7-8ee9a431a57f",
+      "model": "Gemini 4 Argon High"
+    },
+    {
+      "type": "user",
+      "session_id": "62411fb0-dc0a-4a8f-acc7-8ee9a431a57f"
+    },
+    {
+      "type": "thinking",
+      "subtype": "delta",
+      "session_id": "62411fb0-dc0a-4a8f-acc7-8ee9a431a57f"
+    },
+    {
+      "type": "thinking",
+      "subtype": "delta",
+      "session_id": "62411fb0-dc0a-4a8f-acc7-8ee9a431a57f"
+    },
+    {
+      "type": "thinking",
+      "subtype": "delta",
+      "session_id": "62411fb0-dc0a-4a8f-acc7-8ee9a431a57f"
+    },
+    {
+      "type": "thinking",
+      "subtype": "delta",
+      "session_id": "62411fb0-dc0a-4a8f-acc7-8ee9a431a57f"
+    },
+    {
+      "type": "thinking",
+      "subtype": "delta",
+      "session_id": "62411fb0-dc0a-4a8f-acc7-8ee9a431a57f"
+    },
+    {
+      "type": "thinking",
+      "subtype": "delta",
+      "session_id": "62411fb0-dc0a-4a8f-acc7-8ee9a431a57f"
+    },
+    {
+      "type": "thinking",
+      "subtype": "delta",
+      "session_id": "62411fb0-dc0a-4a8f-acc7-8ee9a431a57f"
+    },
+    {
+      "type": "thinking",
+      "subtype": "delta",
+      "session_id": "62411fb0-dc0a-4a8f-acc7-8ee9a431a57f"
+    },
+    {
+      "type": "thinking",
+      "subtype": "completed",
+      "session_id": "62411fb0-dc0a-4a8f-acc7-8ee9a431a57f"
+    },
+    {
+      "type": "assistant",
+      "session_id": "62411fb0-dc0a-4a8f-acc7-8ee9a431a57f"
+    },
+    {
+      "type": "result",
+      "subtype": "success",
+      "is_error": false,
+      "duration_ms": 36132,
+      "duration_api_ms": 36132,
+      "session_id": "62411fb0-dc0a-4a8f-acc7-8ee9a431a57f",
+      "request_id": "ca486b82-0557-4de3-ac7d-1424180aa13b",
+      "usage": {
+        "inputTokens": 14142,
+        "outputTokens": 667,
+        "cacheReadTokens": 0,
+        "cacheWriteTokens": 0
+      }
+    }
+  ],
+  "tool_calls": [],
+  "stderr": "",
+  "stdout_json_objects": 13,
+  "stdout_top_level_keys": [
+    [
+      "type",
+      "subtype",
+      "apiKeySource",
+      "cwd",
+      "session_id",
+      "model",
+      "permissionMode"
+    ],
+    [
+      "type",
+      "message",
+      "session_id"
+    ],
+    [
+      "type",
+      "subtype",
+      "text",
+      "session_id",
+      "timestamp_ms"
+    ],
+    [
+      "type",
+      "subtype",
+      "text",
+      "session_id",
+      "timestamp_ms"
+    ],
+    [
+      "type",
+      "subtype",
+      "text",
+      "session_id",
+      "timestamp_ms"
+    ],
+    [
+      "type",
+      "subtype",
+      "text",
+      "session_id",
+      "timestamp_ms"
+    ],
+    [
+      "type",
+      "subtype",
+      "text",
+      "session_id",
+      "timestamp_ms"
+    ],
+    [
+      "type",
+      "subtype",
+      "text",
+      "session_id",
+      "timestamp_ms"
+    ],
+    [
+      "type",
+      "subtype",
+      "text",
+      "session_id",
+      "timestamp_ms"
+    ],
+    [
+      "type",
+      "subtype",
+      "text",
+      "session_id",
+      "timestamp_ms"
+    ],
+    [
+      "type",
+      "subtype",
+      "session_id",
+      "timestamp_ms"
+    ],
+    [
+      "type",
+      "message",
+      "session_id"
+    ],
+    [
+      "type",
+      "subtype",
+      "duration_ms",
+      "duration_api_ms",
+      "is_error",
+      "result",
+      "session_id",
+      "request_id",
+      "usage"
+    ]
+  ],
+  "output_chars": 2934,
+  "output_words": 391,
+  "output_path": "runs/cursor.search-agent-chats.enabled.attempt-1.final.txt",
+  "reported_list_price_cost_is_bill": false,
+  "settings_after": {
+    "/Users/cp/.claude/settings.json": "854946f35903ec1985c8d3fd812fc83e2972f94c76c0c28a8d95c5d396f83b21",
+    "/Users/cp/.cursor/cli-config.json": "f97a757409d076f45df062e143e98b61cbdd06168058b0649ca965ecde0fc302",
+    "/Users/cp/.cursor/hooks.json": "aa8531b9f3b2375fbd793c45dab0ebcecbc5bc550b71d7417ab4bdf6f610d566",
+    "/Users/cp/.codex/config.toml": "8496b9f02a448b46ce808d79348a34fa5b8ef4f1b494a0fe3acabf50c36ee8a9"
+  }
+}

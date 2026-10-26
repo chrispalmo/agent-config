@@ -1,0 +1,144 @@
+{
+  "archive_roots": [
+    "/Users/cp/dev/agent-config/docs/audits/evidence/2026-10-23-skill-integration/fixtures/archive/cursor",
+    "/Users/cp/dev/agent-config/docs/audits/evidence/2026-10-23-skill-integration/fixtures/archive/codex",
+    "/Users/cp/dev/agent-config/docs/audits/evidence/2026-10-23-skill-integration/fixtures/archive/claude"
+  ],
+  "authoritative_source": "/Users/cp/dev/agent-config/docs/audits/evidence/2026-10-23-skill-integration/fixtures/archive/cursor",
+  "hit_count": 1,
+  "hits": [
+    {
+      "archive_path": "/Users/cp/dev/agent-config/docs/audits/evidence/2026-10-23-skill-integration/fixtures/archive/claude/synthetic-project/A.jsonl",
+      "author": "unknown",
+      "chat_description": "Amber release brainstorming",
+      "citation": {
+        "event_index": null,
+        "native_event_id": null,
+        "path": "/Users/cp/dev/agent-config/docs/audits/evidence/2026-10-23-skill-integration/fixtures/archive/claude/synthetic-project/A.jsonl"
+      },
+      "conversation_id": "owned-fixture-A",
+      "event_at": "2026-10-20T00:00:01Z",
+      "event_index": null,
+      "event_kind": "metadata",
+      "harness": "claude",
+      "native_event_id": null,
+      "project_key": "synthetic-project",
+      "relative_path": "claude/synthetic-project/A.jsonl",
+      "role": "metadata",
+      "score": -2.995064049221994,
+      "snippet": "[Amber] release [brainstorming]",
+      "submitter": "unknown"
+    }
+  ],
+  "mode": "lexical",
+  "query": "Amber brainstorming",
+  "record_type": "agent_chats_search_results",
+  "refresh": {
+    "candidate_sessions": 2,
+    "deferred_sessions": 0,
+    "indexed_at": "2026-10-23T06:28:28Z",
+    "indexed_git_head": "7fe84acec9cad7528249852ec6150094dab65015",
+    "path_only_updates": 0,
+    "reindexed_sessions": 2,
+    "removed_sessions": 0,
+    "scanned_sessions": 2,
+    "skipped_sessions": 0,
+    "stat_only_updates": 0
+  },
+  "search_context": {
+    "coverage": {
+      "capture": {
+        "basis": "No valid full collector observation is available.",
+        "per_harness": {},
+        "status": "unknown"
+      },
+      "lexical": {
+        "basis": "Discovery validates metadata only. Pending file contents may be unreadable; current files match previously indexed path/size/mtime.",
+        "complete_for_observed_files": true,
+        "per_harness": {
+          "claude": {
+            "cached_only_files": 0,
+            "current_files": 1,
+            "indexed_files": 1,
+            "pending_files": 0,
+            "readable_files": 1,
+            "unreadable_files": 0
+          },
+          "codex": {
+            "cached_only_files": 0,
+            "current_files": 1,
+            "indexed_files": 1,
+            "pending_files": 0,
+            "readable_files": 1,
+            "unreadable_files": 0
+          },
+          "cursor": {
+            "cached_only_files": 0,
+            "current_files": 0,
+            "indexed_files": 0,
+            "pending_files": 0,
+            "readable_files": 0,
+            "unreadable_files": 0
+          }
+        }
+      },
+      "semantic": {
+        "complete_for_indexed_events": false,
+        "embedded_events": 0,
+        "per_harness": {
+          "claude": {
+            "embedded_events": 0,
+            "total_events": 1
+          },
+          "codex": {
+            "embedded_events": 0,
+            "total_events": 2
+          },
+          "cursor": {
+            "embedded_events": 0,
+            "total_events": 0
+          }
+        },
+        "scope": "All indexed text events, before result filters.",
+        "status": "unavailable",
+        "total_events": 3
+      }
+    },
+    "freshness": {
+      "capture": {
+        "age_seconds": null,
+        "observed_at": null,
+        "status": "unknown"
+      },
+      "lexical": {
+        "basis": "Current files match indexed path/size/mtime. Refresh time alone does not imply full coverage.",
+        "last_refresh_at": "2026-10-23T06:28:28Z",
+        "refresh_requested": true
+      },
+      "observed_at": "2026-10-23T06:28:28Z",
+      "semantic": {
+        "last_document_batch_at": null
+      }
+    },
+    "limitations": [
+      "A miss is limited to the searched coverage.",
+      "Capture observations can age; the collection interval is not a freshness guarantee.",
+      "Indexed or embedded event counts do not prove complete native history."
+    ],
+    "scope": {
+      "content": "Captured metadata and event text, including redacted native payloads. Results contain excerpts and exact file/event citations; inspect the cited event for full evidence.",
+      "coverage_basis": "All local captured files before result filters. Native source coverage is reported separately.",
+      "filters": {},
+      "harnesses": [
+        "cursor",
+        "codex",
+        "claude"
+      ],
+      "provider": "local_captured_archive",
+      "requested_mode": "lexical",
+      "searches_live_native_stores": false,
+      "semantic_used": false
+    }
+  },
+  "semantic_coverage": null
+}

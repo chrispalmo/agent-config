@@ -14,13 +14,15 @@ PACKAGES_MANIFEST="$SKILLS_ROOT/packages.manifest"
 BUNDLED_MANIFEST="$SKILLS_ROOT/bundled-skills.manifest"
 RULES_MANIFEST="$RULES_ROOT/rules.manifest"
 
-CURSOR_SKILLS="${CURSOR_SKILLS:-$HOME/.cursor/skills}"
+SHARED_SKILLS="${SHARED_SKILLS:-$HOME/.agents/skills}"
+CURSOR_NATIVE_SKILLS="${CURSOR_NATIVE_SKILLS:-$HOME/.cursor/skills}"
+CURSOR_SKILLS="${CURSOR_SKILLS:-$SHARED_SKILLS}"
 CLAUDE_SKILLS="${CLAUDE_SKILLS:-$HOME/.claude/skills}"
 CURSOR_BUNDLED_SKILLS="${CURSOR_BUNDLED_SKILLS:-$HOME/.cursor/skills-cursor}"
 CLAUDE_BUNDLED_SKILLS="${CLAUDE_BUNDLED_SKILLS:-}"
 CODEX_BUNDLED_SKILLS="${CODEX_BUNDLED_SKILLS:-}"
 CODEX_HOME="${CODEX_HOME:-$HOME/.codex}"
-CODEX_SKILLS="${CODEX_SKILLS:-$CODEX_HOME/skills}"
+CODEX_SKILLS="${CODEX_SKILLS:-$SHARED_SKILLS}"
 
 CURSOR_RULES="${CURSOR_RULES:-$HOME/.cursor/rules}"
 CLAUDE_RULES="${CLAUDE_RULES:-$HOME/.claude/rules}"
@@ -43,6 +45,23 @@ managed_skill_source() {
   fi
   [[ "$source" == "$SKILLS_ROOT/"*"/SKILL.md" ]] || return 1
   printf '%s' "$source"
+}
+
+# Only consider legacy roots when installing into the shared default. Explicit
+# destination overrides retain their original isolation semantics.
+legacy_skill_roots() {
+  [[ $WANTS_CURSOR -eq 0 || "$CURSOR_SKILLS" != "$SHARED_SKILLS" ]] || printf '%s\n' "$CURSOR_NATIVE_SKILLS"
+  [[ $WANTS_AGENTS -eq 0 || "$CODEX_SKILLS" != "$SHARED_SKILLS" ]] || printf '%s\n' "$CODEX_HOME/skills"
+  return 0
+}
+
+selected_legacy_skill() {
+  local dir="$1" path
+  [[ -z "$PACKAGE" && -z "$SINGLE_SKILL" ]] && return 0
+  for path in "${SKILLS[@]}"; do
+    [[ "${path##*/}" != "${dir##*/}" ]] || return 0
+  done
+  return 1
 }
 
 preflight_skill_resources() {

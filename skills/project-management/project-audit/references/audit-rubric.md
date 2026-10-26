@@ -13,6 +13,8 @@ Assess whether another agent can act correctly using the available evidence. The
 
 Use supported, partial, missing, or not applicable. Explain why a capability does not apply. Distinguish a missing store from a stale or contradictory one. Accept adequate equivalents without partial-credit penalties: a tracker, README section, project note, database-backed work queue, or specification can satisfy the need.
 
+A missing `docs/` directory or records in another adequate location are not continuity gaps. Assess whether canonical records are discoverable and scoped appropriately rather than enforcing a preferred folder layout.
+
 Sample completed and open work against actual artifacts where available. Static review supports conclusions about the inspected guidance; agent-outcome claims require separate behavioral evidence. Frozen projects and completed tools can need only usage and scope information. Do not invent planned work to fill the table.
 
 ## Report shape

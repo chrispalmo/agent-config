@@ -1,0 +1,24 @@
+{
+  "checked_at": "2026-10-23T06:41:05.190733+00:00",
+  "scope": "/private/tmp/agent-skill-integration-20261023-workspace",
+  "owned_workspace_files": [
+    "README.md",
+    "archive-cache/search.sqlite3",
+    "baseline/docs/audits/2026-10-07-instruction-and-workflow-audit.md",
+    "baseline/docs/audits/evidence/2026-10-23-skill-pilot/README.md",
+    "baseline/docs/audits/evidence/2026-10-23-skill-pilot/candidates/README.md",
+    "baseline/skills/search-agent-chats/SKILL.md",
+    "baseline/skills/triage/SKILL.md",
+    "cases.json",
+    "validator-before/triage/SKILL.md"
+  ],
+  "unexpected_workspace_files": [],
+  "removed_trust_markers": [
+    "/Users/cp/.cursor/projects/private-tmp-agent-skill-integration-20261023-workspace/.workspace-trusted"
+  ],
+  "workspace_removed": true,
+  "isolated_index_removed": true,
+  "validator_fixture_removed": true,
+  "unrelated_trust_markers_changed": false,
+  "real_browser_or_private_archive_operations": false
+}

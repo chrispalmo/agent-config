@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "/Users/cp/dev/agent-config/scripts/install.sh",
+    "--skills",
+    "--skill",
+    "plaintext",
+    "--claude",
+    "--cursor"
+  ],
+  "exit_code": 1,
+  "unmanaged_fixture_sha256": "8244220613057a60288255925b59fd9def6c5c25db6ed57be2bbc131de297b83",
+  "foreign_file_unchanged": true,
+  "other_target_not_partially_installed": true,
+  "log": "logs/foreign-clash.log"
+}

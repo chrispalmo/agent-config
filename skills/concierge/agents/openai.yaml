@@ -1,0 +1,4 @@
+interface:
+  display_name: "Concierge"
+  short_description: "Deliver useful work and prepare likely follow-up answers"
+  default_prompt: "Use $concierge for this turn at depth two to deliver useful work, maintain a concise decision brief, and prepare linked follow-up answers that start with executive summaries, using a rough effort allowance."

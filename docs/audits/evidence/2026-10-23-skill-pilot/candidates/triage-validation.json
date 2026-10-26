@@ -1,0 +1,12 @@
+{
+  "command": [
+    "git",
+    "apply",
+    "--check",
+    "triage-proposal-only-execution.patch"
+  ],
+  "exit_code": 0,
+  "canonical_source_changed": false,
+  "hypothesis": "Preserve proposal-only status through prepared recipient briefs; diagnostic design is not execution authorization.",
+  "behavioral_comparison": "One current Cursor repeat plus one candidate: candidate preserves explicit no recipient execution; original overreach was not fully reproduced in the repeated control. Improvement remains provisional."
+}

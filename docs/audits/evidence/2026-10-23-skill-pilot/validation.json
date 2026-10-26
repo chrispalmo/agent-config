@@ -1,0 +1,128 @@
+{
+  "checked_at": "2026-10-22T18:52:37.069700+00:00",
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "scripts/check-content.py"
+      ],
+      "exit_code": 1,
+      "seconds": 0.121,
+      "stdout": "",
+      "stderr": "check-content: install validation dependencies: python3 -m pip install -r requirements-dev.txt\n"
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/test-content.py"
+      ],
+      "exit_code": 1,
+      "seconds": 0.128,
+      "stdout": "",
+      "stderr": "check-content: install validation dependencies: python3 -m pip install -r requirements-dev.txt\n"
+    },
+    {
+      "command": [
+        "./scripts/test-install.sh"
+      ],
+      "exit_code": 0,
+      "seconds": 12.857,
+      "stdout": "test-install: ok default install\ntest-install: ok idempotent re-run\ntest-install: ok shared root migration and preservation\ntest-install: ok migration preflight\ntest-install: ok foreign native duplicate abort\ntest-install: ok all targets\ntest-install: ok explicit target isolation\ntest-install: ok resource refresh\ntest-install: ok retired skill ownership\ntest-install: ok cursor install\ntest-install: ok combined flags\ntest-install: ok package interview\ntest-install: ok package preserves other skills\ntest-install: ok single skill selection, preservation, and preflight\ntest-install: ok foreign skill abort\ntest-install: ok foreign resource abort\ntest-install: ok resource marker boundary\ntest-install: ok foreign Codex AGENTS.md abort\ntest-install: ok bundled warning\ntest-install: ok rule adapters\ntest-install: ok prune stale managed rule\ntest-install: ok uninstall identity\ntest-install: ok default uninstall skips cursor\ntest-install: all passed\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/test-browser-sessions.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.294,
+      "stdout": "",
+      "stderr": "................\n----------------------------------------------------------------------\nRan 16 tests in 0.096s\n\nOK\n"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 0.019,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "scripts/check-content.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.114,
+      "stdout": "check-content: passed (16 skills, 0 drafts, 10 rules)\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "scripts/test-content.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.639,
+      "stdout": "",
+      "stderr": "............\n----------------------------------------------------------------------\nRan 12 tests in 0.552s\n\nOK\n"
+    },
+    {
+      "phase": "final",
+      "command": [
+        ".venv/bin/python",
+        "scripts/check-content.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.098,
+      "stdout": "check-content: passed (16 skills, 0 drafts, 10 rules)\n",
+      "stderr": ""
+    },
+    {
+      "phase": "final",
+      "command": [
+        ".venv/bin/python",
+        "scripts/test-content.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.614,
+      "stdout": "",
+      "stderr": "............\n----------------------------------------------------------------------\nRan 12 tests in 0.530s\n\nOK\n"
+    },
+    {
+      "phase": "final",
+      "command": [
+        "./scripts/test-install.sh"
+      ],
+      "exit_code": 0,
+      "seconds": 15.443,
+      "stdout": "test-install: ok default install\ntest-install: ok idempotent re-run\ntest-install: ok shared root migration and preservation\ntest-install: ok migration preflight\ntest-install: ok foreign native duplicate abort\ntest-install: ok all targets\ntest-install: ok explicit target isolation\ntest-install: ok resource refresh\ntest-install: ok retired skill ownership\ntest-install: ok cursor install\ntest-install: ok combined flags\ntest-install: ok package interview\ntest-install: ok package preserves other skills\ntest-install: ok single skill selection, preservation, and preflight\ntest-install: ok foreign skill abort\ntest-install: ok foreign resource abort\ntest-install: ok resource marker boundary\ntest-install: ok foreign Codex AGENTS.md abort\ntest-install: ok bundled warning\ntest-install: ok rule adapters\ntest-install: ok prune stale managed rule\ntest-install: ok uninstall identity\ntest-install: ok default uninstall skips cursor\ntest-install: all passed\n",
+      "stderr": ""
+    },
+    {
+      "phase": "final",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 0.023,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "artifact_validation": {
+    "primary_json_outputs": 28,
+    "exact_ledger_cleanup_checks": 8,
+    "runner_compiles": true,
+    "authored_report_links_resolve": true,
+    "canonical_skill_changes": false,
+    "candidate_patches_unapplied": 3
+  },
+  "final_checked_at": "2026-10-22T19:12:45.459550+00:00"
+}

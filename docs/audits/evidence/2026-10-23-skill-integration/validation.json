@@ -1,0 +1,66 @@
+{
+  "checked_at": "2026-10-23T06:41:55.034844+00:00",
+  "checks": {
+    "content": {
+      "status": "passed",
+      "skills": 16,
+      "rules": 10,
+      "log": "validation/content.log"
+    },
+    "content_fixtures": {
+      "status": "passed",
+      "tests": 12,
+      "log": "validation/content-fixtures.log"
+    },
+    "isolated_installer": {
+      "status": "passed",
+      "log": "validation/installer.log",
+      "global_installation": false
+    },
+    "browser_registry": {
+      "status": "passed",
+      "tests": 16,
+      "log": "validation/browser-registry.log"
+    },
+    "generic_skill_validator": {
+      "search-agent-chats": "passed",
+      "triage": "unsupported pre-existing frontmatter key; identical before/after rejection",
+      "log": "validation/skill-validator.log",
+      "limitation": "validation/skill-validator-limitation.json"
+    },
+    "policy_invariants": {
+      "status": "passed",
+      "receipt": "validation/policy-invariants.json"
+    },
+    "whitespace": {
+      "status": "passed",
+      "log": "validation/whitespace.log"
+    },
+    "actual_archive_cli": {
+      "status": "passed against owned synthetic records",
+      "queries": 4,
+      "receipt": "archive-checks/validation.json"
+    },
+    "native_forward_checks": {
+      "sessions_completed": 6,
+      "reporting_failure": "cursor.browser-session.integrated.attempt-1",
+      "assessment": "assessment.json",
+      "all_behavioral_criteria_passed": false
+    },
+    "cleanup": {
+      "status": "passed",
+      "receipt": "cleanup.json"
+    },
+    "artifact_integrity": {
+      "status": "passed",
+      "json_files_parsed": 32,
+      "strict_json_decisions": 6,
+      "local_links_checked": 37,
+      "link_scope": "New follow-up report, candidate status report, new pilot follow-up pointer and new authoritative audit section.",
+      "integrated_source_matches_injection": true,
+      "installed_bodies_remain_before_source": true,
+      "browser_and_bitter_lesson_sources_unchanged": true,
+      "personal_name_hits": []
+    }
+  }
+}

@@ -1,0 +1,1007 @@
+{
+  "updated_at": "2026-10-22T19:10:13.719751+00:00",
+  "native_sessions_completed": 35,
+  "trust_stopped_launches": 1,
+  "sessions": [
+    {
+      "id": "claude.bitter-lesson.baseline.attempt-1",
+      "wall_seconds": 27.637,
+      "output_words": 696,
+      "reported_usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 3648,
+        "cache_read_input_tokens": 1454,
+        "output_tokens": 2369,
+        "output_tokens_details": {
+          "thinking_tokens": 911
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 3648,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 2369,
+            "cache_read_input_tokens": 1454,
+            "cache_creation_input_tokens": 3648,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 3648
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "final_output": "runs/claude.bitter-lesson.baseline.attempt-1.final.txt",
+      "receipt": "runs/claude.bitter-lesson.baseline.attempt-1.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "claude.bitter-lesson.enabled.attempt-1",
+      "wall_seconds": 29.233,
+      "output_words": 756,
+      "reported_usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 5653,
+        "cache_read_input_tokens": 1454,
+        "output_tokens": 2402,
+        "output_tokens_details": {
+          "thinking_tokens": 846
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 5653,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 2402,
+            "cache_read_input_tokens": 1454,
+            "cache_creation_input_tokens": 5653,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 5653
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "final_output": "runs/claude.bitter-lesson.enabled.attempt-1.final.txt",
+      "receipt": "runs/claude.bitter-lesson.enabled.attempt-1.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "claude.browser-cleanup.baseline.attempt-1",
+      "wall_seconds": 23.037,
+      "output_words": 442,
+      "reported_usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 3689,
+        "cache_read_input_tokens": 1454,
+        "output_tokens": 2098,
+        "output_tokens_details": {
+          "thinking_tokens": 1116
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 3689,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 2098,
+            "cache_read_input_tokens": 1454,
+            "cache_creation_input_tokens": 3689,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 3689
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "final_output": "runs/claude.browser-cleanup.baseline.attempt-1.final.txt",
+      "receipt": "runs/claude.browser-cleanup.baseline.attempt-1.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "claude.browser-cleanup.enabled.attempt-1",
+      "wall_seconds": 20.536,
+      "output_words": 466,
+      "reported_usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 5219,
+        "cache_read_input_tokens": 1454,
+        "output_tokens": 2015,
+        "output_tokens_details": {
+          "thinking_tokens": 848
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 5219,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 2015,
+            "cache_read_input_tokens": 1454,
+            "cache_creation_input_tokens": 5219,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 5219
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "final_output": "runs/claude.browser-cleanup.enabled.attempt-1.final.txt",
+      "receipt": "runs/claude.browser-cleanup.enabled.attempt-1.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "claude.browser-session.baseline.attempt-1",
+      "wall_seconds": 21.293,
+      "output_words": 506,
+      "reported_usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 3570,
+        "cache_read_input_tokens": 1454,
+        "output_tokens": 1838,
+        "output_tokens_details": {
+          "thinking_tokens": 791
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 3570,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1838,
+            "cache_read_input_tokens": 1454,
+            "cache_creation_input_tokens": 3570,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 3570
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "final_output": "runs/claude.browser-session.baseline.attempt-1.final.txt",
+      "receipt": "runs/claude.browser-session.baseline.attempt-1.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "claude.browser-session.enabled.attempt-1",
+      "wall_seconds": 23.177,
+      "output_words": 648,
+      "reported_usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 5535,
+        "cache_read_input_tokens": 1454,
+        "output_tokens": 2125,
+        "output_tokens_details": {
+          "thinking_tokens": 766
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 5535,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 2125,
+            "cache_read_input_tokens": 1454,
+            "cache_creation_input_tokens": 5535,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 5535
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "final_output": "runs/claude.browser-session.enabled.attempt-1.final.txt",
+      "receipt": "runs/claude.browser-session.enabled.attempt-1.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "claude.concierge.baseline.attempt-1",
+      "wall_seconds": 9.431,
+      "output_words": 185,
+      "reported_usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 3512,
+        "cache_read_input_tokens": 1454,
+        "output_tokens": 682,
+        "output_tokens_details": {
+          "thinking_tokens": 284
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 3512,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 682,
+            "cache_read_input_tokens": 1454,
+            "cache_creation_input_tokens": 3512,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 3512
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "final_output": "runs/claude.concierge.baseline.attempt-1.final.txt",
+      "receipt": "runs/claude.concierge.baseline.attempt-1.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "claude.concierge.enabled.attempt-1",
+      "wall_seconds": 12.161,
+      "output_words": 182,
+      "reported_usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 8620,
+        "cache_read_input_tokens": 1454,
+        "output_tokens": 903,
+        "output_tokens_details": {
+          "thinking_tokens": 492
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 8620,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 903,
+            "cache_read_input_tokens": 1454,
+            "cache_creation_input_tokens": 8620,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 8620
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "final_output": "runs/claude.concierge.enabled.attempt-1.final.txt",
+      "receipt": "runs/claude.concierge.enabled.attempt-1.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "claude.search-agent-chats.baseline.attempt-1",
+      "wall_seconds": 16.408,
+      "output_words": 457,
+      "reported_usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 3613,
+        "cache_read_input_tokens": 1454,
+        "output_tokens": 1526,
+        "output_tokens_details": {
+          "thinking_tokens": 511
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 3613,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1526,
+            "cache_read_input_tokens": 1454,
+            "cache_creation_input_tokens": 3613,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 3613
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "final_output": "runs/claude.search-agent-chats.baseline.attempt-1.final.txt",
+      "receipt": "runs/claude.search-agent-chats.baseline.attempt-1.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "claude.search-agent-chats.candidate.attempt-1",
+      "wall_seconds": 15.896,
+      "output_words": 382,
+      "reported_usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 4837,
+        "cache_read_input_tokens": 1454,
+        "output_tokens": 1407,
+        "output_tokens_details": {
+          "thinking_tokens": 566
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 4837,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1407,
+            "cache_read_input_tokens": 1454,
+            "cache_creation_input_tokens": 4837,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 4837
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "final_output": "runs/claude.search-agent-chats.candidate.attempt-1.final.txt",
+      "receipt": "runs/claude.search-agent-chats.candidate.attempt-1.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "claude.search-agent-chats.enabled.attempt-1",
+      "wall_seconds": 16.35,
+      "output_words": 424,
+      "reported_usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 4786,
+        "cache_read_input_tokens": 1454,
+        "output_tokens": 1426,
+        "output_tokens_details": {
+          "thinking_tokens": 507
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 4786,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1426,
+            "cache_read_input_tokens": 1454,
+            "cache_creation_input_tokens": 4786,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 4786
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "final_output": "runs/claude.search-agent-chats.enabled.attempt-1.final.txt",
+      "receipt": "runs/claude.search-agent-chats.enabled.attempt-1.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "claude.search-agent-chats.enabled.attempt-2",
+      "wall_seconds": 16.14,
+      "output_words": 410,
+      "reported_usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1916,
+        "cache_read_input_tokens": 4320,
+        "output_tokens": 1394,
+        "output_tokens_details": {
+          "thinking_tokens": 501
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1916,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1394,
+            "cache_read_input_tokens": 4320,
+            "cache_creation_input_tokens": 1916,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1916
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "final_output": "runs/claude.search-agent-chats.enabled.attempt-2.final.txt",
+      "receipt": "runs/claude.search-agent-chats.enabled.attempt-2.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "claude.status-ledger.baseline.attempt-1",
+      "wall_seconds": 12.681,
+      "output_words": 283,
+      "reported_usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 4428,
+        "cache_read_input_tokens": 535,
+        "output_tokens": 986,
+        "output_tokens_details": {
+          "thinking_tokens": 342
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 4428,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 986,
+            "cache_read_input_tokens": 535,
+            "cache_creation_input_tokens": 4428,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 4428
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "final_output": "runs/claude.status-ledger.baseline.attempt-1.final.txt",
+      "receipt": "runs/claude.status-ledger.baseline.attempt-1.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "claude.status-ledger.enabled.attempt-1",
+      "wall_seconds": 13.404,
+      "output_words": 279,
+      "reported_usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 4447,
+        "cache_read_input_tokens": 1454,
+        "output_tokens": 1168,
+        "output_tokens_details": {
+          "thinking_tokens": 522
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 4447,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1168,
+            "cache_read_input_tokens": 1454,
+            "cache_creation_input_tokens": 4447,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 4447
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "final_output": "runs/claude.status-ledger.enabled.attempt-1.final.txt",
+      "receipt": "runs/claude.status-ledger.enabled.attempt-1.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "claude.triage.baseline.attempt-1",
+      "wall_seconds": 22.978,
+      "output_words": 563,
+      "reported_usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 3634,
+        "cache_read_input_tokens": 1454,
+        "output_tokens": 2156,
+        "output_tokens_details": {
+          "thinking_tokens": 821
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 3634,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 2156,
+            "cache_read_input_tokens": 1454,
+            "cache_creation_input_tokens": 3634,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 3634
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "final_output": "runs/claude.triage.baseline.attempt-1.final.txt",
+      "receipt": "runs/claude.triage.baseline.attempt-1.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "claude.triage.baseline.attempt-2",
+      "wall_seconds": 26.59,
+      "output_words": 641,
+      "reported_usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1917,
+        "cache_read_input_tokens": 3170,
+        "output_tokens": 2348,
+        "output_tokens_details": {
+          "thinking_tokens": 859
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1917,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 2348,
+            "cache_read_input_tokens": 3170,
+            "cache_creation_input_tokens": 1917,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1917
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "final_output": "runs/claude.triage.baseline.attempt-2.final.txt",
+      "receipt": "runs/claude.triage.baseline.attempt-2.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "claude.triage.enabled.attempt-1",
+      "wall_seconds": 45.832,
+      "output_words": 42,
+      "reported_usage": {
+        "input_tokens": 6,
+        "cache_creation_input_tokens": 10730,
+        "cache_read_input_tokens": 9477,
+        "output_tokens": 4227,
+        "output_tokens_details": {
+          "thinking_tokens": 1573
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 10730,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 4,
+            "output_tokens": 131,
+            "cache_read_input_tokens": 8023,
+            "cache_creation_input_tokens": 4161,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 4161
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "final_output": "runs/claude.triage.enabled.attempt-1.final.txt",
+      "receipt": "runs/claude.triage.enabled.attempt-1.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "claude.triage.enabled.attempt-2",
+      "wall_seconds": 43.908,
+      "output_words": 1019,
+      "reported_usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1918,
+        "cache_read_input_tokens": 6105,
+        "output_tokens": 3965,
+        "output_tokens_details": {
+          "thinking_tokens": 1552
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1918,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 3965,
+            "cache_read_input_tokens": 6105,
+            "cache_creation_input_tokens": 1918,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1918
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "final_output": "runs/claude.triage.enabled.attempt-2.final.txt",
+      "receipt": "runs/claude.triage.enabled.attempt-2.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "cursor.bitter-lesson.baseline.attempt-1",
+      "wall_seconds": 53.823,
+      "output_words": 518,
+      "reported_usage": {
+        "inputTokens": 13391,
+        "outputTokens": 662,
+        "cacheReadTokens": 0,
+        "cacheWriteTokens": 0
+      },
+      "final_output": "runs/cursor.bitter-lesson.baseline.attempt-1.final.txt",
+      "receipt": "runs/cursor.bitter-lesson.baseline.attempt-1.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "cursor.bitter-lesson.enabled.attempt-1",
+      "wall_seconds": 59.248,
+      "output_words": 587,
+      "reported_usage": {
+        "inputTokens": 14549,
+        "outputTokens": 789,
+        "cacheReadTokens": 0,
+        "cacheWriteTokens": 0
+      },
+      "final_output": "runs/cursor.bitter-lesson.enabled.attempt-1.final.txt",
+      "receipt": "runs/cursor.bitter-lesson.enabled.attempt-1.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "cursor.browser-cleanup.baseline.attempt-1",
+      "wall_seconds": 41.531,
+      "output_words": 334,
+      "reported_usage": {
+        "inputTokens": 13441,
+        "outputTokens": 581,
+        "cacheReadTokens": 0,
+        "cacheWriteTokens": 0
+      },
+      "final_output": "runs/cursor.browser-cleanup.baseline.attempt-1.final.txt",
+      "receipt": "runs/cursor.browser-cleanup.baseline.attempt-1.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "cursor.browser-cleanup.enabled.attempt-1",
+      "wall_seconds": 37.214,
+      "output_words": 331,
+      "reported_usage": {
+        "inputTokens": 14382,
+        "outputTokens": 618,
+        "cacheReadTokens": 0,
+        "cacheWriteTokens": 0
+      },
+      "final_output": "runs/cursor.browser-cleanup.enabled.attempt-1.final.txt",
+      "receipt": "runs/cursor.browser-cleanup.enabled.attempt-1.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "cursor.browser-session.baseline.attempt-1",
+      "wall_seconds": 50.082,
+      "output_words": 387,
+      "reported_usage": {
+        "inputTokens": 13354,
+        "outputTokens": 555,
+        "cacheReadTokens": 0,
+        "cacheWriteTokens": 0
+      },
+      "final_output": "runs/cursor.browser-session.baseline.attempt-1.final.txt",
+      "receipt": "runs/cursor.browser-session.baseline.attempt-1.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "cursor.browser-session.enabled.attempt-1",
+      "wall_seconds": 42.255,
+      "output_words": 445,
+      "reported_usage": {
+        "inputTokens": 8429,
+        "outputTokens": 2597,
+        "cacheReadTokens": 6169,
+        "cacheWriteTokens": 0
+      },
+      "final_output": "runs/cursor.browser-session.enabled.attempt-1.final.txt",
+      "receipt": "runs/cursor.browser-session.enabled.attempt-1.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "cursor.concierge.baseline.attempt-1",
+      "wall_seconds": 29.284,
+      "output_words": 110,
+      "reported_usage": {
+        "inputTokens": 13324,
+        "outputTokens": 162,
+        "cacheReadTokens": 0,
+        "cacheWriteTokens": 0
+      },
+      "final_output": "runs/cursor.concierge.baseline.attempt-1.final.txt",
+      "receipt": "runs/cursor.concierge.baseline.attempt-1.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "cursor.concierge.enabled.attempt-1",
+      "wall_seconds": 65.779,
+      "output_words": 324,
+      "reported_usage": {
+        "inputTokens": 16410,
+        "outputTokens": 432,
+        "cacheReadTokens": 0,
+        "cacheWriteTokens": 0
+      },
+      "final_output": "runs/cursor.concierge.enabled.attempt-1.final.txt",
+      "receipt": "runs/cursor.concierge.enabled.attempt-1.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "cursor.search-agent-chats.baseline.attempt-1",
+      "wall_seconds": 51.99,
+      "output_words": 382,
+      "reported_usage": {
+        "inputTokens": 13392,
+        "outputTokens": 636,
+        "cacheReadTokens": 0,
+        "cacheWriteTokens": 0
+      },
+      "final_output": "runs/cursor.search-agent-chats.baseline.attempt-1.final.txt",
+      "receipt": "runs/cursor.search-agent-chats.baseline.attempt-1.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "cursor.search-agent-chats.candidate.attempt-1",
+      "wall_seconds": 45.2,
+      "output_words": 427,
+      "reported_usage": {
+        "inputTokens": 14175,
+        "outputTokens": 657,
+        "cacheReadTokens": 0,
+        "cacheWriteTokens": 0
+      },
+      "final_output": "runs/cursor.search-agent-chats.candidate.attempt-1.final.txt",
+      "receipt": "runs/cursor.search-agent-chats.candidate.attempt-1.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "cursor.search-agent-chats.enabled.attempt-1",
+      "wall_seconds": 45.672,
+      "output_words": 391,
+      "reported_usage": {
+        "inputTokens": 14142,
+        "outputTokens": 667,
+        "cacheReadTokens": 0,
+        "cacheWriteTokens": 0
+      },
+      "final_output": "runs/cursor.search-agent-chats.enabled.attempt-1.final.txt",
+      "receipt": "runs/cursor.search-agent-chats.enabled.attempt-1.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "cursor.status-ledger.baseline.attempt-2",
+      "wall_seconds": 26.927,
+      "output_words": 117,
+      "reported_usage": {
+        "inputTokens": 7174,
+        "outputTokens": 1267,
+        "cacheReadTokens": 6169,
+        "cacheWriteTokens": 0
+      },
+      "final_output": "runs/cursor.status-ledger.baseline.attempt-2.final.txt",
+      "receipt": "runs/cursor.status-ledger.baseline.attempt-2.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "cursor.status-ledger.enabled.attempt-1",
+      "wall_seconds": 23.39,
+      "output_words": 132,
+      "reported_usage": {
+        "inputTokens": 13917,
+        "outputTokens": 300,
+        "cacheReadTokens": 0,
+        "cacheWriteTokens": 0
+      },
+      "final_output": "runs/cursor.status-ledger.enabled.attempt-1.final.txt",
+      "receipt": "runs/cursor.status-ledger.enabled.attempt-1.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "cursor.triage.baseline.attempt-1",
+      "wall_seconds": 78.843,
+      "output_words": 825,
+      "reported_usage": {
+        "inputTokens": 13388,
+        "outputTokens": 1421,
+        "cacheReadTokens": 0,
+        "cacheWriteTokens": 0
+      },
+      "final_output": "runs/cursor.triage.baseline.attempt-1.final.txt",
+      "receipt": "runs/cursor.triage.baseline.attempt-1.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "cursor.triage.candidate.attempt-1",
+      "wall_seconds": 90.131,
+      "output_words": 1600,
+      "reported_usage": {
+        "inputTokens": 15220,
+        "outputTokens": 2635,
+        "cacheReadTokens": 0,
+        "cacheWriteTokens": 0
+      },
+      "final_output": "runs/cursor.triage.candidate.attempt-1.final.txt",
+      "receipt": "runs/cursor.triage.candidate.attempt-1.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "cursor.triage.enabled.attempt-1",
+      "wall_seconds": 102.948,
+      "output_words": 1454,
+      "reported_usage": {
+        "inputTokens": 15188,
+        "outputTokens": 2358,
+        "cacheReadTokens": 0,
+        "cacheWriteTokens": 0
+      },
+      "final_output": "runs/cursor.triage.enabled.attempt-1.final.txt",
+      "receipt": "runs/cursor.triage.enabled.attempt-1.receipt.json",
+      "list_price_not_bill": true
+    },
+    {
+      "id": "cursor.triage.enabled.attempt-2",
+      "wall_seconds": 107.67,
+      "output_words": 1199,
+      "reported_usage": {
+        "inputTokens": 15188,
+        "outputTokens": 2016,
+        "cacheReadTokens": 0,
+        "cacheWriteTokens": 0
+      },
+      "final_output": "runs/cursor.triage.enabled.attempt-2.final.txt",
+      "receipt": "runs/cursor.triage.enabled.attempt-2.receipt.json",
+      "list_price_not_bill": true
+    }
+  ],
+  "pending": [],
+  "currency_charge": "Not measured; no estimate is treated as a subscription bill.",
+  "by_harness": {
+    "claude": 18,
+    "cursor": 17
+  }
+}

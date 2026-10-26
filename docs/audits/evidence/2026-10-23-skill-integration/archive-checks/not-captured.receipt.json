@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "python3",
+    "/Users/cp/dev/agent-chats/scripts/search-agent-chats.py",
+    "unrecorded satellite",
+    "--repo",
+    "/Users/cp/dev/agent-config/docs/audits/evidence/2026-10-23-skill-integration/fixtures/archive",
+    "--index",
+    "/private/tmp/agent-skill-integration-20261023-workspace/archive-cache/search.sqlite3",
+    "--json"
+  ],
+  "exit_code": 0,
+  "stderr": "",
+  "output_path": "archive-checks/not-captured.json"
+}

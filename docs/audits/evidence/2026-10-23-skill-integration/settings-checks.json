@@ -1,0 +1,28 @@
+{
+  "before": {
+    "/Users/cp/.claude/settings.json": "854946f35903ec1985c8d3fd812fc83e2972f94c76c0c28a8d95c5d396f83b21",
+    "/Users/cp/.cursor/cli-config.json": "6fe57df3fe405570273f7f29c400f8363d3ac252ef3edf16b7eaa0d0029d45bc",
+    "/Users/cp/.cursor/hooks.json": "aa8531b9f3b2375fbd793c45dab0ebcecbc5bc550b71d7417ab4bdf6f610d566",
+    "/Users/cp/.codex/config.toml": "e80e0259496c8aef0ae119c995e67cbc1f769bbcfb1092b69233364156377a6e"
+  },
+  "after": {
+    "/Users/cp/.claude/settings.json": "854946f35903ec1985c8d3fd812fc83e2972f94c76c0c28a8d95c5d396f83b21",
+    "/Users/cp/.cursor/cli-config.json": "c817cabea1e666fcb6c5041572a55fb3627e83144c7e681bcc64f0e2e78820b1",
+    "/Users/cp/.cursor/hooks.json": "aa8531b9f3b2375fbd793c45dab0ebcecbc5bc550b71d7417ab4bdf6f610d566",
+    "/Users/cp/.codex/config.toml": "e80e0259496c8aef0ae119c995e67cbc1f769bbcfb1092b69233364156377a6e"
+  },
+  "initial_to_final_non_auth_privacy_section_changes": {},
+  "per_run_observed_section_changes": {
+    "cursor.search-agent-chats.integrated.attempt-1": {
+      ".cursor/cli-config.json": [
+        "model"
+      ]
+    }
+  },
+  "other_watched_files_unchanged": {
+    "/Users/cp/.claude/settings.json": true,
+    "/Users/cp/.cursor/hooks.json": true,
+    "/Users/cp/.codex/config.toml": true
+  },
+  "interpretation": "One run observed only the model section changing; final compared sections matched the initial snapshot. These hashes cannot attribute a native state change to a particular concurrent process. authInfo/privacyCache excluded. No global settings or installation write was issued."
+}

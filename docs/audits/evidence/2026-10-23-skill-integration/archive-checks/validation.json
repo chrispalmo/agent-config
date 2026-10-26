@@ -1,0 +1,20 @@
+{
+  "performed_at": "2026-10-23T06:28:28.661764+00:00",
+  "actual_cli": "/Users/cp/dev/agent-chats/scripts/search-agent-chats.py",
+  "actual_cli_sha256": "d07c88e0ef59e375aed77d4856171eefa843e3f3962472640b70354e85d86697",
+  "fixture_hashes": {
+    "fixtures/archive/claude/synthetic-project/A.jsonl": "261a4784af16eff18b571a4cec4075046f01837077b091f64ba7a2e1e22c1973",
+    "fixtures/archive/codex/synthetic-project/B.jsonl": "a4d33884e6be55c8db6b8ce8bd3c1ca2bb44381244ec78c851aa7d7d9fad21ae"
+  },
+  "query_count": 4,
+  "checks_passed": 10,
+  "metadata_only_has_no_event": true,
+  "title_hides_an_accepted_decision": true,
+  "canonical_event_citation_verified": true,
+  "authorship_preserved": true,
+  "missing_result_limited_to_fixture": true,
+  "private_isolated_index": true,
+  "helper_and_canonical_inputs_unchanged": true,
+  "live_archive_or_capture_inspected": false,
+  "note": "Real maintained search executable and real output schema; all corpus records are owned synthetic fixtures. No live capture, private archive or semantic model was used."
+}

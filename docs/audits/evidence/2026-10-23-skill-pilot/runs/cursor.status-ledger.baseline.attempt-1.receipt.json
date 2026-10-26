@@ -1,0 +1,39 @@
+{
+  "id": "cursor.status-ledger.baseline.attempt-1",
+  "harness": "cursor",
+  "skill": "status-ledger",
+  "condition": "baseline",
+  "argv": [
+    "agent",
+    "-p",
+    "--model",
+    "gemini-4-argon-high",
+    "--output-format",
+    "json",
+    "--mode",
+    "ask",
+    "--sandbox",
+    "enabled",
+    "--workspace",
+    "/Users/cp/dev/agent-config",
+    "<retained prompt>"
+  ],
+  "prompt_path": "prompts/status-ledger.baseline.txt",
+  "started_at": "2026-10-22T18:43:56.140976+00:00",
+  "exit_code": 1,
+  "wall_seconds": 0.55,
+  "native_receipt": [],
+  "stderr": "\n⚠ Workspace Trust Required\n\n  Cursor Agent can execute code and access files in this directory.\n  Do you trust the contents of this directory?\n\n    /Users/cp/dev/agent-config\n\n  To proceed, you can either:\n    • Run 'agent' interactively to decide\n    • Pass --trust, --yolo, or -f if you trust this directory\n",
+  "stdout_json_objects": 0,
+  "stdout_top_level_keys": [],
+  "output_chars": 0,
+  "output_words": 0,
+  "output_path": "runs/cursor.status-ledger.baseline.attempt-1.final.txt",
+  "reported_list_price_cost_is_bill": false,
+  "settings_after": {
+    "/Users/cp/.claude/settings.json": "854946f35903ec1985c8d3fd812fc83e2972f94c76c0c28a8d95c5d396f83b21",
+    "/Users/cp/.cursor/cli-config.json": "80b8204ea1332dcd5b2f47167bccf8903f41584265a2a592dd8ff14d97ce7204",
+    "/Users/cp/.cursor/hooks.json": "aa8531b9f3b2375fbd793c45dab0ebcecbc5bc550b71d7417ab4bdf6f610d566",
+    "/Users/cp/.codex/config.toml": "8496b9f02a448b46ce808d79348a34fa5b8ef4f1b494a0fe3acabf50c36ee8a9"
+  }
+}

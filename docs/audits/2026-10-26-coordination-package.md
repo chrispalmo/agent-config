@@ -1,15 +1,15 @@
 # Coordination package closeout — 26 October 2026
 
-The reviewed [coordination package](../../skills/coordination/README.md) is promoted and installed for Codex, Cursor, and Claude Code. The human authorized the final greeting change, promotion, installation, and repository sync. No approval or implementation work remains for this package. The chat can be archived once the scoped commit is confirmed on the remote.
+The reviewed [coordination package](../../skills/coordination/README.md) is promoted and installed for Codex, Cursor, and Claude Code. After the initial scoped publication, the human requested the same physical package structure as project-management, reinstallation across all harnesses, and synchronization of every pending repository change. The four skill sources now live together under `skills/coordination/`; installed names and invocation behavior remain unchanged. This closeout supersedes the initial scoped-sync status.
 
 ## Adopted behavior
 
 | Component | Responsibility |
 | --- | --- |
-| [triage](../../skills/triage/SKILL.md) | Organize supplied material and discuss possible continuations; no automatic handoffs. |
-| [propose-tasks](../../skills/propose-tasks/SKILL.md) | Check existing commitments, distinguish completion from optional development, and present numbered tasks with reasons. |
-| [delegate](../../skills/delegate/SKILL.md) | Prepare assignments by default, preserve sufficient human authorization, select explicit owner models, and dispatch when authorized. |
-| [harness](../../skills/harness/SKILL.md) | Operate an explicitly chosen external native worker; clarify missing route/model preferences before proposing external assignments. |
+| [triage](../../skills/coordination/triage/SKILL.md) | Organize supplied material and discuss possible continuations; no automatic handoffs. |
+| [propose-tasks](../../skills/coordination/propose-tasks/SKILL.md) | Check existing commitments, distinguish completion from optional development, and present numbered tasks with reasons. |
+| [delegate](../../skills/coordination/delegate/SKILL.md) | Prepare assignments by default, preserve sufficient human authorization, select explicit owner models, and dispatch when authorized. |
+| [harness](../../skills/coordination/harness/SKILL.md) | Operate an explicitly chosen external native worker; clarify missing route/model preferences before proposing external assignments. |
 | [chat-source](../../rules/chat-source/RULE.md) | Identify agent requests, use readable briefs, and make replies understandable on their own. |
 | [address-the-user](../../rules/address-the-user/RULE.md) | Keep the human's name preference in the general rule and address the agent as “boss” when directly replying to an agent-originated message. |
 
@@ -19,21 +19,20 @@ The Astra review's first three recommendations were approved and implemented: in
 
 The [native-run evidence](evidence/coordination-native-runs/README.md) retains historical observations separately from installed guidance. Full superseded draft/review materials were preserved locally at `~/.local/state/agent-config/reviews/2026-10-26-coordination/` before retiring the promoted draft directories. They are historical records, not active instructions.
 
-## Validation and installation
+## Validation, installation, and cleanup
 
-The current checkout passed the content checker, all 12 content regression tests, the isolated installer suite, and whitespace checks. The rule migration tests cover both managed old-file retirement and aborting before partial migration on a foreign destination clash.
+The full checkout passed the content checker (19 skills, zero drafts, 11 rules), all 12 content regression tests, all 16 browser-registry tests, the isolated installer suite, local Markdown reference checks, and whitespace checks. All previously pending source, documentation, and historical evaluation evidence is included in this full repository sync. The newer metadata checks and invocation-policy files are now published together, resolving the earlier difference between local and committed validation.
 
-The exact scoped publication candidate separately passed its committed content checker and full isolated installer suite. The newer, independently modified local checker found no added findings against the committed baseline; its seven pre-existing metadata findings concern other skills and remain outside this package. All four coordination skills pass those newer checks.
+The installer accepts a source relocation only when the existing managed marker identifies a retired path within this repository with the same skill name. New fixtures verify successful relocation across all three targets and refusal of a foreign source before partial changes. Existing resource-ownership checks remain in force.
 
-Installed package sources and resources were compared with the repository in `~/.agents/skills` (Codex/Cursor) and `~/.claude/skills`. Generated rules matched the isolated preview. The only rule differences were the addressing rename, two managed old-file retirements, chat-source updates, and the combined Codex rule output. Other installed rules were unchanged in content.
-
-Installation used explicit targets:
+A full installation used:
 
 ```bash
-./scripts/install.sh --skills --package coordination --cursor --claude --agents
-./scripts/install.sh --rules --cursor --claude --agents
+./scripts/install.sh --cursor --claude --agents
 ```
 
-The sync is scoped to this package, its catalogs/documentation, the two general rules, and relevant installer tests. Unrelated dirty changes remain in the working tree. Explicit target flags keep the installation commands valid with both the committed installer and the independently modified local installer.
+All 38 installed skill copies (19 in the shared Codex/Cursor root and 19 in Claude Code) match canonical sources, resources, and ownership paths. All generated rules match isolated rendering. No repository-owned duplicates remain in the former native skill roots. Proofread and Ingest are absent from canonical catalogs and installations; remaining mentions in reports and retirement fixtures are historical evidence.
 
-These checks establish source consistency, packaging, migration, and installed file identity. Native skill activation, desktop model overrides, and improved agent behavior are not established by these checks. Those limitations are recorded for future real use; no dummy delegation, model run, or further review is pending.
+Generated Python caches are excluded from Git. Historical patch artifacts retain their exact unified-diff whitespace; a scoped Git attribute excludes those evidence patches from prose/source whitespace checks. Promoted drafts remain archived outside installer inputs. The four old top-level coordination skill folders are gone, and current catalogs, package documentation, links, and tests use the nested layout. The final remote commit and clean working-tree verification are recorded in the chat and local completion receipt.
+
+No package implementation or review work remains. The chat is ready to archive after the full commit is verified on the remote and the working tree is clean. Broader behavioral evaluations, native activation coverage, and desktop model-override verification remain optional future work; source and installation checks do not establish those outcomes.

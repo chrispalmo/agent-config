@@ -1,0 +1,49 @@
+--- a/docs/audits/2026-10-07-instruction-and-workflow-audit.md
++++ b/docs/audits/2026-10-07-instruction-and-workflow-audit.md
+@@ -85,8 +85,8 @@
+ | A-04 | Medium | Resolve output conventions, interview termination, copyable-output fences, and authorization carry-forward (I-06, I-07, I-10, I-11). | Done: adaptive interview limits, natural completion, inherited display conventions, enclosing fences, and explicit carry-forward. |
+ | A-05 | Medium | Retire proofread at the user's request (I-09). | Done: source and catalog removed; managed copies absent from all three installations. |
+ | A-07 | Medium | Maintain a source-content check and documented review procedure. | Implemented in this change; validation recorded below. |
+-| D-01 | Deferred | Harness compatibility audit, including bundled-name and cloud claims. | Resume at next harness switch. |
+-| D-02 | Deferred | Installer and resource integrity audit, including supporting files, lifecycle, and warning exit status. | Resume at next harness switch. |
++| D-01 | Selected native CLI checks complete; broader audit deferred | Claude/Cursor explicit invocation, resource reads and two owned precedence cases checked; broader bundled-name, Codex and cloud claims remain open. | See the 2026-10-23 native compatibility entry; do not generalize read-only helper limits or one precedence fixture. |
++| D-02 | Selected lifecycle checks complete; broader audit deferred | Owned browser/plaintext installation, resource equality, foreign clash and unmanaged-preserving uninstallation checked. | Broad installer/resource audit and warning semantics remain deferred. |
+ | D-03 | Initial pilot and two source clarifications complete | Seven-skill Claude/Cursor comparison, archive/Triage source integration and bounded forward checks; broader longitudinal evaluation remains deferred. | See the 2026-10-23 entries; global rollout and live browser retention remain outside this pass, with a Cursor completion-reporting failure retained. |
+ 
+ ## Validation and limits
+@@ -397,3 +397,13 @@
+ Repository content validation for 16 skills and ten rules, 12 content fixtures, isolated installer regressions, 16 registry tests, unchanged invocation-policy checks and six normalized JSON artifacts passed. The generic skill-creator validator accepts Search Agent Chats but rejects Triage's pre-existing `disable-model-invocation` field identically before and after; the repository validator supports it and the explicit-only policy was preserved. One public continuation was reassembled without the runner's inserted newline for strict JSON, retaining original outputs. No quota/reset block occurred. One Cursor run observed a model-section hash change, with no attribution to a particular concurrent process; initial/final compared sections matched and no other non-authentication/non-privacy section changed in the run snapshots. Task-only trust, workspace and index were removed; no global installation or security-default change occurred.
+ 
+ Canonical source integration and bounded checks are complete. Both installed roots intentionally retain the pre-integration archive/Triage bodies. Deployment, real browser retention/closure, the retained reporting failure and the longitudinal model-upgrade study are not resolved by this pass. The prior pilot remains historical evidence; no new task store or standing evaluation framework was created.
++
++## Selected native guidance compatibility checks — 2026-10-23
++
++The human directly approved coordinating items 4.1–4.5 in source chat `01a1626c-ec38-7921-bde3-679edf63fa17`, turn `01a1693a-b831-7c92-a3e0-68e1efe083fc`; this existing owner completed only 4.5. [The report](evidence/2026-10-23-native-compatibility/README.md) retains four native subscription requests, command/model/exit and public tool receipts, exact prompts, owned fixtures, installer lifecycle evidence and limitations. No skill bodies were supplied in the native prompts and completed 3.4 was not repeated.
++
++On Claude Code 2.1.293 / Opus 5.5 and Cursor Agent 2026.10.22-27dcf5f / Gemini 4 Argon High, explicit invocations read unpredictable tokens from relative assets of disposable plaintext aliases. Explicit-only metadata was preserved. The observed Claude project-skill/legacy-command winner and Cursor `.agents`/`.cursor` winner establish only those fixture cases. Both explicit invocation streams contained resource Reads without a Skill tool call, so counting only that tool call would miss these invocations; startup inventories do not establish usage. No native activation-counter coverage was certified.
++
++Native browser guidance/resource loading also occurred. Claude used the actual Skill tool and inspected the installed personal helper, but declined executing status in plan mode because an existing store can create a lock. Cursor read the owned skill, attempted the correct relative helper and received `Command blocked by permissions configuration` with `isReadonly: true`. Its final explanation supplied a more specific mode/quote than the tool receipt establishes. Neither helper execution nor status output is claimed. An independent preparation defect left the fixture's immediate parent 0755 despite a private ancestor, failing the helper's immediate-parent privacy precondition. No rejected command was rerouted, no mode was widened, and these limits were not misclassified as a broken helper or successful runtime test.
++
++The actual installer copied ten canonical files/resources into isolated roots, rejected a foreign clash without overwrite/partial other-target installation, and uninstalled managed bodies/resources while preserving four unmanaged files byte-for-byte. Existing source and global installations were preserved; no global rollout, model/billing/plan change, new credits, overages, commit, staging or push was used. Task-only roots/settings/trust were cleaned. No quota/reset block occurred. Broader compatibility, actual browser retention, the earlier reporting failure, native counter validation and longitudinal benefit remain open; the bounded 4.5 result is complete without a new standing framework or source wording changes.
+--- a/docs/maintenance.md
++++ b/docs/maintenance.md
+@@ -3,6 +3,8 @@
+ Keep useful instructions small, internally consistent, and tied to observed needs. Change canonical source guidance first; generated installations are separate artifacts. Personal preferences remain deliberate choices rather than targets for automatic simplification.
+ 
+ The user requested an instruction, workflow, and maintenance audit. Harness compatibility and installer integrity are deferred until the next harness switch. An [initial bounded seven-skill behavioral pilot](audits/evidence/2026-10-23-skill-pilot/README.md) is complete; broader longitudinal behavioral evaluation remains deferred. Findings and the action queue live in the [audit report](audits/2026-10-07-instruction-and-workflow-audit.md). The accepted instruction and workflow redesign is implemented; the report records its evidence and closeout.
++
++A later [selected native Claude/Cursor compatibility check](audits/evidence/2026-10-23-native-compatibility/README.md) covers explicit invocation, resource reads, two owned precedence cases and isolated install/uninstall preservation. Helper execution in the tested read-only modes, complete counter coverage and the broader compatibility/installer audits remain unverified by that pass.
+ 
+ ## Authority
+ 
+@@ -52,8 +54,8 @@
+ 
+ | Assumption | Evidence status | Next review |
+ | --- | --- | --- |
+-| Cross-harness discovery paths, precedence, and metadata semantics | Deferred; existing claims are not newly certified by this audit | Next harness switch |
+-| Broad local/cloud installation and upgrade integrity | Deferred; resource-copy, retirement, package-preservation, and foreign-resource cases were checked for this reinstall | Next harness switch |
++| Cross-harness discovery paths, precedence, and metadata semantics | Selected native Claude/Cursor invocation/resource cases checked; full counter coverage, Codex/cloud and broader precedence remain unverified | Observed mismatch, relevant harness change or next harness switch |
++| Broad local/cloud installation and upgrade integrity | Selected isolated lifecycle/resource/foreign-preservation cases checked; broader local/cloud integrity remains deferred | Next harness switch |
+ | Instruction revisions improve agent outcomes | Hypotheses from static inspection | When behavioral evaluations resume |
+ 
+ Keep this small table until a compatibility review warrants a detailed support matrix. Do not turn dates into unconditional instructions to research or edit files before unrelated work. The existing bundled-name inventory and cloud guidance will be refreshed with the deferred harness review.
