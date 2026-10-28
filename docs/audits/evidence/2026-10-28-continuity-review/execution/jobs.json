@@ -1,0 +1,33 @@
+{
+  "fable-innate": {
+    "workspace": "/var/folders/g9/48plm8ln49b075768_8jjp2h0000gn/T/fable-innate-avobn3mv",
+    "profile": "/var/folders/g9/48plm8ln49b075768_8jjp2h0000gn/T/fable-innate-avobn3mv/isolation.sb",
+    "blocked_repo_read": true,
+    "prompt_readable": true
+  },
+  "astra-innate": {
+    "workspace": "/var/folders/g9/48plm8ln49b075768_8jjp2h0000gn/T/astra-innate-e6j44l34",
+    "profile": "/var/folders/g9/48plm8ln49b075768_8jjp2h0000gn/T/astra-innate-e6j44l34/isolation.sb",
+    "blocked_repo_read": true,
+    "prompt_readable": true
+  },
+  "fable-literature": {
+    "workspace": "/var/folders/g9/48plm8ln49b075768_8jjp2h0000gn/T/fable-literature-4vcnvr2e",
+    "profile": "/var/folders/g9/48plm8ln49b075768_8jjp2h0000gn/T/fable-literature-4vcnvr2e/isolation.sb",
+    "blocked_repo_read": true,
+    "prompt_readable": true
+  },
+  "astra-literature": {
+    "workspace": "/var/folders/g9/48plm8ln49b075768_8jjp2h0000gn/T/astra-literature-p09_b12z",
+    "profile": "/var/folders/g9/48plm8ln49b075768_8jjp2h0000gn/T/astra-literature-p09_b12z/isolation.sb",
+    "blocked_repo_read": true,
+    "prompt_readable": true
+  },
+  "opus-literature": {
+    "workspace": "/var/folders/g9/48plm8ln49b075768_8jjp2h0000gn/T/fable-literature-4vcnvr2e",
+    "profile": "/var/folders/g9/48plm8ln49b075768_8jjp2h0000gn/T/fable-literature-4vcnvr2e/isolation.sb",
+    "blocked_repo_read": true,
+    "prompt_readable": true,
+    "resume_from": "be1ec867-eb8c-4727-865c-8fa329dfe902"
+  }
+}

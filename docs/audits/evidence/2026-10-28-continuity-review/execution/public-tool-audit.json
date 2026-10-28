@@ -1,0 +1,682 @@
+{
+  "fable-innate": {
+    "tool_counts": {
+      "readToolCall": 1
+    },
+    "calls": [
+      {
+        "tool": "readToolCall",
+        "args": {
+          "path": "/var/folders/g9/48plm8ln49b075768_8jjp2h0000gn/T/fable-innate-avobn3mv/skills/bitter-lesson/SKILL.md"
+        }
+      }
+    ]
+  },
+  "astra-innate": {
+    "tool_counts": {},
+    "calls": []
+  },
+  "fable-literature": {
+    "tool_counts": {
+      "getMcpToolsToolCall": 1,
+      "webSearchToolCall": 8,
+      "webFetchToolCall": 34,
+      "shellToolCall": 1
+    },
+    "calls": [
+      {
+        "tool": "getMcpToolsToolCall",
+        "args": {
+          "server": "cursor",
+          "toolCallId": "toolu_01Y2B9NQYe4e5qkaXeDTyeUA"
+        }
+      },
+      {
+        "tool": "webSearchToolCall",
+        "args": {
+          "searchTerm": "arXiv October 2026 LLM agent memory benchmark fresh session resumption long-horizon",
+          "toolCallId": "toolu_01JfraeJ15h3e9QfxmikiwJg"
+        }
+      },
+      {
+        "tool": "webSearchToolCall",
+        "args": {
+          "searchTerm": "AGENTS.md CLAUDE.md context files empirical study effect on coding agent performance",
+          "toolCallId": "toolu_01Fz52Di2ViHJUAHxzGounaJ"
+        }
+      },
+      {
+        "tool": "webSearchToolCall",
+        "args": {
+          "searchTerm": "Anthropic Agent Skills evaluation evidence 2026",
+          "toolCallId": "toolu_015QHDKoerBrYzhUAzazNTRY"
+        }
+      },
+      {
+        "tool": "webSearchToolCall",
+        "args": {
+          "searchTerm": "context compaction summarization agent handoff study performance degradation 2026",
+          "toolCallId": "toolu_01PVwPLfoWBowgoLYpN4nRwK"
+        }
+      },
+      {
+        "tool": "webSearchToolCall",
+        "args": {
+          "searchTerm": "multi-agent LLM systems failure taxonomy coordination overhead evidence 2026",
+          "toolCallId": "toolu_01W31d7638gVY8uxqJtDUczV"
+        }
+      },
+      {
+        "tool": "webSearchToolCall",
+        "args": {
+          "searchTerm": "LongMemEval MemoryAgentBench LoCoMo results 2026 memory systems Mem0 Letta comparison",
+          "toolCallId": "toolu_01XmQjdsivEARrm689zxejxx"
+        }
+      },
+      {
+        "tool": "webSearchToolCall",
+        "args": {
+          "searchTerm": "METR time horizon update October 2026 agents long tasks",
+          "toolCallId": "toolu_011esU364LxUr4hieh2EbW73"
+        }
+      },
+      {
+        "tool": "webSearchToolCall",
+        "args": {
+          "searchTerm": "\"context rot\" long context performance degradation study agents instruction following long system prompt",
+          "toolCallId": "toolu_01Bi2XFEQPysuvgS9Q5iqD1d"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://arxiv.org/list/cs.AI/recent",
+          "toolCallId": "toolu_01F1FyJeDa6vgVrAKTML5Cka"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+          "toolCallId": "toolu_017TfeQCZkDtqN5UWfRqaMWY"
+        }
+      },
+      {
+        "tool": "shellToolCall",
+        "args": {
+          "command": "curl -sS -m 20 -o /dev/null -w \"%{http_code}\\n\" \"https://export.arxiv.org/api/query?search_query=all:agent+memory+handoff&max_results=1\"",
+          "workingDirectory": "",
+          "timeout": 30000,
+          "toolCallId": "toolu_012zekrQG56EhoCjd5pPzfRy",
+          "simpleCommands": [
+            "curl"
+          ],
+          "hasInputRedirect": false,
+          "hasOutputRedirect": false,
+          "parsingResult": {
+            "parsingFailed": false,
+            "executableCommands": [
+              {
+                "name": "curl",
+                "args": [
+                  {
+                    "type": "word",
+                    "value": "-sS"
+                  },
+                  {
+                    "type": "word",
+                    "value": "-m"
+                  },
+                  {
+                    "type": "number",
+                    "value": "20"
+                  },
+                  {
+                    "type": "word",
+                    "value": "-o"
+                  },
+                  {
+                    "type": "word",
+                    "value": "/dev/null"
+                  },
+                  {
+                    "type": "word",
+                    "value": "-w"
+                  },
+                  {
+                    "type": "string",
+                    "value": "\"%{http_code}\\n\""
+                  },
+                  {
+                    "type": "string",
+                    "value": "\"https://export.arxiv.org/api/query?search_query=all:agent+memory+handoff&max_results=1\""
+                  }
+                ],
+                "fullText": "curl -sS -m 20 -o /dev/null -w \"%{http_code}\\n\" \"https://export.arxiv.org/api/query?search_query=all:agent+memory+handoff&max_results=1\""
+              }
+            ],
+            "hasRedirects": false,
+            "hasCommandSubstitution": false,
+            "redirects": []
+          },
+          "requestedSandboxPolicy": {
+            "type": "TYPE_WORKSPACE_READWRITE",
+            "networkAccess": false,
+            "additionalReadwritePaths": [
+              "/var/folders/g9/48plm8ln49b075768_8jjp2h0000gn/T/fable-literature-4vcnvr2e"
+            ],
+            "additionalReadonlyPaths": [],
+            "enableSharedBuildCache": true,
+            "readBoundary": "READ_BOUNDARY_MODE_UNSPECIFIED",
+            "additionalReadPaths": []
+          },
+          "fileOutputThresholdBytes": "40000",
+          "isBackground": false,
+          "skipApproval": false,
+          "timeoutBehavior": "TIMEOUT_BEHAVIOR_BACKGROUND",
+          "hardTimeout": 86400000,
+          "description": "Test sandbox network access to arXiv API",
+          "closeStdin": true,
+          "conversationId": "be1ec867-eb8c-4727-865c-8fa329dfe902",
+          "adminCommandDenylist": [],
+          "requestId": "5aa95f41-5a3c-4a58-8974-09a358c0f8b1"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://arxiv.org/search/?query=AGENTS.md&searchtype=all&abstracts=show&order=-announced_date_first&size=50",
+          "toolCallId": "toolu_01Nb67LaZrEjnyHUGHN3Haw1"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://arxiv.org/search/?query=%22context+compaction%22+OR+%22context+compression%22+agent&searchtype=all&abstracts=show&order=-announced_date_first&size=50",
+          "toolCallId": "toolu_019ZWJXWfnTy31xmTdBMivXv"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://arxiv.org/search/?query=%22agent+skills%22&searchtype=all&abstracts=show&order=-announced_date_first&size=50",
+          "toolCallId": "toolu_01Kg4w67Y1EiDXiNaeqcKdWp"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://arxiv.org/search/?query=%22memory%22+%22LLM+agents%22+benchmark&searchtype=title&abstracts=show&order=-announced_date_first&size=50",
+          "toolCallId": "toolu_014bBzaAB82CSt5mdZ41bxT3"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://arxiv.org/search/?query=%22long-horizon%22+agents+benchmark&searchtype=title&abstracts=show&order=-announced_date_first&size=50",
+          "toolCallId": "toolu_01UPA6QrvMyGBgjtqmnHcDWP"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://arxiv.org/search/?query=handoff+OR+%22session%22+%22coding+agents%22&searchtype=all&abstracts=show&order=-announced_date_first&size=50",
+          "toolCallId": "toolu_01JKiakuACXPPr2hZ1qakEuU"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://arxiv.org/search/?query=%22multi-agent%22+LLM+fail+OR+failure+OR+coordination&searchtype=title&abstracts=show&order=-announced_date_first&size=50",
+          "toolCallId": "toolu_01GTA6cSXi5eatBxbGEX1tPj"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://metr.org/research/",
+          "toolCallId": "toolu_01Dkwh4p1efvkXBdswnvKyys"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://arxiv.org/abs/2602.11988",
+          "toolCallId": "toolu_01KT9FvUHb2hLyZYtjS7Buoz"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://arxiv.org/html/2602.11988",
+          "toolCallId": "toolu_013RFNLFdFkjLgH3AUB6B2rH"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://arxiv.org/html/2610.30571",
+          "toolCallId": "toolu_01EEw7UchgfT8W4mKerWhfCV"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://arxiv.org/html/2610.36153",
+          "toolCallId": "toolu_01VgJwsPpAUeUi4PZZwpvwFX"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://arxiv.org/html/2607.27250",
+          "toolCallId": "toolu_01QpZeCeSyuy1PxAFbrepaF8"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://arxiv.org/abs/2601.20404",
+          "toolCallId": "toolu_01V8itS1EAAZ7ksykWEVQXER"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://arxiv.org/abs/2608.18423",
+          "toolCallId": "toolu_016gXdDK39GBXaBJd9F5YrbT"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://arxiv.org/html/2610.11007",
+          "toolCallId": "toolu_019ejtywAwf7MGYvGEreJ1hK"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://arxiv.org/abs/2604.11088",
+          "toolCallId": "toolu_01Wj1gbmBKCBykH1YvsMZK7q"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://arxiv.org/abs/2608.16630",
+          "toolCallId": "toolu_01KMoH4GDwdRfmPPgii7B4qS"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://arxiv.org/abs/2608.25241",
+          "toolCallId": "toolu_01JJ37f798UCCRM62T6fCRpb"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://arxiv.org/abs/2608.11095",
+          "toolCallId": "toolu_01NxSzTZFiymzZd4CCV7Pv4T"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://arxiv.org/abs/2608.11727",
+          "toolCallId": "toolu_01Axk4YRquzQJnXvUUpNuy2u"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://arxiv.org/abs/2608.03169",
+          "toolCallId": "toolu_0197zryBkTSY6vWg7GgypiX9"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://arxiv.org/search/?query=handoff+agent+session+OR+%22context+handoff%22+OR+%22session+handoff%22&searchtype=title&abstracts=show&order=-announced_date_first&size=50",
+          "toolCallId": "toolu_018GFVgiVt3QcYhH6x8GcisK"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://arxiv.org/search/?query=compaction+OR+%22context+compression%22+OR+summarization+%22agent%22&searchtype=title&abstracts=show&order=-announced_date_first&size=50",
+          "toolCallId": "toolu_0199FJzLPXAz3gcZALnNV9k2"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://arxiv.org/html/2610.36523",
+          "toolCallId": "toolu_017PDsHoJ3bTNaLLAf3ybBGQ"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://arxiv.org/html/2606.02875",
+          "toolCallId": "toolu_01JCAFcyjdepLfR7WCbu9JCW"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://arxiv.org/abs/2608.24358",
+          "toolCallId": "toolu_01JTj8iqNnwJSihVGJXweD1h"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://arxiv.org/abs/2608.24569",
+          "toolCallId": "toolu_018zBfebsCzBtaQvvD6yATHX"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://metr.org/blog/2026-04-10-mirrorcode/",
+          "toolCallId": "toolu_01MYvrvmU3BEVkvvzve8bEnr"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://metr.org/blog/2026-01-29-time-horizon-1-1/",
+          "toolCallId": "toolu_01BcG9hyCndgWyGrxU4gknyr"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills",
+          "toolCallId": "toolu_01ABh2kNipu4BkL4aGpu9BQP"
+        }
+      },
+      {
+        "tool": "webFetchToolCall",
+        "args": {
+          "url": "https://code.claude.com/docs/en/memory",
+          "toolCallId": "toolu_01T8ce2iX7aKSBBktg4hZUhP"
+        }
+      }
+    ]
+  },
+  "opus-literature": {
+    "tool_counts": {},
+    "calls": []
+  },
+  "astra-literature": {
+    "tool_counts": {
+      "web_search": 29
+    },
+    "calls": [
+      {
+        "tool": "web_search",
+        "action": {
+          "type": "search",
+          "queries": [
+            "AI agent memory handoff context engineering October 2026 AGENTS.md study",
+            "agent instruction files AGENTS.md empirical study performance 2026",
+            "AI agents persistent memory fresh session benchmark 2026"
+          ]
+        },
+        "command": null
+      },
+      {
+        "tool": "web_search",
+        "action": {
+          "type": "open_page",
+          "url": "https://openchamber.dev/blog/agent-memory-research/"
+        },
+        "command": null
+      },
+      {
+        "tool": "web_search",
+        "action": {
+          "type": "search",
+          "queries": [
+            "agent memory benchmark \"October\" \"2026\" \"14\"",
+            "agent handoff benchmark \"October\" \"2026\"",
+            "agent skills context instructions evaluation \"October\" \"2026\"",
+            "\"agents\" \"reasoning effort\" memory benchmark 2026"
+          ]
+        },
+        "command": null
+      },
+      {
+        "tool": "web_search",
+        "action": {
+          "type": "open_page",
+          "url": "https://openchamber.dev/blog/agent-memory-research/"
+        },
+        "command": null
+      },
+      {
+        "tool": "web_search",
+        "action": {
+          "type": "search",
+          "queries": [
+            "site:arxiv.org agent memory after:2026-10-13 before:2026-10-29",
+            "site:arxiv.org \"agent\" \"skills\" \"October\" \"2026\"",
+            "site:anthropic.com engineering \"2026\" \"October\" agents memory"
+          ]
+        },
+        "command": null
+      },
+      {
+        "tool": "web_search",
+        "action": {
+          "type": "open_page",
+          "url": "https://arxiv.org/abs/2610.29823"
+        },
+        "command": null
+      },
+      {
+        "tool": "web_search",
+        "action": {
+          "type": "open_page",
+          "url": "https://arxiv.org/html/2610.29823v1"
+        },
+        "command": null
+      },
+      {
+        "tool": "web_search",
+        "action": {
+          "type": "search",
+          "queries": [
+            "\"Harness Updating Is Not Harness Benefit\"",
+            "\"SkillsBench\" agent skills benchmark",
+            "agent handoff resumption benchmark \"October\" \"2026\" -site:reddit.com -site:openchamber.dev",
+            "multi agent coordination shared state benchmark \"October\" \"2026\""
+          ]
+        },
+        "command": null
+      },
+      {
+        "tool": "web_search",
+        "action": {
+          "type": "search",
+          "queries": [
+            "\"Benchmarking Task Takeover Across Agent Handoffs\"",
+            "\"Harness Updating Is Not Harness Benefit\" arxiv",
+            "\"Towards a Science of Scaling Agent Systems\"",
+            "\"When Malicious Instructions Persist\""
+          ]
+        },
+        "command": null
+      },
+      {
+        "tool": "web_search",
+        "action": {
+          "type": "open_page",
+          "url": "https://arxiv.org/abs/2610.36523"
+        },
+        "command": null
+      },
+      {
+        "tool": "web_search",
+        "action": {
+          "type": "other"
+        },
+        "command": null
+      },
+      {
+        "tool": "web_search",
+        "action": {
+          "type": "other"
+        },
+        "command": null
+      },
+      {
+        "tool": "web_search",
+        "action": {
+          "type": "open_page",
+          "url": "https://arxiv.org/abs/2610.08102"
+        },
+        "command": null
+      },
+      {
+        "tool": "web_search",
+        "action": {
+          "type": "search",
+          "queries": [
+            "site:anthropic.com/engineering effective harnesses long running agents progress file git 2025",
+            "site:vercel.com/blog agents-md outperforms skills evals January 2026",
+            "site:cursor.com/blog scaling agents coordination shared files 2026",
+            "site:simonwillison.net \"2026\" \"Oct\" \"skills\""
+          ]
+        },
+        "command": null
+      },
+      {
+        "tool": "web_search",
+        "action": {
+          "type": "open_page",
+          "url": "https://vercel.com/blog/agents-md-outperforms-skills-in-our-agent-evals"
+        },
+        "command": null
+      },
+      {
+        "tool": "web_search",
+        "action": {
+          "type": "open_page",
+          "url": "https://arxiv.org/abs/2610.32322"
+        },
+        "command": null
+      },
+      {
+        "tool": "web_search",
+        "action": {
+          "type": "open_page",
+          "url": "https://arxiv.org/html/2610.32322v1"
+        },
+        "command": null
+      },
+      {
+        "tool": "web_search",
+        "action": {
+          "type": "open_page",
+          "url": "https://arxiv.org/abs/2606.02875"
+        },
+        "command": null
+      },
+      {
+        "tool": "web_search",
+        "action": {
+          "type": "open_page",
+          "url": "https://arxiv.org/html/2606.02875v2"
+        },
+        "command": null
+      },
+      {
+        "tool": "web_search",
+        "action": {
+          "type": "other"
+        },
+        "command": null
+      },
+      {
+        "tool": "web_search",
+        "action": {
+          "type": "search",
+          "queries": [
+            "agent \"handoff\" \"GPT-6\" benchmark",
+            "\"agent\" \"memory\" \"October 2026\" \"writing\" benchmark -site:reddit.com -site:openchamber.dev"
+          ]
+        },
+        "command": null
+      },
+      {
+        "tool": "web_search",
+        "action": {
+          "type": "open_page",
+          "url": "https://brinvik.com/en/journal/claude-managed-agents-shared-memory-ai-sales-agents"
+        },
+        "command": null
+      },
+      {
+        "tool": "web_search",
+        "action": {
+          "type": "find_in_page",
+          "pattern": "cost"
+        },
+        "command": null
+      },
+      {
+        "tool": "web_search",
+        "action": {
+          "type": "open_page",
+          "url": "https://arxiv.org/abs/2512.08296"
+        },
+        "command": null
+      },
+      {
+        "tool": "web_search",
+        "action": {
+          "type": "open_page",
+          "url": "https://arxiv.org/html/2512.08296v3"
+        },
+        "command": null
+      },
+      {
+        "tool": "web_search",
+        "action": {
+          "type": "find_in_page",
+          "pattern": "GPT-5.2"
+        },
+        "command": null
+      },
+      {
+        "tool": "web_search",
+        "action": {
+          "type": "open_page",
+          "url": "https://arxiv.org/abs/2602.12670"
+        },
+        "command": null
+      },
+      {
+        "tool": "web_search",
+        "action": {
+          "type": "open_page",
+          "url": "https://arxiv.org/html/2602.12670v4"
+        },
+        "command": null
+      },
+      {
+        "tool": "web_search",
+        "action": {
+          "type": "find_in_page",
+          "pattern": "randomized"
+        },
+        "command": null
+      }
+    ]
+  }
+}

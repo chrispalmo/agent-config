@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-28",
+  "automation": {
+    "id": "review-project-continuity-simplification",
+    "delete_status": "deleted",
+    "replacement": null
+  },
+  "temporary_workspaces_removed": [
+    "/var/folders/g9/48plm8ln49b075768_8jjp2h0000gn/T/astra-innate-e6j44l34",
+    "/var/folders/g9/48plm8ln49b075768_8jjp2h0000gn/T/astra-literature-p09_b12z",
+    "/var/folders/g9/48plm8ln49b075768_8jjp2h0000gn/T/fable-innate-avobn3mv",
+    "/var/folders/g9/48plm8ln49b075768_8jjp2h0000gn/T/fable-literature-4vcnvr2e",
+    "/var/folders/g9/48plm8ln49b075768_8jjp2h0000gn/T/independent-review-control-lf_enmjh"
+  ],
+  "active_native_workers": [],
+  "preserved": "frozen reports, prompts, public events and execution receipts",
+  "unrelated_local_changes": "preserved; excluded from task publication"
+}

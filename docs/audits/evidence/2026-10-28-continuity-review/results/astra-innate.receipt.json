@@ -1,0 +1,26 @@
+{
+  "assignment": "astra-innate",
+  "started_at": "2026-10-28T09:49:12Z",
+  "workspace": "/var/folders/g9/48plm8ln49b075768_8jjp2h0000gn/T/astra-innate-e6j44l34",
+  "requested_model": "gpt-6-astra",
+  "requested_effort": "xhigh",
+  "isolation": {
+    "workspace": "/var/folders/g9/48plm8ln49b075768_8jjp2h0000gn/T/astra-innate-e6j44l34",
+    "profile": "/var/folders/g9/48plm8ln49b075768_8jjp2h0000gn/T/astra-innate-e6j44l34/isolation.sb",
+    "blocked_repo_read": true,
+    "prompt_readable": true
+  },
+  "status": "completed",
+  "session_id": "01a181e9-e750-7633-a5c5-fcf2de4aa785",
+  "events": 8,
+  "usage": {
+    "input_tokens": 13098,
+    "cached_input_tokens": 8704,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 3260,
+    "reasoning_output_tokens": 1554
+  },
+  "exit_code": 0,
+  "finished_at": "2026-10-28T09:53:11Z",
+  "report_chars": 9992
+}

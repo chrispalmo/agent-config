@@ -1,0 +1,20 @@
+{
+  "assignment": "fable-literature",
+  "started_at": "2026-10-28T09:49:13Z",
+  "workspace": "/var/folders/g9/48plm8ln49b075768_8jjp2h0000gn/T/fable-literature-4vcnvr2e",
+  "requested_model": "claude-fable-5-1-thinking-xhigh",
+  "requested_effort": "xhigh",
+  "isolation": {
+    "workspace": "/var/folders/g9/48plm8ln49b075768_8jjp2h0000gn/T/fable-literature-4vcnvr2e",
+    "profile": "/var/folders/g9/48plm8ln49b075768_8jjp2h0000gn/T/fable-literature-4vcnvr2e/isolation.sb",
+    "blocked_repo_read": true,
+    "prompt_readable": true
+  },
+  "status": "failed",
+  "runtime_model": "Claude Fable 5.1 300K Extra High",
+  "session_id": "be1ec867-eb8c-4727-865c-8fa329dfe902",
+  "events": 178,
+  "exit_code": 1,
+  "finished_at": "2026-10-28T09:56:52Z",
+  "report_chars": 561
+}

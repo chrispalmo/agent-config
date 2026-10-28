@@ -1,0 +1,4 @@
+# Raw execution captures are retained locally; reports and receipts are published.
+results/*.events.jsonl*
+results/*.stderr.txt*
+results/*.combined-capture.txt

@@ -1,0 +1,29 @@
+{
+  "assignment": "fable-innate",
+  "started_at": "2026-10-28T09:43:47Z",
+  "workspace": "/var/folders/g9/48plm8ln49b075768_8jjp2h0000gn/T/fable-innate-avobn3mv",
+  "requested_model": "claude-fable-5-1-thinking-xhigh",
+  "requested_effort": "xhigh",
+  "isolation": {
+    "workspace": "/var/folders/g9/48plm8ln49b075768_8jjp2h0000gn/T/fable-innate-avobn3mv",
+    "profile": "/var/folders/g9/48plm8ln49b075768_8jjp2h0000gn/T/fable-innate-avobn3mv/isolation.sb",
+    "blocked_repo_read": true,
+    "prompt_readable": true
+  },
+  "status": "completed",
+  "runtime_model": "Claude Fable 5.1 300K Extra High",
+  "session_id": "a0fe0de8-f4fb-413d-9a3a-72dcb754ed54",
+  "events": 7,
+  "usage": {
+    "inputTokens": 6,
+    "outputTokens": 8424,
+    "cacheReadTokens": 13389,
+    "cacheWriteTokens": 15581
+  },
+  "duration_ms": 116033,
+  "is_error": false,
+  "exit_code": 0,
+  "finished_at": "2026-10-28T09:45:51Z",
+  "report_chars": 16674,
+  "canonical_report_chars": 8335
+}

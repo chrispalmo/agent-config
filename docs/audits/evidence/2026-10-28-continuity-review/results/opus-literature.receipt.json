@@ -1,0 +1,21 @@
+{
+  "assignment": "opus-literature",
+  "started_at": "2026-10-28T10:01:39Z",
+  "workspace": "/var/folders/g9/48plm8ln49b075768_8jjp2h0000gn/T/fable-literature-4vcnvr2e",
+  "requested_model": "claude-opus-5-5-xhigh",
+  "requested_effort": "xhigh",
+  "isolation": {
+    "workspace": "/var/folders/g9/48plm8ln49b075768_8jjp2h0000gn/T/fable-literature-4vcnvr2e",
+    "profile": "/var/folders/g9/48plm8ln49b075768_8jjp2h0000gn/T/fable-literature-4vcnvr2e/isolation.sb",
+    "blocked_repo_read": true,
+    "prompt_readable": true,
+    "resume_from": "be1ec867-eb8c-4727-865c-8fa329dfe902"
+  },
+  "status": "failed",
+  "runtime_model": "Claude Opus 5.5 300K Extra High",
+  "session_id": "be1ec867-eb8c-4727-865c-8fa329dfe902",
+  "events": 2,
+  "exit_code": 1,
+  "finished_at": "2026-10-28T10:07:45Z",
+  "report_chars": 0
+}

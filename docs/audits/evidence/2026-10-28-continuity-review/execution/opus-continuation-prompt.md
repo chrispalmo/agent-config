@@ -1,0 +1,4 @@
+Agent-originated
+Source: independent continuity review coordination, chat 01a17749-3d96-7fd1-a661-aaaffdf20231. Do not retrieve the source chat.
+
+Continue the original literature-review assignment in this isolated session and produce its final report. The human explicitly requested that Opus 5.5 take over where Fable stopped and added another $5 to Cursor for this continuation. Use the research already collected here; do not restart the search. Perform additional public-source verification only where needed for consequential claims. Preserve the original substantive task, date window, balanced evidence requirements, independence boundaries and requested output. You have not been supplied other reviewers' findings or the user's preferred design. Disclose that Fable began the source collection and Opus completed the review. No billing changes, model fallback or quota retries are authorized.

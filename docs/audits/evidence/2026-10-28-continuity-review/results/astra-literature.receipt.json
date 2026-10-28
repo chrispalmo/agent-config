@@ -1,0 +1,26 @@
+{
+  "assignment": "astra-literature",
+  "started_at": "2026-10-28T09:49:14Z",
+  "workspace": "/var/folders/g9/48plm8ln49b075768_8jjp2h0000gn/T/astra-literature-p09_b12z",
+  "requested_model": "gpt-6-astra",
+  "requested_effort": "xhigh",
+  "isolation": {
+    "workspace": "/var/folders/g9/48plm8ln49b075768_8jjp2h0000gn/T/astra-literature-p09_b12z",
+    "profile": "/var/folders/g9/48plm8ln49b075768_8jjp2h0000gn/T/astra-literature-p09_b12z/isolation.sb",
+    "blocked_repo_read": true,
+    "prompt_readable": true
+  },
+  "status": "completed",
+  "session_id": "01a181e9-efd3-7d03-bf32-1b0d9736ece4",
+  "events": 69,
+  "usage": {
+    "input_tokens": 3628101,
+    "cached_input_tokens": 3395840,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 13310,
+    "reasoning_output_tokens": 5447
+  },
+  "exit_code": 0,
+  "finished_at": "2026-10-28T10:03:45Z",
+  "report_chars": 24901
+}
