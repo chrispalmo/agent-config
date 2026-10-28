@@ -1,6 +1,6 @@
 ---
 name: bitter-lesson
-description: Evaluate consequential prescriptions for how AI work is performed against approaches that enable discovery and scale with capability. Use when explicitly requested or when proposing, adopting, or materially revising methods, heuristics, workflows, or agent structures; skip routine execution and settled designs unless new evidence warrants reconsideration.
+description: Assess AI workflows and agent structures through the Bitter Lesson. Use for consequential choices about prescribed AI methods, or when explicitly asked to assess or revisit a proposal; implicit selection skips routine execution and unchanged decisions.
 ---
 
 # Bitter Lesson checkpoint
@@ -17,7 +17,7 @@ Do not assume all structure is bad, one agent is best, natural language is alway
 
 ## Apply proportionately
 
-Allow explicit invocation and implicit selection for consequential decisions about prescribed AI methods, heuristics, workflows, or agent organization. A passing mention of agents, a routine skill edit, an ordinary task, or execution of an established design does not warrant a fresh review. Reuse an earlier checkpoint unless requirements, observed failures, or relevant capabilities have materially changed.
+Allow explicit invocation and implicit selection for consequential decisions about prescribed AI methods, heuristics, workflows, or agent organization. A passing mention of agents, a routine skill edit, an ordinary task, or execution of an established design does not warrant a fresh review. Reuse an earlier checkpoint unless requirements, observed failures, or relevant capabilities have materially changed, or the user explicitly asks to reassess. An explicit reassessment request takes precedence over the normal reuse default.
 
 Identify the concrete problem or human need and the evidence available. Distinguish observed failures from anticipated ones; uncertainty can justify a small experiment without inventing a failure history.
 

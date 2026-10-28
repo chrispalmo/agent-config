@@ -18,6 +18,7 @@ _collections/coordination/harness
 github-init
 _collections/coordination/pause-for-review
 plaintext
+decision-criteria
 bitter-lesson
 _collections/browser/browser-session
 _collections/browser/browser-cleanup

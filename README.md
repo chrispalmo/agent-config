@@ -83,6 +83,14 @@ The [coordination package](skills/_collections/coordination/README.md) groups tr
 
 The [design collection](skills/_collections/design/README.md) groups the design comparison tool and the neon neo-brutalist minimal style.
 
+## Assess decisions and AI methods
+
+The always-on [Decision Criteria rule](rules/decision-criteria/RULE.md) defines how recommendations state their objectives, criteria, evidence, and trade-offs. The separate [Decision Criteria skill](skills/decision-criteria/SKILL.md) provides an explicit assessment or reassessment action without duplicating the full standing rule. Invoke it as `$decision-criteria` in Codex or `/decision-criteria` in Claude Code and Cursor; a plain-language mention is not a portable substitute for native invocation of this explicit-only skill.
+
+The [Bitter Lesson skill](skills/bitter-lesson/SKILL.md) supports automatic selection for consequential AI-method choices and explicit assessment or reassessment through `$bitter-lesson` in Codex or `/bitter-lesson` in Claude Code and Cursor. It keeps its essay on demand and has no companion rule. An explicit request to reassess takes precedence over reusing an earlier checkpoint.
+
+Both skills install independently through the existing single-skill options. They have no package or installation dependency on each other or on a rule. Installation checks verify generated artifacts; they do not establish native discovery or behavioral reliability.
+
 ## Search past chats
 
 The [search-agent-chats skill](skills/search-agent-chats/SKILL.md) is installed across Cursor, Claude Code, and Codex. It searches retained conversations from all three harnesses through the maintained archive's search script, with word/optional meaning search and exact event citations. Results expose scope, the last capture observation, word-index freshness, and meaning coverage separately. Agents choose among the tools actually available; no native/archive routing order is prescribed. Capture, model setup, and cloud/remote synchronization are not installed by this skill.
