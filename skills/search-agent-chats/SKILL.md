@@ -23,7 +23,7 @@ python3 "<repo_root>/scripts/search-agent-chats.py" "<query>" --repo "<repo_root
 
 The default word search AND-matches words in an event. Optional `--mode semantic` or `--mode hybrid` uses installed local embeddings; a query never embeds archive documents or downloads a model. Available filters include `--harness cursor|codex|claude`, `--conversation` (exact ID across parts), `--project`, `--event-kind`, `--role`, `--author`, `--submitter`, `--after`, and `--before`.
 
-Meaning search covers user message text and final assistant answers. Word search includes the deeper retained native content: tools, results, reasoning, and context. Meaning hits expose `completion_basis`: Codex/Claude usually have native completion signals; older Cursor terminal answers are inferred and can be provisional. User-role text can include harness-supplied context and does not establish human authorship.
+Meaning search covers user message text and final assistant answers. Word search includes readable deeper native content: tools, results, reasoning, and context. Encoded media and recognized opaque binary fields are excluded from the keyword cache; their full retained records remain available by citation. Meaning hits expose `completion_basis`: Codex/Claude usually have native completion signals; older Cursor terminal answers are inferred and can be provisional. User-role text can include harness-supplied context and does not establish human authorship.
 
 A surface match supplies a conversation ID, harness, and exact event citation. Inspect its associated content directly or use `--harness <harness> --conversation <conversation_id>` for word searches across the full conversation's parts. These are complementary capabilities, not a required search sequence.
 
