@@ -11,14 +11,16 @@ This tool searches local captured history across Cursor, Codex, and Claude Code.
 
 ## Find the live archive
 
-Prefer the maintained capture checkout, not a feature worktree. Read `repo_root` from `~/.cursor/agent-chats-sync.json` when that file exists. Otherwise, check `~/dev/agent-chats` for `scripts/search-agent-chats.py` and `cursor/`; ask for the archive location if neither is available.
+Read `~/.config/agent-chats/config.json` when present. It selects separate absolute `tooling_root` and `archive_root` paths and the host's `role` (`personal` or `sf1`). Run the search script from the tooling root with `--repo` pointing to the archive root. If a role-bound configuration is invalid/unavailable, or `~/.config/dotfiles/role.json` exists without an archive binding, stop and resolve that configuration; do not fall back to another archive or the mixed legacy history. Each role has its own archive, index and Git destination. Software routing does not replace OS/device/credential isolation.
+
+For older installations without a role binding, read `repo_root` and optional `tooling_root` from `~/.cursor/agent-chats-sync.json`; absent `tooling_root` means code and data share `repo_root`. Otherwise check `~/dev/agent-chats` for the script and `cursor/`, or ask for the location. Prefer the maintained capture location, not a feature worktree.
 
 ## Search
 
 Run the archive's tracked search command:
 
 ```bash
-python3 "<repo_root>/scripts/search-agent-chats.py" "<query>" --repo "<repo_root>" --json
+python3 "<tooling_root>/scripts/search-agent-chats.py" "<query>" --repo "<archive_root>" --json
 ```
 
 The default word search AND-matches words in an event. Optional `--mode semantic` or `--mode hybrid` uses installed local embeddings; a query never embeds archive documents or downloads a model. Available filters include `--harness cursor|codex|claude`, `--conversation` (exact ID across parts), `--project`, `--event-kind`, `--role`, `--author`, `--submitter`, `--after`, and `--before`.
