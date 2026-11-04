@@ -13,10 +13,15 @@ Treat `$neon-neo-brutalist-minimal`, `/neon-neo-brutalist-minimal`, and clear re
 
 Build a simple, high-contrast canvas with bold readable typography, generous spacing, solid outlines, and concentrated neon accents. Minimal means few competing treatments while important elements retain vivid emphasis. Let the actual content dominate.
 
-- Use one coherent type family with a small hierarchy. Prefer an existing suitable product font; Atkinson Hyperlegible is an example, not a requirement. Keep body copy comfortable to read.
 - Start with lime and ink for the primary visual identity. Pink and yellow can distinguish meaningful actions or states. Keep supporting surfaces quiet so accent areas carry weight; important elements should not dissolve into gray or washed-out pastels.
 - Reuse a small set of edges, spacing, and corner treatments. Modest rounded corners belong in this style; square corners are optional. Flat cards and clear dividers can organize dense content without turning every block into a decorated box.
 - Keep labels plain and concise. Express character through composition, typography, color, and purposeful interaction rather than invented slogans or decorative subtitles.
+
+## Typography
+
+Use one primary font family and a small, shared set of text styles. Reuse existing product typography where suitable. Each style should have a clear role, such as heading, body, label, or caption, and a consistent size, weight, and treatment wherever that role appears. Controls should inherit these styles instead of introducing their own typography.
+
+Create hierarchy with spacing, placement, and a few distinct type levels. Add another size, weight, italic treatment, case, or typeface only when it communicates a meaningful difference. Consolidate near-duplicate styles before finishing. Preserve readability, text enlargement, and necessary language or content-specific fonts.
 
 ## Interaction hierarchy
 
@@ -45,14 +50,12 @@ These are starting tokens, not fixed brand requirements:
 
 Keep vivid fills distinct from text colors: bright pink on white may need deeper ink or a different treatment. The exact dark-button edge, font, and corner geometry remain adaptable.
 
-At the surface that owns appearance, follow system mode by default, respond to system changes while open, and provide an accessible remembered override with a way back to System. Embedded components inherit the host's theme rather than adding a competing switch. Theme changes preserve view, input, selection, and application state.
-
 ## Avoid
 
 - **Color everywhere:** do not fill every card, label, and control with neon. Concentrate color on actions, selection, and meaningful information.
 - **Bland minimalism:** do not mute the important elements into gray or washed-out pastels. Keep hierarchy bold and accents vivid.
 - **Everything looking clickable:** do not give informational labels button shapes or raised edges. Secondary and selection controls remain shadowless and still.
-- **Excessive variation:** avoid multiple font families, arbitrary corner shapes, inconsistent borders, and bespoke styling for every component.
+- **Excessive variation:** avoid near-duplicate text styles, arbitrary corner shapes, inconsistent borders, and bespoke styling for every component.
 - **Decorative clutter and copy:** omit invented slogans, ornamental subtitles, unnecessary numbering, tiny uppercase labels, and redundant explanation. Retain numbers, labels, and context when the task needs them.
 - **Effects substituting for design:** avoid glow, glass, gradient washes, blurry shadows, and continuous animation. This is a stylistic interpretation of the references, not a ban overriding explicit project direction.
 - **Literal copying:** do not force every project to use the same lime, font, mascot, or layout. Brutalism does not require square corners.

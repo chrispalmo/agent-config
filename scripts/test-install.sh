@@ -82,6 +82,13 @@ assert_managed "$CLAUDE_RULES/address-the-user.md"
 assert_managed "$CLAUDE_RULES/markdown-no-hard-wrap.md"
 assert_managed "$CLAUDE_MD"
 assert_managed "$CODEX_AGENTS"
+for root in "$CURSOR_RULES.resources" "$CLAUDE_RULES.resources" "$CODEX_AGENTS.resources"; do
+  cmp -s "$REPO_ROOT/rules/visual-design-default/references/theme-toggle.svg" \
+    "$root/visual-design-default/references/theme-toggle.svg" || fail "rule reference differs"
+done
+expected_rule_reference="$(python3 -c 'import os, sys; print(os.path.abspath(sys.argv[1]))' "$CODEX_AGENTS.resources/visual-design-default/references/theme-toggle.svg")"
+assert_contains "$CODEX_AGENTS" "(<$expected_rule_reference>)"
+assert_missing "$CODEX_SKILLS/neon-neo-brutalist-minimal/references/theme-toggle.svg"
 assert_contains "$CODEX_AGENTS" 'Call the user Chris. When directly replying to an agent-originated message, address the agent as "boss".'
 assert_contains "$CODEX_AGENTS" "make the initial substantive reply and final result understandable on their own"
 assert_contains "$CODEX_AGENTS" 'Always create `CLAUDE.md`'
@@ -439,6 +446,9 @@ assert_missing "$CODEX_SKILLS/status-ledger/references"
 assert_missing "$CURSOR_RULES/address-the-user.mdc"
 assert_missing "$CLAUDE_MD"
 assert_missing "$CODEX_AGENTS"
+assert_missing "$CURSOR_RULES.resources"
+assert_missing "$CLAUDE_RULES.resources"
+assert_missing "$CODEX_AGENTS.resources"
 assert_file "$CURSOR_RULES/not-ours.mdc"
 assert_file "$CLAUDE_RULES/extra.txt"
 ok "uninstall identity"

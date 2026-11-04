@@ -21,6 +21,8 @@ exec "${DEST}/scripts/cloud/bootstrap.sh"
 
 That clone is public HTTPS, so the VM does not need a GitHub token.
 
+The VM needs Bash, Git, and Python 3.9+; rule reference installation uses Python's standard library without additional packages.
+
 `bootstrap.sh` then:
 
 1. Updates the checkout if it can.

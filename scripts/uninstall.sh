@@ -73,12 +73,22 @@ remove_managed_rules_in_dir() {
   done
 }
 
+# Validate owned reference trees before removing any installed files.
+if [[ $WANTS_RULES -eq 1 ]]; then
+  [[ $WANTS_CURSOR -eq 0 ]] || rule_references preflight "$(rule_reference_root "$CURSOR_RULES")" --sources "$RULES_ROOT"
+  [[ $WANTS_CLAUDE -eq 0 ]] || rule_references preflight "$(rule_reference_root "$CLAUDE_RULES")" --sources "$RULES_ROOT"
+  [[ $WANTS_AGENTS -eq 0 ]] || rule_references preflight "$(rule_reference_root "$CODEX_AGENTS")" --sources "$RULES_ROOT"
+fi
+
 if [[ $WANTS_SKILLS -eq 1 ]]; then
   [[ $WANTS_CURSOR -eq 0 ]] || remove_skill_links_from_root "$CURSOR_SKILLS"
   [[ $WANTS_CLAUDE -eq 0 ]] || remove_skill_links_from_root "$CLAUDE_SKILLS"
   [[ $WANTS_AGENTS -eq 0 ]] || remove_skill_links_from_root "$CODEX_SKILLS"
 fi
 if [[ $WANTS_RULES -eq 1 ]]; then
+  [[ $WANTS_CURSOR -eq 0 ]] || rule_references remove "$(rule_reference_root "$CURSOR_RULES")" --sources "$RULES_ROOT"
+  [[ $WANTS_CLAUDE -eq 0 ]] || rule_references remove "$(rule_reference_root "$CLAUDE_RULES")" --sources "$RULES_ROOT"
+  [[ $WANTS_AGENTS -eq 0 ]] || rule_references remove "$(rule_reference_root "$CODEX_AGENTS")" --sources "$RULES_ROOT"
   [[ $WANTS_CURSOR -eq 0 ]] || remove_managed_rules_in_dir "$CURSOR_RULES" mdc
   [[ $WANTS_CLAUDE -eq 0 ]] || { remove_managed_rules_in_dir "$CLAUDE_RULES" md; remove_managed_file "$CLAUDE_MD"; }
   [[ $WANTS_AGENTS -eq 0 ]] || { info "target $CODEX_AGENTS"; remove_managed_file "$CODEX_AGENTS"; }

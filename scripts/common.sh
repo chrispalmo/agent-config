@@ -143,6 +143,26 @@ write_managed() {
   cat > "$dest"
 }
 
+rule_references() {
+  command -v python3 >/dev/null || die "rule references require Python 3"
+  python3 "$REPO_ROOT/scripts/rule-references.py" "$@"
+}
+
+rule_reference_root() {
+  local target="$1"
+  while [[ "$target" != / && "$target" == */ ]]; do target="${target%/}"; done
+  printf '%s.resources' "$target"
+}
+
+render_rule_body() {
+  local body="$1" destination="$2" name="$3"
+  if [[ "$body" == *"references/"* ]]; then
+    printf '%s' "$body" | rule_references render "$destination/$name/references"
+  else
+    printf '%s' "$body"
+  fi
+}
+
 fm_field() {
   local file="$1" key="$2"
   awk -v key="$key" '

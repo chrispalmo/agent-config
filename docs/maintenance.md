@@ -6,6 +6,8 @@ The user requested an instruction, workflow, and maintenance audit. Harness comp
 
 A later [selected native Claude/Cursor compatibility check](audits/evidence/2026-10-23-native-compatibility/README.md) covers explicit invocation, resource reads, two owned precedence cases and isolated install/uninstall preservation. Helper execution in the tested read-only modes, complete counter coverage and the broader compatibility/installer audits remain unverified by that pass.
 
+The [4 November design-installation check](audits/evidence/2026-11-04-design-installation.json) also verified native Codex and Cursor skill/reference reads after global installation. Cursor loaded the personal rule at startup under the home directory but not in `/private/tmp`; that discovery limitation remains open. Claude native access was unavailable, while its installed files and generated links passed checks. This bounded result does not complete the broader compatibility audit.
+
 The [bounded activation-signal comparison](audits/evidence/2026-10-23-batch5-activation/README.md) reuses those receipts and checks retained payloads against maintained archive adapters. It found no dedicated activation counter or payload-loss defect requiring repair. Documented native telemetry exports remain unvalidated locally; file reads and startup inventory do not establish complete usage counts. No continuous collector or longitudinal programme was started.
 
 ## Authority
@@ -36,11 +38,12 @@ Use a Python virtual environment for validation dependencies: `python3 -m venv .
 ```bash
 python3 scripts/check-content.py
 python3 scripts/test-content.py
+python3 scripts/test-rule-references.py
 ./scripts/test-install.sh
 git diff --check
 ```
 
-The [content check](../scripts/check-content.py) validates registered and unregistered source artifacts, duplicate paths and basenames, YAML syntax and duplicate keys, metadata identity and boolean types, paired cross-harness invocation controls, draft separation, scoped-rule metadata, collection/package agreement, collections with at least two members, empty source folders, and canonical compatibility shims. It checks that explicit-only descriptions state activation, but cannot establish full prose semantics, every prose link, external facts, harness discovery, or agent behavior. Installed resource copies and managed retirement are covered by the installer tests. The existing installer tests remain a regression baseline; running them does not complete the deferred installer audit.
+The [content check](../scripts/check-content.py) validates registered and unregistered source artifacts, duplicate paths and basenames, YAML syntax and duplicate keys, metadata identity and boolean types, paired cross-harness invocation controls, draft separation, scoped-rule metadata, collection/package agreement, collections with at least two members, empty source folders, and canonical compatibility shims. It checks that explicit-only descriptions state activation, but cannot establish full prose semantics, every prose link, external facts, harness discovery, or agent behavior. Installed resource copies and managed retirement are covered by the installer tests. The [rule-reference suite](../scripts/test-rule-references.py) also checks generated link paths, target selection, refresh/retirement, uninstall, and foreign-file boundaries using temporary roots. The existing installer tests remain a regression baseline; running them does not complete the deferred installer audit.
 
 Read the affected skill together with its related rules and templates. Check that descriptions and body triggers agree, existing authorization carries forward, explicit user intent wins, and concrete completion conditions are stated. Ask whether each added step prevents an observed failure or merely prescribes ceremony. Keep uncertainty and proposed decisions visible; do not claim behavioral gains from a static review.
 

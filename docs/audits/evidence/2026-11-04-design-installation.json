@@ -1,0 +1,232 @@
+{
+  "date": "2026-11-04",
+  "scope": "Approved default visual design rule, Neon typography, and rule-reference installation; bounded native discovery and file reads, not visual rendering or broad behavioral effectiveness.",
+  "install_commands": [
+    "./scripts/install.sh --rules --cursor --claude --agents",
+    "./scripts/install.sh --skills --package design --cursor --claude --agents"
+  ],
+  "verification": {
+    "unchanged_preexisting_files": 421,
+    "changed_preexisting_files": [
+      "/Users/cp/.agents/skills/neon-neo-brutalist-minimal/SKILL.md",
+      "/Users/cp/.claude/skills/neon-neo-brutalist-minimal/SKILL.md",
+      "/Users/cp/.cursor/rules/visual-design-default.mdc",
+      "/Users/cp/.claude/rules/visual-design-default.md",
+      "/Users/cp/.codex/AGENTS.md"
+    ],
+    "installed_svg_sha256": "eef302fde3ce10e95f22bfacb606bd5ea39581af1fd6eed60fa81e66bdb571d3",
+    "retired_skill_svg_absent": true
+  },
+  "prompt": "Agent-originated\nSource: agent-config installation closeout · /Users/cp/dev/agent-config\n\nRun a read-only smoke test of the installed personal visual-design guidance in this fresh workspace. Before using any tools, state whether the Default Visual Design rule is already present in your loaded instructions and quote its Visual style sentence; if absent, say so without searching for it first.\n\nThen use native skill discovery to locate and read the installed neon-neo-brutalist-minimal skill. Follow the theme-toggle reference link from the installed Default Visual Design rule and read the SVG. Report the exact installed paths you read, the SVG root width and height, its title text, whether its license notice is present, and a brief summary of the typography guidance.\n\nDo not search repository source or drafts, inject guidance, guess expected contents, build an artifact, write files, change settings, access network services, message anyone, or delegate. If a rule, skill, reference, permission, or subscription is unavailable, report that clearly. Distinguish instructions loaded at startup from files you retrieved afterward.\n",
+  "runs": {
+    "codex": {
+      "harness": "codex",
+      "argv": [
+        "codex",
+        "--no-daemon",
+        "-a",
+        "never",
+        "exec",
+        "--model",
+        "gpt-6-astra",
+        "--sandbox",
+        "read-only",
+        "--ignore-user-config",
+        "--ephemeral",
+        "--skip-git-repo-check",
+        "--json",
+        "-C",
+        "/private/tmp/agent-config-design-closeout-z5j2ljg6/probe/codex",
+        "-"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "elapsed_seconds": 16.81,
+      "reads": [
+        {
+          "path": "/Users/cp/.codex/AGENTS.md.resources/visual-design-default/references/theme-toggle.svg",
+          "tool": "command_execution",
+          "exit_code": 0,
+          "complete_file_in_output": true,
+          "sha256": "eef302fde3ce10e95f22bfacb606bd5ea39581af1fd6eed60fa81e66bdb571d3"
+        },
+        {
+          "path": "/Users/cp/.agents/skills/neon-neo-brutalist-minimal/SKILL.md",
+          "tool": "command_execution",
+          "exit_code": 0,
+          "complete_file_in_output": true,
+          "sha256": "d485e6fc9c46977fa74c78cf3d755b50f1f86f921c4327c1fab0ccf3c86f43bd"
+        }
+      ],
+      "first_public_statement": "Boss, for the agent-config installation closeout: the Default Visual Design rule is already present in my loaded instructions. Its Visual style sentence is: “For all visual work—artifacts, documents, slides, charts, screens, websites, and apps—use the `neon-neo-brutalist-minimal` skill by default.”\n\nI’ll use the installed skill listed in native skill discovery and read the rule’s linked SVG for this read-only smoke test.\n",
+      "unrelated_runtime_warnings": "SessionEnd hook timeout clamped, optional MCP authentication warning, and shell-startup pyenv write attempts blocked; both required file reads exited 0."
+    },
+    "cursor": {
+      "harness": "cursor",
+      "argv": [
+        "cursor-agent",
+        "-p",
+        "--output-format",
+        "stream-json",
+        "--mode",
+        "ask",
+        "--sandbox",
+        "enabled",
+        "--auto-review",
+        "--workspace",
+        "/private/tmp/agent-config-design-closeout-z5j2ljg6/probe/cursor",
+        "--trust"
+      ],
+      "exit_code": 1,
+      "timed_out": false,
+      "elapsed_seconds": 5.51,
+      "reads": [],
+      "first_public_statement": null,
+      "unavailable_reason": "Selected Gemini model hit existing plan usage limit; no spend limit was changed."
+    },
+    "cursor_auto": {
+      "harness": "cursor_auto",
+      "argv": [
+        "cursor-agent",
+        "-p",
+        "--output-format",
+        "stream-json",
+        "--mode",
+        "ask",
+        "--sandbox",
+        "enabled",
+        "--auto-review",
+        "--workspace",
+        "/private/tmp/agent-config-design-closeout-z5j2ljg6/probe/cursor_auto",
+        "--trust",
+        "--model",
+        "auto"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "elapsed_seconds": 53.25,
+      "reads": [
+        {
+          "path": "/Users/cp/.claude/skills/neon-neo-brutalist-minimal/SKILL.md",
+          "tool": "readToolCall",
+          "success": true,
+          "complete_file_in_output": true,
+          "sha256": "d485e6fc9c46977fa74c78cf3d755b50f1f86f921c4327c1fab0ccf3c86f43bd"
+        },
+        {
+          "path": "/private/tmp/agent-config-design-closeout-z5j2ljg6/probe/cursor_auto/.cursor/rules/default-visual-design.mdc",
+          "tool": "readToolCall",
+          "error": {
+            "errorMessage": "File not found"
+          }
+        },
+        {
+          "path": "/Users/cp/.cursor/rules.resources/visual-design-default/references/theme-toggle.svg",
+          "tool": "readToolCall",
+          "success": true,
+          "complete_file_in_output": true,
+          "sha256": "eef302fde3ce10e95f22bfacb606bd5ea39581af1fd6eed60fa81e66bdb571d3"
+        },
+        {
+          "path": "/Users/cp/.cursor/rules/visual-design-default.mdc",
+          "tool": "readToolCall",
+          "success": true,
+          "complete_file_in_output": true,
+          "sha256": "49e6497952cfb0d6b7020b180b150894d83ceec6cd13ca01fe9277e2d7769f7b"
+        }
+      ],
+      "first_public_statement": "**Startup-loaded instructions:** The Default Visual Design rule is **not** fully present in loaded instructions. It appears only as a requestable workspace rule name/path (`Default Visual Design` → `.cursor/rules/default-visual-design.mdc`). No Visual style sentence is in startup context, so I cannot quote it from loaded instructions.\n\nRetrieving the neon-neo-brutalist-minimal skill via installed skill discovery, then the Default Visual Design rule for the theme-toggle reference."
+    },
+    "cursor_home": {
+      "harness": "cursor_home",
+      "argv": [
+        "cursor-agent",
+        "-p",
+        "--output-format",
+        "stream-json",
+        "--mode",
+        "ask",
+        "--sandbox",
+        "enabled",
+        "--auto-review",
+        "--workspace",
+        "/Users/cp/.agent-config-design-closeout-z5j2ljg6",
+        "--trust",
+        "--model",
+        "auto"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "elapsed_seconds": 39.46,
+      "reads": [
+        {
+          "path": "/Users/cp/.claude/skills/neon-neo-brutalist-minimal/SKILL.md",
+          "tool": "readToolCall",
+          "success": true,
+          "complete_file_in_output": true,
+          "sha256": "d485e6fc9c46977fa74c78cf3d755b50f1f86f921c4327c1fab0ccf3c86f43bd"
+        },
+        {
+          "path": "/Users/cp/.cursor/rules.resources/visual-design-default/references/theme-toggle.svg",
+          "tool": "readToolCall",
+          "success": true,
+          "complete_file_in_output": true,
+          "sha256": "eef302fde3ce10e95f22bfacb606bd5ea39581af1fd6eed60fa81e66bdb571d3"
+        }
+      ],
+      "first_public_statement": "For the agent in agent-config installation closeout: you asked for a read-only smoke test of installed personal visual-design guidance.\n\n**Loaded at startup (before any tools):** The Default Visual Design rule is present in my loaded instructions. Its Visual style sentence is: “For all visual work—artifacts, documents, slides, charts, screens, websites, and apps—use the `neon-neo-brutalist-minimal` skill by default.”\n\nNext I’ll locate and read the installed skill and the theme-toggle SVG via the paths already in those instructions."
+    },
+    "claude": {
+      "harness": "claude",
+      "argv": [
+        "claude",
+        "-p",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--no-session-persistence",
+        "--tools",
+        "Read,Skill",
+        "--permission-mode",
+        "plan",
+        "--permission-prompts",
+        "none",
+        "--max-turns",
+        "8",
+        "--strict-mcp-config",
+        "--mcp-config",
+        "{\"mcpServers\":{}}"
+      ],
+      "exit_code": 1,
+      "timed_out": false,
+      "elapsed_seconds": 3.63,
+      "reads": [],
+      "first_public_statement": "Your organization has disabled Claude subscription access for Claude Code · Use an Anthropic API key instead, or ask your admin to enable access",
+      "unavailable_reason": "Organization has disabled Claude subscription access for Claude Code; skipped under user-authorized exclusion."
+    }
+  },
+  "versions": {
+    "codex": "0.161.0",
+    "cursor": "2026.10.22-27dcf5f",
+    "claude": "2.1.293"
+  },
+  "limitations": [
+    "Cursor loaded the rule at startup in a new workspace under the home directory, but not in /private/tmp. In /private/tmp it could subsequently read the installed rule and linked SVG. No universal global-rule discovery claim is made.",
+    "Cursor selected the Claude-root skill copy from its native inventory; shared and Claude-root installed copies were verified byte-identical.",
+    "Claude native access was unavailable. Its generated files and reference links were checked by installation tests and byte comparison.",
+    "SVG file reads were tested; rendered appearance and broad design behavior were not."
+  ],
+  "cleanup": {
+    "original_cursor_model_restored": "Gemini 4 Argon High",
+    "removed_task_workspace_and_cursor_metadata": [
+      "/Users/cp/.cursor/projects/private-tmp-agent-config-design-closeout-z5j2ljg6-probe-cursor-restore",
+      "/Users/cp/.cursor/projects/Users-cp-agent-config-design-closeout-z5j2ljg6",
+      "/Users/cp/.cursor/projects/private-tmp-agent-config-design-closeout-z5j2ljg6-probe-cursor",
+      "/Users/cp/.cursor/projects/private-tmp-agent-config-design-closeout-z5j2ljg6-probe--e46f038",
+      "/Users/cp/.cursor/projects/private-tmp-agent-config-design-closeout-z5j2ljg6-probe--0d04535",
+      "/Users/cp/.cursor/projects/private-tmp-agent-config-design-closeout-z5j2ljg6-probe-cursor-auto",
+      "/Users/cp/.agent-config-design-closeout-z5j2ljg6"
+    ],
+    "unrelated_drafts_preserved": true
+  }
+}

@@ -135,6 +135,8 @@ load_rules() {
   RULE_DESC=()
   RULE_GLOBS_ARR=()
   RULE_BODIES=()
+  RULE_REFERENCE_ARGS=()
+  CODEX_REFERENCE_ARGS=()
   for path in "${RULES[@]}"; do
     src="$RULES_ROOT/$path/RULE.md"
     parse_rule "$src"
@@ -148,6 +150,8 @@ load_rules() {
     RULE_DESC+=("$RULE_DESCRIPTION")
     RULE_GLOBS_ARR+=("$RULE_GLOBS")
     RULE_BODIES+=("$RULE_BODY")
+    RULE_REFERENCE_ARGS+=(--rule "$path")
+    [[ "$RULE_ALWAYS_APPLY" != 1 ]] || CODEX_REFERENCE_ARGS+=(--rule "$path")
   done
 }
 
@@ -320,7 +324,7 @@ emit_cursor_rule() {
     echo
     echo "$MANAGED_MARK"
     echo
-    printf '%s' "$body"
+    render_rule_body "$body" "$(rule_reference_root "$CURSOR_RULES")" "$name"
     [[ "$body" == *$'\n' ]] || echo
   } | write_managed "$dest"
   info "wrote $dest"
@@ -339,7 +343,7 @@ emit_claude_rule() {
     fi
     echo "$MANAGED_MARK"
     echo
-    printf '%s' "$body"
+    render_rule_body "$body" "$(rule_reference_root "$CLAUDE_RULES")" "$name"
     [[ "$body" == *$'\n' ]] || echo
   } | write_managed "$dest"
   info "wrote $dest"
@@ -372,7 +376,7 @@ emit_codex_rules() {
       body="${RULE_BODIES[$i]}"
       echo "## $name"
       echo
-      printf '%s' "$body"
+      render_rule_body "$body" "$(rule_reference_root "$CODEX_AGENTS")" "$name"
       [[ "$body" == *$'\n' ]] || echo
       echo
     done
@@ -447,15 +451,18 @@ if [[ $WANTS_RULES -eq 1 ]]; then
   if [[ $WANTS_CURSOR -eq 1 ]]; then
     preflight_dir "$CURSOR_RULES"
     for name in "${RULE_FILE_NAMES[@]}"; do assert_managed_dest_writable "$CURSOR_RULES/$name.mdc"; done
+    rule_references preflight "$(rule_reference_root "$CURSOR_RULES")" --sources "$RULES_ROOT" "${RULE_REFERENCE_ARGS[@]}"
   fi
   if [[ $WANTS_CLAUDE -eq 1 ]]; then
     preflight_dir "$CLAUDE_RULES"
     for name in "${RULE_FILE_NAMES[@]}"; do assert_managed_dest_writable "$CLAUDE_RULES/$name.md"; done
     assert_managed_dest_writable "$CLAUDE_MD"
+    rule_references preflight "$(rule_reference_root "$CLAUDE_RULES")" --sources "$RULES_ROOT" "${RULE_REFERENCE_ARGS[@]}"
   fi
   if [[ $WANTS_AGENTS -eq 1 ]]; then
     preflight_dir "$(dirname "$CODEX_AGENTS")"
     assert_managed_dest_writable "$CODEX_AGENTS"
+    rule_references preflight "$(rule_reference_root "$CODEX_AGENTS")" --sources "$RULES_ROOT" ${CODEX_REFERENCE_ARGS[@]+"${CODEX_REFERENCE_ARGS[@]}"}
   fi
 fi
 
@@ -482,6 +489,7 @@ if [[ $WANTS_RULES -eq 1 ]]; then
   if [[ $WANTS_CURSOR -eq 1 ]]; then
     info "target $CURSOR_RULES"
     mkdir -p "$CURSOR_RULES"
+    rule_references sync "$(rule_reference_root "$CURSOR_RULES")" --sources "$RULES_ROOT" "${RULE_REFERENCE_ARGS[@]}"
     for i in $(seq 0 $((${#RULE_FILE_NAMES[@]} - 1))); do
       emit_cursor_rule "${RULE_FILE_NAMES[$i]}" "${RULE_DESC[$i]}" "${RULE_ALWAYS[$i]}" "${RULE_GLOBS_ARR[$i]}" "${RULE_BODIES[$i]}"
     done
@@ -490,6 +498,7 @@ if [[ $WANTS_RULES -eq 1 ]]; then
   if [[ $WANTS_CLAUDE -eq 1 ]]; then
     info "target $CLAUDE_RULES"
     mkdir -p "$CLAUDE_RULES"
+    rule_references sync "$(rule_reference_root "$CLAUDE_RULES")" --sources "$RULES_ROOT" "${RULE_REFERENCE_ARGS[@]}"
     for i in $(seq 0 $((${#RULE_FILE_NAMES[@]} - 1))); do
       emit_claude_rule "${RULE_FILE_NAMES[$i]}" "${RULE_ALWAYS[$i]}" "${RULE_GLOBS_ARR[$i]}" "${RULE_BODIES[$i]}"
     done
@@ -499,6 +508,7 @@ if [[ $WANTS_RULES -eq 1 ]]; then
   if [[ $WANTS_AGENTS -eq 1 ]]; then
     info "target $CODEX_AGENTS"
     mkdir -p "$(dirname "$CODEX_AGENTS")"
+    rule_references sync "$(rule_reference_root "$CODEX_AGENTS")" --sources "$RULES_ROOT" ${CODEX_REFERENCE_ARGS[@]+"${CODEX_REFERENCE_ARGS[@]}"}
     emit_codex_rules
   fi
 fi

@@ -22,7 +22,9 @@ agent-config/
 │   └── <skill>/SKILL.md
 └── rules/
     ├── rules.manifest
-    └── <rule>/RULE.md
+    └── <rule>/
+        ├── RULE.md
+        └── references/          # optional
 ```
 
 All skill collections live under [skills/_collections](skills/_collections/README.md); independent skills live directly under `skills/`. Collection overviews identify their member skills. Installed command names stay the same.
@@ -34,6 +36,12 @@ All skill collections live under [skills/_collections](skills/_collections/READM
 ```
 
 Default install and `--all` write skills and rules for Cursor, Claude Code, and Codex. Explicit agent flags restrict installation to the selected targets. Skills include their supporting resources; full installs remove retired skills owned by this repository, while package and single-skill installs preserve skills outside the selection.
+
+Rule installation and removal require Python 3.9+ (standard library only). Rules may keep supporting files under `rules/<name>/references/` and link to them with ordinary inline Markdown links such as `[example](references/example.svg)`. Use an angle-bracket destination for filenames containing spaces or parentheses. The installer checks these links and rewrites them to absolute installed paths, preserving optional fragments and quoted titles. Reference-style Markdown definitions and paths outside `references/` are not rewritten.
+
+Rule references are installed outside native rule-discovery directories: beside the Cursor/Claude rules directory in `<rules-directory>.resources/<name>/references/`, and beside Codex's generated instruction file in `<AGENTS-file>.resources/<name>/references/`. These locations follow destination overrides. Codex receives references only for its always-on rules. Reinstallation refreshes owned reference directories and removes retired ones; uninstall removes owned references while preserving unrelated files. Foreign destination clashes abort before installation writes, and source reference trees must contain regular files/directories rather than symlinks. Pending-review drafts are excluded.
+
+In the [4 November native check](docs/audits/evidence/2026-11-04-design-installation.json), Cursor CLI loaded the personal rule at startup in a fresh workspace under the home directory, but not in `/private/tmp`; explicit reads of the installed rule and reference succeeded in both locations. The current Cursor destination is therefore not verified as a universal global-rule mechanism. Cursor's [account-level User Rules](https://cursor.com/help/customization/rules) are configured separately in its UI.
 
 | Option | Effect |
 | --- | --- |

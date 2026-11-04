@@ -6,12 +6,24 @@ alwaysApply: true
 
 # Default Visual Design
 
-For all visual work—artifacts, documents, slides, charts, screens, websites, and apps: default to **neon neo-brutalist minimal**. Use bold typography, high contrast, clear outlines, concentrated neon accents, generous spacing, and simple layouts. Add purposeful moments of delight suited to the medium, such as clear interaction feedback, restrained motion, or a useful surprising detail. Use the `neon-neo-brutalist-minimal` skill for detailed styling when it is available.
+## Visual style
+
+For all visual work—artifacts, documents, slides, charts, screens, websites, and apps—use the `neon-neo-brutalist-minimal` skill by default.
+
+## Titles and labels
 
 Use plain, descriptive titles and labels. Do not invent catchphrases, slogans, taglines, or decorative subtitles unless requested or established by the brand. Express the style through layout, typography, color, and interaction.
 
+## Accessibility and existing design systems
+
 Keep everything readable, accessible, and easy to use. Follow explicit user direction and existing brand or design systems; use this as the default wherever those leave room.
 
-For interactive visuals, visualizations, websites, and apps, support both dark and light themes. Follow the system appearance by default, including changes while open. Include a simple, accessible theme toggle so the user can override the system mode, remember their choice where supported, and provide a way to return to system mode. Design dark mode deliberately and make both themes coherent and readable, including charts, controls, and hover or focus states. For static artifacts, use a coherent theme suited to the medium.
+## Mobile controls
 
-Apply theme controls at the surface that owns appearance settings. Embedded visuals should inherit the host theme when they cannot own system detection, persistence, or a toggle. Scale delight and controls to the requested scope and the medium's capabilities.
+For mobile interfaces, place frequent actions and selectors near the bottom within comfortable thumb reach by default. Prefer a stable action area that keeps active content and essential context visible. Respect platform safe areas and navigation conventions. Adapt placement for the keyboard, enlarged text, assistive technology, and limited screen space; preserve usable control sizes and logical reading and focus order, allowing reflow or scrolling when needed.
+
+## Light and dark themes
+
+For interactive visuals, visualizations, websites, and apps, support both dark and light themes. Design both themes deliberately and keep charts, controls, and interaction states readable. For static artifacts, use a coherent theme suited to the medium.
+
+Use a compact, two-state sun/moon button showing the current theme, with an accessible name for the next action, a usable touch target, and visible focus. Follow system appearance until the user chooses light or dark, then remember that choice where supported and ignore later system changes. Restore the choice on reopening and preserve application state when switching. Use the [static sun/moon reference](references/theme-toggle.svg) as a visual guide; native equivalents are suitable.

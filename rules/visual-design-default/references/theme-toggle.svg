@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="64" viewBox="0 0 160 64" role="img" aria-labelledby="title description">
+  <title id="title">Two-state theme toggle</title>
+  <desc id="description">A 22-pixel sun on a light surface and moon on a dark surface. Each icon is centered in an invisible 44 by 44 pixel button target. Show the current theme; activation switches to the other. Static visual reference, not an interactive control.</desc>
+  <rect width="80" height="64" fill="#ffffff"/>
+  <rect x="80" width="80" height="64" fill="#10121e"/>
+  <svg x="29" y="21" width="22" height="22" viewBox="0 0 32 32" color="#171717" fill="currentColor" stroke-linecap="round" aria-hidden="true">
+    <circle cx="16" cy="16" r="9.34"/>
+    <g stroke="currentColor" stroke-width="1.5">
+      <path d="M16 5.5v-4 M16 30.5v-4 M1.5 16h4 M26.5 16h4 M23.4 8.6l2.8-2.8 M5.7 26.3l2.9-2.9 M5.8 5.8l2.8 2.8 M23.4 23.4l2.9 2.9"/>
+    </g>
+  </svg>
+  <svg x="109" y="21" width="22" height="22" viewBox="0 0 32 32" fill="#f9f8ff" aria-hidden="true">
+    <defs><clipPath id="theme-reference-moon"><path d="M-12 5h30a1 1 0 0 0 9 13v24h-39Z"/></clipPath></defs>
+    <circle cx="16" cy="16" r="9.34" clip-path="url(#theme-reference-moon)"/>
+  </svg>
+  <!--
+  Classic glyphs adapted from Theme Toggles: https://github.com/AlfieJones/theme-toggles
+  Keep this notice when copying the glyphs. Native equivalent icons are also suitable.
+
+  MIT License
+  Copyright (c) 2021 Alfie Jones
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+  -->
+</svg>
