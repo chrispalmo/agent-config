@@ -108,6 +108,8 @@ The [search-agent-chats skill](skills/search-agent-chats/SKILL.md) is installed 
 
 ## Adding skills and rules
 
+The automatically discoverable [github-repo-defaults skill](skills/github-repo-defaults/SKILL.md) defaults new GitHub repositories to `snowflake1xyz` unless the user explicitly requests another owner. New organization-owned repositories follow the canonical [Snowflake1 connection procedure](https://github.com/snowflake1xyz/snowflake1/blob/main/PROJECT_SETUP.md#installation); personal repositories are exempt. The explicit-only [github-init skill](skills/github-init/SKILL.md) uses the same defaults while retaining its private visibility default and initial-push workflow.
+
 - Add independent skills under `skills/<name>/SKILL.md` or grouped skills under `skills/_collections/<collection>/<name>/SKILL.md`, and register them in `skills/skills.manifest`.
 - Add cross-linked skill packages to `skills/packages.manifest`.
 - Add rules under `rules/<name>/RULE.md` and register them in `rules/rules.manifest`.

@@ -16,6 +16,7 @@ _collections/coordination/propose-tasks
 _collections/coordination/delegate
 _collections/coordination/harness
 github-init
+github-repo-defaults
 _collections/coordination/pause-for-review
 plaintext
 decision-criteria
