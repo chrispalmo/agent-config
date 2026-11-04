@@ -21,7 +21,7 @@ class RuleReferences(unittest.TestCase):
         self.source = self.root / "source"
         scripts = self.source / "scripts"
         scripts.mkdir(parents=True)
-        for name in ("install.sh", "uninstall.sh", "common.sh", "rule-references.py"):
+        for name in ("install.sh", "uninstall.sh", "common.sh", "rule-references.py", "cursor-rule-context.py"):
             shutil.copy2(REPO / "scripts" / name, scripts / name)
         self.rules = self.source / "rules"
         self.write_rule("visual", True)
@@ -31,6 +31,7 @@ class RuleReferences(unittest.TestCase):
         self.env = os.environ.copy()
         self.env.update({
             "CURSOR_RULES": str(self.targets / "cursor/rules"),
+            "CURSOR_HOOKS": str(self.targets / "cursor/hooks.json"),
             "CLAUDE_RULES": str(self.targets / "claude/rules"),
             "CLAUDE_MD": str(self.targets / "claude/CLAUDE.md"),
             "CODEX_AGENTS": str(self.targets / "codex/AGENTS.md"),

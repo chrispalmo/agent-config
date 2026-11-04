@@ -1,0 +1,109 @@
+{
+  "date": "2026-11-04",
+  "scope": "Cursor global rule fallback outside the home directory; native startup context and reference/scoped-rule reads.",
+  "cursor_version": "2026.10.22-27dcf5f",
+  "installation": "./scripts/install.sh --rules --cursor",
+  "mechanism": "User-level sessionStart hook returns additional_context from installed always-on .mdc bodies and scoped-rule links. Native ancestor discovery remains in use when it already covers the workspace.",
+  "official_sources": [
+    "https://cursor.com/docs/hooks#sessionstart",
+    "https://cursor.com/docs/hooks#input-all-hooks",
+    "https://cursor.com/docs/cli/using#rules"
+  ],
+  "runs": {
+    "external": {
+      "argv": [
+        "cursor-agent",
+        "-p",
+        "--model",
+        "auto",
+        "--output-format",
+        "stream-json",
+        "--mode",
+        "ask",
+        "--sandbox",
+        "enabled",
+        "--auto-review",
+        "--workspace",
+        "/private/tmp/agent-config-cursor-global-lp_if9w9/external",
+        "--trust"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 37.72,
+      "prompt": "Agent-originated\nSource: agent-config Cursor rule-loading check · /Users/cp/dev/agent-config\n\nRun a read-only installation smoke test in this fresh workspace. Before using tools, say whether Default Visual Design is already in your startup instructions, quote its Visual style sentence, and give the exact theme-toggle reference path supplied there. If absent, state that plainly; do not search for missing guidance first.\n\nThen read the linked SVG and report its width, height, title, and license presence. Also state whether a personal scoped rule applies to README.md; follow its installed link if applicable and summarize its line-wrapping guidance. Distinguish startup context from files read later. Use installed personal instructions and their links only. Do not read repository sources or drafts, write files, change settings, use network services, message anyone, or delegate.\n",
+      "first_statement_before_tools": "For the agent in agent-config Cursor rule-loading check (`/Users/cp/dev/agent-config`): you asked for a read-only installation smoke test in this fresh workspace.\n\n**Startup context (before any tool use):** Default Visual Design is already in the startup instructions. Visual style sentence: “For all visual work—artifacts, documents, slides, charts, screens, websites, and apps—use the `neon-neo-brutalist-minimal` skill by default.” Theme-toggle reference path: `/Users/cp/.cursor/rules.resources/visual-design-default/references/theme-toggle.svg`. A personal scoped rule applies to `README.md` (`**/*.md`). Next I’ll read only that SVG and the linked scoped rule.",
+      "reads": [
+        {
+          "path": "/Users/cp/.cursor/rules.resources/visual-design-default/references/theme-toggle.svg",
+          "success": true,
+          "complete_file_in_output": true,
+          "sha256": "eef302fde3ce10e95f22bfacb606bd5ea39581af1fd6eed60fa81e66bdb571d3"
+        },
+        {
+          "path": "/Users/cp/.cursor/rules/markdown-no-hard-wrap.mdc",
+          "success": true,
+          "complete_file_in_output": true,
+          "sha256": "d826a7d42e13ac428c679a553e8d0d594ec53e0a813d38195afc09e5c4a4e14d"
+        }
+      ]
+    },
+    "external_repeat": {
+      "argv": [
+        "cursor-agent",
+        "-p",
+        "--model",
+        "auto",
+        "--output-format",
+        "stream-json",
+        "--mode",
+        "ask",
+        "--sandbox",
+        "enabled",
+        "--auto-review",
+        "--workspace",
+        "/private/tmp/agent-config-cursor-global-lp_if9w9/external",
+        "--trust"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 29.27,
+      "prompt": "Agent-originated\nSource: agent-config Cursor rule-loading check · /Users/cp/dev/agent-config\n\nRun a read-only installation smoke test in this fresh workspace. Before using tools, say whether Default Visual Design is already in your startup instructions, quote its Visual style sentence, and give the exact theme-toggle reference path supplied there. If absent, state that plainly; do not search for missing guidance first.\n\nThen read the linked SVG and report its width, height, title, and license presence. Also state whether a personal scoped rule applies to main.py; follow its installed link if applicable and summarize its line-wrapping guidance. Distinguish startup context from files read later. Use installed personal instructions and their links only. Do not read repository sources or drafts, write files, change settings, use network services, message anyone, or delegate.\n",
+      "first_statement_before_tools": "For the agent in agent-config Cursor rule-loading check (`/Users/cp/dev/agent-config`): you asked for a read-only installation smoke test of startup Default Visual Design guidance, the theme-toggle SVG, and whether a personal scoped rule applies to `main.py`.\n\n**From startup context only (before any file reads):** Default Visual Design **is** already in the startup instructions.\n\nVisual style sentence: “For all visual work—artifacts, documents, slides, charts, screens, websites, and apps—use the `neon-neo-brutalist-minimal` skill by default.”\n\nTheme-toggle reference path from startup: `/Users/cp/.cursor/rules.resources/visual-design-default/references/theme-toggle.svg`\n\nReading that linked SVG next.",
+      "reads": [
+        {
+          "path": "/Users/cp/.cursor/rules.resources/visual-design-default/references/theme-toggle.svg",
+          "success": true,
+          "complete_file_in_output": true,
+          "sha256": "eef302fde3ce10e95f22bfacb606bd5ea39581af1fd6eed60fa81e66bdb571d3"
+        }
+      ]
+    }
+  },
+  "preservation": {
+    "preexisting_cursor_and_claude_rule_files_unchanged": true,
+    "existing_hook_entries_preserved": true,
+    "installed_helper_matches_source": true
+  },
+  "validation": {
+    "cursor_context_tests": 6,
+    "reference_tests": 12,
+    "content_regressions": 18,
+    "installer_regression_suite": "passed",
+    "source_check": "19 skills, one unrelated draft, 11 rules"
+  },
+  "limitations": [
+    "Native check used Cursor CLI on macOS in ask mode with Auto; desktop UI and cloud behavior were not live-tested.",
+    "Scoped rules outside native discovery are linked for relevant tasks, rather than promoted into unconditional instructions.",
+    "Cursor documents sessionStart as nonblocking; two fresh native conversations observed the context before the first tool use.",
+    "Cloud bootstrap retains its existing ancestor link; cloud agents do not run user-level sessionStart hooks."
+  ],
+  "cleanup": {
+    "original_model_fields_restored": true,
+    "only_other_cli_config_change": "privacyCache refresh",
+    "removed_task_metadata": [
+      "/Users/cp/.cursor/projects/private-tmp-agent-config-cursor-global-lp-if9w9-external"
+    ],
+    "temporary_workspace_and_raw_logs_removed": true,
+    "unrelated_drafts_preserved": true
+  }
+}

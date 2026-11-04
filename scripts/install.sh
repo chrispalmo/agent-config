@@ -452,6 +452,7 @@ if [[ $WANTS_RULES -eq 1 ]]; then
     preflight_dir "$CURSOR_RULES"
     for name in "${RULE_FILE_NAMES[@]}"; do assert_managed_dest_writable "$CURSOR_RULES/$name.mdc"; done
     rule_references preflight "$(rule_reference_root "$CURSOR_RULES")" --sources "$RULES_ROOT" "${RULE_REFERENCE_ARGS[@]}"
+    cursor_rule_context preflight
   fi
   if [[ $WANTS_CLAUDE -eq 1 ]]; then
     preflight_dir "$CLAUDE_RULES"
@@ -494,6 +495,7 @@ if [[ $WANTS_RULES -eq 1 ]]; then
       emit_cursor_rule "${RULE_FILE_NAMES[$i]}" "${RULE_DESC[$i]}" "${RULE_ALWAYS[$i]}" "${RULE_GLOBS_ARR[$i]}" "${RULE_BODIES[$i]}"
     done
     prune_managed_rules_dir "$CURSOR_RULES" mdc
+    cursor_rule_context install
   fi
   if [[ $WANTS_CLAUDE -eq 1 ]]; then
     info "target $CLAUDE_RULES"

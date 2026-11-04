@@ -25,6 +25,7 @@ CODEX_HOME="${CODEX_HOME:-$HOME/.codex}"
 CODEX_SKILLS="${CODEX_SKILLS:-$SHARED_SKILLS}"
 
 CURSOR_RULES="${CURSOR_RULES:-$HOME/.cursor/rules}"
+CURSOR_HOOKS="${CURSOR_HOOKS:-}"
 CLAUDE_RULES="${CLAUDE_RULES:-$HOME/.claude/rules}"
 CLAUDE_MD="${CLAUDE_MD:-$HOME/.claude/CLAUDE.md}"
 CODEX_AGENTS="${CODEX_AGENTS:-$HOME/.codex/AGENTS.md}"
@@ -146,6 +147,14 @@ write_managed() {
 rule_references() {
   command -v python3 >/dev/null || die "rule references require Python 3"
   python3 "$REPO_ROOT/scripts/rule-references.py" "$@"
+}
+
+cursor_rule_context() {
+  local rules hooks
+  rules="$(rule_reference_root "$CURSOR_RULES")"
+  rules="${rules%.resources}"
+  hooks="${CURSOR_HOOKS:-$(dirname "$rules")/hooks.json}"
+  python3 "$REPO_ROOT/scripts/cursor-rule-context.py" "$1" "$rules" "$hooks"
 }
 
 rule_reference_root() {

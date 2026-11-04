@@ -31,6 +31,8 @@ The VM needs Bash, Git, and Python 3.9+; rule reference installation uses Python
 
 The stub is idempotent. Cursor reruns the install script on every Build; a second `git clone` into the same directory would fail.
 
+Local Cursor installs also use a user-level session-start hook for workspaces outside the home directory. Cloud agents do not run that user hook, so this bootstrap retains the root-level ancestor link above.
+
 ## After you change skills or rules
 
 Push to `main` on [chrispalmo/agent-config](https://github.com/chrispalmo/agent-config). Then:
