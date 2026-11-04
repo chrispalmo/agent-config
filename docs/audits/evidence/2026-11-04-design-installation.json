@@ -15,7 +15,14 @@
       "/Users/cp/.codex/AGENTS.md"
     ],
     "installed_svg_sha256": "eef302fde3ce10e95f22bfacb606bd5ea39581af1fd6eed60fa81e66bdb571d3",
-    "retired_skill_svg_absent": true
+    "retired_skill_svg_absent": true,
+    "measurement_phase": "Immediately after installer runs, before native harness launches.",
+    "post_native_check": {
+      "additional_repository_installation_changes": 0,
+      "additional_vendor_cache_entries_changed": 20,
+      "vendor_cache_scope": "~/.claude/skills/synced/",
+      "vendor_cache_left_intact": true
+    }
   },
   "prompt": "Agent-originated\nSource: agent-config installation closeout · /Users/cp/dev/agent-config\n\nRun a read-only smoke test of the installed personal visual-design guidance in this fresh workspace. Before using any tools, state whether the Default Visual Design rule is already present in your loaded instructions and quote its Visual style sentence; if absent, say so without searching for it first.\n\nThen use native skill discovery to locate and read the installed neon-neo-brutalist-minimal skill. Follow the theme-toggle reference link from the installed Default Visual Design rule and read the SVG. Report the exact installed paths you read, the SVG root width and height, its title text, whether its license notice is present, and a brief summary of the typography guidance.\n\nDo not search repository source or drafts, inject guidance, guess expected contents, build an artifact, write files, change settings, access network services, message anyone, or delegate. If a rule, skill, reference, permission, or subscription is unavailable, report that clearly. Distinguish instructions loaded at startup from files you retrieved afterward.\n",
   "runs": {
@@ -227,6 +234,7 @@
       "/Users/cp/.cursor/projects/private-tmp-agent-config-design-closeout-z5j2ljg6-probe-cursor-auto",
       "/Users/cp/.agent-config-design-closeout-z5j2ljg6"
     ],
-    "unrelated_drafts_preserved": true
+    "unrelated_drafts_preserved": true,
+    "temporary_test_root_removed": true
   }
 }
