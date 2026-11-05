@@ -10,7 +10,7 @@ source "$REPO_ROOT/scripts/common.sh"
 usage() {
   cat <<'USAGE'
 Usage: ./scripts/install.sh [--skills|--rules] [--all|--cursor|--claude|--agents]
-                            [--package <name> | --skill <path>] [-h|--help]
+                            [--package <name> | --skill <path> | --external-skill <config.json>] [-h|--help]
 
 Install agent-config skills and rules.
 
@@ -23,6 +23,7 @@ Install agent-config skills and rules.
   --codex     alias for --agents
   --package   install one complete skills package
   --skill     install one independent catalog skill, preserving other skills
+  --external-skill  install one pinned external skill using an explicit local config
 
 Agent flags combine: --cursor --claude --agents installs every target.
 Without artifact or selection flags, both artifacts are installed.
@@ -39,6 +40,7 @@ TARGET_FLAGS=0
 ALL_TARGETS=0
 PACKAGE=""
 SINGLE_SKILL=""
+EXTERNAL_SKILL=""
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -60,6 +62,11 @@ while [[ $# -gt 0 ]]; do
       [[ -z "$SINGLE_SKILL" ]] || die "--skill may be specified only once"
       SINGLE_SKILL="$1"
       ;;
+    --external-skill)
+      shift
+      [[ $# -gt 0 && -n "$1" && -z "$EXTERNAL_SKILL" ]] || die "--external-skill requires one config path"
+      EXTERNAL_SKILL="$1"
+      ;;
     -h|--help) usage; exit 0 ;;
     *) die "unknown option: $1 (try --help)" ;;
   esac
@@ -67,6 +74,13 @@ while [[ $# -gt 0 ]]; do
 done
 
 [[ $ALL_TARGETS -eq 0 || $TARGET_FLAGS -eq 0 ]] || die "--all cannot be combined with an agent target"
+
+if [[ -n "$EXTERNAL_SKILL" ]]; then
+  [[ -z "$PACKAGE" && -z "$SINGLE_SKILL" && $WANTS_RULES -eq 0 ]] || die "--external-skill cannot combine with rules, packages, or catalog skills"
+  [[ $TARGET_FLAGS -gt 0 && $ALL_TARGETS -eq 0 ]] || die "external skills require explicit agent targets"
+  external_skill install "$EXTERNAL_SKILL"
+  exit 0
+fi
 
 [[ -z "$PACKAGE" || -z "$SINGLE_SKILL" ]] || die "--package and --skill cannot be combined"
 if [[ -n "$PACKAGE" || -n "$SINGLE_SKILL" ]]; then

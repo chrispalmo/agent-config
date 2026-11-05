@@ -40,6 +40,7 @@ python3 scripts/check-content.py
 python3 scripts/test-content.py
 python3 scripts/test-rule-references.py
 python3 scripts/test-cursor-rule-context.py
+python3 scripts/test-external-skills.py
 ./scripts/test-install.sh
 git diff --check
 ```
@@ -79,3 +80,5 @@ Keep this small table until a compatibility review warrants a detailed support m
 Record the concrete problem, changed instruction, checks run, and remaining limitations in the existing authoritative record. Show the source diff and inspect the final affected tree and references. If installation was authorized, compare the affected installed entrypoints, resources, and ownership paths with source and verify retirements. If publication was authorized, verify the intended changes reached the remote and report any relevant work still local. Name the actual scope of completion: source saved, installed, committed, or pushed. A passing suite or matching branch tips does not prove that uncommitted or untracked work is published.
 
 Installing globally, adopting a new backend, and publishing still require authority from the user's request and applicable repository rules; existing authority carries forward. Report a concrete unmet prerequisite instead of stopping at an unqualified completion claim. No extra approval is needed for routine consistency repairs within an authorized change.
+
+Skills owned by another repository use the opt-in [external-source flow](external-skills.md). Keep their content and validation in the owning repository, and local source configurations outside this repository. Use its focused lifecycle suite for external installer changes alongside the existing catalog/rule regressions. Do not treat a default install or matching Git tips as evidence that an external skill was refreshed.

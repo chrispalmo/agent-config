@@ -10,8 +10,10 @@ source "$REPO_ROOT/scripts/common.sh"
 usage() {
   cat <<'USAGE'
 Usage: ./scripts/uninstall.sh [--skills|--rules] [--all|--cursor|--claude|--agents]
+                             [--external-skill <config.json>]
 
 Remove this repo's managed skills, supporting resources, and generated rules.
+External skills require their explicit config and agent targets; defaults preserve them.
 USAGE
 }
 
@@ -23,6 +25,7 @@ WANTS_CLAUDE=0
 WANTS_AGENTS=0
 TARGET_FLAGS=0
 ALL_TARGETS=0
+EXTERNAL_SKILL=""
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -32,6 +35,11 @@ while [[ $# -gt 0 ]]; do
     --cursor) WANTS_CURSOR=1; TARGET_FLAGS=$((TARGET_FLAGS + 1)) ;;
     --claude) WANTS_CLAUDE=1; TARGET_FLAGS=$((TARGET_FLAGS + 1)) ;;
     --agents|--codex) WANTS_AGENTS=1; TARGET_FLAGS=$((TARGET_FLAGS + 1)) ;;
+    --external-skill)
+      shift
+      [[ $# -gt 0 && -n "$1" && -z "$EXTERNAL_SKILL" ]] || die "--external-skill requires one config path"
+      EXTERNAL_SKILL="$1"
+      ;;
     -h|--help) usage; exit 0 ;;
     *) die "unknown option: $1 (try --help)" ;;
   esac
@@ -39,6 +47,11 @@ while [[ $# -gt 0 ]]; do
 done
 
 [[ $ALL_TARGETS -eq 0 || $TARGET_FLAGS -eq 0 ]] || die "--all cannot be combined with an agent target"
+if [[ -n "$EXTERNAL_SKILL" ]]; then
+  [[ $WANTS_RULES -eq 0 && $TARGET_FLAGS -gt 0 && $ALL_TARGETS -eq 0 ]] || die "external removal requires explicit agent targets and cannot combine with rules or --all"
+  external_skill remove "$EXTERNAL_SKILL"
+  exit 0
+fi
 [[ $ARTIFACT_FLAGS -ne 0 ]] || { WANTS_SKILLS=1; WANTS_RULES=1; }
 if [[ $ALL_TARGETS -eq 1 || $TARGET_FLAGS -eq 0 ]]; then
   WANTS_CLAUDE=1

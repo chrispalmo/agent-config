@@ -54,6 +54,7 @@ Existing Cursor hooks are preserved. `CURSOR_HOOKS` overrides the hook configura
 | `--rules` | Install only rules |
 | `--package <name>` | Install one complete skills package |
 | `--skill <path>` | Install one independent catalog skill; preserve other installed skills |
+| `--external-skill <config.json>` | Install a pinned skill from another local repository; explicit agent targets required |
 
 Common full install:
 
@@ -70,6 +71,8 @@ If you already installed the old `~/dev/skills` repo, run its uninstall script f
 ```
 
 Skills for Codex and Cursor share `~/.agents/skills`; Claude Code uses `~/.claude/skills`. Full installs refresh supporting resources and remove only repository-owned duplicates from the former native roots. Explicit destination overrides remain supported. Pending-review skills live in `drafts/` and are never installed.
+
+For skills owned/versioned in another repository, use the explicit [external-source installation flow](docs/external-skills.md). Its local configuration pins the repository, skill path and packaged contents; the owning source stays outside agent-config. Default installs, pruning and uninstall preserve external installations. This mode requires Python 3.9+ and does not fetch sources or roll them out to other machines.
 
 ## Cloud agents
 

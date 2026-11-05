@@ -34,6 +34,21 @@ die() { echo "$SCRIPT_NAME: error: $*" >&2; exit 1; }
 info() { echo "$SCRIPT_NAME: $*"; }
 warn() { echo "$SCRIPT_NAME: warning: $*" >&2; }
 
+# External sources are opt-in and use distinct ownership receipts. Catalog
+# install/prune/uninstall must never infer ownership of another repository.
+external_skill() {
+  local action="$1" config="$2"
+  local args=("$action" --config "$config" --catalog "$SKILLS_MANIFEST")
+  [[ $WANTS_CURSOR -eq 0 ]] || args+=(--root "$CURSOR_SKILLS")
+  [[ $WANTS_CLAUDE -eq 0 ]] || args+=(--root "$CLAUDE_SKILLS")
+  [[ $WANTS_AGENTS -eq 0 ]] || args+=(--root "$CODEX_SKILLS")
+  if [[ "$action" == install ]]; then
+    [[ $WANTS_CURSOR -eq 0 || "$CURSOR_SKILLS" != "$SHARED_SKILLS" ]] || args+=(--legacy-root "$CURSOR_NATIVE_SKILLS")
+    [[ $WANTS_AGENTS -eq 0 || "$CODEX_SKILLS" != "$SHARED_SKILLS" ]] || args+=(--legacy-root "$CODEX_HOME/skills")
+  fi
+  python3 "$REPO_ROOT/scripts/external-skills.py" "${args[@]}"
+}
+
 managed_skill_source() {
   local dir="$1" dest="$1/SKILL.md" marker="$1/$MANAGED_SKILL_MARKER" source
   [[ ! -L "$dir" ]] || return 1
