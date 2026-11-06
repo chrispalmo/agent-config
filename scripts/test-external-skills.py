@@ -191,6 +191,19 @@ class ExternalSkills(unittest.TestCase):
         self.install()
         self.assertEqual(json.loads((self.dest / external.RECEIPT).read_text())["checkout"], str(relocated))
 
+    def test_pin_preserves_checkout_alias_through_relocation(self):
+        alias = self.base / "canonical-name"
+        alias.symlink_to(self.source, target_is_directory=True)
+        config = json.loads(self.run_cmd(sys.executable, HELPER, "pin", "--checkout", alias,
+                                         "--path", "skills/example").stdout)
+        self.assertEqual(config["checkout"], str(alias))
+        self.assertEqual(config["sha256"], self.config["sha256"])
+        self.config_path.write_text(json.dumps(config))
+        alias.unlink()
+        self.source.rename(alias)
+        self.install()
+        self.assertEqual((self.dest / "SKILL.md").read_bytes(), (alias / "skills/example/SKILL.md").read_bytes())
+
     def test_symlink_sources_destinations_and_resources_rejected(self):
         link = self.skill / "assets/link"
         link.parent.mkdir()

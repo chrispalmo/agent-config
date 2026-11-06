@@ -27,7 +27,7 @@ Save the reviewed JSON outside this repository, for example at `~/.config/agent-
 }
 ```
 
-The checkout must be the Git root and its `origin` must exactly match `repository`. The skill directory and frontmatter name must agree. Packaging includes `SKILL.md` and files beneath `agents/`, `references/`, `assets/` and `scripts/`. The hash covers relative paths, file contents and executable status; unrelated repository files are excluded. Symlink and non-regular source files are rejected. The name check is an identity check, not full skill validation.
+The config preserves the chosen checkout path, which may be an alias for the Git root. Every install resolves it and verifies that its `origin` exactly matches `repository`. The skill directory and frontmatter name must agree. Packaging includes `SKILL.md` and files beneath `agents/`, `references/`, `assets/` and `scripts/`. The hash covers relative paths, file contents and executable status; unrelated repository files are excluded. Symlinks within the skill and non-regular source files are rejected. The name check is an identity check, not full skill validation.
 
 Install only on authorized machines and choose targets explicitly:
 

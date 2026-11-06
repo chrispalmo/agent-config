@@ -244,7 +244,9 @@ def main():
         p.add_argument("--legacy-root", type=Path, action="append", default=[])
     args = parser.parse_args()
     if args.action == "pin":
-        checkout = args.checkout.resolve()
+        # Keep the operator's stable checkout path; source_snapshot verifies the
+        # resolved Git root, origin and packaged contents on each installation.
+        checkout = args.checkout.absolute()
         config = {"version": 1, "name": relative(args.path).name, "repository": git(checkout, "remote", "get-url", "origin"),
                   "checkout": str(checkout), "path": args.path, "sha256": "0" * 64}
         config_valid(config)

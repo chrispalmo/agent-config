@@ -74,6 +74,10 @@ Skills for Codex and Cursor share `~/.agents/skills`; Claude Code uses `~/.claud
 
 For skills owned/versioned in another repository, use the explicit [external-source installation flow](docs/external-skills.md). Its local configuration pins the repository, skill path and packaged contents; the owning source stays outside agent-config. Default installs, pruning and uninstall preserve external installations. This mode requires Python 3.9+ and does not fetch sources or roll them out to other machines.
 
+## SF1 artifact delivery
+
+The always-on [SF1 artifact delivery rule](rules/sf1-artifacts/RULE.md) discovers `artifacts-box` through `~/.config/snowflake1/artifacts-box.json` on enrolled hosts. The host configuration points to the service usage guide. The project-owned `artifacts-box` skill installs separately through the [external-source flow](docs/external-skills.md). Installing the rule does not enroll a machine, connect repositories to SF1, or authorize publication.
+
 ## Cloud agents
 
 Cloud agents do not see this machine. Follow the human setup guide in [scripts/cloud/README.md](scripts/cloud/README.md) (Cursor, Claude Code, and Codex, step by step).
