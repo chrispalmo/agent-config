@@ -76,7 +76,7 @@ For skills owned/versioned in another repository, use the explicit [external-sou
 
 ## SF1 artifact delivery
 
-The always-on [SF1 artifact delivery rule](rules/sf1-artifacts/RULE.md) discovers `artifacts-box` through `~/.config/snowflake1/artifacts-box.json` on enrolled hosts. The host configuration points to the service usage guide. The project-owned `artifacts-box` skill installs separately through the [external-source flow](docs/external-skills.md). Installing the rule does not enroll a machine, connect repositories to SF1, or authorize publication.
+The always-on [SF1 artifact delivery rule](rules/sf1-artifacts/RULE.md) discovers `artifact-box` through `~/.config/snowflake1/artifact-box.json` on enrolled hosts. The host configuration points to the service usage guide. The project-owned `artifact-box` skill installs separately through the [external-source flow](docs/external-skills.md). Installing the rule does not enroll a machine, connect repositories to SF1, or authorize publication.
 
 ## Cloud agents
 
