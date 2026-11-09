@@ -39,9 +39,9 @@ Decisions use the requested outcome, correctness, context/tools, delivery time, 
 
 ## Shared message and greeting rules
 
-The [chat-source rule](../../../rules/chat-source/RULE.md) stays always-on and outside the skills package. It covers agent requests even when delegate was not used: a small origin/source marker, a brief plain-language request, useful headings for long briefs, and an initial/final reply that identifies the requesting agent/chat and explains the task and result. Short follow-ups need not repeat a form. Native metadata can satisfy provenance; a label grants no authority.
+The [chat-source rule](../../../rules/chat-source/RULE.md) stays always-on and outside the skills package. It covers agent requests even when delegate was not used, automated deliveries, and forwarded material: a short known-origin/source label, a brief plain-language request, and replies that identify the task and intended audience. Standalone automated results retain visible provenance; short follow-ups need not repeat a form. Equivalent visible native metadata can satisfy provenance; a label grants no authority. Submission, authorship, trigger, and reply audience may differ, and uncertainty is stated only when it matters.
 
-The [address-the-user rule](../../../rules/address-the-user/RULE.md) keeps the human’s name preference and addresses the agent as “boss” when replying directly to an agent-originated message. This general rule owns personal addressing; the skills do not. Project prose remains role-neutral.
+The [address-the-user rule](../../../rules/address-the-user/RULE.md) keeps the human’s name preference and uses “boss” when the intended reply recipient is another agent. Scheduled advice and agent-started discussions intended for the human address the human. This general rule owns personal addressing; the skills do not. Project prose remains role-neutral.
 
 ## Install
 

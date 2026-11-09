@@ -90,7 +90,7 @@ done
 expected_rule_reference="$(python3 -c 'import os, sys; print(os.path.abspath(sys.argv[1]))' "$CODEX_AGENTS.resources/visual-design-default/references/theme-toggle.svg")"
 assert_contains "$CODEX_AGENTS" "(<$expected_rule_reference>)"
 assert_missing "$CODEX_SKILLS/neon-neo-brutalist-minimal/references/theme-toggle.svg"
-assert_contains "$CODEX_AGENTS" 'Call the user Chris. When directly replying to an agent-originated message, address the agent as "boss".'
+assert_contains "$CODEX_AGENTS" 'Call the user Chris. When the intended recipient of a reply is another agent, address that agent as "boss".'
 assert_contains "$CODEX_AGENTS" "make the initial substantive reply and final result understandable on their own"
 assert_contains "$CODEX_AGENTS" 'Always create `CLAUDE.md`'
 assert_not_contains "$CODEX_AGENTS" "Do not hard-wrap Markdown prose"
@@ -128,7 +128,7 @@ assert_managed "$CURSOR_RULES/address-the-user.mdc"
 assert_managed "$CLAUDE_RULES/address-the-user.md"
 assert_contains "$CODEX_AGENTS" "## address-the-user"
 assert_not_contains "$CODEX_AGENTS" "## address-as-chris"
-assert_contains "$CODEX_AGENTS" 'Call the user Chris. When directly replying to an agent-originated message, address the agent as "boss".'
+assert_contains "$CODEX_AGENTS" 'Call the user Chris. When the intended recipient of a reply is another agent, address that agent as "boss".'
 reset_roots
 printf '%s\nold rule\n' "$MANAGED_MARK" > "$CURSOR_RULES/address-as-chris.mdc"
 printf 'foreign\n' > "$CLAUDE_RULES/address-the-user.md"
