@@ -100,6 +100,8 @@ The [coordination package](skills/_collections/coordination/README.md) groups tr
 
 The [design collection](skills/_collections/design/README.md) groups the design comparison tool and the neon neo-brutalist minimal style.
 
+The collection's [device-frames skill](skills/_collections/design/device-frames/SKILL.md) sources and checks phone/tablet housings for interactive previews, screenshots, and videos. Its source guide covers official Apple artwork, Android tools, and community libraries, with exact-model checks and explicit approximation limits. It does not bundle a device catalog or update existing artifacts.
+
 ## Assess decisions and AI methods
 
 The always-on [Decision Criteria rule](rules/decision-criteria/RULE.md) defines how recommendations state their objectives, criteria, evidence, and trade-offs. The separate [Decision Criteria skill](skills/decision-criteria/SKILL.md) provides an explicit assessment or reassessment action without duplicating the full standing rule. Invoke it as `$decision-criteria` in Codex or `/decision-criteria` in Claude Code and Cursor; a plain-language mention is not a portable substitute for native invocation of this explicit-only skill.

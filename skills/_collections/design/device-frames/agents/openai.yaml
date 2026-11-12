@@ -1,0 +1,6 @@
+interface:
+  display_name: "Device frames"
+  short_description: "Source and verify iPhone and Android device frames"
+  default_prompt: "Use $device-frames to choose and integrate a credible device frame for this preview, preserving the exact model, content geometry, and asset provenance."
+policy:
+  allow_implicit_invocation: true

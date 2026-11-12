@@ -18,6 +18,10 @@ Use plain, descriptive titles and labels. Do not invent catchphrases, slogans, t
 
 Keep everything readable, accessible, and easy to use. Follow explicit user direction and existing brand or design systems; use this as the default wherever those leave room.
 
+## Device frames
+
+When presenting UI inside a phone or tablet frame, use the `device-frames` skill to source and verify the frame and content placement.
+
 ## Mobile controls
 
 For mobile interfaces, place frequent actions and selectors near the bottom within comfortable thumb reach by default. Prefer a stable action area that keeps active content and essential context visible. Respect platform safe areas and navigation conventions. Adapt placement for the keyboard, enlarged text, assistive technology, and limited screen space; preserve usable control sizes and logical reading and focus order, allowing reflow or scrolling when needed.

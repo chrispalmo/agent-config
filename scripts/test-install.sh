@@ -276,19 +276,20 @@ assert_file "$CODEX_SKILLS/proofread/SKILL.md"
 assert_skill "$CODEX_SKILLS/interview/SKILL.md" "$REPO_ROOT/skills/interview/SKILL.md"
 ok "package preserves other skills"
 
-# The design collection installs both nested members and their resources.
+# The design collection installs all nested members and their resources.
 reset_roots
 expect_exit 0 "design package" "$INSTALL" --package design --cursor --claude --agents
 for root in "$CODEX_SKILLS" "$CLAUDE_SKILLS" "$CURSOR_SKILLS"; do
-  for member in design-tool neon-neo-brutalist-minimal; do
+  for member in design-tool device-frames neon-neo-brutalist-minimal; do
     assert_skill "$root/$member/SKILL.md" "$REPO_ROOT/skills/_collections/design/$member/SKILL.md"
     printf '%s\n' "$REPO_ROOT/skills/design/$member/SKILL.md" > "$root/$member/$MANAGED_SKILL_MARKER"
   done
   assert_file "$root/neon-neo-brutalist-minimal/references/components.svg"
+  cmp -s "$root/device-frames/references/sources.md" "$REPO_ROOT/skills/_collections/design/device-frames/references/sources.md" || fail "device frame source guide differs"
 done
 expect_exit 0 "design source relocation" "$INSTALL" --package design --cursor --claude --agents
 for root in "$CODEX_SKILLS" "$CLAUDE_SKILLS" "$CURSOR_SKILLS"; do
-  for member in design-tool neon-neo-brutalist-minimal; do
+  for member in design-tool device-frames neon-neo-brutalist-minimal; do
     assert_contains "$root/$member/$MANAGED_SKILL_MARKER" "$REPO_ROOT/skills/_collections/design/$member/SKILL.md"
   done
 done
