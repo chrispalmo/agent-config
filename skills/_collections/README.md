@@ -6,7 +6,7 @@ Collections group two or more related skills for human browsing and package inst
 | --- | --- | --- |
 | [browser](browser/README.md) | Manage agent-created browser tabs and their cleanup. | browser-session, browser-cleanup |
 | [coordination](coordination/README.md) | Organize ideas, propose and assign work, operate opted-in workers, and hold requested reviews. | triage, propose-tasks, delegate, harness, pause-for-review |
-| [design](design/README.md) | Compare interface proposals and apply a selected visual style. | design-tool, neon-neo-brutalist-minimal |
+| [design](design/README.md) | Compare interface proposals, source device frames, and apply a selected visual style. | design-tool, device-frames, neon-neo-brutalist-minimal |
 | [project-management](project-management/README.md) | Audit, establish, and maintain project continuity. | project-audit, project-bootstrap, status-ledger |
 
 Install a complete collection from the repository root:

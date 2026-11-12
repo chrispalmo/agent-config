@@ -1,0 +1,275 @@
+{
+  "checked_at": "2026-11-13T01:03:56+07:00",
+  "scope": "Current chat; local global installation for Cursor, Claude Code, and Codex",
+  "authorization": "Direct user request in chat 01a1d0e3-6e7a-7f23-a08e-a779bf9382b2 to install globally for all agents, then chat-closeout, then chat-state. No publication or actual archive requested.",
+  "installation_basis": "Existing concurrent design-package installation independently verified; no redundant rewrite was required.",
+  "existing_installation_receipt": "2026-11-13-icon-sourcing.json",
+  "agents": {
+    "Cursor": "/Users/cp/.agents/skills",
+    "Codex": "/Users/cp/.agents/skills",
+    "Claude Code": "/Users/cp/.claude/skills"
+  },
+  "comparisons": [
+    {
+      "target": "/Users/cp/.agents/skills/design-review",
+      "source": "/Users/cp/dev/agent-config/skills/_collections/design/design-review",
+      "source_file_count": 15,
+      "sha256": {
+        "SKILL.md": "7df3a85e7c8b829d3730cb0a47b02939c20120af7e43222f3633931a819333b3",
+        "agents/openai.yaml": "150675361a6525151b6b79d49424215c8e4343e1209587082c0624bcfc1e2490",
+        "assets/artifact-persistence.js": "4caa65b6c896978b79519064598d7021e4a76d26cac60808cef3a6efa39f262a",
+        "assets/design-annotations.js": "f35e81d16f595ddb99feff60ffd29df0b3a417743d212ed58c9a8ed1aec119fe",
+        "assets/design-footer.css": "136b833cecb315e1d3506cb557f7d760fd260f39812c700453ca5c1b930d638d",
+        "assets/design-footer.js": "0f757da9ce8b6f30f0d69e9268593d948784569aca80887faee07be5a1bec6d8",
+        "assets/design-persistence.js": "c1c5fdd237ea7bae0218c63103da7b216e0fbf9b014eac376d6fe32fb0f6a360",
+        "assets/design-state.js": "20bdd6e42751c0fb8866433ff3c3ccbaecb173bd6fc09558d8e3f8cf41b125e9",
+        "assets/review-example.css": "a5236fdf487d28fa2db104a466d4921436c1ce05f5820b3b9bfc095e8d41289b",
+        "assets/review-example.html": "5ec1b5b6598251af46921c79fec45962819a0edff7fa873fc37e740cb8face25",
+        "assets/review-example.js": "2202933ef8582d2c4e0a4ab9a0894187e4b2e144cbb3fa25ed0604466ec72fa8",
+        "assets/template-releases/0.1.0.json": "d8ab88c9d94eeb3d2d20f9e3bccc0aae7b7f0b6a4aa73d2c8992b34fbcb3b5a1",
+        "references/footer.md": "9f94e2b8f2f1d2d78420a16e1bdc924ff00b3f315d9b1c5feed36b23453e492d",
+        "references/template-updates.md": "b76fd17c4e45406d094860f9587d39f12b79d11ef3da0361e6a28e745646a739",
+        "scripts/template.py": "f9a798d5d52127f7121c0419df5c9794564ef5044f90711b9a04617a8be6ce36"
+      },
+      "source_and_ownership_match": true
+    },
+    {
+      "target": "/Users/cp/.agents/skills/design-tool",
+      "source": "/Users/cp/dev/agent-config/skills/_collections/design/design-tool",
+      "source_file_count": 2,
+      "sha256": {
+        "SKILL.md": "4b31853faed03e0d34a2337a7897fe230a8ceb91757dd95d04bbc56fcc014fc2",
+        "agents/openai.yaml": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94"
+      },
+      "source_and_ownership_match": true
+    },
+    {
+      "target": "/Users/cp/.agents/skills/device-frames",
+      "source": "/Users/cp/dev/agent-config/skills/_collections/design/device-frames",
+      "source_file_count": 3,
+      "sha256": {
+        "SKILL.md": "8c9f9e80985826b13b16e499c36b219957d736f47681612acfcd23b4839fecd4",
+        "agents/openai.yaml": "99627f6cfda777d672df6ca8c18f8f7e4268b1bd55d4564a67549de0e1665828",
+        "references/sources.md": "7674c72887aea52e8afba2dda98a2a2f5658965ff826efb888b45b1bb4f0aba9"
+      },
+      "source_and_ownership_match": true
+    },
+    {
+      "target": "/Users/cp/.agents/skills/neon-neo-brutalist-minimal",
+      "source": "/Users/cp/dev/agent-config/skills/_collections/design/neon-neo-brutalist-minimal",
+      "source_file_count": 3,
+      "sha256": {
+        "SKILL.md": "d485e6fc9c46977fa74c78cf3d755b50f1f86f921c4327c1fab0ccf3c86f43bd",
+        "agents/openai.yaml": "eb0b7ae51187bb72b940e9fdab80b9a3b857296e6ddc81b21d02acd3038c046a",
+        "references/components.svg": "96f296ca47374b387d5dddbc019a44e4af3d0707f7b09d386e20e45e5333c222"
+      },
+      "source_and_ownership_match": true
+    },
+    {
+      "target": "/Users/cp/.claude/skills/design-review",
+      "source": "/Users/cp/dev/agent-config/skills/_collections/design/design-review",
+      "source_file_count": 15,
+      "sha256": {
+        "SKILL.md": "7df3a85e7c8b829d3730cb0a47b02939c20120af7e43222f3633931a819333b3",
+        "agents/openai.yaml": "150675361a6525151b6b79d49424215c8e4343e1209587082c0624bcfc1e2490",
+        "assets/artifact-persistence.js": "4caa65b6c896978b79519064598d7021e4a76d26cac60808cef3a6efa39f262a",
+        "assets/design-annotations.js": "f35e81d16f595ddb99feff60ffd29df0b3a417743d212ed58c9a8ed1aec119fe",
+        "assets/design-footer.css": "136b833cecb315e1d3506cb557f7d760fd260f39812c700453ca5c1b930d638d",
+        "assets/design-footer.js": "0f757da9ce8b6f30f0d69e9268593d948784569aca80887faee07be5a1bec6d8",
+        "assets/design-persistence.js": "c1c5fdd237ea7bae0218c63103da7b216e0fbf9b014eac376d6fe32fb0f6a360",
+        "assets/design-state.js": "20bdd6e42751c0fb8866433ff3c3ccbaecb173bd6fc09558d8e3f8cf41b125e9",
+        "assets/review-example.css": "a5236fdf487d28fa2db104a466d4921436c1ce05f5820b3b9bfc095e8d41289b",
+        "assets/review-example.html": "5ec1b5b6598251af46921c79fec45962819a0edff7fa873fc37e740cb8face25",
+        "assets/review-example.js": "2202933ef8582d2c4e0a4ab9a0894187e4b2e144cbb3fa25ed0604466ec72fa8",
+        "assets/template-releases/0.1.0.json": "d8ab88c9d94eeb3d2d20f9e3bccc0aae7b7f0b6a4aa73d2c8992b34fbcb3b5a1",
+        "references/footer.md": "9f94e2b8f2f1d2d78420a16e1bdc924ff00b3f315d9b1c5feed36b23453e492d",
+        "references/template-updates.md": "b76fd17c4e45406d094860f9587d39f12b79d11ef3da0361e6a28e745646a739",
+        "scripts/template.py": "f9a798d5d52127f7121c0419df5c9794564ef5044f90711b9a04617a8be6ce36"
+      },
+      "source_and_ownership_match": true
+    },
+    {
+      "target": "/Users/cp/.claude/skills/design-tool",
+      "source": "/Users/cp/dev/agent-config/skills/_collections/design/design-tool",
+      "source_file_count": 2,
+      "sha256": {
+        "SKILL.md": "4b31853faed03e0d34a2337a7897fe230a8ceb91757dd95d04bbc56fcc014fc2",
+        "agents/openai.yaml": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94"
+      },
+      "source_and_ownership_match": true
+    },
+    {
+      "target": "/Users/cp/.claude/skills/device-frames",
+      "source": "/Users/cp/dev/agent-config/skills/_collections/design/device-frames",
+      "source_file_count": 3,
+      "sha256": {
+        "SKILL.md": "8c9f9e80985826b13b16e499c36b219957d736f47681612acfcd23b4839fecd4",
+        "agents/openai.yaml": "99627f6cfda777d672df6ca8c18f8f7e4268b1bd55d4564a67549de0e1665828",
+        "references/sources.md": "7674c72887aea52e8afba2dda98a2a2f5658965ff826efb888b45b1bb4f0aba9"
+      },
+      "source_and_ownership_match": true
+    },
+    {
+      "target": "/Users/cp/.claude/skills/neon-neo-brutalist-minimal",
+      "source": "/Users/cp/dev/agent-config/skills/_collections/design/neon-neo-brutalist-minimal",
+      "source_file_count": 3,
+      "sha256": {
+        "SKILL.md": "d485e6fc9c46977fa74c78cf3d755b50f1f86f921c4327c1fab0ccf3c86f43bd",
+        "agents/openai.yaml": "eb0b7ae51187bb72b940e9fdab80b9a3b857296e6ddc81b21d02acd3038c046a",
+        "references/components.svg": "96f296ca47374b387d5dddbc019a44e4af3d0707f7b09d386e20e45e5333c222"
+      },
+      "source_and_ownership_match": true
+    }
+  ],
+  "verification": {
+    "total_source_file_comparisons": 46,
+    "all_match": true,
+    "automatic_invocation_enabled": true,
+    "review_dependency_resolves": true,
+    "current_content_check": "passed: 25 skills, 0 drafts, 12 rules",
+    "current_whitespace_check": "Task-scoped diff check passed. Final repository-wide check observed unrelated trailing whitespace in rules/visual-design-default/RULE.md:15, introduced by concurrent work after the earlier passing check; that file was not modified here.",
+    "regression_evidence": "Earlier source-creation pass and concurrent installation receipt record all 55 Python checks and isolated installer suite passing. No skill source changed in this installation/closeout turn.",
+    "limitations": "Installed content and discovery metadata verified; fresh model-session activation and behavioral quality were not evaluated."
+  },
+  "closeout": {
+    "all_agreed_work_finished": true,
+    "outstanding_human_actions": [],
+    "outstanding_agent_actions": [],
+    "active_resources_owned_here": [],
+    "continuation_transferred": false,
+    "source_status": "Local and uncommitted; no commit or push requested; unrelated work preserved. This is not an independent-backup claim.",
+    "actual_archive_performed": false,
+    "archive_behavior_basis": "Supported local Codex tool contracts provide archived listing, thread reads, and restoration via set_thread_archived(archived=false). No task resource depends on this chat remaining active."
+  },
+  "sync_followup": {
+    "date": "2026-11-13",
+    "authorization": "User requested closeout, cleanup, sync, cleanup in this chat. Scope is device-frame work; unrelated pending work is preserved.",
+    "core_commit": "7594c0e1b6706144523113ecd6eae933eb722660",
+    "core_remote_verification": "git ls-remote origin refs/heads/main returned the core commit. The maintenance chat had published it while this sync was being prepared.",
+    "current_installed_comparisons": [
+      {
+        "source": "/Users/cp/dev/agent-config/skills/_collections/design/design-review",
+        "target": "/Users/cp/.agents/skills/design-review",
+        "sha256": {
+          "SKILL.md": "87c9130d5c39301ff16b31d71746fa0106e56c1b9f8a5d8d1d3af26e632cf2e0",
+          "agents/openai.yaml": "150675361a6525151b6b79d49424215c8e4343e1209587082c0624bcfc1e2490",
+          "assets/artifact-persistence.js": "4caa65b6c896978b79519064598d7021e4a76d26cac60808cef3a6efa39f262a",
+          "assets/design-annotations.js": "f35e81d16f595ddb99feff60ffd29df0b3a417743d212ed58c9a8ed1aec119fe",
+          "assets/design-footer.css": "136b833cecb315e1d3506cb557f7d760fd260f39812c700453ca5c1b930d638d",
+          "assets/design-footer.js": "0f757da9ce8b6f30f0d69e9268593d948784569aca80887faee07be5a1bec6d8",
+          "assets/design-persistence.js": "c1c5fdd237ea7bae0218c63103da7b216e0fbf9b014eac376d6fe32fb0f6a360",
+          "assets/design-state.js": "20bdd6e42751c0fb8866433ff3c3ccbaecb173bd6fc09558d8e3f8cf41b125e9",
+          "assets/review-example.css": "a5236fdf487d28fa2db104a466d4921436c1ce05f5820b3b9bfc095e8d41289b",
+          "assets/review-example.html": "5ec1b5b6598251af46921c79fec45962819a0edff7fa873fc37e740cb8face25",
+          "assets/review-example.js": "2202933ef8582d2c4e0a4ab9a0894187e4b2e144cbb3fa25ed0604466ec72fa8",
+          "assets/template-releases/0.1.0.json": "d8ab88c9d94eeb3d2d20f9e3bccc0aae7b7f0b6a4aa73d2c8992b34fbcb3b5a1",
+          "references/footer.md": "9f94e2b8f2f1d2d78420a16e1bdc924ff00b3f315d9b1c5feed36b23453e492d",
+          "references/template-updates.md": "b76fd17c4e45406d094860f9587d39f12b79d11ef3da0361e6a28e745646a739",
+          "scripts/template.py": "f9a798d5d52127f7121c0419df5c9794564ef5044f90711b9a04617a8be6ce36"
+        }
+      },
+      {
+        "source": "/Users/cp/dev/agent-config/skills/_collections/design/design-tool",
+        "target": "/Users/cp/.agents/skills/design-tool",
+        "sha256": {
+          "SKILL.md": "4b31853faed03e0d34a2337a7897fe230a8ceb91757dd95d04bbc56fcc014fc2",
+          "agents/openai.yaml": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94"
+        }
+      },
+      {
+        "source": "/Users/cp/dev/agent-config/skills/_collections/design/device-frames",
+        "target": "/Users/cp/.agents/skills/device-frames",
+        "sha256": {
+          "SKILL.md": "8c9f9e80985826b13b16e499c36b219957d736f47681612acfcd23b4839fecd4",
+          "agents/openai.yaml": "99627f6cfda777d672df6ca8c18f8f7e4268b1bd55d4564a67549de0e1665828",
+          "references/sources.md": "7674c72887aea52e8afba2dda98a2a2f5658965ff826efb888b45b1bb4f0aba9"
+        }
+      },
+      {
+        "source": "/Users/cp/dev/agent-config/skills/_collections/design/neon-neo-brutalist-minimal",
+        "target": "/Users/cp/.agents/skills/neon-neo-brutalist-minimal",
+        "sha256": {
+          "SKILL.md": "d485e6fc9c46977fa74c78cf3d755b50f1f86f921c4327c1fab0ccf3c86f43bd",
+          "agents/openai.yaml": "eb0b7ae51187bb72b940e9fdab80b9a3b857296e6ddc81b21d02acd3038c046a",
+          "references/components.svg": "96f296ca47374b387d5dddbc019a44e4af3d0707f7b09d386e20e45e5333c222"
+        }
+      },
+      {
+        "source": "/Users/cp/dev/agent-config/skills/_collections/design/design-review",
+        "target": "/Users/cp/.claude/skills/design-review",
+        "sha256": {
+          "SKILL.md": "87c9130d5c39301ff16b31d71746fa0106e56c1b9f8a5d8d1d3af26e632cf2e0",
+          "agents/openai.yaml": "150675361a6525151b6b79d49424215c8e4343e1209587082c0624bcfc1e2490",
+          "assets/artifact-persistence.js": "4caa65b6c896978b79519064598d7021e4a76d26cac60808cef3a6efa39f262a",
+          "assets/design-annotations.js": "f35e81d16f595ddb99feff60ffd29df0b3a417743d212ed58c9a8ed1aec119fe",
+          "assets/design-footer.css": "136b833cecb315e1d3506cb557f7d760fd260f39812c700453ca5c1b930d638d",
+          "assets/design-footer.js": "0f757da9ce8b6f30f0d69e9268593d948784569aca80887faee07be5a1bec6d8",
+          "assets/design-persistence.js": "c1c5fdd237ea7bae0218c63103da7b216e0fbf9b014eac376d6fe32fb0f6a360",
+          "assets/design-state.js": "20bdd6e42751c0fb8866433ff3c3ccbaecb173bd6fc09558d8e3f8cf41b125e9",
+          "assets/review-example.css": "a5236fdf487d28fa2db104a466d4921436c1ce05f5820b3b9bfc095e8d41289b",
+          "assets/review-example.html": "5ec1b5b6598251af46921c79fec45962819a0edff7fa873fc37e740cb8face25",
+          "assets/review-example.js": "2202933ef8582d2c4e0a4ab9a0894187e4b2e144cbb3fa25ed0604466ec72fa8",
+          "assets/template-releases/0.1.0.json": "d8ab88c9d94eeb3d2d20f9e3bccc0aae7b7f0b6a4aa73d2c8992b34fbcb3b5a1",
+          "references/footer.md": "9f94e2b8f2f1d2d78420a16e1bdc924ff00b3f315d9b1c5feed36b23453e492d",
+          "references/template-updates.md": "b76fd17c4e45406d094860f9587d39f12b79d11ef3da0361e6a28e745646a739",
+          "scripts/template.py": "f9a798d5d52127f7121c0419df5c9794564ef5044f90711b9a04617a8be6ce36"
+        }
+      },
+      {
+        "source": "/Users/cp/dev/agent-config/skills/_collections/design/design-tool",
+        "target": "/Users/cp/.claude/skills/design-tool",
+        "sha256": {
+          "SKILL.md": "4b31853faed03e0d34a2337a7897fe230a8ceb91757dd95d04bbc56fcc014fc2",
+          "agents/openai.yaml": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94"
+        }
+      },
+      {
+        "source": "/Users/cp/dev/agent-config/skills/_collections/design/device-frames",
+        "target": "/Users/cp/.claude/skills/device-frames",
+        "sha256": {
+          "SKILL.md": "8c9f9e80985826b13b16e499c36b219957d736f47681612acfcd23b4839fecd4",
+          "agents/openai.yaml": "99627f6cfda777d672df6ca8c18f8f7e4268b1bd55d4564a67549de0e1665828",
+          "references/sources.md": "7674c72887aea52e8afba2dda98a2a2f5658965ff826efb888b45b1bb4f0aba9"
+        }
+      },
+      {
+        "source": "/Users/cp/dev/agent-config/skills/_collections/design/neon-neo-brutalist-minimal",
+        "target": "/Users/cp/.claude/skills/neon-neo-brutalist-minimal",
+        "sha256": {
+          "SKILL.md": "d485e6fc9c46977fa74c78cf3d755b50f1f86f921c4327c1fab0ccf3c86f43bd",
+          "agents/openai.yaml": "eb0b7ae51187bb72b940e9fdab80b9a3b857296e6ddc81b21d02acd3038c046a",
+          "references/components.svg": "96f296ca47374b387d5dddbc019a44e4af3d0707f7b09d386e20e45e5333c222"
+        }
+      }
+    ],
+    "current_file_count": 46,
+    "global_routing_verified_for": [
+      "Cursor",
+      "Claude Code",
+      "Codex"
+    ],
+    "integration_cleanup": "Removed this chat's redundant link from the separately unpublished design-review entrypoint because the installed global rule now routes phone/tablet frames. Refreshed the design package and verified all current files. This task does not publish the separate design-review rewrite.",
+    "install_command": "./scripts/install.sh --skills --package design --cursor --claude --agents",
+    "install_exit_code": 0,
+    "publication_scope": "Core skill and global routing already published. This follow-up preserves this chat's provenance/install records and the collection overview membership.",
+    "limits": "Fresh-session behavior is untested. Earlier comparison hashes are retained as dated evidence, not a claim that the review entrypoint has never changed.",
+    "removed_prior_task_temporary_paths": [
+      "/private/tmp/device-frames-before",
+      "/private/tmp/device-frame-chat-search.json",
+      "/private/tmp/device-frame-user-search.json"
+    ],
+    "validation": {
+      "isolated_publication_content": "passed: 21 skills, 0 drafts, 12 rules",
+      "content_tests": 18,
+      "rule_reference_tests": 12,
+      "cursor_context_tests": 6,
+      "external_skill_tests": 19,
+      "all_55_tests": "passed",
+      "isolated_installer_suite": "all passed",
+      "working_source_content": "passed: 25 skills, 0 drafts, 12 rules",
+      "review_skill_validator": "valid",
+      "new_markdown_targets": "resolved; one pre-existing machine-relative historical validator link is outside the isolated export"
+    },
+    "historical_receipt_scope": "The earlier icon-sourcing receipt reference belongs to separate local work; this follow-up independently verifies the current installed files and does not publish that separate receipt."
+  }
+}
