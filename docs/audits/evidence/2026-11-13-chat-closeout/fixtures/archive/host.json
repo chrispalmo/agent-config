@@ -1,0 +1,9 @@
+{
+  "archive_contract": "Archival preserves the chat history and project files, supports retrieval/restoration, and stops no job. No attachments, active jobs, schedules, servers, or browser sessions exist for this chat.",
+  "sync_authorized": true,
+  "archive_authorized": true,
+  "sync_error": false,
+  "archived": false,
+  "attempts": [],
+  "sync_result": null
+}

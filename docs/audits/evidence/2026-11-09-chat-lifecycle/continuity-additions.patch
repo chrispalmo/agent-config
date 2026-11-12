@@ -1,0 +1,18 @@
+--- before/skills/_collections/coordination/chat-state/SKILL.md
++++ after/skills/_collections/coordination/chat-state/SKILL.md
+@@ -16,6 +16,8 @@
+ Read original messages and later corrections back to the beginning or a verified clearance checkpoint, carrying forward the obligations and external references at that checkpoint. A title, listing summary, or prior “done” statement is a discovery aid, not a clearance checkpoint by itself. State missing/truncated history and whether it prevents a verdict. Reuse adequate recent evidence instead of repeating a full audit.
+ 
+ Reconcile the conversation with the relevant current work records, artifacts, execution results, and receiving owners. Inspect only dependencies that affect the verdict. Preserve source identity and distinguish direct human requests from quotations, agent promises, automated submissions, proposals, and inferred intent.
++
++For repository work, the repository's designated records own continuity; standing chats are replaceable coordination entry points. Check that necessary decisions, work state, evidence, and next actions are recoverable from those records by a replacement chat or another harness. The transcript may supplement those records but must not be required to resume the work.
+ 
+ ## Account for unfinished business
+ 
+@@ -50,4 +52,6 @@
+ 
+ Follow with outstanding human and agent actions, their owners and direct destination/evidence links, any remaining dependency on this chat, and what would remove it. Say whether actual archiving occurred; assessment alone does not archive. Include scope, inspection time, and material coverage limits without a repetitive form for trivial cases. Follow the user's numbering and link conventions.
+ 
++When a substantive proposal needs the human's disposition to resolve an existing loose end, ask a concrete decision question, such as “Do you want me to hand these off now?” Distinguish this from optional ideas, which need no response, and completed work, which needs no acknowledgment. Silence does not authorize the proposed work.
++
+ For global reviews, give one row per assessed chat and links to shared obligations rather than counting them repeatedly. Preserve different verdicts and access limits per chat. Do not mark chats read or archive them to make the report look clear.

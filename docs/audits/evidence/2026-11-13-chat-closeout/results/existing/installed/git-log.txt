@@ -1,0 +1,11 @@
+cbc389c38ce2a737b9a43fc6d74a4c25ff1e9e6e
+Complete formatting helper and preserve task record
+
+M	README.md
+M	helper.py
+A	usage.md
+eff623f589eeb451258d75702988017cd6f80634
+Initial project
+
+A	README.md
+A	helper.py

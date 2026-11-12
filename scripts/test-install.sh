@@ -300,7 +300,7 @@ ok "design package and source relocation"
 reset_roots
 expect_exit 0 "coordination package" "$INSTALL" --skills --package coordination --cursor --claude --agents
 for root in "$CODEX_SKILLS" "$CLAUDE_SKILLS" "$CURSOR_SKILLS"; do
-  for member in triage propose-tasks delegate harness pause-for-review; do
+  for member in triage propose-tasks delegate harness pause-for-review chat-closeout; do
     assert_skill "$root/$member/SKILL.md" "$REPO_ROOT/skills/_collections/coordination/$member/SKILL.md"
   done
   cmp -s "$root/harness/references/native-claude.md" "$REPO_ROOT/skills/_collections/coordination/harness/references/native-claude.md" || fail "Claude adapter differs"
@@ -310,6 +310,8 @@ for root in "$CODEX_SKILLS" "$CLAUDE_SKILLS" "$CURSOR_SKILLS"; do
   assert_file "$root/delegate/references/model-control.md"
   assert_contains "$root/triage/agents/openai.yaml" "allow_implicit_invocation: false"
   assert_contains "$root/harness/agents/openai.yaml" "allow_implicit_invocation: false"
+  cmp -s "$root/chat-closeout/agents/openai.yaml" "$REPO_ROOT/skills/_collections/coordination/chat-closeout/agents/openai.yaml" || fail "Chat Closeout metadata differs"
+  assert_missing "$root/chat-state/SKILL.md"
 done
 assert_missing "$CODEX_AGENTS"
 assert_missing "$CLAUDE_MD"
@@ -318,13 +320,13 @@ expect_exit 1 "coordination member selector" "$INSTALL" --skill _collections/coo
 
 # Moving sources into their package preserves names and refreshes owned markers.
 for root in "$CODEX_SKILLS" "$CLAUDE_SKILLS" "$CURSOR_SKILLS"; do
-  for member in triage propose-tasks delegate harness pause-for-review; do
+  for member in triage propose-tasks delegate harness pause-for-review chat-closeout; do
     printf '%s\n' "$REPO_ROOT/skills/_collections/previous-coordination/$member/SKILL.md" > "$root/$member/$MANAGED_SKILL_MARKER"
   done
 done
 expect_exit 0 "coordination source relocation" "$INSTALL" --package coordination --cursor --claude --agents
 for root in "$CODEX_SKILLS" "$CLAUDE_SKILLS" "$CURSOR_SKILLS"; do
-  for member in triage propose-tasks delegate harness pause-for-review; do
+  for member in triage propose-tasks delegate harness pause-for-review chat-closeout; do
     assert_skill "$root/$member/SKILL.md" "$REPO_ROOT/skills/_collections/coordination/$member/SKILL.md"
     assert_contains "$root/$member/$MANAGED_SKILL_MARKER" "$REPO_ROOT/skills/_collections/coordination/$member/SKILL.md"
   done
@@ -343,6 +345,36 @@ assert_contains "$CLAUDE_SKILLS/harness/SKILL.md" foreign
 assert_missing "$CODEX_SKILLS/triage/SKILL.md"
 assert_missing "$CURSOR_SKILLS/delegate/SKILL.md"
 ok "coordination package, resources, policy, and preflight"
+
+# A package refresh preserves retired names; scoped retirement requires ownership.
+reset_roots
+for root in "$CODEX_SKILLS" "$CLAUDE_SKILLS"; do
+  mkdir -p "$root/chat-state/agents"
+  echo old > "$root/chat-state/SKILL.md"
+  echo metadata > "$root/chat-state/agents/openai.yaml"
+  printf '%s\n' "$REPO_ROOT/skills/_collections/coordination/chat-state/SKILL.md" > "$root/chat-state/$MANAGED_SKILL_MARKER"
+  echo agents > "$root/chat-state/.agent-config-resources"
+  echo preserve > "$root/chat-state/local-note.txt"
+done
+mkdir -p "$CURSOR_SKILLS/chat-state"
+echo foreign > "$CURSOR_SKILLS/chat-state/SKILL.md"
+expect_exit 0 "consolidated coordination refresh" "$INSTALL" --skills --package coordination --cursor --claude --agents
+assert_file "$CODEX_SKILLS/chat-state/SKILL.md"
+(
+  SCRIPT_NAME=test-install
+  source "$REPO_ROOT/scripts/common.sh"
+  for root in "$CODEX_SKILLS" "$CLAUDE_SKILLS" "$CURSOR_SKILLS"; do
+    remove_managed_skill "$root/chat-state"
+  done
+)
+for root in "$CODEX_SKILLS" "$CLAUDE_SKILLS"; do
+  assert_missing "$root/chat-state/SKILL.md"
+  assert_missing "$root/chat-state/agents"
+  assert_contains "$root/chat-state/local-note.txt" preserve
+  assert_skill "$root/chat-closeout/SKILL.md" "$REPO_ROOT/skills/_collections/coordination/chat-closeout/SKILL.md"
+done
+assert_contains "$CURSOR_SKILLS/chat-state/SKILL.md" foreign
+ok "chat-state owned retirement and foreign preservation"
 
 # A single independent skill installs across all targets without touching drafts,
 # unrelated owned skills, or rules. Package members still install together.

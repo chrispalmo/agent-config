@@ -1,0 +1,17 @@
+{
+  "history_complete": true,
+  "messages": [
+    {
+      "role": "user",
+      "text": "Create the formatting helper and install it for the local agents."
+    },
+    {
+      "role": "assistant",
+      "text": "Installed copies match the source. All agreed work is finished. Source remains local and uncommitted; no commit or push was requested."
+    },
+    {
+      "role": "user",
+      "text": "Close this out."
+    }
+  ]
+}

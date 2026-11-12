@@ -1,0 +1,4 @@
+interface:
+  display_name: "Chat State"
+  short_description: "Check obligations and readiness to leave a chat"
+  default_prompt: "Use $chat-state to assess what remains and whether this chat can be left on read, reused for a new topic, or archived."

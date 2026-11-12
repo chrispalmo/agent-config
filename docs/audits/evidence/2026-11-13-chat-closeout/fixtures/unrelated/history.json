@@ -1,0 +1,17 @@
+{
+  "history_complete": true,
+  "messages": [
+    {
+      "role": "user",
+      "text": "Commit and sync the accepted formatting helper. Leave the separate notes experiment alone."
+    },
+    {
+      "role": "assistant",
+      "text": "Task changes were committed and synchronized, and the helper check passed."
+    },
+    {
+      "role": "user",
+      "text": "Can I leave this on read or archive it? Assessment only."
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "date": "2026-11-09",
+  "source_chat": "codex://threads/01a1b6f1-813b-7480-a518-5834ba591d45",
+  "authorization": "The human requested installation, chat-state, chat-closeout, then chat-state again. No publication or actual archive was requested.",
+  "command": "./scripts/install.sh --skills --package coordination --cursor --claude --agents",
+  "exit_code": 0,
+  "installed_roots": [
+    "~/.agents/skills (Codex and Cursor)",
+    "~/.claude/skills (Claude Code)"
+  ],
+  "added_skills": [
+    "chat-state",
+    "chat-closeout"
+  ],
+  "other_package_members": "The five existing coordination skills already matched their installed copies and remained unchanged.",
+  "canonical_sha256": {
+    "skills/_collections/coordination/chat-state/SKILL.md": "6b5606d9eaab76ffe880ed4c2d9dccd1d297412a069c133a31cebfbfe532d0f2",
+    "skills/_collections/coordination/chat-state/agents/openai.yaml": "cfa5e4d5a3b3f5391887f708ba8c12c1b7bcf4f3157996c1e9ecbb30bd6d857a",
+    "skills/_collections/coordination/chat-closeout/SKILL.md": "8a6621a542af6797e1b4693f3c6dbc8eae5955e234ff9949f2f1b460812b702c",
+    "skills/_collections/coordination/chat-closeout/agents/openai.yaml": "d4bbe7ce9694b2119b98d347ffcda2da7267ea36a51170fe06b53747ff064be3"
+  },
+  "verification": {
+    "entrypoints_and_ui_metadata_match_source": true,
+    "ownership_receipts_match_canonical_paths": true,
+    "preexisting_files_and_links_checked": 1272,
+    "preexisting_changed": 0,
+    "new_files": 16,
+    "rules_changed": false
+  },
+  "source_validation": {
+    "active_skills": 23,
+    "drafts": 1,
+    "rules": 12,
+    "skill_validators": "both passed",
+    "content_tests": 18,
+    "rule_reference_tests": 12,
+    "cursor_context_tests": 6,
+    "external_skill_tests": 19,
+    "installer_suite": "passed"
+  },
+  "limits": [
+    "Installation checks do not prove native picker discovery in a refreshed session.",
+    "The earlier behavioral trial used original three-status drafts; its hashes and results remain historical.",
+    "No cross-harness behavioral reliability claim follows from this installation.",
+    "Source changes remain local and uncommitted; no publication was requested."
+  ]
+}

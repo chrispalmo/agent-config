@@ -1,6 +1,6 @@
 # Coordination skills
 
-Five independently usable capabilities for organizing ideas, proposing work, assigning tasks, operating an external native worker, and holding requested review checkpoints. There is no required sequence. Their source folders live together here, following the project-management package layout. Installed skill names remain unchanged.
+Six capabilities for organizing ideas, proposing work, assigning tasks, operating an external native worker, holding requested review checkpoints, and assessing or closing out conversations. Each has a direct entry point; there is no required invocation sequence. Their source folders live together here, following the project-management package layout. Installed skill names remain unchanged.
 
 ## Choose the starting point
 
@@ -11,10 +11,13 @@ Five independently usable capabilities for organizing ideas, proposing work, ass
 | [delegate](delegate/SKILL.md) | Tasks already exist and need owners or a delegation proposal. | Concrete recipient/model recommendations, authorized dispatch within the current harness, and checked results. Existing chats are preferred where useful. |
 | [harness](harness/SKILL.md) | The human explicitly chooses another harness for defined work. | Agreed native client/subscription/model/effort, recoverable execution, failure handling, and artifacts returned to the owner. |
 | [pause-for-review](pause-for-review/SKILL.md) | The human explicitly requests staged review checkpoints. | Prepared artifacts, an explicit review hold, and continuation according to the human’s instructions. |
+| [chat-closeout](chat-closeout/SKILL.md) | The user asks what remains, whether a chat is ready to leave, or requests closeout. | Read-only assessment or authorized execution according to the request, with verified readiness and outstanding obligations. |
 
 Triage draws structure from supplied material. Propose-tasks draws useful options from current project or thread state. Both can end in discussion without assigning anything. When inspected agreed work is complete, propose-tasks says so; required decisions, blockers, and held integration remain open.
 
 Pause-for-review can add explicitly requested checkpoints anywhere in these workflows. It remains independently invoked; collection membership does not add review gates or activate it automatically. The other skill entrypoints need no behavior changes for this move.
+
+Chat-closeout owns the completion criteria, assessment, execution, and final verification. Questions such as ‘Can I archive this?’ stay read-only; a bare invocation or ‘Close this out’ resolves authorized work; an explicit archive request also performs archival after readiness is established. Repository closeout normally includes task-scoped commits and intended synchronization unless a different endpoint was explicitly chosen. Missing authority leaves required work outstanding. The two routine statuses distinguish all agreed work finished from work continuing with verified ownership elsewhere. Current-chat, selected-project, and global scopes use the same criteria with explicit access limits; no separate checker, new task backend, or recurring audit is required.
 
 ## How the skills connect
 
@@ -49,10 +52,12 @@ The [address-the-user rule](../../../rules/address-the-user/RULE.md) keeps the h
 ./scripts/install.sh --skills --package coordination --cursor --claude --agents
 ```
 
-This installs all five skills and their resources while preserving other installed skills. Individual runtime use remains independent; the package installer includes all five members. Shared message and greeting rules use the normal rule installation flow; `--rules` refreshes all registered rules.
+This installs all six skills and their resources while preserving skills outside the package. The retired chat-state entrypoint must be removed through the ownership-aware helper when migrating an existing installation; a package refresh deliberately does not prune other installed names. The [consolidation record](../../../docs/audits/evidence/2026-11-13-chat-closeout/README.md) records the scoped migration and checks. Shared message and greeting rules use the normal rule installation flow; `--rules` refreshes all registered rules.
 
 ## Evidence and maintenance
 
 Harness uses conditional native adapters; historical evidence stays in [repository review records](../../../docs/audits/evidence/coordination-native-runs/README.md) and is excluded from installed skill resources. These establish observed mechanics, not behavioral improvement or permanent model/subscription eligibility. Direct work in the current chat remains the simple baseline. Reconsider steps that add friction without improving correctness, recovery, or human understanding, and recheck adapters when tools change.
 
 The [promotion and installation closeout](../../../docs/audits/2026-10-26-coordination-package.md) records approved review changes, checks, and remaining verification limits.
+
+The [chat lifecycle trial](../../../docs/audits/evidence/2026-11-09-chat-lifecycle/README.md) preserves the original synthetic cases and their limitations. The [consolidation and comparison](../../../docs/audits/evidence/2026-11-13-chat-closeout/README.md) records the move to one entrypoint. The two routine readiness statuses remain; historical sources and outputs do not define today's behavior.

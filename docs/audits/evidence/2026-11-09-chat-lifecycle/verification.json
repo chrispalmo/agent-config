@@ -1,0 +1,28 @@
+{
+  "scope": "Independent artifact checks after three isolated agents assessed four synthetic chats",
+  "checks": {
+    "standing_index_unchanged": true,
+    "standing_unrelated_file_preserved": true,
+    "integration_unrelated_file_preserved": true,
+    "integration_preview_preserved": true,
+    "integration_record_corrected": true,
+    "selected_asset_byte_equal": true,
+    "selected_asset_valid_xml": true,
+    "source_attachment_preserved": true,
+    "preserved_project_links_resolve": true
+  },
+  "skill_sha256": {
+    "drafts/skills/chat-state/SKILL.md": "b09f242b418a0892e0e7483b9d19b5633346f725118cd58c793a910038ced945",
+    "drafts/skills/chat-closeout/SKILL.md": "0a232db4016f9ea754c5417d2ec5d5bcc2653c9d778a07c52ad2d1632f07403a"
+  },
+  "test_counts": {
+    "content": 18,
+    "rule_references": 12,
+    "cursor_context": 6,
+    "external_skills": 19
+  },
+  "installer_suite": "passed",
+  "skill_validators": "both passed",
+  "verdict_review": "manual review by parent; no baseline or repetitions",
+  "procedural_deviation": "Integration evaluator self-reported a temporary hash file outside permitted fixture subdirectories, subsequently removed. No surviving out-of-scope file was found."
+}

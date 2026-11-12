@@ -1,0 +1,157 @@
+{
+  "checked_at": "2026-11-13T01:39:31.467052+07:00",
+  "authorization": "Direct user instruction in chat 01a1d0f2-92b9-7140-ba78-9ec33ba31610 to consolidate, fix completion criteria, test and install globally for all agents.",
+  "agents": {
+    "Cursor": "/Users/cp/.agents/skills",
+    "Codex": "/Users/cp/.agents/skills",
+    "Claude Code": "/Users/cp/.claude/skills"
+  },
+  "changed": [
+    "/Users/cp/.agents/skills/chat-closeout/SKILL.md",
+    "/Users/cp/.agents/skills/chat-closeout/agents/openai.yaml",
+    "/Users/cp/.claude/skills/chat-closeout/SKILL.md",
+    "/Users/cp/.claude/skills/chat-closeout/agents/openai.yaml"
+  ],
+  "removed": [
+    "/Users/cp/.agents/skills/chat-state/.agent-config-managed",
+    "/Users/cp/.agents/skills/chat-state/.agent-config-resources",
+    "/Users/cp/.agents/skills/chat-state/SKILL.md",
+    "/Users/cp/.agents/skills/chat-state/agents/openai.yaml",
+    "/Users/cp/.claude/skills/chat-state/.agent-config-managed",
+    "/Users/cp/.claude/skills/chat-state/.agent-config-resources",
+    "/Users/cp/.claude/skills/chat-state/SKILL.md",
+    "/Users/cp/.claude/skills/chat-state/agents/openai.yaml"
+  ],
+  "added": [],
+  "preserved_file_or_link_count": 1299,
+  "comparisons": [
+    {
+      "source": "/Users/cp/dev/agent-config/skills/_collections/coordination/triage",
+      "target": "/Users/cp/.agents/skills/triage",
+      "sha256": {
+        "SKILL.md": "0903f57ffebe34c4275c32a65d39f7eef34f6f672225ecfde4e25ff32603c35e",
+        "agents/openai.yaml": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94"
+      },
+      "ownership_match": true,
+      "exact_file_set": true
+    },
+    {
+      "source": "/Users/cp/dev/agent-config/skills/_collections/coordination/triage",
+      "target": "/Users/cp/.claude/skills/triage",
+      "sha256": {
+        "SKILL.md": "0903f57ffebe34c4275c32a65d39f7eef34f6f672225ecfde4e25ff32603c35e",
+        "agents/openai.yaml": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94"
+      },
+      "ownership_match": true,
+      "exact_file_set": true
+    },
+    {
+      "source": "/Users/cp/dev/agent-config/skills/_collections/coordination/propose-tasks",
+      "target": "/Users/cp/.agents/skills/propose-tasks",
+      "sha256": {
+        "SKILL.md": "1935ecd3fc5ef020e3bead499125eb3b27206a2df3a54e046517ca2d2fe2d9ca"
+      },
+      "ownership_match": true,
+      "exact_file_set": true
+    },
+    {
+      "source": "/Users/cp/dev/agent-config/skills/_collections/coordination/propose-tasks",
+      "target": "/Users/cp/.claude/skills/propose-tasks",
+      "sha256": {
+        "SKILL.md": "1935ecd3fc5ef020e3bead499125eb3b27206a2df3a54e046517ca2d2fe2d9ca"
+      },
+      "ownership_match": true,
+      "exact_file_set": true
+    },
+    {
+      "source": "/Users/cp/dev/agent-config/skills/_collections/coordination/delegate",
+      "target": "/Users/cp/.agents/skills/delegate",
+      "sha256": {
+        "SKILL.md": "060496bbd0dc1b55783570dea6c73231e884ea18659af6554429e1f6cd8dbe32",
+        "references/model-control.md": "ae931a5dc49da5f21cd91c5d7e8ce944d8ee0330f8d5fdd44bf49064a0a02c24",
+        "references/skill-invocation.md": "e6d218eb0904f1766eedcab5523e2b6fe424dbb11be18e32e2dadbd12792fa1d"
+      },
+      "ownership_match": true,
+      "exact_file_set": true
+    },
+    {
+      "source": "/Users/cp/dev/agent-config/skills/_collections/coordination/delegate",
+      "target": "/Users/cp/.claude/skills/delegate",
+      "sha256": {
+        "SKILL.md": "060496bbd0dc1b55783570dea6c73231e884ea18659af6554429e1f6cd8dbe32",
+        "references/model-control.md": "ae931a5dc49da5f21cd91c5d7e8ce944d8ee0330f8d5fdd44bf49064a0a02c24",
+        "references/skill-invocation.md": "e6d218eb0904f1766eedcab5523e2b6fe424dbb11be18e32e2dadbd12792fa1d"
+      },
+      "ownership_match": true,
+      "exact_file_set": true
+    },
+    {
+      "source": "/Users/cp/dev/agent-config/skills/_collections/coordination/harness",
+      "target": "/Users/cp/.agents/skills/harness",
+      "sha256": {
+        "SKILL.md": "c3ee447c7c310a2eeb49f71edb3ccd60bad362a7e24386bbe75271312de18b0d",
+        "references/native-cursor.md": "a19cb71ff5adbc3a2aa572fef8b14b774e55bd22d167c1ed0b21da18cbd6f4dc",
+        "references/usage-and-recovery.md": "bd57981849dc711295e88c8e03401e1ec1e4301007d3d9532c97faf0f762bd8e",
+        "references/native-claude.md": "7ee1f95e37921858d844a65c68d5dee531858e4c268df39bd0de977cf6aed18a",
+        "agents/openai.yaml": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94"
+      },
+      "ownership_match": true,
+      "exact_file_set": true
+    },
+    {
+      "source": "/Users/cp/dev/agent-config/skills/_collections/coordination/harness",
+      "target": "/Users/cp/.claude/skills/harness",
+      "sha256": {
+        "SKILL.md": "c3ee447c7c310a2eeb49f71edb3ccd60bad362a7e24386bbe75271312de18b0d",
+        "references/native-cursor.md": "a19cb71ff5adbc3a2aa572fef8b14b774e55bd22d167c1ed0b21da18cbd6f4dc",
+        "references/usage-and-recovery.md": "bd57981849dc711295e88c8e03401e1ec1e4301007d3d9532c97faf0f762bd8e",
+        "references/native-claude.md": "7ee1f95e37921858d844a65c68d5dee531858e4c268df39bd0de977cf6aed18a",
+        "agents/openai.yaml": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94"
+      },
+      "ownership_match": true,
+      "exact_file_set": true
+    },
+    {
+      "source": "/Users/cp/dev/agent-config/skills/_collections/coordination/pause-for-review",
+      "target": "/Users/cp/.agents/skills/pause-for-review",
+      "sha256": {
+        "SKILL.md": "1b0c49197e7ea423f44a0128e4269da0136198dcdac850b12c619d2ffc1c75c5",
+        "agents/openai.yaml": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94"
+      },
+      "ownership_match": true,
+      "exact_file_set": true
+    },
+    {
+      "source": "/Users/cp/dev/agent-config/skills/_collections/coordination/pause-for-review",
+      "target": "/Users/cp/.claude/skills/pause-for-review",
+      "sha256": {
+        "SKILL.md": "1b0c49197e7ea423f44a0128e4269da0136198dcdac850b12c619d2ffc1c75c5",
+        "agents/openai.yaml": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94"
+      },
+      "ownership_match": true,
+      "exact_file_set": true
+    },
+    {
+      "source": "/Users/cp/dev/agent-config/skills/_collections/coordination/chat-closeout",
+      "target": "/Users/cp/.agents/skills/chat-closeout",
+      "sha256": {
+        "SKILL.md": "10305996c244e99d6d3623b4e1cea9a36d1c24d45bf98bbaadd62d089ac4306a",
+        "agents/openai.yaml": "7d222300e7998aaf8fdc5e69e5a409c91bb15ec34bb4f04da4c4ba39b4c292b6"
+      },
+      "ownership_match": true,
+      "exact_file_set": true
+    },
+    {
+      "source": "/Users/cp/dev/agent-config/skills/_collections/coordination/chat-closeout",
+      "target": "/Users/cp/.claude/skills/chat-closeout",
+      "sha256": {
+        "SKILL.md": "10305996c244e99d6d3623b4e1cea9a36d1c24d45bf98bbaadd62d089ac4306a",
+        "agents/openai.yaml": "7d222300e7998aaf8fdc5e69e5a409c91bb15ec34bb4f04da4c4ba39b4c292b6"
+      },
+      "ownership_match": true,
+      "exact_file_set": true
+    }
+  ],
+  "retirement": "Ownership-checked remove_managed_skill from scripts/common.sh; both legacy native roots also verified absent.",
+  "limitations": "Native fresh-session activation and cross-harness behavioral reliability were not tested. The current chat may retain its startup skill inventory. No standing rules were refreshed."
+}

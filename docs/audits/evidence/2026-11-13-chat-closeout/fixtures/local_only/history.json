@@ -1,0 +1,17 @@
+{
+  "history_complete": true,
+  "messages": [
+    {
+      "role": "user",
+      "text": "Make a local experiment. Leave it uncommitted and do not sync it. Keeping the source in this checkout is the intended endpoint."
+    },
+    {
+      "role": "assistant",
+      "text": "Experiment saved and checked."
+    },
+    {
+      "role": "user",
+      "text": "Can I archive this? Just assess."
+    }
+  ]
+}

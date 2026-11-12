@@ -1,0 +1,4 @@
+interface:
+  display_name: "Chat Closeout"
+  short_description: "Finish or transfer work before leaving a chat"
+  default_prompt: "Use $chat-closeout to prepare this chat to be left on read and report what remains elsewhere."

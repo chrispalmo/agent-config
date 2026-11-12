@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-10",
+  "source_chat": "codex://threads/01a1b6f1-813b-7480-a518-5834ba591d45",
+  "authorization": "The human approved both proposed additions, refreshing the installed skills, showing the exact changes, and another chat-state assessment.",
+  "command": "./scripts/install.sh --skills --package coordination --cursor --claude --agents",
+  "exit_code": 0,
+  "source_diff": "continuity-additions.patch",
+  "canonical_sha256": {
+    "skills/_collections/coordination/chat-state/SKILL.md": "17919a3a444aa8f9b8e943727a860a4cfbcf52974fc26497a86695c36703b1d7",
+    "skills/_collections/coordination/chat-state/agents/openai.yaml": "cfa5e4d5a3b3f5391887f708ba8c12c1b7bcf4f3157996c1e9ecbb30bd6d857a",
+    "skills/_collections/coordination/chat-closeout/SKILL.md": "8a6621a542af6797e1b4693f3c6dbc8eae5955e234ff9949f2f1b460812b702c",
+    "skills/_collections/coordination/chat-closeout/agents/openai.yaml": "d4bbe7ce9694b2119b98d347ffcda2da7267ea36a51170fe06b53747ff064be3"
+  },
+  "verification": {
+    "exactly_two_approved_paragraphs_added": true,
+    "source_and_both_installed_roots_match": true,
+    "ownership_receipts_match": true,
+    "preexisting_files_and_links_checked": 1294,
+    "changed": [
+      "~/.agents/skills/chat-state/SKILL.md",
+      "~/.claude/skills/chat-state/SKILL.md"
+    ],
+    "unchanged": 1292,
+    "new_files": 0,
+    "rules_changed": false,
+    "chat_closeout_body_changed": false
+  },
+  "validation": {
+    "skill_validator": "passed",
+    "content_check": "23 skills, 1 unrelated draft, 12 rules",
+    "content_tests": 18,
+    "rule_reference_tests": 12,
+    "cursor_context_tests": 6,
+    "external_skill_tests": 19,
+    "installer_suite": "passed"
+  },
+  "publication": "Local and uncommitted; commit and push not requested.",
+  "limits": [
+    "Static and installation checks do not establish cross-harness behavioral reliability.",
+    "No new independent behavioral trial or native picker refresh test was performed."
+  ]
+}

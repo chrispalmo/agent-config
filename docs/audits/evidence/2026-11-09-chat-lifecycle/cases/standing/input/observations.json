@@ -1,0 +1,25 @@
+{
+  "local_page": "verified working; source in project/review.html",
+  "release_owner_receipt": {
+    "status": "accepted",
+    "owner": "release-owner",
+    "obligations": [
+      "integrate the approved review page",
+      "collect human price decision before launch",
+      "verify release and record acceptance"
+    ],
+    "result_destination": "project/release.md",
+    "followup": "existing weekly release review, attended by human and release owner; does not use source chat"
+  },
+  "resources": {
+    "running_jobs_in_source": [],
+    "schedules_targeting_source": [],
+    "worktrees": []
+  },
+  "git": {
+    "review_page_changes": "saved as requested; no commit or push was requested",
+    "unrelated_dirty_files": [
+      "other-feature.txt"
+    ]
+  }
+}

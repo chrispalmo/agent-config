@@ -1,0 +1,10 @@
+5f9434dd30734fbd0f1e785c3513cee7623563cd
+Normalize whitespace
+
+M	helper.py
+A	usage.md
+eff623f589eeb451258d75702988017cd6f80634
+Initial project
+
+A	README.md
+A	helper.py

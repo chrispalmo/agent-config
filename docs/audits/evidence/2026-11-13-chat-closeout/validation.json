@@ -1,0 +1,32 @@
+{
+  "checked_at": "2026-11-13T01:40:30.163589+07:00",
+  "skill_validator": "passed",
+  "content_validation": {
+    "status": "passed",
+    "skills": 24,
+    "drafts": 0,
+    "rules": 12
+  },
+  "python_regressions": {
+    "test-content.py": 18,
+    "test-rule-references.py": 12,
+    "test-cursor-rule-context.py": 6,
+    "test-external-skills.py": 19,
+    "all_passed": true
+  },
+  "installer_regressions": "passed, including scoped retirement/foreign preservation",
+  "affected_links": "passed",
+  "whitespace": "Task source and authored documentation pass; the immutable historical continuity-additions.patch preserves significant context-line spaces.",
+  "behavior": "7/7 candidate; 6/7 each baseline and previous skills; single grouped run per condition",
+  "publication": "task-scoped local commit prepared; remote synchronization pending explicit authority",
+  "isolated_publication_tree": {
+    "content_validation": {
+      "skills": 22,
+      "drafts": 0,
+      "rules": 12
+    },
+    "python_regressions": 55,
+    "installer_regressions": "passed",
+    "new_links": "passed"
+  }
+}

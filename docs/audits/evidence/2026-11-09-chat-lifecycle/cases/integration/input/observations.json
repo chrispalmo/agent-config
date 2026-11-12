@@ -1,0 +1,27 @@
+{
+  "checks": {
+    "parser_tests": "passed at commit fixture-c2",
+    "preview": "project/preview.html exists"
+  },
+  "git": {
+    "branch": "fix-parser",
+    "head": "fixture-c2",
+    "main": "fixture-c1",
+    "integration": "not merged",
+    "remote_branch": "fixture-c1",
+    "last_push": "failed: offline",
+    "untracked": [
+      "other-feature.txt"
+    ]
+  },
+  "handoff": {
+    "destination": "release-owner",
+    "status": "delivery failed",
+    "accepted": false,
+    "followup_owner": "source chat"
+  },
+  "resources": {
+    "branch_worktree": "still needed for integration",
+    "scheduled_followup": null
+  }
+}

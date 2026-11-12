@@ -1,0 +1,17 @@
+{
+  "history_complete": true,
+  "messages": [
+    {
+      "role": "user",
+      "text": "Transfer release completion to the release owner. Preserve the pending pricing decision there; do not deploy until I approve pricing."
+    },
+    {
+      "role": "assistant",
+      "text": "The release owner accepted implementation, follow-up, integration and acceptance. The project release queue surfaces pricing at its next daily review. The source chat has no remaining supervision duty."
+    },
+    {
+      "role": "user",
+      "text": "Can this chat be archived? Assessment only."
+    }
+  ]
+}

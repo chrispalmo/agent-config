@@ -19,6 +19,7 @@ _collections/coordination/harness
 github-init
 github-repo-defaults
 _collections/coordination/pause-for-review
+_collections/coordination/chat-closeout
 plaintext
 decision-criteria
 bitter-lesson

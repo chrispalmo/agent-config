@@ -1,0 +1,17 @@
+{
+  "history_complete": true,
+  "messages": [
+    {
+      "role": "user",
+      "text": "Finish the formatting helper, commit it, sync it to the project destination, then archive this chat."
+    },
+    {
+      "role": "assistant",
+      "text": "The helper is checked and committed. Synchronization failed with a destination error; no archive occurred."
+    },
+    {
+      "role": "user",
+      "text": "Close this out and archive it."
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+For the user, yes—this source chat is ready to leave on read, start a new topic, or archive, even though the release is still pending.
+
+The criterion is whether all continuation and follow-up duties have a verified owner outside this chat and whether the human decision remains visible there. The committed [release queue](../transfer/project/release.md) records accepted ownership of implementation, supervision, integration, and acceptance. The release team owns the existing daily review and pricing follow-up, with no duty returning to this chat. That record is present at both local and destination revision `c9dedae35e91655e65a4199a46e82cb20acb2882`.
+
+Your pricing approval is still required before deployment. This is a release-level human obligation, not unfinished supervision in the source chat. The [host contract](../transfer/host.json) preserves the chat and project records and stops no job. No deployment, messages, source changes, commits, synchronization, or archival action occurred; this was assessment only. The incidental helper also passes syntax verification.

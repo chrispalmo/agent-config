@@ -1,0 +1,4 @@
+interface:
+  display_name: "Chat Closeout"
+  short_description: "Assess readiness or finish a chat's outstanding work"
+  default_prompt: "Use $chat-closeout to finish authorized work, verify completion, and report whether this chat can be left on read or archived."

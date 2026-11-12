@@ -1,0 +1,11 @@
+f79f3794068c023112c402207df4e285acac1fa6
+Preserve installed helper and pending synchronization decision
+
+M	README.md
+M	helper.py
+A	usage.md
+eff623f589eeb451258d75702988017cd6f80634
+Initial project
+
+A	README.md
+A	helper.py

@@ -16,6 +16,7 @@ coordination _collections/coordination/propose-tasks
 coordination _collections/coordination/delegate
 coordination _collections/coordination/harness
 coordination _collections/coordination/pause-for-review
+coordination _collections/coordination/chat-closeout
 
 design _collections/design/design-tool
 design _collections/design/device-frames

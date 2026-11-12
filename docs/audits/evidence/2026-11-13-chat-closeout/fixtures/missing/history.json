@@ -1,0 +1,13 @@
+{
+  "history_complete": false,
+  "messages": [
+    {
+      "role": "assistant",
+      "text": "Earlier requests and approvals are unavailable. Everything should be done."
+    },
+    {
+      "role": "user",
+      "text": "Can I archive this? Assessment only."
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+a4824c566932990eff68577febe59f9c40be4cb5
+Record accepted release ownership
+
+M	README.md
+A	release.md
+eff623f589eeb451258d75702988017cd6f80634
+Initial project
+
+A	README.md
+A	helper.py

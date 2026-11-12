@@ -1,0 +1,11 @@
+d3142fbc20ca9cecf81563df9882fa889c6141ab
+Preserve formatting helper and closeout record
+
+M	README.md
+M	helper.py
+A	usage.md
+e8cbc83dba5d9817f2c973f6bbb83a1bcc69d37c
+Initial project
+
+A	README.md
+A	helper.py
