@@ -1,0 +1,123 @@
+{
+  "checked_on": "2026-11-13",
+  "installed_files_checked_for_preservation": 505,
+  "changed_files": [
+    "/Users/cp/.codex/AGENTS.md",
+    "/Users/cp/.agents/skills/design-review/SKILL.md",
+    "/Users/cp/.claude/skills/design-review/SKILL.md",
+    "/Users/cp/.cursor/rules/visual-design-default.mdc",
+    "/Users/cp/.claude/rules/visual-design-default.md"
+  ],
+  "other_preexisting_files_unchanged": 500,
+  "checks": {
+    "/Users/cp/.cursor/rules/visual-design-default.mdc": {
+      "sha256": "30a389a3236ca2a16a43edd94b73bd5853dd52362163e13003de0f3c9af73cc7",
+      "matches_generated_source": true
+    },
+    "/Users/cp/.claude/rules/visual-design-default.md": {
+      "sha256": "cd361597e96b572be0c8bec1588f55df1ff117308d45e1a943b1a4974c25b276",
+      "matches_generated_source": true
+    },
+    "/Users/cp/.codex/AGENTS.md": {
+      "sha256": "17df91dc1b7c2badcb892c58df0de118dcc2aba8b2ef287805e588dcd9949f9e",
+      "matches_generated_source": true
+    },
+    "/Users/cp/.agents/skills/design-review": {
+      "files_matching_source": 15,
+      "ownership_matches_source": true
+    },
+    "/Users/cp/.claude/skills/design-review": {
+      "files_matching_source": 15,
+      "ownership_matches_source": true
+    },
+    "/Users/cp/.agents/skills/design-tool": {
+      "files_matching_source": 2,
+      "ownership_matches_source": true
+    },
+    "/Users/cp/.claude/skills/design-tool": {
+      "files_matching_source": 2,
+      "ownership_matches_source": true
+    },
+    "/Users/cp/.agents/skills/device-frames": {
+      "files_matching_source": 3,
+      "ownership_matches_source": true
+    },
+    "/Users/cp/.claude/skills/device-frames": {
+      "files_matching_source": 3,
+      "ownership_matches_source": true
+    },
+    "/Users/cp/.agents/skills/neon-neo-brutalist-minimal": {
+      "files_matching_source": 3,
+      "ownership_matches_source": true
+    },
+    "/Users/cp/.claude/skills/neon-neo-brutalist-minimal": {
+      "files_matching_source": 3,
+      "ownership_matches_source": true
+    }
+  },
+  "cursor_installed_hook_supplies_icon_rule": true,
+  "cursor_rule_always_applies": true,
+  "claude_rule_unscoped": true,
+  "verification_scope": "Generated rules, installed skill resources and ownership, and real Cursor context hook. Fresh model sessions were not run.",
+  "install_command": "./scripts/install.sh --rules --skills --package design --cursor --claude --agents",
+  "install_exit_code": 0,
+  "source_files": {
+    "rules/visual-design-default/RULE.md": "972874b3e3c57e85c5dff9f3aa3146443df0d3f85b9d197c7c63e58e569cb6cc",
+    "skills/_collections/design/design-review/SKILL.md": "7df3a85e7c8b829d3730cb0a47b02939c20120af7e43222f3633931a819333b3"
+  },
+  "validation": [
+    {
+      "command": ".venv/bin/python scripts/check-content.py",
+      "result": "passed on final source, 25 skills and 12 rules"
+    },
+    {
+      "command": ".venv/bin/python scripts/test-content.py",
+      "tests": 18,
+      "result": "passed"
+    },
+    {
+      "command": ".venv/bin/python scripts/test-rule-references.py",
+      "tests": 12,
+      "result": "passed"
+    },
+    {
+      "command": ".venv/bin/python scripts/test-cursor-rule-context.py",
+      "tests": 6,
+      "result": "passed"
+    },
+    {
+      "command": ".venv/bin/python scripts/test-external-skills.py",
+      "tests": 19,
+      "result": "passed"
+    },
+    {
+      "command": ". .venv/bin/activate && ./scripts/test-install.sh",
+      "result": "all passed"
+    },
+    {
+      "command": ".venv/bin/python /Users/cp/.codex/skills/.system/skill-creator/scripts/quick_validate.py skills/_collections/design/design-review",
+      "result": "valid"
+    },
+    {
+      "command": "git diff --check",
+      "result": "passed"
+    }
+  ],
+  "publication": "Source changes saved locally and uncommitted. Global installation completed.",
+  "followup_install_command": "./scripts/install.sh --skills --package design --cursor --claude --agents",
+  "followup_install_exit_code": 0,
+  "concurrent_change": "The current design-review source gained a device-frames reference during this work. After a final check found that reference missing from the installed entrypoints, the current design package was reinstalled. Device-frames was newly installed as the referenced package dependency. The final four package members match source in both roots.",
+  "new_dependency_files": [
+    "/Users/cp/.agents/skills/device-frames/SKILL.md",
+    "/Users/cp/.agents/skills/device-frames/.agent-config-resources",
+    "/Users/cp/.agents/skills/device-frames/.agent-config-managed",
+    "/Users/cp/.agents/skills/device-frames/references/sources.md",
+    "/Users/cp/.agents/skills/device-frames/agents/openai.yaml",
+    "/Users/cp/.claude/skills/device-frames/SKILL.md",
+    "/Users/cp/.claude/skills/device-frames/.agent-config-resources",
+    "/Users/cp/.claude/skills/device-frames/.agent-config-managed",
+    "/Users/cp/.claude/skills/device-frames/references/sources.md",
+    "/Users/cp/.claude/skills/device-frames/agents/openai.yaml"
+  ],
+  "final_regression_rerun": "All 55 Python tests, installer suite, skill validation and whitespace check passed again after the concurrent device-frames update."
+}

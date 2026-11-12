@@ -18,6 +18,10 @@ Use plain, descriptive titles and labels. Do not invent catchphrases, slogans, t
 
 Keep everything readable, accessible, and easy to use. Follow explicit user direction and existing brand or design systems; use this as the default wherever those leave room.
 
+## Icon sourcing
+
+For standard interface icons in product UI and previews, reuse the product's established icon set or the target platform's native symbols where supported. Otherwise use a maintained open-source icon library with suitable licensing. Use library assets directly. Preserve approved brand artwork. Create custom icons only when suitable existing assets cannot meet the design or the user explicitly requests custom artwork. Record a new library's source, version, and license in the project's existing asset or dependency record and retain required attribution. Licensed library SVG may be inlined or vendored.
+
 ## Device frames
 
 When presenting UI inside a phone or tablet frame, use the `device-frames` skill to source and verify the frame and content placement.

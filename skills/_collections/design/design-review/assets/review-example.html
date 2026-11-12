@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Design review</title>
+<link rel="stylesheet" href="review-example.css">
+<link rel="stylesheet" href="design-footer.css">
+</head>
+<body>
+<div class="workspace" data-review-layout>
+  <header class="review-header" data-review-header aria-label="Review context">
+    <h1 id="title">Design review</h1>
+  </header>
+  <main id="preview" tabindex="0" aria-label="Scrollable design previews">
+    <div class="content">
+      <div id="pair" class="pair"></div>
+      <details class="review-detail" id="about"><summary>About this example</summary>
+        <p id="description"></p><p id="tradeoff"></p>
+        <p>Fictional app. Approval comments are required tweaks; Reject dismisses only the option. Select text to leave a note beside it, or open Comments for general feedback. Export review downloads the version, settings, decisions, and comments for the receiving agent.</p>
+        <p>Live tuning means putting these same controls inside a real app. It helps test actual screens, content, and interactions. This demo has no real app integration, so its alternate view only demonstrates floating placement.</p>
+        <p><a id="mode-link" href="?mode=live">Try the floating placement demo</a></p>
+      </details>
+    </div>
+  </main>
+  <footer id="design-controls" aria-label="Alternative designs and feedback"></footer>
+</div>
+<script type="module" src="review-example.js"></script>
+</body>
+</html>

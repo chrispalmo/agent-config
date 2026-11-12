@@ -1,0 +1,6 @@
+interface:
+  display_name: "Design review"
+  short_description: "Review changes with tweakable options and decisions"
+  default_prompt: "Use $design-review to compare interface changes and their tweakable options with shared review controls, matched themes, comments, and decisions."
+policy:
+  allow_implicit_invocation: true
