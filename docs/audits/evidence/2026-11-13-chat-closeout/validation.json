@@ -18,7 +18,12 @@
   "affected_links": "passed",
   "whitespace": "Task source and authored documentation pass; the immutable historical continuity-additions.patch preserves significant context-line spaces.",
   "behavior": "7/7 candidate; 6/7 each baseline and previous skills; single grouped run per condition",
-  "publication": "task-scoped local commit prepared; remote synchronization pending explicit authority",
+  "publication": {
+    "implementation_commit": "265706cda2d3546a21e77b9e26b643baba4fcd8c",
+    "destination": "origin/main",
+    "direct_remote_revision": "265706cda2d3546a21e77b9e26b643baba4fcd8c",
+    "verified_at": "2026-11-13T01:53:29.853921+07:00"
+  },
   "isolated_publication_tree": {
     "content_validation": {
       "skills": 22,
@@ -28,5 +33,14 @@
     "python_regressions": 55,
     "installer_regressions": "passed",
     "new_links": "passed"
+  },
+  "closeout": {
+    "leave_or_new_topic": "YES",
+    "archive_readiness": "YES",
+    "actual_archive": false,
+    "all_agreed_work_finished": true,
+    "outstanding_actions": [],
+    "inspection_scope": "Current chat and task-owned dependencies; unrelated repository work excluded",
+    "checked_at": "2026-11-13T01:53:29.853921+07:00"
   }
 }
