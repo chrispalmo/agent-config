@@ -119,6 +119,86 @@ function bounded(m, mobile) {
       near((await metrics(page)).offset,0,'mobile resize resets offset');
       results.push({kind:'responsive',metrics:await metrics(page)});
     } finally {await responsive.close();}
+    // Requested height and header behavior, including actual pointer gestures and
+    // container-only resize: a wide viewport must not mask a squeezed header.
+    for(const width of [390,1200])for(const theme of ['light','dark']) {
+      const context=await browser.newContext({viewport:{width,height:800},hasTouch:width===390,colorScheme:theme});
+      try {
+        const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
+        await page.goto(`${base}/runtime/review-example.html?test=1`);
+        await page.locator('.dr-footer').waitFor();await settle(page);
+        const drawer=page.locator('.dr-footer'),handle=page.locator('[data-dr=height-handle]');
+        const collapsed=()=>drawer.evaluate(e=>e.classList.contains('dr-collapsed'));
+        for(const height of [175,120,99,76]) {
+          const box=await handle.boundingBox(),start=await drawer.evaluate(e=>e.offsetHeight);
+          await page.mouse.move(box.x+box.width/2,box.y+4);await page.mouse.down();
+          await page.mouse.move(box.x+box.width/2,box.y+4+start-height,{steps:5});await page.mouse.up();await settle(page);
+          near(await drawer.evaluate(e=>e.offsetHeight),height,'continuous drawer height');
+          assert.equal(await collapsed(),false,'drag never collapses');
+          assert.equal(await page.locator('[data-dr=collapse]').getAttribute('aria-expanded'),'true');
+        }
+        await page.reload();await page.locator('.dr-footer').waitFor();await settle(page);
+        near(await drawer.evaluate(e=>e.offsetHeight),76,'short height persists');
+        await page.locator('[data-dr=collapse]').click();assert.equal(await collapsed(),true);
+        await page.locator('[data-dr=collapse]').click();assert.equal(await collapsed(),false);
+        near(await drawer.evaluate(e=>e.offsetHeight),76,'explicit collapse restores requested height');
+        await handle.focus();await page.keyboard.press('Home');await settle(page);
+        near(await drawer.evaluate(e=>e.offsetHeight),Number(await handle.getAttribute('aria-valuemin')),'minimum leaves toolbar reachable');
+        assert.equal(await collapsed(),false,'Home resizes without collapsing');
+        await page.keyboard.press('ArrowUp');await settle(page);
+        assert.equal(await collapsed(),false);
+        // The short expanded body remains scrollable to its actual actions.
+        const panel=page.locator('.dr-footer-inner');
+        assert(await panel.evaluate(e=>e.scrollHeight>e.clientHeight),'short panel scrolls');
+        await page.locator('[data-dr=comment]').focus();await page.keyboard.type('Unsubmitted height check');
+        await page.locator('[data-dr=commit-comment]').focus();await settle(page);
+        const button=await page.locator('[data-dr=commit-comment]').boundingBox(),bounds=await drawer.boundingBox();
+        assert(button.y>=bounds.y && button.y+button.height<=bounds.y+bounds.height,'keyboard reaches short-panel actions');
+        await handle.focus();await page.keyboard.press('End');await settle(page);
+        // Force both forms within this viewport. Every compact state has identical geometry.
+        await page.locator('header').evaluate(e=>e.style.width='300px');await settle(page);
+        for(const control of ['cycle-sides','cycle-themes']) {
+          const button=page.locator(`[data-dr=${control}]`);assert(await button.isVisible());
+          const initial=await button.boundingBox(),symbol=await button.locator('svg').innerHTML();
+          const labels=new Set();
+          for(let i=0;i<3;i++) {
+            labels.add(await button.locator('.dr-choice-current').innerText());
+            near((await button.boundingBox()).width,initial.width,'fixed compact width');
+            assert.equal(await button.locator('svg').innerHTML(),symbol,'symbol identifies function, not state');
+            await button.focus();await page.keyboard.press(i===1?'Space':'Enter');await settle(page);
+          }
+          assert.deepEqual([...labels].sort(),(control==='cycle-sides'?['Both','Current','New']:['Both','Dark','Light']).sort());
+          assert.match(await button.getAttribute('aria-label'),/Switch to/);
+        }
+        if(evidence)await page.screenshot({path:path.join(evidence,`controls-${width}-${theme}.png`)});
+        if(width===1200) {
+          const header=page.locator('header');await header.evaluate(e=>e.style.width='1100px');await settle(page);
+          assert.equal(await page.locator('[data-dr=cycle-sides]').isVisible(),false);
+          assert.equal(await page.locator('[data-side=proposed]').innerText(),'New');
+          // Step through the transition, checking that expanded selectors never wrap.
+          let sawFull=false,sawCompact=false;
+          for(let available=800;available>=320;available-=4) {
+            await header.evaluate((e,w)=>e.style.width=w+'px',available);await settle(page);
+            const compact=await page.locator('[data-dr=cycle-sides]').isVisible();
+            assert.equal(await page.locator('[data-dr=cycle-themes]').isVisible(),compact,'selectors switch together');
+            if(compact)sawCompact=true;else {
+              sawFull=true;
+              const rects=await header.evaluate(e=>[...e.children].map(c=>c.getBoundingClientRect().toJSON()));
+              assert(rects[0].y<rects[1].bottom && rects[1].y<rects[0].bottom,'full controls remain on title row');
+            }
+          }
+          assert(sawFull&&sawCompact,'container width crosses actual fit threshold');
+          await page.locator('[data-dr=cycle-sides]').focus();
+          await header.evaluate(e=>e.style.width='1100px');await settle(page);
+          assert(await page.locator('[data-side][aria-pressed=true]').evaluate(e=>e===document.activeElement),'focus follows expanded selector');
+          await header.evaluate(e=>e.style.width='320px');await settle(page);
+          assert(await page.locator('[data-dr=cycle-sides]').evaluate(e=>e===document.activeElement),'focus follows compact selector');
+          await header.evaluate(e=>{e.style.width='650px';e.querySelector('h1').textContent='A substantially longer review title';e.style.fontSize='24px';});await settle(page);
+          assert(await page.locator('[data-dr=cycle-sides]').isVisible(),'title and enlarged text affect fit');
+        }
+        results.push({kind:'continuous-height-and-compact-controls',width,theme});
+      } finally {await context.close();}
+    }
     if(fs.existsSync(path.join(assets,'review-example.html')))for(const width of [390,1200])for(const mode of ['review','live']) {
       const context=await browser.newContext({viewport:{width,height:638},hasTouch:width===390});
       try {

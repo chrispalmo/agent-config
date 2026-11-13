@@ -48,7 +48,7 @@ function makePreview(theme,reference,context){
  const t={...base,...taskDefaults,...(reference==='current'?change.baseline.tweaks:draft.tweaks)};
  const col=document.createElement('section'),key=theme+'-'+reference;
  col.className='preview-column';col.setAttribute('aria-label',theme+' '+reference+' preview');col.dataset.theme=theme;col.dataset.reference=reference;
- col.innerHTML='<div class="theme-label">'+(reference==='current'?'Current':'Proposed')+' ('+(theme==='light'?'Light':'Dark')+')'+'</div><div class="screen '+theme+'"><div class="appbar"><strong>Tasks</strong><span>Workspace</span></div><div class="app-content"></div><div class="appnav"></div></div>';
+ col.innerHTML='<div class="theme-label">'+(reference==='current'?'Current':'New')+' ('+(theme==='light'?'Light':'Dark')+')'+'</div><div class="screen '+theme+'"><div class="appbar"><strong>Tasks</strong><span>Workspace</span></div><div class="app-content"></div><div class="appnav"></div></div>';
  const screen=col.querySelector('.screen'),content=col.querySelector('.app-content'),nav=col.querySelector('.appnav');
  for(const [name,value] of Object.entries({font:t.fontSize+'px',title:t.titleSize+'px',padding:t.pagePadding+'px','button-height':t.buttonHeight+'px','button-radius':t.buttonRadius+'px','nav-padding':t.navPadding+'px','nav-gap':t.navGap+'px','label-size':t.labelSize+'px','icon-stroke':t.iconStroke,'weight':t.fontWeight,'accent':accentHex(t.accent),'on-accent':accentText(accentHex(t.accent))}))screen.style.setProperty('--app-'+name,value);
  if(t.navSurface)nav.classList.add('nav-surface');if(t.activeFill)nav.classList.add('active-fill');

@@ -1,6 +1,6 @@
 # Pinned template releases
 
-Use the [template helper](../scripts/template.py) when creating a review from the reusable controls or explicitly updating an existing review. It uses Python 3.9+ on macOS/Linux, needs no dependencies or network, and discovers the local release catalog beside the installed skill. The current local release is [0.1.1](../assets/template-releases/0.1.1.json); [0.1.0](../assets/template-releases/0.1.0.json) remains available. Refreshing the installed skill makes additional releases available; it does not update existing reviews.
+Use the [template helper](../scripts/template.py) when creating a review from the reusable controls or explicitly updating an existing review. It uses Python 3.9+ on macOS/Linux, needs no dependencies or network, and discovers the local release catalog beside the installed skill. The current local release is [0.1.2](../assets/template-releases/0.1.2.json); [0.1.1](../assets/template-releases/0.1.1.json) and [0.1.0](../assets/template-releases/0.1.0.json) remain available. Refreshing the installed skill makes additional releases available; it does not update existing reviews.
 
 ## Create or adopt a consumer
 
@@ -8,8 +8,8 @@ Run commands with the helper's actual installed or source path. For example, fro
 
 ```sh
 python3 scripts/template.py list
-python3 scripts/template.py init --dest /absolute/review/vendor/design-review --to 0.1.1
-python3 scripts/template.py init --dest /absolute/review/vendor/design-review --to 0.1.1 --apply
+python3 scripts/template.py init --dest /absolute/review/vendor/design-review --to 0.1.2
+python3 scripts/template.py init --dest /absolute/review/vendor/design-review --to 0.1.2 --apply
 ```
 
 `init` previews the files; `--apply` installs the exact release. Supply `--example` on both invocations to seed a complete fictional review in that directory. Otherwise supply your own renderer, content and layout using the [mount contract](footer.md). Keep the controls' relative imports together. The example's HTML, renderer and page CSS become app-owned files: the updater never owns or refreshes them.
@@ -20,11 +20,13 @@ For an existing exact copy, `adopt --dest DIR --to VERSION` checks every shared 
 
 ```sh
 python3 scripts/template.py check --dest /absolute/review/vendor/design-review
-python3 scripts/template.py update --dest /absolute/review/vendor/design-review --to 0.1.1
-python3 scripts/template.py update --dest /absolute/review/vendor/design-review --to 0.1.1 --apply
+python3 scripts/template.py update --dest /absolute/review/vendor/design-review --to 0.1.2
+python3 scripts/template.py update --dest /absolute/review/vendor/design-review --to 0.1.2 --apply
 ```
 
 Only versions returned by `list` are available. `--releases /absolute/local/releases` selects another reviewed local catalog. `check` defaults to the newest locally available release, including retained releases; it makes no claim about upstream availability. `--to VERSION` chooses an exact target. All plans include release notes, compatibility, changed files, conflicts and a unified diff. `--json` provides structured output. Exit status 0 means a valid plan or successful operation, 2 means conflicts/incompatibility, and 1 means invalid input or an execution failure. Inspect `applied`/`wouldChange` to distinguish a dry run or no-op from an update.
+
+Release **0.1.2** makes drawer resizing continuous without automatic collapse, and gives both compact selectors the same function-symbol/state widget with label-sized fixed widths. Both selectors condense before the header wraps. The visible comparison label is New; the internal `proposed` value and mount/data contracts remain unchanged. Existing consumers update shared controls through the helper; their app-owned preview labels can be changed to New separately. The starter snapshot includes that label change. No global installation, consumer migration or artifact publication is implied.
 
 Release **0.1.1** repairs standalone layout ownership: shared CSS supplies the grid, viewport height, preview scrolling and drawer box sizing. A docked drawer uses its wrapper's available height. Existing consumers with the documented three direct children can update the shared files without copying example styles. A surrounding navigation shell must allocate the remaining height as described in the [standalone layout contract](footer.md#standalone-layout); existing app height overrides are preserved. Live apps without the wrapper keep their layout. Mount API 1, saved state 3, export 4 and all review semantics are unchanged. The starter no longer duplicates the shared layout; existing starter/renderer files remain app-owned and are not rewritten by updates.
 
@@ -57,8 +59,8 @@ The template version is distinct from the review's `reviewVersion`, option sourc
 After reviewing and checking canonical assets, the maintainer creates a new immutable local release:
 
 ```sh
-python3 scripts/template.py release --version 0.1.2 --note 'Describe behavior, compatibility and integration steps.'
-python3 scripts/template.py release --version 0.1.2 --note 'Describe behavior, compatibility and integration steps.' --apply
+python3 scripts/template.py release --version 0.1.3 --note 'Describe behavior, compatibility and integration steps.'
+python3 scripts/template.py release --version 0.1.3 --note 'Describe behavior, compatibility and integration steps.' --apply
 python3 scripts/template.py verify --assets assets
 ```
 

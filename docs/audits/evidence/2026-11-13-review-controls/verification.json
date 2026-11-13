@@ -1,0 +1,64 @@
+{
+  "date": "2026-11-13",
+  "source_chat": "codex://threads/01a1d57a-ac93-7752-87c0-0a4fe0c8888d",
+  "scope": "Requested drawer resizing, matching condensed header widgets, stable widths, New labels and pre-wrap condensation; local canonical source and retained kit only.",
+  "template_version": "0.1.2",
+  "package_sha256": "2cf0aa5847a837d32febf5d0513881f31d0b2dc8f48f2041ca926ead7ecf3e77",
+  "compatibility": {
+    "mountApi": 1,
+    "stateSchema": 3,
+    "exportSchema": 4,
+    "new_label_internal_value": "proposed"
+  },
+  "browser": {
+    "version": "157.0.8103.51",
+    "sandbox": true,
+    "cases": 35,
+    "errors": [],
+    "evidence": "layout-results.json",
+    "screenshots_inspected": [
+      "controls-390-light.png",
+      "controls-390-dark.png",
+      "example-desktop.png"
+    ],
+    "coverage": [
+      "Pointer resize through 175, 120, 99 and 76 CSS pixels without collapse",
+      "Short height survives reload and explicit collapse/expand",
+      "Home/arrow/End resizing and scrollable short-panel keyboard actions",
+      "Stable width and function symbol through every compact state using Enter/Space",
+      "Container-only fit threshold, simultaneous condensation, and keyboard focus transfer",
+      "Long title and enlarged text",
+      "Existing standalone, nested, legacy, live, theme, header scroll and viewport cases"
+    ],
+    "limits": [
+      "Emulated browsers, not physical phones",
+      "On-screen keyboards and assistive technology untested",
+      "No real consumer migration or hosted integration performed"
+    ]
+  },
+  "checks": {
+    "content": "passed: 24 skills, 0 drafts, 12 rules",
+    "content_tests": 18,
+    "rule_reference_tests": 12,
+    "cursor_context_tests": 6,
+    "external_skill_tests": 19,
+    "template_lifecycle_tests": 18,
+    "isolated_installer": "all passed",
+    "javascript_syntax": "passed",
+    "whitespace": "passed",
+    "release_source_agreement": "passed",
+    "actual_0_1_1_to_0_1_2_upgrade_and_rollback": "passed; app-owned starter and synthetic feedback preserved"
+  },
+  "retained_kit": "Four changed runtime/reference files match canonical source",
+  "installation": "Not performed; both installed catalogs still contain only 0.1.0",
+  "publication": "No Git commit/push or artifact publication performed",
+  "source_sha256": {
+    "skills/_collections/design/design-review/assets/design-footer.js": "22bc248f5a2d54f515d3774c9ab3ad6e80ce2cd369fd907a8cc8daef4af9fcad",
+    "skills/_collections/design/design-review/assets/design-footer.css": "cebde6581cd33f73ae28ff5242f737078bf76cfecfb2ae641e14587dbe5bd045",
+    "skills/_collections/design/design-review/assets/review-example.js": "6f76fbe1c75586115b8b1822b84fa4780e1eeb4e8c0cb01f8ada8f1dcbb3b1ad",
+    "skills/_collections/design/design-review/assets/template-releases/0.1.2.json": "2f9c88c24f437eeb17796714178cc5203fa91ec007d706dd947c256672d0aff6",
+    "skills/_collections/design/design-review/references/footer.md": "072debc2c8a7734592e1c7bc06f9bbac61f8b59ee35ce5521c5c7ec4014cbeff",
+    "skills/_collections/design/design-review/references/template-updates.md": "bb32fb7d28046118d9cc2567c09d043caabb729bda63903c81f091cf7a6400e5",
+    "scripts/test-design-review-layout.cjs": "22523f266439faedae6cf66cfc1cc3be65834d181fab1b08b4e2fd78862b6b50"
+  }
+}

@@ -16,7 +16,7 @@ export function mountDesignFooter(root, {
   pageControls.className='dr-page-controls';
   pageControls.innerHTML=`
     <div class="theme-choices" role="group" aria-label="Design comparison" data-choice="sides">
-      <button type="button" data-side="current">Current</button><button type="button" data-side="proposed">Proposed</button><button type="button" data-side="both">Both</button>
+      <button type="button" data-side="current">Current</button><button type="button" data-side="proposed">New</button><button type="button" data-side="both">Both</button>
       <button type="button" class="dr-choice-cycle" data-dr="cycle-sides"></button>
     </div>
     <div class="theme-choices" role="group" aria-label="Preview themes" data-choice="previewThemes">
@@ -100,11 +100,14 @@ export function mountDesignFooter(root, {
     {key:'previewThemes',control:'cycle-themes',values:['light','dark','both'],symbol:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16Z" fill="currentColor"/></svg>'},
     {key:'sides',control:'cycle-sides',values:['current','proposed','both'],symbol:icon('eye')}
   ];
+  const choiceLabel=value=>value==='proposed'?'New':value[0].toUpperCase()+value.slice(1);
   function syncHeaderChoices(){
     for(const {key,control,values,symbol} of headerChoices){
       const button=$(control),value=state[key],next=values[(values.indexOf(value)+1)%values.length];
-      const label=value[0].toUpperCase()+value.slice(1),nextLabel=next[0].toUpperCase()+next.slice(1);
-      button.innerHTML=symbol+'<span>'+label+'</span>';
+      const label=choiceLabel(value),nextLabel=choiceLabel(next);
+      // All labels share one grid cell, reserving the longest label's actual width.
+      button.innerHTML=symbol+'<span class="dr-choice-state" aria-hidden="true">'+values.map(item=>
+        '<span'+(item===value?' class="dr-choice-current"':'')+'>'+choiceLabel(item)+'</span>').join('')+'</span>';
       button.setAttribute('aria-label',button.parentElement.getAttribute('aria-label')+': '+label+'. Switch to '+nextLabel);
       button.dataset.tooltip=button.getAttribute('aria-label');
     }
@@ -115,7 +118,13 @@ export function mountDesignFooter(root, {
     // Use actual available space, including fonts and other host header content.
     host.classList.add('dr-header-measuring');
     for(const {control} of headerChoices)$(control).parentElement.classList.remove('dr-choice-compact');
-    const compact=host.scrollWidth>host.clientWidth+1;
+    const style=getComputedStyle(host),children=[...host.children];
+    const available=host.clientWidth-parseFloat(style.paddingLeft)-parseFloat(style.paddingRight);
+    const required=children.reduce((width,child)=>{
+      const css=getComputedStyle(child);
+      return width+child.getBoundingClientRect().width+(parseFloat(css.marginLeft)||0)+(parseFloat(css.marginRight)||0);
+    },0)+(parseFloat(style.columnGap)||0)*Math.max(0,children.length-1);
+    const compact=required>available || host.scrollWidth>host.clientWidth;
     for(const {control} of headerChoices)$(control).parentElement.classList.toggle('dr-choice-compact',compact);
     host.classList.remove('dr-header-measuring');
     if(pageControls.contains(focused) && !focused.getClientRects().length){
@@ -293,7 +302,10 @@ export function mountDesignFooter(root, {
     $('theme').setAttribute('aria-label',dark?'Switch interface to light theme':'Switch interface to dark theme');$('theme').dataset.tooltip=$('theme').getAttribute('aria-label');
   }
   const clamp=(n,min,max)=>Math.max(min,Math.min(Math.max(min,max),n));
-  const minimumHeight=width=>width<622?240:150;
+  const minimumHeight=()=>{
+    const style=getComputedStyle(root);
+    return Math.max(48,Math.ceil($('collapse').offsetHeight+parseFloat(style.paddingTop)+parseFloat(style.paddingBottom)+2));
+  };
   const maximumDrawerHeight=()=>Math.max(160,(headerLayout?.clientHeight || innerHeight)-(headerHost?.offsetHeight || 40)-80);
   function placement() {
     const floating=state.placement[mode]&&!mobile.matches;
@@ -308,7 +320,8 @@ export function mountDesignFooter(root, {
     root.style.minHeight=floating&&!state.drawerCollapsed?minimumHeight(width)+'px':'';
     root.style.height=state.drawerCollapsed?'auto':floating?(state.size?clamp(state.size.height,minimumHeight(width),innerHeight-16)+'px':'min(300px,60dvh)'):
       clamp(state.drawerHeight || (mobile.matches?320:Math.min(280,132+48*state.comments.length)),minimumHeight(innerWidth),maximumDrawerHeight())+'px';
-    $('height-handle').setAttribute('aria-valuemin','48');
+    root.classList.toggle('dr-short',!state.drawerCollapsed && root.offsetHeight<(root.clientWidth<622?240:150));
+    $('height-handle').setAttribute('aria-valuemin',String(minimumHeight()));
     $('height-handle').setAttribute('aria-valuemax',String(Math.round(maximumDrawerHeight())));
     $('height-handle').setAttribute('aria-valuenow',String(Math.round(root.offsetHeight)));
     if(floating&&state.position) {
@@ -735,8 +748,8 @@ export function mountDesignFooter(root, {
     state.size={width,height};state.position={x:west?box.right-width:box.left,y:north?box.bottom-height:box.top};placement();
   }
   function resizeDrawer(height){
-    state.drawerCollapsed=height<100;
-    if(!state.drawerCollapsed)state.drawerHeight=clamp(height,minimumHeight(innerWidth),maximumDrawerHeight());
+    state.drawerCollapsed=false;
+    state.drawerHeight=clamp(height,minimumHeight(),maximumDrawerHeight());
     placement();
   }
   root.addEventListener('pointerdown',e=>{
@@ -757,7 +770,7 @@ export function mountDesignFooter(root, {
   root.addEventListener('pointercancel',()=>{gesture=null;persist();});
   root.addEventListener('keydown',e=>{
     if(e.target===$('height-handle')){
-      const height={ArrowUp:root.offsetHeight+24,ArrowDown:root.offsetHeight-24,Home:48,End:maximumDrawerHeight()}[e.key];
+      const height={ArrowUp:root.offsetHeight+24,ArrowDown:root.offsetHeight-24,Home:minimumHeight(),End:maximumDrawerHeight()}[e.key];
       if(height!==undefined){e.preventDefault();resizeDrawer(height);persist();}return;
     }
     const corner=e.target.dataset.corner,isGrip=e.target===$('grip');

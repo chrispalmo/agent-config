@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-13",
+  "source_chat": "codex://threads/01a1d57a-ac93-7752-87c0-0a4fe0c8888d",
+  "template_version": "0.1.2",
+  "command": "./scripts/install.sh --skills --package design --cursor --claude --agents",
+  "package_file_comparisons": {
+    ".agents": 25,
+    ".claude": 25
+  },
+  "changed_files": [
+    "/Users/cp/.agents/skills/design-review/references/footer.md",
+    "/Users/cp/.agents/skills/design-review/references/template-updates.md",
+    "/Users/cp/.agents/skills/design-review/assets/design-footer.css",
+    "/Users/cp/.agents/skills/design-review/assets/design-footer.js",
+    "/Users/cp/.agents/skills/design-review/assets/review-example.js",
+    "/Users/cp/.claude/skills/design-review/references/footer.md",
+    "/Users/cp/.claude/skills/design-review/references/template-updates.md",
+    "/Users/cp/.claude/skills/design-review/assets/design-footer.css",
+    "/Users/cp/.claude/skills/design-review/assets/design-footer.js",
+    "/Users/cp/.claude/skills/design-review/assets/review-example.js"
+  ],
+  "added_files": [
+    "/Users/cp/.agents/skills/design-review/assets/template-releases/0.1.2.json",
+    "/Users/cp/.claude/skills/design-review/assets/template-releases/0.1.2.json"
+  ],
+  "removed_files": [],
+  "preserved_preexisting_entries": 1295,
+  "ownership_receipts": "unchanged",
+  "all_package_files_match": true,
+  "preservation_scope": "Shared, Claude, Codex and Cursor skill roots; every preexisting file or symlink included."
+}
