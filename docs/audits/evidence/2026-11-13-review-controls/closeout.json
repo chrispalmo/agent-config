@@ -1,0 +1,73 @@
+{
+  "checked_at": "2026-11-13T23:24:06+07:00",
+  "source_chat": "codex://threads/01a1d57a-ac93-7752-87c0-0a4fe0c8888d",
+  "template_version": "0.1.2",
+  "authorization": "Human requested update, merge, push, cleanup, closeout and archive in this chat.",
+  "source_commit": "32570f0c63b820f97da66a830a78c97be879f07e",
+  "direct_remote_implementation_revision": "32570f0c63b820f97da66a830a78c97be879f07e",
+  "remote": "git@github.com:chrispalmo/agent-config.git",
+  "branch": "main",
+  "integration": "Scoped changes committed directly on synchronized main; no separate branch or merge remained.",
+  "installation_receipt": "installation.json",
+  "browser_evidence": "verification.json",
+  "isolated_publication_checks": [
+    {
+      "command": "python3 scripts/check-content.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 scripts/test-content.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 scripts/test-rule-references.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 scripts/test-cursor-rule-context.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 scripts/test-external-skills.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 scripts/test-design-review-template.py",
+      "exit_code": 0
+    },
+    {
+      "command": "bash scripts/test-install.sh",
+      "exit_code": 0
+    },
+    {
+      "command": "node --check skills/_collections/design/design-review/assets/design-footer.js",
+      "exit_code": 0
+    },
+    {
+      "command": "node --check scripts/test-design-review-layout.cjs",
+      "exit_code": 0
+    }
+  ],
+  "source_verification": "All seven runtime/release/reference/test hashes match the earlier browser verification and committed bytes; both installed review copies match source.",
+  "cleanup": {
+    "temporary_directories_removed": [
+      "/private/tmp/design-review-layout-update",
+      "/private/tmp/design-review-012-closeout"
+    ],
+    "source_cache_removed": "skills/_collections/design/design-review/scripts/__pycache__/template.cpython-314.pyc",
+    "browser_and_server": "Closed after the completed isolated regression run",
+    "workers_worktrees_schedules": "None created by this task"
+  },
+  "ready_to_leave": "YES",
+  "ready_to_archive": "YES",
+  "all_agreed_implementation_work_finished": true,
+  "outstanding_human_actions": [],
+  "continuation_owner": null,
+  "archive_requested": true,
+  "archive_control": "Native set_thread_archived supports archive/restore; final archive follows synchronization of this completion record.",
+  "scope_limits": [
+    "Unrelated pending source/audit changes and historical untracked drafts preserved. Canonical runtime/references and release preserve the corresponding retained-kit changes.",
+    "Existing hosted reviews and consumer pins remain unchanged; their migration was outside this template update.",
+    "Physical-device, on-screen keyboard and assistive-technology behavior remains unverified."
+  ]
+}
