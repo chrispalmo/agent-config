@@ -5,15 +5,15 @@
   "template_version": "0.1.1",
   "scope": "Scoped source commit; unrelated edits and historical drafts excluded. Draft runtime changes are retained in the canonical immutable release.",
   "validation": "Source hashes still match the preceding browser verification; isolated commit-tree checks recorded before commit.",
-  "installation": "Prepared; awaiting human authorization. Installed shared runtime still matches 0.1.0.",
-  "install_command": "./scripts/install.sh --skills --package design --cursor --claude --agents",
+  "installation": "Complete: 0.1.1 in Codex/Cursor shared root and Claude root; see installation.json.",
+  "install_command": "Approved commit package installer in isolated roots, followed by ownership-checked promotion of its generated review files.",
   "sibling_skills": "All source files of design-tool, device-frames and neon-neo-brutalist-minimal match existing installed copies in both roots.",
-  "synchronization": "Prepared scoped commit for origin/main; push awaits explicit human request.",
+  "synchronization": "Implementation commit pushed and directly verified on origin/main; this completion receipt is included in the following scoped documentation commit.",
   "remote": "git@github.com:chrispalmo/agent-config.git",
-  "continuation_owner": "This chat; approvals for global installation and scoped synchronization.",
+  "continuation_owner": null,
   "archive_requested": false,
-  "ready_to_leave": "NO",
-  "ready_to_archive": "NO",
+  "ready_to_leave": "YES",
+  "ready_to_archive": "YES",
   "owned_resources": "Temporary browser contexts and servers closed; task test directories removed.",
   "consumer_owner": "ramble - Mobile review tray; delivered app-side repair remains pinned to 0.1.0; migration is outside this task.",
   "isolated_commit_tree_checks": [
@@ -107,5 +107,15 @@
         "action": "replace"
       }
     ]
-  }
+  },
+  "approved_on": "2026-11-13",
+  "source_commit": "405f1d1436d2c8feaed25fb26df64aef83776a46",
+  "direct_remote_revision": "405f1d1436d2c8feaed25fb26df64aef83776a46",
+  "all_agreed_work_finished": true,
+  "outstanding_actions": [],
+  "installation_receipt": "installation.json",
+  "archive_evidence": "Originating chat 01a1d3ce-dbcf-78c2-86ad-4739f739c11a was returned by list_archived_threads and read_thread returned its retained history. Native set_thread_archived supports restoring it.",
+  "actual_archive": false,
+  "scope_limit": "Uncommitted 0.1.2 candidate and unrelated dirty files remain with their owners; existing consumers and published artifacts unchanged.",
+  "checked_at": "2026-11-13T22:27:28+07:00"
 }

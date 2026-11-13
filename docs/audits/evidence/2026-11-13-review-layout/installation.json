@@ -1,0 +1,27 @@
+{
+  "checked_at": "2026-11-13T22:27:01.425273+07:00",
+  "source_commit": "405f1d1436d2c8feaed25fb26df64aef83776a46",
+  "template_version": "0.1.1",
+  "method": "Unmodified package installer run from the approved commit into isolated roots; verified generated review files promoted into canonical-owned installed resources after owner/resource receipts and original hashes were checked. Concurrent 0.1.2 source edits preserved.",
+  "source_files_matching_per_root": 16,
+  "changed_existing_files": [
+    "/Users/cp/.agents/skills/design-review/references/footer.md",
+    "/Users/cp/.agents/skills/design-review/references/template-updates.md",
+    "/Users/cp/.agents/skills/design-review/assets/design-footer.css",
+    "/Users/cp/.agents/skills/design-review/assets/review-example.css",
+    "/Users/cp/.agents/skills/design-review/assets/design-footer.js",
+    "/Users/cp/.claude/skills/design-review/references/footer.md",
+    "/Users/cp/.claude/skills/design-review/references/template-updates.md",
+    "/Users/cp/.claude/skills/design-review/assets/design-footer.css",
+    "/Users/cp/.claude/skills/design-review/assets/review-example.css",
+    "/Users/cp/.claude/skills/design-review/assets/design-footer.js"
+  ],
+  "added_files": [
+    "/Users/cp/.agents/skills/design-review/assets/template-releases/0.1.1.json",
+    "/Users/cp/.claude/skills/design-review/assets/template-releases/0.1.1.json"
+  ],
+  "preserved_existing_files": 462,
+  "ownership_receipts_preserved": true,
+  "installed_catalog_verify": "passed in both roots",
+  "global_installation_complete": true
+}
