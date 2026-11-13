@@ -259,6 +259,30 @@ class TemplateUpdates(unittest.TestCase):
     def test_current_release_matches_source(self):
         self.cli("verify", "--assets", SKILL / "assets")
 
+    def test_layout_patch_preserves_pinned_consumer_and_rollback(self):
+        catalog = SKILL / "assets/template-releases"
+        first = template.validate_release(template.read_json(catalog / "0.1.0.json"))
+        patch_release = template.validate_release(template.read_json(catalog / "0.1.1.json"))
+        self.assertEqual(first["sha256"], "4f3f9aca9b499b7114439efc49d09aa334decdcaf73bcf67da701d63bb1533b1")
+        self.assertEqual(first["compatibility"], patch_release["compatibility"])
+        template.apply_plan(self.consumer, first, "init", example=True)
+        preserved = {name: (self.consumer / name).read_bytes() for name in template.STARTER}
+        preserved["feedback.json"] = b'{"reviewVersion":7,"comments":[{"text":"Keep this"}],"approval":{"spacing":12}}'
+        (self.consumer / "feedback.json").write_bytes(preserved["feedback.json"])
+        before = self.snapshot()
+        report, _, _ = template.plan(self.consumer, patch_release)
+        self.assertTrue(report["canApply"])
+        self.assertEqual(before, self.snapshot())
+        self.assertEqual(template.current_release(self.consumer)["version"], "0.1.0")
+        template.apply_plan(self.consumer, patch_release, "update")
+        for name, data in preserved.items():
+            self.assertEqual((self.consumer / name).read_bytes(), data)
+        cached = template.target_release(self.root / "unavailable", self.consumer, "0.1.0", cached_only=True)
+        template.apply_plan(self.consumer, cached, "rollback")
+        self.assertEqual(template.current_release(self.consumer), first)
+        for name, data in preserved.items():
+            self.assertEqual((self.consumer / name).read_bytes(), data)
+
     def test_system_temporary_directory_alias_is_accepted(self):
         original = Path(self.temp.name)
         self.cli("list", "--releases", original / "releases")

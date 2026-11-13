@@ -1,0 +1,88 @@
+{
+  "date": "2026-11-13",
+  "source_chat": "codex://threads/01a1d4b2-7074-7123-9967-1823c8895569",
+  "origin": "Agent-originated from artifact-box - Mobile review issues; approved reusable template task 1.2",
+  "scope": "Local canonical template patch and immutable release; retained kit source synchronized. No consumer, global installation, Git publication or artifact publication writes.",
+  "template_version": "0.1.1",
+  "package_sha256": "a7524ba36157549bf708e071b89bcd361d7bbf7af5b224054f88d75c357adbe8",
+  "compatibility": {
+    "exportSchema": 4,
+    "mountApi": 1,
+    "stateSchema": 3
+  },
+  "previous_release_package_sha256": "4f3f9aca9b499b7114439efc49d09aa334decdcaf73bcf67da701d63bb1533b1",
+  "previous_release_file_sha256": "d8ab88c9d94eeb3d2d20f9e3bccc0aae7b7f0b6a4aa73d2c8992b34fbcb3b5a1",
+  "baseline": {
+    "release": "0.1.0",
+    "result": "expected failure",
+    "assertion": "page height 1958px exceeds 569px viewport"
+  },
+  "browser": {
+    "version": "157.0.8103.51",
+    "sandbox": true,
+    "source_cases": 31,
+    "upgraded_consumer_cases": 31,
+    "errors": [],
+    "coverage": [
+      "standalone without fictional CSS or global box-sizing",
+      "bounded grid navigation shell",
+      "legacy flex navigation height override",
+      "320x569,390x638,430x740,1200x800 in light/dark",
+      "preview end and first control reachable",
+      "pixel-linked header hide/reveal and keyboard reveal",
+      "long title and enlarged text",
+      "navigation resize from 56px to 104px",
+      "drawer collapse/expand/height limit",
+      "desktop floating/docking",
+      "viewport resize",
+      "unwrapped live-app flow",
+      "current and preserved 0.1.0 starter in review/live modes"
+    ],
+    "not_verified": [
+      "physical iPhone",
+      "on-screen keyboard",
+      "assistive technology",
+      "Artifact Box renderer or real consumer integration"
+    ]
+  },
+  "checks": {
+    "content": {
+      "passed": true,
+      "skills": 24,
+      "drafts": 0,
+      "rules": 12
+    },
+    "content_tests": 18,
+    "rule_reference_tests": 12,
+    "cursor_context_tests": 6,
+    "external_skill_tests": 19,
+    "template_lifecycle_tests": 18,
+    "isolated_installer": "all passed",
+    "javascript_syntax": "passed",
+    "whitespace": "passed"
+  },
+  "installed_copies": {
+    "/Users/cp/.agents/skills/design-review": {
+      "catalog_versions": [
+        "0.1.0"
+      ],
+      "shared_files_match_0_1_0": true
+    },
+    "/Users/cp/.claude/skills/design-review": {
+      "catalog_versions": [
+        "0.1.0"
+      ],
+      "shared_files_match_0_1_0": true
+    }
+  },
+  "source_sha256": {
+    "skills/_collections/design/design-review/assets/design-footer.css": "8ec858a16ccae6d04434b139b0daacd88016e711a500ce908279b28f63f9cd38",
+    "skills/_collections/design/design-review/assets/design-footer.js": "2beb159f34970df28e09a46237a0cc4b6ce13941a91bd199473373e89ad99143",
+    "skills/_collections/design/design-review/assets/review-example.css": "9f8e9648461249ac8f3edd8bcff261bc7179492d35a6b424d7a3159b62edc028",
+    "skills/_collections/design/design-review/references/footer.md": "0b2f2d6b552c32f5edb96be24eaf112aadc220aeb192f936051dd7a85ba93b16",
+    "skills/_collections/design/design-review/references/template-updates.md": "ef65195840780c047ad8976435f3b86653f26ec259128b25e7ffaee625bb05bb",
+    "scripts/test-design-review-layout.cjs": "d7ed0c78280d384f5ba1885acf3885f06646e672ce83e64482cb2438896f5842",
+    "scripts/fixtures/design-review-layout.html": "1418113de355f830b67e7abc0572c197cada8b90f735a73c6c43bd8c549e43a5",
+    "scripts/test-design-review-template.py": "727e52d3289f380d9626c032620d44f6a215caa317141f0df8d6e97aa4da1526"
+  }
+}

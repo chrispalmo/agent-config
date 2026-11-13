@@ -20,7 +20,7 @@
   --on-accent: #151515;
   --error: #ffaaaa;
 }
-:where(.dr-footer) * {
+:where(.dr-footer), :where(.dr-footer) * {
   box-sizing: border-box;
 }
 .dr-footer {
@@ -979,6 +979,22 @@
 }
 .dr-page-controls [data-choice=sides] > .dr-choice-cycle {min-inline-size:12ch}
 .dr-choice-cycle svg {width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;flex:none}
+/* Opt-in standalone layout. Hosts can size it to a bounded navigation shell. */
+:where(.dr-scroll-header-layout) {
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  grid-template-rows:auto minmax(0,1fr) auto;
+  height:var(--dr-layout-height,100vh);
+  height:var(--dr-layout-height,100dvh);
+  min-width:0;
+  min-height:0;
+}
+:where(.dr-scroll-header-layout > [data-review-scroll]) {
+  min-width:0;
+  min-height:0;
+  overflow:auto;
+  overscroll-behavior:contain;
+}
 @media (pointer:coarse) {
   .dr-page-controls .theme-choices button,.dr-page-controls .dr-icon {min-height:44px}
   .dr-page-controls .dr-icon {width:44px;min-width:44px}

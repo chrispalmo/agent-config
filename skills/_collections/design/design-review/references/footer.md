@@ -26,7 +26,37 @@ mountDesignFooter(drawer, {
 });
 ```
 
-For a standalone review, reuse the [example page's layout](../assets/review-example.html): one `data-review-layout` container with the header, scrollable preview and drawer as direct children. The shared controls use that structure for mobile header scrolling; live apps without this wrapper keep their own page layout. The preview's top spacing can be set with `--dr-preview-top-gap` (12px by default).
+### Standalone layout
+
+Use one `data-review-layout` container with the header, preview and drawer as direct children. From template **0.1.1**, the shared CSS supplies its viewport-height grid and preview scrolling after mount; no fictional example CSS is needed. Supply the page reset, header surface/spacing and preview content styling yourself. A minimal page using the mount above is:
+
+```html
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="./design-footer.css">
+<style>
+  body { margin:0; font:14px/1.4 system-ui; color:CanvasText; background:Canvas; color-scheme:light dark }
+  [data-review-header] { padding:4px 10px; background:Canvas }
+  [data-review-header] h1 { margin:0 }
+</style>
+<div data-review-layout>
+  <header data-review-header><h1>Sign-up button</h1></header>
+  <main id="preview" tabindex="0" aria-label="Scrollable design preview"><button>Continue</button></main>
+  <footer id="drawer" aria-label="Design feedback"></footer>
+</div>
+```
+
+Resolve `drawer` and `preview` with `document.getElementById` before the mount call. The wrapper opts into shared layout only when all three mount elements are direct children. Set the preview's mobile top spacing with `--dr-preview-top-gap` (12px by default); keep custom padding on inner content or the other edges so a host padding shorthand does not override the shared header clearance.
+
+When extra navigation surrounds the review, the host must allocate the review's available height. For example, wrap the navigation and the above review container in `.review-shell`:
+
+```css
+.review-shell { height:100vh; height:100dvh; display:grid; grid-template-rows:auto minmax(0,1fr) }
+.review-shell > [data-review-layout] { --dr-layout-height:100% }
+```
+
+This fills the remaining row, including when navigation wraps or changes height. Existing host height rules also take precedence over the shared low-specificity default. Avoid putting a full viewport-height review below navigation without reducing its height. The shared grid requires exactly these three direct children; place additional navigation outside it. Live apps without this wrapper retain their own page layout and scrolling. `mode:'live'` controls drawer placement; the wrapper separately controls layout.
+
+Check the integrated page at narrow and desktop widths: no page overflow, the docked drawer inside the allocated height, preview content scrolling to its end, header hide/reveal, and extra navigation retained. Check collapsed/expanded and floating placement, both appearances and enlarged text. Template checks do not replace these host integration checks.
 
 For a comparison, pass `changes` in place of `design`. Each package has a stable ID, title and optional `options` and `scenes`. Options own their defaults, controls and source revision. Scenes are ID/label pairs. Single choices use internal IDs without displaying a selector. Give each real option its own stable ID. Increment its source revision when changing the design. Render from the current change, option, draft and state in the callback. Use `state.sides` (current, proposed, both), `state.previewThemes` (light, dark, both), and `state.scene` to show the requested combination. Both themes in comparison mode pair Current and Proposed within each theme. Label theme groups `{Variation} · {State} ({Theme})`, omitting absent levels. Label the individual previews Current or Proposed with their theme. Mark panes with `data-reference="current"` or `"proposal"` and `data-theme="light"` or `"dark"` for quote navigation.
 

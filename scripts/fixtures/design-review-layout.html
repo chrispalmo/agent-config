@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Review layout integration fixture</title>
+<link rel="stylesheet" href="/runtime/design-footer.css">
+<style>
+  /* Deliberately no global box-sizing, preview overflow or standalone grid. */
+  :root { color-scheme:light; color:#171717; background:#fff; font:14px/1.4 system-ui }
+  :root[data-theme=dark] { color-scheme:dark; color:#f9f8ff; background:#10121e }
+  body { margin:0 }
+  header { padding:4px 10px; background:Canvas; border-bottom:1px solid }
+  h1 { margin:0 }
+  #preview { padding-inline:12px; padding-bottom:12px }
+  #content { height:1600px; display:flex; flex-direction:column; justify-content:space-between }
+  #last { display:block; padding:12px; border:1px solid; background:#c1ff3d; color:#171717 }
+  nav { display:none }
+  .nested .review-shell { height:100vh; height:100dvh; display:grid; grid-template-rows:auto minmax(0,1fr) }
+  .nested nav { display:flex; align-items:center; min-height:56px; padding:0 12px; border-bottom:1px solid; box-sizing:border-box }
+  .nested [data-review-layout] { --dr-layout-height:100% }
+  /* A legacy flex navigation wrapper with its own height must also keep working. */
+  .legacy .review-shell { display:flex; flex-direction:column }
+  .legacy nav { flex:none }
+  .legacy [data-review-layout] { flex:1; min-height:0; height:calc(100dvh - 56px); --dr-layout-height:100dvh }
+  .live #layout { display:block; padding:7px }
+</style>
+<body>
+<div class="review-shell">
+  <nav aria-label="Review navigation">Review navigation</nav>
+  <div id="layout" data-review-layout>
+    <header id="header" data-review-header><h1>Sign-up button</h1></header>
+    <main id="preview" tabindex="0" aria-label="Scrollable design preview">
+      <div id="content"><button id="first">Continue</button><span id="last">End of preview</span></div>
+    </main>
+    <footer id="drawer" aria-label="Design feedback"></footer>
+  </div>
+</div>
+<script type="module">
+  import {mountDesignFooter} from '/runtime/design-footer.js';
+  const params=new URLSearchParams(location.search),kind=params.get('kind') || 'standalone';
+  document.body.className=kind==='legacy'?'nested legacy':kind;
+  if(kind==='live')document.getElementById('layout').removeAttribute('data-review-layout');
+  window.controls=mountDesignFooter(document.getElementById('drawer'), {
+    reviewId:'layout-fixture-'+kind, reviewVersion:1,
+    reviewArea:document.getElementById('preview'), mode:kind==='live'?'live':'review',
+    design:{id:'signup',title:'Sign-up button',defaults:{label:'Continue'},
+      controls:[{key:'label',label:'Button label',type:'text',required:true}]},
+    onAppearance:theme=>document.documentElement.dataset.theme=theme,
+    onChange:({draft})=>document.getElementById('first').textContent=draft.tweaks.label
+  });
+</script>
+</body>
+</html>

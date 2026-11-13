@@ -1,0 +1,111 @@
+{
+  "inspected_on": "2026-11-13",
+  "source_chat": "codex://threads/01a1d4b2-7074-7123-9967-1823c8895569",
+  "base_commit": "58be09bb7f929d02a49976b879816f055c13d386",
+  "template_version": "0.1.1",
+  "scope": "Scoped source commit; unrelated edits and historical drafts excluded. Draft runtime changes are retained in the canonical immutable release.",
+  "validation": "Source hashes still match the preceding browser verification; isolated commit-tree checks recorded before commit.",
+  "installation": "Prepared; awaiting human authorization. Installed shared runtime still matches 0.1.0.",
+  "install_command": "./scripts/install.sh --skills --package design --cursor --claude --agents",
+  "sibling_skills": "All source files of design-tool, device-frames and neon-neo-brutalist-minimal match existing installed copies in both roots.",
+  "synchronization": "Prepared scoped commit for origin/main; push awaits explicit human request.",
+  "remote": "git@github.com:chrispalmo/agent-config.git",
+  "continuation_owner": "This chat; approvals for global installation and scoped synchronization.",
+  "archive_requested": false,
+  "ready_to_leave": "NO",
+  "ready_to_archive": "NO",
+  "owned_resources": "Temporary browser contexts and servers closed; task test directories removed.",
+  "consumer_owner": "ramble - Mobile review tray; delivered app-side repair remains pinned to 0.1.0; migration is outside this task.",
+  "isolated_commit_tree_checks": [
+    {
+      "command": "python3 scripts/check-content.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 scripts/test-content.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 scripts/test-rule-references.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 scripts/test-cursor-rule-context.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 scripts/test-external-skills.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 scripts/test-design-review-template.py",
+      "exit_code": 0
+    },
+    {
+      "command": "bash scripts/test-install.sh",
+      "exit_code": 0
+    },
+    {
+      "command": "node --check skills/_collections/design/design-review/assets/design-footer.js",
+      "exit_code": 0
+    },
+    {
+      "command": "node --check scripts/test-design-review-layout.cjs",
+      "exit_code": 0
+    }
+  ],
+  "prepared_install_changes": {
+    "/Users/cp/.agents/skills/design-review": [
+      {
+        "file": "assets/design-footer.css",
+        "action": "replace"
+      },
+      {
+        "file": "assets/design-footer.js",
+        "action": "replace"
+      },
+      {
+        "file": "assets/review-example.css",
+        "action": "replace"
+      },
+      {
+        "file": "assets/template-releases/0.1.1.json",
+        "action": "add"
+      },
+      {
+        "file": "references/footer.md",
+        "action": "replace"
+      },
+      {
+        "file": "references/template-updates.md",
+        "action": "replace"
+      }
+    ],
+    "/Users/cp/.claude/skills/design-review": [
+      {
+        "file": "assets/design-footer.css",
+        "action": "replace"
+      },
+      {
+        "file": "assets/design-footer.js",
+        "action": "replace"
+      },
+      {
+        "file": "assets/review-example.css",
+        "action": "replace"
+      },
+      {
+        "file": "assets/template-releases/0.1.1.json",
+        "action": "add"
+      },
+      {
+        "file": "references/footer.md",
+        "action": "replace"
+      },
+      {
+        "file": "references/template-updates.md",
+        "action": "replace"
+      }
+    ]
+  }
+}

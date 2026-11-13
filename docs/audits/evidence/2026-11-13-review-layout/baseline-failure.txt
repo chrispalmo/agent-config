@@ -1,0 +1,11 @@
+AssertionError [ERR_ASSERTION]: page height: 1958 vs 569
+    at near (/Users/cp/dev/agent-config/scripts/test-design-review-layout.cjs:13:45)
+    at bounded (/Users/cp/dev/agent-config/scripts/test-design-review-layout.cjs:27:43)
+    at /Users/cp/dev/agent-config/scripts/test-design-review-layout.cjs:55:42 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}

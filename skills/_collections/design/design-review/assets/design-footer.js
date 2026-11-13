@@ -68,7 +68,8 @@ export function mountDesignFooter(root, {
   let sharedStatus=persistence?'Saved in Artifact Box':'';
   const mobile=matchMedia('(max-width:650px)'),system=matchMedia('(prefers-color-scheme:dark)');
   const headerLayout=headerHost?.parentElement?.matches('[data-review-layout]') &&
-    reviewArea?.parentElement===headerHost.parentElement ? headerHost.parentElement : null;
+    reviewArea?.parentElement===headerHost.parentElement && root.parentElement===headerHost.parentElement
+      ? headerHost.parentElement : null;
   let headerOffset=0,headerHeight=0,previousScroll=0,scrollHeaderMobile=false;
   const headerScrollTop=()=>clamp(reviewArea.scrollTop,0,Math.max(0,reviewArea.scrollHeight-reviewArea.clientHeight));
   function paintHeaderOffset(){headerHost.style.setProperty('--dr-header-offset',headerOffset+'px');}
@@ -293,7 +294,7 @@ export function mountDesignFooter(root, {
   }
   const clamp=(n,min,max)=>Math.max(min,Math.min(Math.max(min,max),n));
   const minimumHeight=width=>width<622?240:150;
-  const maximumDrawerHeight=()=>Math.max(160,innerHeight-(headerHost?.offsetHeight || 40)-80);
+  const maximumDrawerHeight=()=>Math.max(160,(headerLayout?.clientHeight || innerHeight)-(headerHost?.offsetHeight || 40)-80);
   function placement() {
     const floating=state.placement[mode]&&!mobile.matches;
     root.classList.toggle('dr-floating',floating);document.body.classList.toggle('dr-has-floating',floating);
@@ -793,6 +794,7 @@ export function mountDesignFooter(root, {
     while(header.scrollWidth>header.clientWidth+1){const visible=[...$('utilities').children].filter(b=>b.offsetWidth);if(!visible.length)break;$('menu').prepend(visible.at(-1));$('overflow').hidden=false;}
   }
   new ResizeObserver(fitToolbar).observe(root);
+  if(headerLayout)new ResizeObserver(placement).observe(headerLayout);
   const headerObserver=new ResizeObserver(fitPageHeader);
   headerObserver.observe(headerHost || pageControls);
   if(headerHost)for(const child of headerHost.children)headerObserver.observe(child);
