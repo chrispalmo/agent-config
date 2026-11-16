@@ -115,6 +115,12 @@ Both skills install independently through the existing single-skill options. The
 The [search-agent-chats skill](skills/search-agent-chats/SKILL.md) is installed across Cursor, Claude Code, and Codex. It searches retained conversations from all three harnesses through the maintained archive's search script, with word/optional meaning search and exact event citations. Results expose scope, the last capture observation, word-index freshness, and meaning coverage separately. Agents choose among the tools actually available; no native/archive routing order is prescribed. Capture, model setup, and cloud/remote synchronization are not installed by this skill.
 
 
+## Check account usage
+
+The [check-usage skill](skills/check-usage/SKILL.md) reads AI subscription allowance and reset times, with a direct Codex host-tool route and authenticated usage-page fallback. When monitoring is requested, it verifies the schedule and requested notification channels, handles 10%/5% remaining thresholds by default, and keeps reset redemption and spending separate from checking. A one-time check or installation does not start a monitor or send email.
+
+Install independently with `./scripts/install.sh --skills --skill check-usage --cursor --claude --agents`.
+
 ## Adding skills and rules
 
 The automatically discoverable [github-repo-defaults skill](skills/github-repo-defaults/SKILL.md) defaults new GitHub repositories to `snowflake1xyz` unless the user explicitly requests another owner. New organization-owned repositories follow the canonical [Snowflake1 connection procedure](https://github.com/snowflake1xyz/snowflake1/blob/main/PROJECT_SETUP.md#installation); personal repositories are exempt. The explicit-only [github-init skill](skills/github-init/SKILL.md) uses the same defaults while retaining its private visibility default and initial-push workflow.
